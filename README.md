@@ -17,13 +17,31 @@ the companies.
 5. Dashboards and Visualizations: Based on the analysis and conclusions derived create plots and dashboards to present the findings and interpret the plots.
 
 **Model Plans:**
-After conducting some research on the topic, linear regression model is a feasible option to analyze the annual stock return percentage based on the sector, market capitalization and location of the companies.  
+After conducting some research on the topic, linear regression model is a feasible option to analyze the annual stock return percentage based on the sector, market capitalization and location of the companies.
+
+
+
+
+
+**Project Outline/Plan (Srihan Cheemangunta):**
+
+**Selected dataset for my project:** Not sure yet but planning to gather financial data to make predictions on the stock prices.
+
+**Data Collection Plan:**
+1. Data Cleaning and Preprocessing: Filling in any missing data and changing labels to numbers. 
+2. Create Visualizations: Create visualizations with actual stock market trends vs predicted for S&P 500 companies.
+3. Modeling: Using the logistic regression model learned in class to understand how the model uses the stock price trends to make predictions for the companies stock market.
+5. Dashboards and Visualizations: Based on the model analysis, create plots to illustrate and analyze the models predictions.
+
+**Model Plans:**
+I plan to use logistic regression to make predictions as to whether the stock prices will increase or decrease over the years.
   
 **Project Timeline:**
 Week 1: Complete setting up the repository, and define the tasks to be completed for the project
 Week 2: Model development (conduct research on different models that could be applied)
 Week 3: Visualization, Model Performance and creating a report on the process and findings.
 Week 4: Finalize the report and create the presentation for the project.
+
 
 
 
