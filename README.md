@@ -25,22 +25,23 @@ After conducting some research on the topic, linear regression model is a feasib
 
 **Project Outline/Plan (Srihan Cheemangunta):**
 
-**Selected dataset for my project:** Not sure yet but planning to gather financial data to make predictions on the stock prices.
+**Selected dataset for my project:** SPX.csv taken from kaggle S&P 500 Historical Data
 
 **Data Collection Plan:**
 1. Data Cleaning and Preprocessing: Filling in any missing data and changing labels to numbers. 
-2. Create Visualizations: Create visualizations with actual stock market trends vs predicted for S&P 500 companies.
-3. Modeling: Using the logistic regression model learned in class to understand how the model uses the stock price trends to make predictions for the companies stock market.
-5. Dashboards and Visualizations: Based on the model analysis, create plots to illustrate and analyze the models predictions.
+2. Create Visualizations: Create visualizations with prices during closing time.
+3. Modeling: Using either linear regression or Gadient Boosting to make predictions on stock prices for the following week.
+5. Dashboards and Visualizations: Based on the model analysis, analyze the model predictions and compare it with the Nasdaq 100 Historical Price Data.
 
 **Model Plans:**
-I plan to use logistic regression to make predictions as to whether the stock prices will increase or decrease over the years.
+Depending which model between linear regression and gradient boosting works better when analyzing 500 companies, I plan to use that model to predict the next week stock market and compare that with the nasdaq 100 dataset to see which is better at making those predictions.
   
 **Project Timeline:**
 Week 1: Complete setting up the repository, and define the tasks to be completed for the project
 Week 2: Model development (conduct research on different models that could be applied)
 Week 3: Visualization, Model Performance and creating a report on the process and findings.
 Week 4: Finalize the report and create the presentation for the project.
+
 
 
 
