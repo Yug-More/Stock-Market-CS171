@@ -40,7 +40,7 @@ is a feasible option to analyze the annual stock return percentage based on the 
 - Create technical indicators and target variables
 
 #### December 1
--Train classical ML models (Linear Regression, Random Forest, Gradient Boosting)
+- Train classical ML models (Linear Regression, Random Forest, Gradient Boosting)
 Record accuracy and error metrics
 
 #### December 2
@@ -79,6 +79,7 @@ Week 1: Complete setting up the repository, and define the tasks to be completed
 Week 2: Model development (conduct research on different models that could be applied)
 Week 3: Visualization, Model Performance and creating a report on the process and findings.
 Week 4: Finalize the report and create the presentation for the project.
+
 
 
 
