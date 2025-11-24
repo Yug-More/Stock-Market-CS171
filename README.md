@@ -30,6 +30,37 @@ After conducting some research on the topic Linear Regression, Random Forest, ML
 
 is a feasible option to analyze the annual stock return percentage based on the sector, market capitalization and location of the companies.
 
+**Project Timeline**
+ ### November 29
+ - Finalize datasets for S&P 500 and NASDAQ-100
+ - Set up preprocessing pipeline and project structure
+
+### November 30
+- Complete feature engineering
+- Create technical indicators and target variables
+
+### December 1
+-Train classical ML models (Linear Regression, Random Forest, Gradient Boosting)
+Record accuracy and error metrics
+
+### December 2
+- Build and train neural network model (MLP or LSTM)
+- Compare performance with classical models
+
+### December 3
+- Generate visualizations:
+- Close price trends
+- Rolling volatility
+- Actual vs predicted returns
+- Confusion matrix
+- Feature importance
+- Write comparison between S&P 500 and NASDAQ-100
+
+### December 2
+- Finalize analysis and conclusions
+- Clean and structure all code/notebooks
+- Complete README.md
+- Finish presentation slides
 
 **Project Outline/Plan (Srihan Cheemangunta):**
 
@@ -49,6 +80,7 @@ Week 1: Complete setting up the repository, and define the tasks to be completed
 Week 2: Model development (conduct research on different models that could be applied)
 Week 3: Visualization, Model Performance and creating a report on the process and findings.
 Week 4: Finalize the report and create the presentation for the project.
+
 
 
 
