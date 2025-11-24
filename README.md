@@ -7,7 +7,16 @@ The main objective of the project is to analyse the S&P500 dataset to understand
 
 **Project Outline/Plan (Yug More):**
 
-**Selected dataset for my project:** https://raw.githubusercontent.com/csbfx/cs22a/main/sp500_companies.csv
+**Selected dataset for my project:** [https://raw.githubusercontent.com/csbfx/cs22a/main/sp500_companies.csv](https://www.kaggle.com/datasets/novandraanugrah/nasdaq-100-nas100-historical-price-data?utm_source=chatgpt.com&select=15m_data.csv)
+
+**Project Objective**
+Compare two major stock indices - S&P500 and NASDAQ-100 to tabulate which one is easier for machine learning models to predict. The process that would be followed includes data pre-processing, feature engineering, developing ML models and using evaluation metrics to depict which model is efficient.
+
+The insights we are trying to retrieve upon comparing the datasets include:
+- Which index gives higher prediction accuracy
+- Which dataset has clearer patterns
+- How do the NASQAD-100 & S&P500 behave differently
+- Which ML model/technique is the most effective in analysis
 
 **Data Collection Plan:**
 1. Data Cleaning and Preprocessing: Drop any invalid values or null values and standardize numeric/categorical fields.
@@ -17,10 +26,9 @@ the companies.
 5. Dashboards and Visualizations: Based on the analysis and conclusions derived create plots and dashboards to present the findings and interpret the plots.
 
 **Model Plans:**
-After conducting some research on the topic, linear regression model is a feasible option to analyze the annual stock return percentage based on the sector, market capitalization and location of the companies.
+After conducting some research on the topic Linear Regression, Random Forest, MLP, LSTM are certain feasible model options to analyze the annual stock return percentage based on the sector, market capitalization and location of the companies. 
 
-
-
+is a feasible option to analyze the annual stock return percentage based on the sector, market capitalization and location of the companies.
 
 
 **Project Outline/Plan (Srihan Cheemangunta):**
@@ -41,6 +49,7 @@ Week 1: Complete setting up the repository, and define the tasks to be completed
 Week 2: Model development (conduct research on different models that could be applied)
 Week 3: Visualization, Model Performance and creating a report on the process and findings.
 Week 4: Finalize the report and create the presentation for the project.
+
 
 
 
