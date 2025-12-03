@@ -1,96 +1,93 @@
-**Project Title:** S&P 500 Explorer
+# Comparative Stock Market Forecasting: S&P 500 vs NASDAQ-100 Using Machine Learning
+---
 
-**Authors:** Yug More, Srihan Cheemangunta
+## Team Members
+* **Yug More** (NASDAQ-100: ^NDX analysis)
+* **Srihan Cheemangunta** (S&P 500: ^GSPC analysis)
 
-**Description of the Question and Research Topic:**
-The main objective of the project is to analyse the S&P500 dataset to understand the trends in the stock price, revenue and growth of the companies. We are trying to understand the correlation between different financial factors to understand how the market moves. Using data analytics and various libraries our aim is to understand market trends and how stock prices fluctuate and what is the expected return from investing in certain companies. Thus using historical pricing and data we are building a predictive model that could forecast the future stock movement and tabulate the overall market performance. 
+---
 
-**Project Outline/Plan (Yug More):**
+## Description of the Question and Research Topic
+This project explores the **predictability of major stock market indices** using machine learning models. Specifically, we investigate whether the **S&P 500 (^GSPC)** or the **NASDAQ-100 (^NDX)** exhibits patterns that are easier for algorithms to forecast over **short-term (next-day and next-week) horizons**.
 
-**Selected dataset for my project:** [https://raw.githubusercontent.com/csbfx/cs22a/main/sp500_companies.csv](https://www.kaggle.com/datasets/novandraanugrah/nasdaq-100-nas100-historical-price-data?utm_source=chatgpt.com&select=15m_data.csv)
+### Central Research Questions:
+1.  **Can we predict next-day and next-week (5-day) index returns** using machine learning models?
+2.  Are **next-week returns more predictable** than next-day returns for both indices?
+3.  Do **complex models** (Random Forest, MLP/LSTM) **outperform simple models** (Linear Regression baseline)?
+4.  Which **engineered financial features** (volatility, RSI, MACD, lagged returns) are the **most significant drivers** of predictive power?
 
-**Project Objective**
-Compare two major stock indices - S&P500 and NASDAQ-100 to tabulate which one is easier for machine learning models to predict. The process that would be followed includes data pre-processing, feature engineering, developing ML models and using evaluation metrics to depict which model is efficient.
+---
 
-The insights we are trying to retrieve upon comparing the datasets include:
-- Which index gives higher prediction accuracy
-- Which dataset has clearer patterns
-- How do the NASQAD-100 & S&P500 behave differently
-- Which ML model/technique is the most effective in analysis
+## Methodology and Design
 
-**Data Collection Plan:**
-1. Data Cleaning and Preprocessing: Drop any invalid values or null values and standardize numeric/categorical fields.
-2. Create Visualizations: Create visualizations for metrics like market capitalization, revenue and stock price for S&P 500 companies.
-3. Modeling: Apply the machine learning techniques learned from the class such as linear regressions, clustering and other types of techniques to understand and analyze the patterns across
-the companies.
-5. Dashboards and Visualizations: Based on the analysis and conclusions derived create plots and dashboards to present the findings and interpret the plots.
+### Datasets
+We use **25 years of daily historical price data (2000–2024)** retrieved consistently via the `yfinance` library:
+* **NASDAQ-100 (NDX):** `^NDX`
+* **S&P 500 (GSPC):** `^GSPC`
 
-**Model Plans:**
-After conducting some research on the topic Linear Regression, Random Forest, MLP, LSTM are certain feasible model options to analyze the annual stock return percentage based on the sector, market capitalization and location of the companies. 
+### Feature Engineering
+A consistent set of financial indicators was engineered for both indices to model market behavior:
+* **Lagged Returns:** `lag_1`, `lag_2`, `lag_5`
+* **Moving Averages:** `MA_7`, `MA_14`, `MA_21`
+* **Volatility:** Rolling Standard Deviation (7, 14 days)
+* **Momentum:** 5-day percent change
+* **Technical Indicators:** **RSI** (Relative Strength Index), **MACD** (Moving Average Convergence Divergence)
 
-is a feasible option to analyze the annual stock return percentage based on the sector, market capitalization and location of the companies.
+**Target Variables:** `next_day_return` and `next_week_return` (5-day forward return).
 
-**Project Timeline**
- #### November 29
- - Finalize datasets for S&P 500 and NASDAQ-100
- - Set up preprocessing pipeline and project structure
+### Machine Learning Models
+We trained and compared models across both short-term targets:
+* **Baseline:** Linear Regression
+* **Classical ML:** Random Forest Regressor
+* **Advanced:** MLP Neural Network (Optional)
+* **Advanced:** LSTM Time-Series Model (Optional)
 
-#### November 30
-- Complete feature engineering
-- Create technical indicators and target variables
+### Evaluation Metrics
+Model performance was assessed using standard regression and classification metrics:
+* **Error:** MAE, MSE, RMSE
+* **Classification:** Directional Accuracy (predicting the correct 'up' or 'down' movement)
 
-#### December 1
-- Train classical ML models (Linear Regression, Random Forest, Gradient Boosting)
-Record accuracy and error metrics
+---
 
-#### December 2
-- Build and train neural network model (MLP or LSTM)
-- Compare performance with classical models
-- Generate visualizations:
-- Close price trends
-- Rolling volatility
-- Actual vs predicted returns
-- Confusion matrix
-- Feature importance
-- Write comparison between S&P 500 and NASDAQ-100
+## Key Findings and Insights
 
-#### December 3
-- Finalize analysis and conclusions
-- Clean and structure all code/notebooks
-- Complete README.md
-- Finish presentation slides
+### Cross-Index Takeaways
+* **Weekly vs. Daily:** Weekly returns were consistently **more predictable** than next-day returns for both the S&P 500 and the NASDAQ-100.
+* **Model Performance:** The **Random Forest Regressor** consistently outperformed the simple Linear Regression baseline across both indices and prediction horizons.
+* **Feature Importance:** Lagged returns, volatility, and RSI were found to be the most influential features.
 
+### S&P 500 (^GSPC)
+* Showed **more stable and smoother** price movements.
+* Was **easier to predict** on a day-to-day basis, with slightly more consistent daily prediction models.
+* Feature importance analysis favored **volatility and the 14-day Moving Average (`MA_14`)**.
 
-**Project Outline/Plan (Srihan Cheemangunta):**
+### NASDAQ-100 (^NDX)
+* Exhibited **higher volatility**, making daily predictions generally harder.
+* Required **more complex models** (e.g., Random Forest/Neural Networks) to capture underlying patterns compared to the S&P 500.
+* Feature importance highlighted **RSI and the one-day lagged return (`lag_1`)** as strong drivers.
 
-**Selected dataset for my project:** SPX.csv taken from kaggle S&P 500 Historical Data
+---
 
-**Data Collection Plan:**
-1. Data Cleaning and Preprocessing: Filling in any missing data and changing labels to numbers. 
-2. Create Visualizations: Create visualizations with prices during closing time.
-3. Modeling: Using either linear regression or Gadient Boosting to make predictions on stock prices for the following week.
-5. Dashboards and Visualizations: Based on the model analysis, analyze the model predictions and compare it with the Nasdaq 100 Historical Price Data.
+## Project Outline/Plan
 
-**Model Plans:**
-Depending which model between linear regression and gradient boosting works better when analyzing 500 companies, I plan to use that model to predict the next week stock market and compare that with the nasdaq 100 dataset to see which is better at making those predictions.
-  
-**Project Timeline:**
-Week 1: Complete setting up the repository, and define the tasks to be completed for the project
-Week 2: Model development (conduct research on different models that could be applied)
-Week 3: Visualization, Model Performance and creating a report on the process and findings.
-Week 4: Finalize the report and create the presentation for the project.
+### Yug More (NASDAQ-100: ^NDX)
+* **Objective:** Data collection, cleaning, and normalization for ^NDX. Creation of all engineered features. Model training (**LR, RF, MLP**) for next-day and next-week forecasting. Evaluation, visualization, and cross-index comparison.
+* **Model Plans:** Linear Regression, Random Forest, MLP/LSTM.
+* **Dataset:** Historical daily price data for NASDAQ-100 (`^NDX`) via `yfinance`.
 
+### Srihan Cheemangunta (S&P 500: ^GSPC)
+* **Objective:** Recreate the exact pipeline for S&P 500 (`^GSPC`). Model training and validation. Generation of performance metrics and plots. Contribution to the final cross-index analysis and presentation.
+* **Model Plans:** Linear Regression, Random Forest, MLP/LSTM.
+* **Dataset:** Historical daily price data for S&P 500 (`^GSPC`) via `yfinance`.
 
+---
 
+## Project Timeline
 
-
-
-
-
-
-
-
-
-
-
-
+| Date | NASDAQ-100 Task (Yug More) | S&P 500 Task (Srihan Cheemangunta) | Shared/Comparison Task |
+| :--- | :--- | :--- | :--- |
+| **Nov 29** | Finalized ^NDX data and preprocessing setup. | Finalized ^GSPC data and preprocessing setup. | Defined project structure and variables. |
+| **Nov 30** | Completed all feature engineering and technical indicators. | Completed all feature engineering and technical indicators. | Created target variables (`next_day_return`, `next_week_return`). |
+| **Dec 1** | Trained Linear Regression and Random Forest models. | Trained Linear Regression and Random Forest models. | Evaluated next-day & next-week accuracy (MAE, RMSE, Directional). |
+| **Dec 2** | Trained Neural Models (MLP/LSTM optional). Generated final plots (volatility, feature importance). | Trained Neural Models (MLP/LSTM optional). Generated final plots (volatility, feature importance). | **Generated Final Comparison and Insights.** |
+| **Dec 3** | Cleaned and finalized notebooks. | Prepared presentation slides. | Completed `README.md` and project documentation. |
