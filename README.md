@@ -41,6 +41,7 @@ The main objective of this project is to explore the predictability of two major
 I kept the modeling process simple and focused on understanding rather than complexity. My goal here is to learn how different models behave on financial time-series data.
 
 ### 1. Data Preprocessing (Notebook 1)
+* **Initially:** I was working with the dataset that I obtained from `Kaggle`. However, upon tabulating the dataset I learned that it only had 15 months of data which is a big limitation especially since I wanted to develop an efficient model. Thus I conducted more research and obtained data from `yfinance`.
 * **Dataset:** 25 years of daily NASDAQ-100 data (2000–2024), downloaded via `yfinance`.
 * **Engineered Features:**
     * `log_return`
@@ -56,9 +57,9 @@ I kept the modeling process simple and focused on understanding rather than comp
 
 | Model | Summary | Performance Notes |
 | :--- | :--- | :--- |
-| **Linear Regression** | Baseline model. | Poor performance, predictions remained near zero. |
+| **Linear Regression** | Baseline model. | Poor performance, predictions remained near zero, again mainly because the market has noisy financial data. |
 | **Random Forest** | Captures nonlinear behavior. | Better than LR, but output was flat on next-week predictions. |
-| **LSTM Neural Network** | Learns short-term sequential patterns. | **Best for next-day predictions**, but struggled with weekly forecasting due to noise. |
+| **LSTM Neural Network/Deep LSTM** | The model learns short-term sequential patterns. | **Best for next-day predictions**, but struggled with weekly forecasting due to noise and many other factors. |
 
 ### Analysis & Findings (Notebook 2)
 * **Research Question 1 (Next-day returns):** Predictions are noisy but limited predictability exists. **Linear Regression and Random Forest models perform poorly**, althought Random Forest has a slightly better result.
@@ -79,11 +80,16 @@ I kept the modeling process simple and focused on understanding rather than comp
 Next-day returns are much more predictable than next-week returns. LSTM performs the best, but uncertainty increases rapidly over longer horizons.
 
 ### 4. Extra Notebook — Price Prediction of NASDAQ-100
-
 * A simpler next-day **price prediction** extension was built for better interpretability.
 * **Features:** Previous day's closing price, MA3, MA7, MA14.
 * **Models Used:** Linear Regression, Gradient Boosting Regressor.
 * **Result:** Produced a clean actual vs predicted price curve, enhancing project completeness and accessibility for non-technical readers.
+
+### Challenges and how I overcame them
+* At first I chose Kaggle dataset to build my model. However due to limited and shallow data my model was inefficient and that's when I swtiched to `yfinance` and was able to develop better ML models since I had access to 24+ years of data of NASDAQ-100.
+* It was difficult to find the perfect set of features and indicators but with research and use of the right resources I was able to navigate this complexity and shortlist the best indicators and target features for my project.
+* Extremely noisy financial returns. So when I trained the first ML model which was Linear Regression, the predictions were almost flat and did not match any of the real market movements. Thus to solve this issue I introduced additional indicators like the Moving Averages (MA5, MA20), RSI and volatility which helped give the models more structure. Also to derive a better conclusion I ensured to test the data with a variety of models and not just a single model. Thus I implemented and developed Linear Regression, Random Forest, LSTM and Deep LSTM for my project to make predictions to next-day and next-week returns.
+* Organizing the projects into three separate notebooks was another challenge because my teammate working on S&P500 dataset had a slightly different research angle which made it difficult to make one collective notebook contrasting which index S&P500 or NASDAQ-100 is better for predicting the future returns. Thus to resolve this issue I simply decided to include my full analysis in my **Notebook 2** itself wherein I articulated the notebook using the format **Research Question** -> **Coding+Plots** -> **Strong Analysis**
 
 ---
 
@@ -121,6 +127,7 @@ The S&P 500 is slightly easier to model because it is less volatile. The NASDAQ-
 | **Dec 1** | LR & RF trained and evaluated | LR & RF trained | Initial comparison |
 | **Dec 2** | LSTM built, tuned, and visualized | Supporting plots created | Final insights |
 | **Dec 3** | Cleaned notebooks + README + slides | Minor slide work | Final documentation |
+
 
 
 
