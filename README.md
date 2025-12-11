@@ -98,7 +98,7 @@ The S&P 500 is slightly easier to model because it is less volatile. The NASDAQ-
 
 ---
 
-## 🗓️ Project Timeline
+## Project Timeline
 
 | Date | NASDAQ-100 (Yug) | S&P 500 (Srihan) | Shared Milestones |
 | :--- | :--- | :--- | :--- |
@@ -107,3 +107,4 @@ The S&P 500 is slightly easier to model because it is less volatile. The NASDAQ-
 | **Dec 1** | LR & RF trained and evaluated | LR & RF trained | Initial comparison |
 | **Dec 2** | LSTM built, tuned, and visualized | Supporting plots created | Final insights |
 | **Dec 3** | Cleaned notebooks + README + slides | Minor slide work | Final documentation |
+
