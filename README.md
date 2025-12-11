@@ -1,12 +1,12 @@
 # Comparative Stock Market Forecasting: S&P 500 vs NASDAQ-100 Using Machine Learning
 
-The main objective of this project is to explore the predictability of two major U.S. stock indices—the NASDAQ-100 (^NDX) and the S&P 500 (^GSPC) using various machine learning models. Throughout our notebooks we compare Linear Regression, Random Forest, and LSTM networks across next-day and next-week forecasting horizons.
+The main objective of this project is to explore the predictability of two major U.S. stock indices—the NASDAQ-100 (^NDX) and the S&P 500 (^GSPC) using various machine learning models. At the core of our project is oe main question "Can we predict how the NASDAQ-100 and S&P500 will move in the future using machine learning?." In our notebooks we make use of several models ranging from Linear Regression, Random Forest to LSTM.
 
 ---
 
 ## Team Members
 * **Yug More** — Lead Researcher & Developer (NASDAQ-100: ^NDX)
-* **Srihan Cheemangunta** — Supporting Developer (S&P 500: ^GSPC)
+* **Srihan Cheemangunta** — Developer (S&P 500: ^GSPC)
   
 ---
 
@@ -121,5 +121,6 @@ The S&P 500 is slightly easier to model because it is less volatile. The NASDAQ-
 | **Dec 1** | LR & RF trained and evaluated | LR & RF trained | Initial comparison |
 | **Dec 2** | LSTM built, tuned, and visualized | Supporting plots created | Final insights |
 | **Dec 3** | Cleaned notebooks + README + slides | Minor slide work | Final documentation |
+
 
 
