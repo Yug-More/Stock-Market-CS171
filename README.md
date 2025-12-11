@@ -127,7 +127,8 @@ The S&P 500 is slightly easier to model because it is less volatile. The NASDAQ-
 | **Dec 1** | LR & RF trained and evaluated | LR & RF trained | Initial comparison |
 | **Dec 2** | LSTM built, tuned, and visualized | Supporting plots created | Final insights |
 | **Dec 3** | Cleaned notebooks + README + slides | Working on presentation | Making progress on documentation |
-| **Dec 10** | Final formatting and refining of notebooks + README | Adding details to README | Improving the analysis + final documentation |
+| **Dec 10** | Final formatting and refining of Notebooks + README + Project Structure | Adding details to README | Improving the analysis + final documentation |
+
 
 
 
