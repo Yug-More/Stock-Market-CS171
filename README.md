@@ -99,9 +99,28 @@ Next-day returns are much more predictable than next-week returns. LSTM performs
 
 ### Contributions
 * **Preprocessing:** Recreated the full pipeline for the S&P 500, ensuring parallel feature engineering with the NASDAQ-100 dataset.
+      - Dataset: Used the SPX.csv dataset from Kaggle. Date ranging from 1927-2020.
+      - Visualizations: Used df.head(), df.describe() and df.isnull().sum() to understand my dataset and see if there were any missing values in the dataset.
+      - Used 'Date' column feature to make predictions on the target variable 'closing price'.
+      - Prepared the data for the machine learning model to make predictions on closing prices.
 * **Modeling:** Trained and evaluated **Linear Regression** and **Random Forest** models.
+   - Questions to consider during modeling
+        - Would Linear Regression be the model to predict closing stock market prices?
+        - If not Linear Regression would Gradient Boosting be able to make predictions on closing stock market prices?
+        - Why Gradient Boosting model would work well for this dataset?
+    * Linear Regression - This was a very bad model choice as this represents a straight line using y = mx + b and can't make predictions on complex stock market data patterns.
+    * Gradient Boosting Regression - This was a very good model as this predicted model was able to follow the pattern of the actual data very well.
+          - Used 3 models and compared them using RMSE. Whichever had the lowest RMSE meant that was the best performing model.
+          - Used the best performing model to make predictions using the 'Date' feature column as input.
 * **Analysis:** Found the S&P 500 to be **easier to predict** than the NASDAQ-100 due to its **lower volatility**.
-
+      - Gradient Boosting Regression was the best model choice for predictions as it follows complex patterns really well.
+      - Gradient Boosting Regression has decision trees that learn the mistakes of the previous trees and fixes them. 
+      - The training data follows the actual data curve really well.
+      - S&P 500 is way easier to predict than Nasdaq 100.
+      - Model is good for predictions on data but not for future predictions.
+* **Next-day Prediction:** Found that gradient boosting regression model can't find price predictions on data it hasn't seen in training.
+      - This returns the same price as the the predicted model did for the day before
+      - Gradient Boosting Regression don't know how to find patterns unless it sees the data in training and therefore can't tell any curve patterns.
 ---
 
 ## Cross-Index Comparison (NASDAQ-100 vs S&P 500)
@@ -128,6 +147,7 @@ The S&P 500 is slightly easier to model because it is less volatile. The NASDAQ-
 | **Dec 2** | LSTM built, tuned, and visualized | Supporting plots created | Final insights |
 | **Dec 3** | Cleaned notebooks + README + slides | Working on presentation | Making progress on documentation |
 | **Dec 10** | Final formatting and refining of Notebooks + README + Project Structure | Adding details to README | Improving the analysis + final documentation |
+
 
 
 
