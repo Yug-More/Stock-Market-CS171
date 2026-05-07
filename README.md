@@ -1,4 +1,6 @@
-# Predicting Stock Market Movements: NASDAQ-100 vs S&P 500 Using Machine Learning
+#MarketPulse
+
+## Predicting Stock Market Movements: NASDAQ-100 vs S&P 500 Using Machine Learning
 
 The main objective of this project is to explore the predictability of two major U.S. stock indices which is the NASDAQ-100 (^NDX) and the S&P 500 (^GSPC) using various machine learning models. At the core of our project is one main question: **Can we predict how the NASDAQ-100 and S&P500 will move in the future using machine learning?** In our notebooks we make use of several models ranging from Linear Regression, Random Forest to LSTM.
 
