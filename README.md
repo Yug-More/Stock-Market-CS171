@@ -1,4 +1,4 @@
-#MarketPulse
+# MarketPulse
 
 ## Predicting Stock Market Movements: NASDAQ-100 vs S&P 500 Using Machine Learning
 
