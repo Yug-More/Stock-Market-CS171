@@ -1,169 +1,168 @@
 # MarketPulse
 
-## Predicting Stock Market Movements: NASDAQ-100 vs S&P 500 Using Machine Learning
+MarketPulse evaluates how reliably machine learning models forecast financial time series when the horizon, the market regime, and the data distribution change.
 
-The main objective of this project is to explore the predictability of two major U.S. stock indices which is the NASDAQ-100 (^NDX) and the S&P 500 (^GSPC) using various machine learning models. At the core of our project is one main question: **Can we predict how the NASDAQ-100 and S&P500 will move in the future using machine learning?** In our notebooks we make use of several models ranging from Linear Regression, Random Forest to LSTM.
+The project uses historical NASDAQ-100 and S&P 500 levels. The forecasting target is a future log return, not the price level itself. Models are compared with simple baselines under chronological validation. This repository does not claim that a model predicts the market better than those baselines. That comparison has not been rerun under the protocol in `docs/RESEARCH_DESIGN.md`.
 
----
+## Research questions
 
-## Team Members
-* **Yug More** — Lead Researcher & Developer (NASDAQ-100: ^NDX)
-* **Srihan Cheemangunta** — Developer (S&P 500: ^GSPC)
-  
----
+1. Do linear regression, random forest, or a sequence LSTM beat a zero-return forecast and a historical-mean forecast for the next trading session?
+2. Does skill relative to the zero-return forecast change at 5 and 20 trading sessions?
+3. Does the ranking of models and baselines stay the same across walk-forward windows and volatility regimes?
+4. What empirical coverage and width do chronological prediction intervals have on a later test period?
 
-## Project Overview
+The hypotheses and the leakage rules are in `docs/RESEARCH_DESIGN.md`. The answers are not predetermined.
 
-### Research Goals
+## Motivation
 
-* Make comparisons between the **next-day** and **next-week** return prediction accuracy.
-* Evaluate performance of the different machine learning models such as **Linear Regression**, **Random Forest**, and **LSTM**.
-* Analyze how predictability changes from next-day to next-week returns.
+Short-horizon index returns are noisy. A chart of predicted prices can look accurate because the price level is persistent, even when the model is no better than predicting that the price will not change. Error also grows with the horizon because the target itself is larger, so a larger mean squared error is not evidence that a longer horizon is harder to forecast. MarketPulse separates those effects by scoring log returns against baselines, on chronological folds, with preprocessing fit only on past data.
 
-### Key Findings
-* **Next-day returns** are significantly **more predictable** than next-week returns.
-* Advanced models (**Random Forest, LSTM**) consistently outperform the baseline **Linear Regression**.
-* The **S&P 500** is slightly **easier to predict** due to its lower volatility.
-* The **LSTM** model generally yielded the best results for next-day forecasting on the high-volatility NASDAQ-100.
+## Original project
 
----
+The repository began as a collaborative course project.
 
-## Section A — NASDAQ-100 (^NDX)
+- **Yug More** built the NASDAQ-100 preprocessing, return-model, and price-prediction notebooks, and contributed the NASDAQ-100 file.
+- **Srihan Cheemangunta** built the S&P 500 preprocessing and model notebooks, the follow-up analysis notebook, and contributed the S&P 500 file.
 
-**Lead Developer: Yug More**
+Both contributors wrote parts of the original README. The original notebooks are still in `notebooks/`. They studied linear regression, random forest, a length-1 LSTM, a 60-day LSTM, and a date-based gradient-boosting fit. The original write-up reported that more complex models forecast better than linear regression and that the S&P 500 was easier to predict than the NASDAQ-100.
 
-### Main Research Question
-**Can we predict how the NASDAQ-100 and S&P500 will move in the future using machine learning?**
+Those statements are the course project's conclusions. `docs/REPOSITORY_AUDIT.md` explains why they are not treated as established results: the two indexes were not evaluated on the same target or the same dates, the LSTM test error was not stored, and the stored return errors were not compared with a zero-return forecast. This revision does not replace that write-up with a new accuracy claim.
 
-### Sub-Research Questions to answer the main research question:
-1. **RQ1:** Can simple classical models (Linear Regression and Random Forest) predict next-day returns?
-2. **RQ2:** Does a deep learning model such as LSTM perform better than classical models?
-3. **RQ3:** Are next-day returns easier to predict than next-week returns?
+## Current extension
 
-I kept the modeling process simple and focused on understanding rather than complexity. My goal here is to learn how different models behave on financial time-series data.
+The current code is a research foundation:
 
-### 1. Data Preprocessing (Notebook 1)
-* **Initially:** I was working with the dataset that I obtained from `Kaggle`. However, upon tabulating the dataset I learned that it only had 15 months of data which is a big limitation especially since I wanted to develop an efficient model. Thus I conducted more research and obtained data from `yfinance`.
-* **Dataset:** 25 years of daily NASDAQ-100 data (2000–2024), downloaded via `yfinance`.
-* **Engineered Features:**
-    * `log_return`
-    * Lagged returns: `lag_1`, `lag_2`, `lag_5`
-    * Moving Averages: `ma5`, `ma20`
-    * `20-day rolling volatility`
-    * Momentum indicator: `RSI` (Relative Strength Index)
-* **Regression Targets:** `target_next_day_return`, `target_next_week_return`
-* **Classification Target:** `target_direction`
-* **Visualization:** An exploratory visualization of the NASDAQ-100 sector distribution was added for context. 
+- A `marketpulse` package that loads the committed CSV files, including the yfinance header on the NASDAQ-100 file.
+- Validation that reports duplicate timestamps, bad prices, missing and infinite values, and chronological order without deleting rows.
+- Tested definitions of the forward log return, point-forecast metrics, and the training embargo for multi-day labels.
+- An initial walk-forward protocol in `configs/forecasting.toml`.
+- Tests, Ruff, and a GitHub Actions workflow that does not train models.
 
-### 2. Model Construction (Notebook 2)
+Training, walk-forward runs, regime analysis, and interval calibration are later phases. They are not implemented here.
 
-| Model | Summary | Performance Notes |
-| :--- | :--- | :--- |
-| **Linear Regression** | Baseline model. | Poor performance, predictions remained near zero, again mainly because the market has noisy financial data. |
-| **Random Forest** | Captures nonlinear behavior. | Better than LR, but output was flat on next-week predictions. |
-| **LSTM Neural Network/Deep LSTM** | The model learns short-term sequential patterns. | **Best for next-day predictions**, but struggled with weekly forecasting due to noise and many other factors. |
+## Data
 
-### Analysis & Findings (Notebook 2)
-* **Research Question 1 (Next-day returns):** Predictions are noisy but limited predictability exists. **Linear Regression and Random Forest models perform poorly**, althought Random Forest has a slightly better result.
-* **Research Question 2:** **Yes, the advanced LSTM/Deep LSTM models outperform the classical models**, but none can fully overcome the inherent randomness of financial returns.
-* **Research Question 3 (Next-week returns):** **Yes, significantly harder.** Model error increases, Random Forest output flattens out and is closer to zero for the horizon, and LSTM becomes overly smoothed. Short-term indicators lose their predictive strength. So although some result is obtained the result for next-day return predictions are better.
+| File | Series | Sessions | Range |
+| --- | --- | --- | --- |
+| `data/nasdaq100.csv` | NASDAQ-100 (`^NDX`) | 6,289 | 2000-01-03 to 2024-12-31 |
+| `data/SPX.csv` | S&P 500 (`^GSPC`) | 23,323 | 1927-12-30 to 2020-11-04 |
 
-### Why next-day returns are easier:
-- Because of only one day of uncertainty, so the indicators still hold short-term meaning.
-- Technical features like the MA5, MA20, RSI certainly relate more closely to next-day behavior
-- Usually for the stock markets the daily noise is large, thus next-week noise is likely to be much larger.
+The NASDAQ-100 file matches a yfinance export recorded in the preprocessing notebook. The S&P 500 file is described in the original notebooks as a Kaggle download. The repository does not contain a Kaggle URL or a retrieval timestamp. `Adj Close` in the S&P 500 file equals `Close` on every row, and 5,496 early volume values are zero. Details, gap lists, and the limits of those sources are in `data/README.md`.
 
-### Why next-week returns are harder:
-- Considering next-week is a longer-horizon it could involve many more uncertain and unpredictable events (news, sentiment shifts, interest rate changes, macro data)
-- Short-term indicators lose most of their predictive power at this horizon
-- Both models avoid making large predictions, which shows increased uncertainty
+The files are not interchangeable. Shared dates run from 2000-01-03 through 2020-11-04 only.
 
-#### NASDAQ-100 Final Conclusion
-Next-day returns are much more predictable than next-week returns. LSTM performs the best, but uncertainty increases rapidly over longer horizons.
+## Planned models and baselines
 
-### 4. Extra Notebook — Price Prediction of NASDAQ-100
-* A simpler next-day **price prediction** extension was built for better interpretability.
-* **Features:** Previous day's closing price, MA3, MA7, MA14.
-* **Models Used:** Linear Regression, Gradient Boosting Regressor.
-* **Result:** Produced a clean actual vs predicted price curve, enhancing project completeness and accessibility for non-technical readers.
+Baselines for the return task:
 
-### Challenges and how I overcame them
-* At first I chose `Kaggle` dataset to build my model. However due to limited and shallow data my model was inefficient and that's when I swtiched to `yfinance` and was able to develop better ML models since I had access to 24+ years of data of NASDAQ-100.
-* It was difficult to find the perfect set of features and indicators but with research and use of the right resources I was able to navigate this complexity and shortlist the best indicators and target features for my project.
-* Extremely noisy financial returns. So when I trained the first ML model which was Linear Regression, the predictions were almost flat and did not match any of the real market movements. Thus to solve this issue I introduced additional indicators like the Moving Averages (MA5, MA20), RSI and volatility which helped give the models more structure. Also to derive a better conclusion I ensured to test the data with a variety of models and not just a single model. Thus I implemented and developed Linear Regression, Random Forest, LSTM and Deep LSTM for my project to make predictions to next-day and next-week returns.
-* Organizing the projects into three separate notebooks was another challenge because my teammate working on S&P500 dataset had a slightly different research angle which made it difficult to make one collective notebook contrasting which index S&P500 or NASDAQ-100 is better for predicting the future returns. Thus to resolve this issue I simply decided to include my full analysis in my **Notebook 2** itself wherein I articulated the notebook using the format **Research Question** -> **Coding+Plots** -> **Strong Analysis**
+- Predict zero, which is the random-walk or persistence forecast in price space.
+- Predict the mean return of the training window.
 
----
+Models planned for the first benchmark:
 
-## Section B — S&P 500 (^GSPC)
+- Linear regression.
+- Random forest.
+- A sequence LSTM whose window ends at the forecast origin.
 
-**Lead Developer: Srihan Cheemangunta**
+Features will be built from information available at that origin. Raw price moving averages are not the default, because the audit found a large level shift between the original training and test periods. The planned features include lagged returns, rolling volatility, RSI, and scale-free moving-average distances.
 
-### Contributions
-* **Preprocessing:** Recreated the full pipeline for the S&P 500, ensuring parallel feature engineering with the NASDAQ-100 dataset.
-  
-      - Dataset: Used the SPX.csv dataset from Kaggle. Date ranging from 1927-2020.
-      - Visualizations: Used df.head(), df.describe() and df.isnull().sum() to understand my dataset and see if there were any missing values in the dataset.
-      - Used 'Date' column feature to make predictions on the target variable 'closing price'.
-      - Prepared the data for the machine learning model to make predictions on closing prices.
-* **Modeling:** Trained and evaluated **Linear Regression** and **Random Forest** models.
-   - Questions to consider during modeling
-        - Would Linear Regression be the model to predict closing stock market prices?
-        - If not Linear Regression would Gradient Boosting be able to make predictions on closing stock market prices?
-        - Why Gradient Boosting model would work well for this dataset?
-    * Linear Regression - This was a very bad model choice as this represents a straight line using y = mx + b and can't make predictions on complex stock market data patterns.
-    * Gradient Boosting Regression - This was a very good model as this predicted model was able to follow the pattern of the actual data very well.
-          - Used 3 models and compared them using RMSE. Whichever had the lowest RMSE meant that was the best performing model.
-          - Used the best performing model to make predictions using the 'Date' feature column as input.
-* **Analysis:** Found the S&P 500 to be **easier to predict** than the NASDAQ-100 due to its **lower volatility**.
-  
-      - Gradient Boosting Regression was the best model choice for predictions as it follows complex patterns really well.
-      - Gradient Boosting Regression has decision trees that learn the mistakes of the previous trees and fixes them. 
-      - The training data follows the actual data curve really well.
-      - S&P 500 is way easier to predict than Nasdaq 100.
-      - Model is good for predictions on data but not for future predictions.
-* **Next-day Prediction:** Found that gradient boosting regression model can't find price predictions on data it hasn't seen in training.
-  
-      - This returns the same price as the the predicted model did for the day before
-      - Gradient Boosting Regression don't know how to find patterns unless it sees the data in training and therefore can't tell any curve patterns.
----
+## Planned evaluation
 
-## Cross-Index Comparison (NASDAQ-100 vs S&P 500)
+- Chronological walk-forward folds with an expanding training window.
+- A validation window for hyperparameters and a later test window that is not used for model selection.
+- Scalers fit on the training window only.
+- Training labels whose future close falls inside the evaluation window are excluded.
+- Horizons of 1, 5, and 20 trading sessions.
+- MAE, RMSE, forecast bias, directional accuracy, and skill relative to the baselines.
+- Volatility regimes defined from trailing volatility known at the forecast origin.
+- Prediction intervals fit on chronological calibration data, with empirical coverage and width reported. The design does not claim an exchangeable conformal guarantee.
 
-| Aspect | NASDAQ-100 (^NDX) | S&P 500 (^GSPC) |
-| :--- | :--- | :--- |
-| **Volatility** | **Higher** (tech-heavy) | **Lower** (broader index) |
-| **Predictability** | Lower | **Higher** |
-| **Best Model** | **LSTM** | **Random Forest** |
-| **Strongest Features** | RSI, lag\_1 | MA14, volatility |
+The fold lengths and the nominal coverage are in `configs/forecasting.toml`. The reasoning is in `docs/RESEARCH_DESIGN.md`.
 
-### Overall Finding
-The S&P 500 is slightly easier to model because it is less volatile. The NASDAQ-100 requires more complex models (e.g., LSTM) but remains harder to forecast due to the higher inherent noise and concentration in volatile tech stocks.
+## Repository layout
 
----
+```text
+configs/                 Dataset catalog and forecasting protocol
+data/                    Raw NASDAQ-100 and S&P 500 files
+docs/                    Audit and research design
+notebooks/               Original course notebooks, unchanged
+results/                 Measured validation report
+src/marketpulse/         Research package
+tests/                   Unit tests and checks on the real files
+.github/workflows/       Lint, format, and test
+```
 
-## Project Timeline
+`src/marketpulse/data` loads and validates prices. `targets`, `evaluation`, and `protocol` define the forecasting contract used by later experiments. There is no training loop yet, and there is no web application.
 
-| Date | NASDAQ-100 (Yug) | S&P 500 (Srihan) | Shared Milestones |
-| :--- | :--- | :--- | :--- |
-| **Nov 29** | Full preprocessing pipeline built | Basic preprocessing | Project structure defined |
-| **Nov 30** | All feature engineering completed | Feature replication | Targets created |
-| **Dec 1** | LR & RF trained and evaluated | LR & RF trained | Initial comparison |
-| **Dec 2** | LSTM built, tuned, and visualized | Supporting plots created | Final insights |
-| **Dec 3** | Cleaned notebooks + README + slides | Working on presentation | Making progress on documentation |
-| **Dec 10** | Final formatting and refining of Notebooks + README + Project Structure | Adding details to README | Improving the analysis + final documentation |
+## Installation
 
+Python 3.11 or newer is required. Use a virtual environment so the install does not change the system Python.
 
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -e ".[dev]"
+```
 
+The `dev` extra installs pytest and Ruff. It is enough to validate data and run the tests. The `research` extra adds scikit-learn, matplotlib, and PyTorch for later CPU training:
 
+```bash
+python -m pip install -e ".[research,dev]"
+```
 
+PyTorch is not imported by the current package and is not installed in CI.
 
+## Validate the data
 
+```bash
+marketpulse-validate
+```
 
+The command prints, for each catalogued file, the row count, date range, columns, missing-value counts, duplicate counts, validation status, warnings, and calendar gaps longer than four days. It also prints the documented limitations from `configs/datasets.toml`.
 
+```bash
+marketpulse-validate --output results/data_validation.json
+```
 
+regenerates the committed JSON report. The same report is produced by `python -m marketpulse.data`.
 
+On the current files the NASDAQ-100 validation status is `passed`. The S&P 500 status is `passed_with_warnings` because of the zero-volume rows. Neither file is modified.
 
+## Tests and lint
 
+```bash
+ruff check .
+ruff format --check .
+pytest
+```
 
+Synthetic CSV fixtures cover malformed files, missing columns, bad timestamps, duplicate and unsorted dates, missing and infinite values, and nonpositive prices. Separate tests load the two real files and check the measured counts above. CI runs the same three commands on Python 3.12. It does not fit a model.
 
+## Development status
+
+| Item | Status |
+| --- | --- |
+| Audit of the original notebooks and claims | Written in `docs/REPOSITORY_AUDIT.md` |
+| Research protocol | Written, not executed |
+| Package install, data validation, tests, lint, CI | Implemented |
+| Baseline and model training | Not run |
+| Walk-forward evaluation | Not implemented |
+| Regime and distribution-shift experiments | Not implemented |
+| Prediction intervals | Not implemented |
+| Results-driven research report | Not written |
+
+No accuracy number in the original README should be read as a result of this extension.
+
+## Later phases
+
+**Phase 2.** Build causal features, fit the baselines and the three models under the walk-forward protocol, and save fold-level metrics with the git revision and seed.
+
+**Phase 3.** Slice those results by volatility regime and by the predeclared historical windows, test whether rankings move, and evaluate chronological prediction intervals.
+
+**Reporting.** Revise this README and write the research report after those runs exist. A negative result, including a baseline that wins, stays in the report.
+
+## Contributors
+
+- Yug More, yugmore20@gmail.com. NASDAQ-100 course notebooks and data. Research-extension design and engineering.
+- Srihan Cheemangunta. S&P 500 course notebooks and data.

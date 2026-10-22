@@ -1,0 +1,21 @@
+[[dataset]]
+name = "NASDAQ-100"
+path = "data/nasdaq100.csv"
+index_id = "^NDX"
+documented_source = "The preprocessing notebook records yf.download('^NDX', start='2000-01-01', end='2024-12-31'). The file has the multi-row header written by recent yfinance versions and a ticker row of ^NDX. No acquisition timestamp or yfinance version is stored."
+documented_limitations = [
+  "The recorded yfinance end date is exclusive in current yfinance, while this file includes the 2024-12-31 session, so a literal re-run of the recorded call may not reproduce the file.",
+  "The file has no separate adjusted-close column.",
+  "The derived file notebooks/nasdaq100/nasdaq_processed.csv matches this file through 2024-12-20, but its tail is not the dropna result of a series that includes 2024-12-31.",
+]
+
+[[dataset]]
+name = "S&P 500"
+path = "data/SPX.csv"
+index_id = "^GSPC"
+documented_source = "The README and the S&P 500 preprocessing notebook describe this file as a Kaggle download. The repository does not store a source URL, dataset version, or retrieval timestamp."
+documented_limitations = [
+  "Close and Adj Close are identical on every row, so the file does not encode a separate dividend adjustment.",
+  "Early volume observations are zero. The first positive volume is in 1950.",
+  "The series ends on 2020-11-04 and does not cover the same dates as the NASDAQ-100 file.",
+]
