@@ -59,3 +59,12 @@ baselines × six cells), paired MSE, primary block length 20, sensitivity 40/80,
 Actual future inference must be reported only after provenance/exposure review and
 all target outcomes mature. Temporal dependence and shifts preclude an arbitrary
 distribution-free coverage claim. No independent effect size or ranking exists yet.
+
+## Completed verification
+
+All six full-budget rehearsals completed: 30 model fits, 15,120 stored calibration
+and test forecasts, and 60 interval metric rows. `python scripts/audit_phase9.py`
+independently checks raw-close targets, all actual endpoint boundaries, calibration
+order statistics, coverage, widths, scores and RMSE. The retrospective metrics do
+not enter the confirmatory family. Unit tests include horizons 1/5/20, internal
+session gaps, insufficient history and rejection of historical holdouts.

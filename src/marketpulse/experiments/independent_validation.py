@@ -161,7 +161,10 @@ def run_rehearsal(root: Path, output: Path) -> None:
         {
             "classification": "retrospective infrastructure rehearsal",
             "independent_validation_completed": False,
-            "blocker": "No acquired, provenance-complete, unexposed prospective observations; fixed future test is not mature.",
+            "blocker": (
+                "No acquired, provenance-complete, unexposed prospective observations; "
+                "fixed future test is not mature."
+            ),
             "protocol_sha256": file_hash(root / "configs/independent_validation.json"),
             "environment": environment_record(root, "full"),
             "provenance": provenance,
