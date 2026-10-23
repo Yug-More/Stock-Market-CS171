@@ -1,8 +1,19 @@
 # Research design
 
+> Implementation status: the terminal study is preserved in
+> [BENCHMARK_RESULTS.md](BENCHMARK_RESULTS.md). The completed Phase 4/5 study
+> is documented in [WALKFORWARD_RESULTS.md](WALKFORWARD_RESULTS.md) and
+> [WALKFORWARD_METHODOLOGY.md](WALKFORWARD_METHODOLOGY.md). This document
+> preserves the original research design. Actual execution fixes lookback
+> at 20 rather than tuning it, uses one seed rather than repeated seeds,
+> and evaluates each index on its native calendar rather than a matched
+> cross-index calendar. Prediction intervals remain unimplemented. Legacy
+> fold execution provenance is incomplete and explicitly disclosed.
+
+
 This document defines the forecasting protocol. Initial numeric choices also live in `configs/forecasting.toml`. If those choices change, the config file and this document must change together.
 
-`docs/BENCHMARK_RESULTS.md` reports one terminal chronological split for each series and horizon. The repeated walk-forward evaluation, the regime slices, and the prediction-interval study defined below remain unrun.
+`docs/BENCHMARK_RESULTS.md` reports one terminal chronological split for each series and horizon. The repeated walk-forward evaluation and regime slices are now reported separately; the prediction-interval study remains unrun.
 
 The primary series are the committed raw files, read by `marketpulse.data`. `notebooks/nasdaq100/nasdaq_processed.csv` is a historical feature table. It is not the input to the new experiments.
 

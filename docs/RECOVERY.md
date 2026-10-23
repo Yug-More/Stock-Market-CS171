@@ -46,12 +46,15 @@ training history; weights were not saved by the original runner.
 - [x] Add guarded resume, input fingerprints, prediction checksums, atomic
   per-file writes, exact fold plans, and per-new-fold environment/runtime.
 - [x] Add corruption/configuration and 252-session boundary tests.
-- [ ] Execute a fresh all-model smoke experiment with figures.
-- [ ] Execute remaining 72 full-budget folds and aggregate all 282 folds.
-- [ ] Verify complete artifacts, figures, and real findings.
-- [ ] Finish methodology/results/README and reproducibility records.
-- [ ] Run quality checks, commit with mandated identity, push, open PR,
-  verify CI, and merge/synchronize when permitted.
+- [x] Execute a fresh all-model smoke experiment with figures.
+- [x] Execute remaining 72 full-budget folds and aggregate all 282 folds.
+- [x] Verify complete artifacts, figures, and real findings.
+- [x] Finish methodology/results/README and reproducibility records.
+- [x] Run local quality checks and verify mandated commit identity.
+
+GitHub push, PR, CI, merge, and final synchronization outcomes are recorded
+in the pull request and final delivery handoff; they are not inferred from
+local test success.
 
 Deep LSTM remains in the historical notebooks. The canonical Phase 2/3
 benchmark explicitly requires one-layer LSTM and defers new architectures;
