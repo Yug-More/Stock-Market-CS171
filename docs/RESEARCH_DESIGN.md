@@ -80,6 +80,8 @@ The initial walk-forward scheme, recorded in `configs/forecasting.toml`:
 - Step forward 252 sessions and repeat.
 - Refit the model and the preprocessor on each training window.
 
+The implemented folds count those windows in eligible forecast origins and anchor them on the latest origin. The final fold is the terminal split already reported in `docs/BENCHMARK_RESULTS.md`. Each earlier fold steps back by 252 origins, which is 252 trading sessions when eligible origins are consecutive sessions. A fold is kept only when the embargoed training sample still has at least 2,520 origins, so the grid can leave a block of early origins unscored. Test origins are not repeated. The step is not allowed to be shorter than the test window.
+
 The NASDAQ-100 file has 6,289 rows and the S&P 500 file has 23,323, so a 2,520-row minimum is feasible on both. If a later feature warmup makes the first fold too short, the minimum is revised in the config before test scores are read.
 
 Hyperparameters are chosen by validation RMSE inside each fold, or by one validation rule fixed before the run. The test window is scored once with those choices. It is not used to pick the model that will be written up.
@@ -120,7 +122,7 @@ The original notebooks' price-level MSE can be recomputed as a descriptive check
 
 Regimes are a way to slice results, not a set of future labels.
 
-The initial definition is the trailing 20-session standard deviation of daily log returns, using rows at or before the forecast origin. Low, medium, and high are the terciles of that value. Thresholds are estimated on the training window of the fold and then applied to that fold's test origins. A threshold estimated on the test outcomes is not an operational regime.
+The initial definition is the trailing 20-session standard deviation of daily log returns, using rows at or before the forecast origin. That series is the `roll_vol_20` feature. Low, medium, and high are the terciles of that value. Thresholds are the linear 1/3 and 2/3 quantiles of the embargoed training origins in the current fold, then applied to that fold's test origins. A test value on the lower threshold is low. A value on the upper threshold is medium. A value above the upper threshold is high. When the two quantiles are equal, the medium bin is empty. A threshold estimated on the test outcomes is not an operational regime.
 
 A separate retrospective description may assign terciles using only past volatility at each origin and report performance by those bins. That description is labeled retrospective. It is not fed back into the model as a feature unless the feature itself is causal at t.
 
