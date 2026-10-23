@@ -452,6 +452,15 @@ def verify(root: Path, *, seal: bool = False) -> None:
         effect = d[mask].mean()
         assert row.n == mask.sum()
         np.testing.assert_allclose(row.mean_loss_difference, effect, atol=1e-15)
+        if row.primary:
+            # Independent explicit block arithmetic, unlike production prefix sums.
+            positions = a.origin_position.to_numpy()
+            starts = [i for i in range(len(d) - 19) if np.all(np.diff(positions[i : i + 20]) == 1)]
+            block_means = np.array([np.mean(d[i : i + 20]) for i in starts])
+            rng = np.random.default_rng(10171)
+            draws = rng.integers(0, len(starts), size=(2000, len(d) // 20))
+            bounds = np.quantile(block_means[draws].mean(axis=1), [0.025, 0.975])
+            np.testing.assert_allclose([row.ci_lower, row.ci_upper], bounds, rtol=1e-8, atol=1e-14)
         if row.status != "approximate_inference":
             continue
         influence = mask * (d - effect) * len(d) / mask.sum()
