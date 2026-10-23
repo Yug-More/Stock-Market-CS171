@@ -235,7 +235,7 @@ def analyze(root: Path) -> None:
         },
     )
     figures(root)
-    report(root)
+    write_report(root)
     verify(root, seal=True)
 
 
@@ -279,7 +279,7 @@ def figures(root: Path) -> None:
     plt.close(fig)
 
 
-def report(root: Path) -> None:
+def write_report(root: Path) -> None:
     output = root / "results/phase10"
     metrics = pd.read_csv(output / "seed_metrics.csv")
     table = pd.read_csv(output / "comparisons.csv")
