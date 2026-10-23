@@ -32,6 +32,7 @@ dev = [
 [project.scripts]
 marketpulse-validate = "marketpulse.data.cli:main"
 marketpulse-benchmark = "marketpulse.experiments.cli:main"
+marketpulse-walkforward = "marketpulse.experiments.walkforward_cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

@@ -2,11 +2,11 @@
 
 MarketPulse measures how reliably machine learning models forecast financial time series when the horizon, the market period, and the data distribution change.
 
-The forecasting target is a forward log return, `log(Close[t + h] / Close[t])`, at horizons of 1, 5, and 20 trading sessions. Models are compared with a zero-return forecast and a historical-mean forecast on the same origins. This repository reports one terminal chronological test for each series and horizon. It does not claim a trading strategy, and it is not a peer-reviewed study.
+The forecasting target is a forward log return, `log(Close[t + h] / Close[t])`, at horizons of 1, 5, and 20 trading sessions. Models are compared with a zero-return forecast and a historical-mean forecast on the same origins. This repository reports both the original terminal benchmark and a completed 282-fold expanding-window study with historical-stress and causal volatility-regime analysis. It does not claim a trading strategy, and it is not a peer-reviewed study.
 
 ## Research objective
 
-The question is whether a model forecast is more accurate than simple baselines when the horizon and the evaluation window change, under a protocol that keeps future prices out of training. The hypotheses and the later walk-forward, regime, and interval designs are in `docs/RESEARCH_DESIGN.md`. The terminal-split evidence now available is in `docs/BENCHMARK_RESULTS.md`.
+The question is whether a model forecast is more accurate than simple baselines when the horizon and the evaluation window change, under a protocol that keeps future prices out of training. The hypotheses and the later walk-forward, regime, and interval designs are in `docs/RESEARCH_DESIGN.md`. The original terminal-split evidence is in `docs/BENCHMARK_RESULTS.md`; repeated-window evidence is in [the Phase 4/5 results](docs/WALKFORWARD_RESULTS.md), with [methodology](docs/WALKFORWARD_METHODOLOGY.md) and [recovery records](docs/RECOVERY.md).
 
 ## Original project
 
@@ -32,7 +32,7 @@ The raw files and the original notebooks are left unchanged. The benchmark reads
 
 A forecast at origin `t` is made after the close at `t` is known. Horizons count trading sessions in file order. The feature row at `t` uses closes through `t` only. The ten features are lagged log returns, 5- and 20-session momentum, trailing mean returns, 20-session return volatility, the log distance from the trailing 20-session price mean, and a 14-session RSI. Volume is excluded from both indexes because the S&P 500 zeros do not have a documented meaning. Definitions, the embargo, and the model settings are in `docs/FORECASTING_PIPELINE.md`.
 
-The benchmark uses the window lengths in `configs/forecasting.toml`: 2,520 minimum training origins, then 252 validation origins and 252 test origins. The test block is the latest eligible window. Labels that would read a price inside a later block are purged. Scaling is fit on the training origins only. This is one split per series and horizon. The repeated walk-forward loop in the research design has not been run.
+The benchmark uses the window lengths in `configs/forecasting.toml`: 2,520 minimum training origins, then 252 validation origins and 252 test origins. The test block is the latest eligible window. Labels that would read a price inside a later block are purged. Scaling is fit on the training origins only. The original benchmark is one split per series and horizon. The completed walk-forward study repeats this split with expanding training history, advancing 252 origins per fold: 13 folds per NASDAQ-100 horizon and 81 per S&P 500 horizon. All five forecasts share each fold’s test origins. No test origin is repeated within an index/horizon. Full fold boundaries are persisted.
 
 ## Models
 
@@ -57,7 +57,7 @@ python -m pip install --upgrade pip
 python -m pip install -e ".[research,dev]"
 ```
 
-The `research` extra installs PyTorch and matplotlib. scikit-learn is a core dependency, so the classical tests run without PyTorch. CI installs the `dev` extra only and does not train the benchmark.
+The `research` extra installs PyTorch and matplotlib. scikit-learn is a core dependency, so the classical tests run without PyTorch. CI has a fast development-check job and a CPU research job that runs LSTM tests, an all-model smoke experiment with figures, and an independent integrity audit of the completed study. CI does not retrain the full research matrix.
 
 ## Commands
 
@@ -84,7 +84,7 @@ marketpulse-benchmark --mode full --output results/benchmarks/full
 
 Smoke mode trains the NASDAQ-100 one-session case with a smaller forest, one LSTM size, and two epochs. It checks that the command runs. It is not a benchmark result, and its output directory is gitignored. Full mode runs both indexes, all three horizons, and all five models. It writes `metrics.csv`, `metrics.json`, `predictions.csv`, `environment.json`, and `test_rmse.png`.
 
-## Results of the full run
+## Original terminal-benchmark results
 
 The full run completed for both indexes and all three horizons. Every test cell has 252 origins. The NASDAQ-100 test windows fall in late 2023 through 2024. The S&P 500 test windows fall in late 2019 through 2020 and include the early-2020 decline. The tables below are test RMSE. Skill against the zero forecast is in parentheses. Unrounded metrics, biases, and sample dates are in `docs/BENCHMARK_RESULTS.md`.
 
@@ -106,22 +106,46 @@ To reproduce the tables, install the `research` extra and run the full command a
 
 ## Current limitations
 
-The published comparison is one terminal window per series and horizon. It does not estimate whether a ranking is stable across years. Horizon 5 and horizon 20 labels overlap, so the test errors in those cells are dependent. The two indexes are scored on different calendars. Directional accuracy of the zero forecast is 0 under the metric definition, and directional accuracy of the positive historical mean equals the share of positive outcomes in that window. No prediction interval has been calibrated. No result here is a statement about investment returns.
+The repeated-window study measures descriptive rank stability, but does not supply statistical significance or multi-seed uncertainty. The 210 recovered folds lack original execution revision/environment metadata; their predictions, targets, settings, boundaries, thresholds, metrics, and original file hashes were validated without inventing the missing provenance. The remaining 72 folds record execution metadata. Model weights are not serialized. NASDAQ-100 has no eligible dot-com or financial-crisis test origins under the ten-year training minimum. The fixed financial-crisis slice covers September 2008 through March 2009, not the entire 2007–2009 episode. Source retrieval metadata, early index history, and aggregate constituent selection limit generalization. Horizon 5 and horizon 20 labels overlap, so the test errors in those cells are dependent. The two indexes are scored on different calendars. Directional accuracy of the zero forecast is 0 under the metric definition, and directional accuracy of the positive historical mean equals the share of positive outcomes in that window. No prediction interval has been calibrated. No result here is a statement about investment returns.
 
-## Development status
+## Walk-forward and market-regime study
 
-| Item | Status |
-| --- | --- |
-| Audit and research protocol | Written |
-| Data validation, tests, lint, CI | Implemented; CI does not train models |
-| Causal features, embargoed terminal split, five forecasts | Implemented and run on the raw files |
-| Walk-forward evaluation | Designed, not run |
-| Regime and distribution-shift slices | Designed, not run |
-| Prediction intervals | Designed, not run |
+The full study contains 282 completed folds, 1,410 model-fold evaluations, and 355,320 forecast rows. It recovers 210 validated existing folds and completes 72 interrupted S&P 500 twenty-session folds at the original training budgets. The [research report](docs/WALKFORWARD_RESULTS.md) presents all model/horizon comparisons, annual rank stability, historical stress coverage, regime counts, and actual results. The [artifact guide](results/walkforward/README.md) documents schemas and provenance limitations.
 
-## Later work
+Historical slices use inclusive **forecast-origin dates**: dot-com (2000-03-01–2002-12-31), financial crisis (2008-09-01–2009-03-31), and COVID (2020-02-15–2020-04-30). Unavailable episodes are reported explicitly. Low/medium/high volatility uses trailing 20-session return volatility and training-only terciles frozen per fold. Error and baseline skill are pooled on comparable samples; mean fold RMSE is separately labeled.
 
-The next experiment is the repeated walk-forward evaluation from `docs/RESEARCH_DESIGN.md`: expanding training, a step of 252 sessions, and a check of whether the RMSE ranking stays the same. After that come the predeclared historical slices, volatility terciles fit on training data only, and chronological prediction intervals at the nominal coverage of 0.9. Empirical coverage in that later study would be a diagnostic. The design does not treat overlapping returns as exchangeable.
+Across the complete NASDAQ-100 history tested, random forest has modest positive pooled skill against zero at horizons 1 (0.0222) and 5 (0.0185), while zero return wins at horizon 20. By pooled RMSE, LSTM trails both baselines at all three NASDAQ horizons. This differs from some terminal-window rankings and shows why repeated chronological evaluation matters. For S&P 500, random forest wins at one session (skill 0.0131 versus zero), while the historical mean wins at five (0.0023) and twenty sessions (0.0094). LSTM has the highest pooled RMSE in all six index/horizon cells. Stress results and full regime comparisons are in the report; no cross-index ranking is inferred from different native calendars.
+
+```bash
+# Check model/plot wiring before a full run.
+marketpulse-walkforward --mode smoke --output /tmp/marketpulse-smoke
+# Use a new directory for a fresh training run.
+marketpulse-walkforward --mode full --output /tmp/marketpulse-full
+# Audit the committed study without retraining.
+tar -xzf results/walkforward/full/fold_predictions.tar.gz -C results/walkforward/full
+python scripts/verify_walkforward.py
+python scripts/report_walkforward.py
+```
+
+The run saves exact fold plans, predictions, selected hyperparameters, training-only volatility thresholds, pooled/per-fold/regime/stress metrics, ranks, dependency versions, raw/source/config hashes, and per-new-fold execution revision/runtime. Figures come from actual predictions. Resume rejects incompatible inputs or corrupted artifacts. The original terminal benchmark and raw datasets remain unchanged.
+
+## Repository structure
+
+- `src/marketpulse/data/`: canonical loading, catalog, and validation.
+- `src/marketpulse/features.py`, `targets.py`, `sequences.py`: causal supervised inputs.
+- `src/marketpulse/evaluation/`: purged splits, preprocessing, metrics, and regimes.
+- `src/marketpulse/models/`: baselines, classical models, and sequence LSTM.
+- `src/marketpulse/experiments/`: benchmark, walk-forward runner, recovery validation, aggregation, and figures.
+- `configs/`: predeclared datasets, horizons, windows, seeds, and model budgets.
+- `results/benchmarks/full/`, `results/walkforward/full/`: distinct empirical studies.
+- `scripts/`: independent study verification and report generation.
+- `tests/`, `.github/workflows/`: regression, boundary, artifact, and CPU smoke checks.
+- `docs/`: audit, original research design, methods, results, and recovery record.
+- `notebooks/`: preserved original course work.
+
+## Next research cycle
+
+Run a matched-calendar comparison with common fold dates and comparable histories, predeclared multi-seed neural repetitions, dependence-aware uncertainty analysis, and chronological interval calibration with regime-specific coverage. Prediction intervals, transaction-cost modeling, portfolio returns, and profitable-trading claims are outside the completed phases.
 
 ## Contributors
 

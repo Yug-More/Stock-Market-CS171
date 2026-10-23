@@ -1,8 +1,19 @@
 # Research design
 
+> Implementation status: the terminal study is preserved in
+> [BENCHMARK_RESULTS.md](BENCHMARK_RESULTS.md). The completed Phase 4/5 study
+> is documented in [WALKFORWARD_RESULTS.md](WALKFORWARD_RESULTS.md) and
+> [WALKFORWARD_METHODOLOGY.md](WALKFORWARD_METHODOLOGY.md). This document
+> preserves the original research design. Actual execution fixes lookback
+> at 20 rather than tuning it, uses one seed rather than repeated seeds,
+> and evaluates each index on its native calendar rather than a matched
+> cross-index calendar. Prediction intervals remain unimplemented. Legacy
+> fold execution provenance is incomplete and explicitly disclosed.
+
+
 This document defines the forecasting protocol. Initial numeric choices also live in `configs/forecasting.toml`. If those choices change, the config file and this document must change together.
 
-`docs/BENCHMARK_RESULTS.md` reports one terminal chronological split for each series and horizon. The repeated walk-forward evaluation, the regime slices, and the prediction-interval study defined below remain unrun.
+`docs/BENCHMARK_RESULTS.md` reports one terminal chronological split for each series and horizon. The repeated walk-forward evaluation and regime slices are now reported separately; the prediction-interval study remains unrun.
 
 The primary series are the committed raw files, read by `marketpulse.data`. `notebooks/nasdaq100/nasdaq_processed.csv` is a historical feature table. It is not the input to the new experiments.
 
@@ -80,6 +91,8 @@ The initial walk-forward scheme, recorded in `configs/forecasting.toml`:
 - Step forward 252 sessions and repeat.
 - Refit the model and the preprocessor on each training window.
 
+The implemented folds count those windows in eligible forecast origins and anchor them on the latest origin. The final fold is the terminal split already reported in `docs/BENCHMARK_RESULTS.md`. Each earlier fold steps back by 252 origins, which is 252 trading sessions when eligible origins are consecutive sessions. A fold is kept only when the embargoed training sample still has at least 2,520 origins, so the grid can leave a block of early origins unscored. Test origins are not repeated. The step is not allowed to be shorter than the test window.
+
 The NASDAQ-100 file has 6,289 rows and the S&P 500 file has 23,323, so a 2,520-row minimum is feasible on both. If a later feature warmup makes the first fold too short, the minimum is revised in the config before test scores are read.
 
 Hyperparameters are chosen by validation RMSE inside each fold, or by one validation rule fixed before the run. The test window is scored once with those choices. It is not used to pick the model that will be written up.
@@ -120,7 +133,7 @@ The original notebooks' price-level MSE can be recomputed as a descriptive check
 
 Regimes are a way to slice results, not a set of future labels.
 
-The initial definition is the trailing 20-session standard deviation of daily log returns, using rows at or before the forecast origin. Low, medium, and high are the terciles of that value. Thresholds are estimated on the training window of the fold and then applied to that fold's test origins. A threshold estimated on the test outcomes is not an operational regime.
+The initial definition is the trailing 20-session standard deviation of daily log returns, using rows at or before the forecast origin. That series is the `roll_vol_20` feature. Low, medium, and high are the terciles of that value. Thresholds are the linear 1/3 and 2/3 quantiles of the embargoed training origins in the current fold, then applied to that fold's test origins. A test value on the lower threshold is low. A value on the upper threshold is medium. A value above the upper threshold is high. When the two quantiles are equal, the medium bin is empty. A threshold estimated on the test outcomes is not an operational regime.
 
 A separate retrospective description may assign terciles using only past volatility at each origin and report performance by those bins. That description is labeled retrospective. It is not fed back into the model as a feature unless the feature itself is causal at t.
 

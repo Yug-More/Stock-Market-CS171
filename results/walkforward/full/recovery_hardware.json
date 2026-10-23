@@ -1,0 +1,13 @@
+{
+  "machine": "arm64",
+  "platform": "macOS-14.5-arm64-arm-64bit-Mach-O",
+  "torch_cpu_threads": 6,
+  "torch_interop_threads": 10,
+  "device": "cpu",
+  "legacy_execution_hardware": "not recorded",
+  "generating_revision": "ce58c9263d5fabad2476b1cf46c07d7c61ae3cd9",
+  "chip": "Apple M2 Pro",
+  "model": "Mac14,9",
+  "memory_bytes": 17179869184,
+  "physical_cpu_cores": 10
+}

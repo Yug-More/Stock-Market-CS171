@@ -123,9 +123,52 @@ def run_index_horizon(
         validation_window=protocol.validation_window,
         test_window=protocol.test_window,
     )
-    feature_matrix = built.frame.to_numpy(dtype=float)
-    y = target.to_numpy(dtype=float)
-    dates = pd.to_datetime(market["date"])
+    return score_split(
+        dataset_name=dataset_name,
+        index_id=index_id,
+        horizon=horizon,
+        feature_matrix=built.frame.to_numpy(dtype=float),
+        target_values=target.to_numpy(dtype=float),
+        target=target,
+        features=built.frame,
+        dates=pd.to_datetime(market["date"]),
+        split=split,
+        settings=settings,
+        seed=protocol.seed,
+        models=models,
+    )
+
+
+def score_split(
+    *,
+    dataset_name: str,
+    index_id: str,
+    horizon: int,
+    feature_matrix: np.ndarray,
+    target_values: np.ndarray,
+    target: pd.Series,
+    features: pd.DataFrame,
+    dates: pd.Series,
+    split: object,
+    settings: BenchmarkSettings,
+    seed: int,
+    models: tuple[str, ...] = ALL_MODELS,
+    fold_index: int | None = None,
+    n_folds: int | None = None,
+) -> dict[str, object]:
+    """Fit every requested model on one embargoed split and score its test origins.
+
+    Hyperparameters are chosen from validation RMSE. The test block is scored
+    after that choice. The same routine serves the terminal benchmark and each
+    walk-forward fold.
+    """
+
+    from marketpulse.evaluation.partitions import ChronologicalSplit, assert_embargo
+
+    if not isinstance(split, ChronologicalSplit):
+        raise TypeError("split must be a ChronologicalSplit")
+    assert_embargo(split)
+    y = np.asarray(target_values, dtype=float)
     x_train = feature_matrix[split.train]
     y_train = y[split.train]
     x_validation = feature_matrix[split.validation]
@@ -136,7 +179,6 @@ def run_index_horizon(
     mean_test = historical_mean_forecast(y_train, len(y_test))
     zero_validation = zero_return_forecast(len(y_validation))
     mean_validation = historical_mean_forecast(y_train, len(y_validation))
-
     predictions: list[dict[str, object]] = []
     model_reports: list[dict[str, object]] = []
 
@@ -156,14 +198,16 @@ def run_index_horizon(
                 "test": _metrics(y_test, test_prediction, zero_test, mean_test),
             }
         )
-        predictions.extend(
-            _prediction_rows(
-                dataset_name, index_id, horizon, name, dates, split.test, y_test, test_prediction
-            )
+        rows = _prediction_rows(
+            dataset_name, index_id, horizon, name, dates, split.test, y_test, test_prediction
         )
+        if fold_index is not None:
+            for row in rows:
+                row["fold"] = fold_index
+        predictions.extend(rows)
 
     if "zero_return" in models:
-        _progress(dataset_name, horizon, "zero_return")
+        _progress(dataset_name, horizon, "zero_return", fold_index, n_folds)
         add_model(
             "zero_return",
             zero_validation,
@@ -171,7 +215,7 @@ def run_index_horizon(
             {"definition": "predict 0; fixed and not estimated"},
         )
     if "historical_mean" in models:
-        _progress(dataset_name, horizon, "historical_mean")
+        _progress(dataset_name, horizon, "historical_mean", fold_index, n_folds)
         add_model(
             "historical_mean",
             mean_validation,
@@ -182,7 +226,7 @@ def run_index_horizon(
             },
         )
     if "linear_regression" in models:
-        _progress(dataset_name, horizon, "linear_regression")
+        _progress(dataset_name, horizon, "linear_regression", fold_index, n_folds)
         linear = fit_linear_regression(x_train, y_train)
         add_model(
             "linear_regression",
@@ -191,7 +235,7 @@ def run_index_horizon(
             {"scaling": "StandardScaler fit on training origins only"},
         )
     if "random_forest" in models:
-        _progress(dataset_name, horizon, "random_forest")
+        _progress(dataset_name, horizon, "random_forest", fold_index, n_folds)
         forest = select_random_forest(
             x_train,
             y_train,
@@ -200,7 +244,7 @@ def run_index_horizon(
             depths=settings.rf_max_depth,
             n_estimators=settings.rf_n_estimators,
             min_samples_leaf=settings.rf_min_samples_leaf,
-            seed=protocol.seed,
+            seed=seed,
         )
         add_model(
             "random_forest",
@@ -213,12 +257,12 @@ def run_index_horizon(
                 },
                 "n_estimators": settings.rf_n_estimators,
                 "min_samples_leaf": settings.rf_min_samples_leaf,
-                "seed": protocol.seed,
+                "seed": seed,
                 "scaling": "StandardScaler fit on training origins only",
             },
         )
     if "lstm" in models:
-        _progress(dataset_name, horizon, "lstm")
+        _progress(dataset_name, horizon, "lstm", fold_index, n_folds)
         lstm_report, lstm_test = _fit_lstm(
             feature_matrix,
             y,
@@ -226,7 +270,7 @@ def run_index_horizon(
             split.validation,
             split.test,
             settings,
-            protocol.seed,
+            seed,
         )
         add_model("lstm", lstm_report["validation_prediction"], lstm_test, lstm_report["details"])
 
@@ -235,15 +279,25 @@ def run_index_horizon(
         "index_id": index_id,
         "horizon": horizon,
         "lookback": settings.lookback,
-        "seed": protocol.seed,
-        "sample": _sample_record(dates, split, target, built.frame),
+        "seed": seed,
+        "fold": fold_index,
+        "sample": _sample_record(dates, split, target, features),
         "models": model_reports,
         "predictions": predictions,
     }
 
 
-def _progress(dataset_name: str, horizon: int, model: str) -> None:
-    print(f"{dataset_name} horizon {horizon}: {model}", flush=True)
+def _progress(
+    dataset_name: str,
+    horizon: int,
+    model: str,
+    fold_index: int | None = None,
+    n_folds: int | None = None,
+) -> None:
+    label = f"{dataset_name} horizon {horizon}"
+    if fold_index is not None and n_folds is not None:
+        label += f" fold {fold_index + 1}/{n_folds}"
+    print(f"{label}: {model}", flush=True)
 
 
 def _fit_lstm(

@@ -1,0 +1,291 @@
+{
+  "dataset": "S&P 500",
+  "index_id": "^GSPC",
+  "horizon": 20,
+  "lookback": 20,
+  "seed": 171,
+  "fold": 75,
+  "sample": {
+    "rows": 23323,
+    "missing_feature_rows": 20,
+    "missing_target_rows": 20,
+    "train": {
+      "n": 21460,
+      "start_date": "1928-02-28",
+      "end_date": "2013-08-08"
+    },
+    "validation": {
+      "n": 252,
+      "start_date": "2013-09-09",
+      "end_date": "2014-09-08"
+    },
+    "test": {
+      "n": 252,
+      "start_date": "2014-10-07",
+      "end_date": "2015-10-06"
+    },
+    "purged_before_validation": 20,
+    "purged_before_test": 20,
+    "horizon": 20
+  },
+  "models": [
+    {
+      "model": "zero_return",
+      "details": {
+        "definition": "predict 0; fixed and not estimated"
+      },
+      "validation": {
+        "n": 252,
+        "mae": 0.020448230250322236,
+        "rmse": 0.024901274509736126,
+        "bias": -0.012483183600163077,
+        "directional_accuracy": 0.0,
+        "skill_vs_zero": 0.0,
+        "skill_vs_historical_mean": -0.1642703631791822
+      },
+      "test": {
+        "n": 252,
+        "mae": 0.024890778147129776,
+        "rmse": 0.034414999729726316,
+        "bias": -0.004331979744801998,
+        "directional_accuracy": 0.0,
+        "skill_vs_zero": 0.0,
+        "skill_vs_historical_mean": -0.016087871891873995
+      }
+    },
+    {
+      "model": "historical_mean",
+      "details": {
+        "definition": "mean of embargoed training targets, held fixed",
+        "training_mean": 0.004216269719305487
+      },
+      "validation": {
+        "n": 252,
+        "mae": 0.0186442091997292,
+        "rmse": 0.02307781325271893,
+        "bias": -0.008266913880857589,
+        "directional_accuracy": 0.7420634920634921,
+        "skill_vs_zero": 0.14109296978978492,
+        "skill_vs_historical_mean": 0.0
+      },
+      "test": {
+        "n": 252,
+        "mae": 0.024634520932145115,
+        "rmse": 0.034141463745681555,
+        "bias": -0.00011571002549651133,
+        "directional_accuracy": 0.5634920634920635,
+        "skill_vs_zero": 0.015833150199814572,
+        "skill_vs_historical_mean": 0.0
+      }
+    },
+    {
+      "model": "linear_regression",
+      "details": {
+        "scaling": "StandardScaler fit on training origins only"
+      },
+      "validation": {
+        "n": 252,
+        "mae": 0.018604350550790707,
+        "rmse": 0.023142614464839503,
+        "bias": -0.008168898798688064,
+        "directional_accuracy": 0.7420634920634921,
+        "skill_vs_zero": 0.13626267164760242,
+        "skill_vs_historical_mean": -0.005623772972262575
+      },
+      "test": {
+        "n": 252,
+        "mae": 0.024852230883728007,
+        "rmse": 0.03437500277652683,
+        "bias": -0.0002799352757443481,
+        "directional_accuracy": 0.5515873015873016,
+        "skill_vs_zero": 0.002323040033507695,
+        "skill_vs_historical_mean": -0.013727459087907512
+      }
+    },
+    {
+      "model": "random_forest",
+      "details": {
+        "selected_max_depth": 8,
+        "validation_rmse_by_depth": {
+          "4": 0.02289734429503491,
+          "8": 0.022842273286045333
+        },
+        "n_estimators": 200,
+        "min_samples_leaf": 5,
+        "seed": 171,
+        "scaling": "StandardScaler fit on training origins only"
+      },
+      "validation": {
+        "n": 252,
+        "mae": 0.01839136360056464,
+        "rmse": 0.022842273286045333,
+        "bias": -0.007772298430108666,
+        "directional_accuracy": 0.7420634920634921,
+        "skill_vs_zero": 0.15853608925505303,
+        "skill_vs_historical_mean": 0.02030850703480558
+      },
+      "test": {
+        "n": 252,
+        "mae": 0.024879296485873566,
+        "rmse": 0.03430649958400606,
+        "bias": 0.00028924936967127796,
+        "directional_accuracy": 0.5277777777777778,
+        "skill_vs_zero": 0.0062954590965573765,
+        "skill_vs_historical_mean": -0.009691132255870594
+      }
+    },
+    {
+      "model": "lstm",
+      "details": {
+        "selected_hidden_size": 32,
+        "validation_rmse_by_hidden_size": {
+          "16": 0.022468207593774988,
+          "32": 0.02151662838731924
+        },
+        "epochs_trained": 17,
+        "best_epoch": 12,
+        "lookback": 20,
+        "learning_rate": 0.001,
+        "batch_size": 256,
+        "max_epochs": 25,
+        "patience": 5,
+        "seed": 171,
+        "scaling": "training-origin mean and scale applied before windowing",
+        "history": [
+          {
+            "epoch": 1,
+            "validation_mse": 0.0005847511578419833
+          },
+          {
+            "epoch": 2,
+            "validation_mse": 0.000546724591160557
+          },
+          {
+            "epoch": 3,
+            "validation_mse": 0.0005383693425796027
+          },
+          {
+            "epoch": 4,
+            "validation_mse": 0.0005699913511980699
+          },
+          {
+            "epoch": 5,
+            "validation_mse": 0.0006007874849966301
+          },
+          {
+            "epoch": 6,
+            "validation_mse": 0.0006347740724872789
+          },
+          {
+            "epoch": 7,
+            "validation_mse": 0.0005358494685543193
+          },
+          {
+            "epoch": 8,
+            "validation_mse": 0.000566646840115896
+          },
+          {
+            "epoch": 9,
+            "validation_mse": 0.000517134025541544
+          },
+          {
+            "epoch": 10,
+            "validation_mse": 0.0004671178405928459
+          },
+          {
+            "epoch": 11,
+            "validation_mse": 0.0007244949774725702
+          },
+          {
+            "epoch": 12,
+            "validation_mse": 0.00046296529715799214
+          },
+          {
+            "epoch": 13,
+            "validation_mse": 0.0005199947457837739
+          },
+          {
+            "epoch": 14,
+            "validation_mse": 0.0007093319748157776
+          },
+          {
+            "epoch": 15,
+            "validation_mse": 0.0005058024037343676
+          },
+          {
+            "epoch": 16,
+            "validation_mse": 0.00047733179621272493
+          },
+          {
+            "epoch": 17,
+            "validation_mse": 0.0005378795900207108
+          }
+        ],
+        "reproducibility": "Seeds are set for Python, NumPy, and PyTorch. CPU LSTM results are not guaranteed to be bitwise identical across library versions."
+      },
+      "validation": {
+        "n": 252,
+        "mae": 0.017062801354940167,
+        "rmse": 0.02151662838731924,
+        "bias": -0.003693477984968059,
+        "directional_accuracy": 0.753968253968254,
+        "skill_vs_zero": 0.25337025706242156,
+        "skill_vs_historical_mean": 0.1307211180296861
+      },
+      "test": {
+        "n": 252,
+        "mae": 0.02508324842288854,
+        "rmse": 0.03487055667718745,
+        "bias": 0.009616488717067254,
+        "directional_accuracy": 0.5634920634920635,
+        "skill_vs_zero": -0.02664954768310812,
+        "skill_vs_historical_mean": -0.043166154084084196
+      }
+    }
+  ],
+  "volatility_thresholds": {
+    "low_max": 0.006511513893455105,
+    "high_min": 0.009735449434804972,
+    "validation_mean": 0.006387351111840302,
+    "test_mean": 0.008879541507491772
+  },
+  "models_present": [
+    "zero_return",
+    "historical_mean",
+    "linear_regression",
+    "random_forest",
+    "lstm"
+  ],
+  "execution": {
+    "mode": "full",
+    "python": "3.13.2",
+    "platform": "macOS-14.5-arm64-arm-64bit-Mach-O",
+    "versions": {
+      "marketpulse": "0.1.0",
+      "numpy": "2.5.4",
+      "pandas": "3.1.0",
+      "scikit-learn": "1.9.1",
+      "torch": "2.14.1"
+    },
+    "git_sha": "ce58c9263d5fabad2476b1cf46c07d7c61ae3cd9",
+    "settings": {
+      "lookback": 20,
+      "rf_n_estimators": 200,
+      "rf_min_samples_leaf": 5,
+      "rf_max_depth": [
+        4,
+        8
+      ],
+      "lstm_hidden_size": [
+        16,
+        32
+      ],
+      "lstm_learning_rate": 0.001,
+      "lstm_batch_size": 256,
+      "lstm_max_epochs": 25,
+      "lstm_patience": 5
+    },
+    "elapsed_seconds": 35.09099887497723
+  },
+  "predictions_sha256": "2c957d72ec5f6cc12a7760b2a94d9c91f52dde3c071bacd885f253c5f307a684"
+}
