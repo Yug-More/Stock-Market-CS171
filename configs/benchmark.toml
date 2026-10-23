@@ -1,0 +1,10 @@
+schema_version = 1
+lookback = 20
+rf_n_estimators = 200
+rf_min_samples_leaf = 5
+rf_max_depth = [4, 8]
+lstm_hidden_size = [16, 32]
+lstm_learning_rate = 0.001
+lstm_batch_size = 256
+lstm_max_epochs = 25
+lstm_patience = 5
