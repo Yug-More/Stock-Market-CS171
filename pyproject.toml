@@ -15,6 +15,7 @@ authors = [
 dependencies = [
   "numpy>=1.26",
   "pandas>=2.2",
+  "scikit-learn>=1.4",
 ]
 
 [project.optional-dependencies]
@@ -30,6 +31,7 @@ dev = [
 
 [project.scripts]
 marketpulse-validate = "marketpulse.data.cli:main"
+marketpulse-benchmark = "marketpulse.experiments.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
