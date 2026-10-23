@@ -79,3 +79,8 @@ jobs:
 
       - name: Audit expanded full-budget robustness
         run: python scripts/phase10.py verify
+
+      - name: Audit delayed adaptive intervals and failure diagnostics
+        run: |
+          python scripts/phase11.py verify
+          python scripts/phase11_diagnostics.py --verify
