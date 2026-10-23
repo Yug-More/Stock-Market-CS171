@@ -1,0 +1,251 @@
+{
+  "classification": "retrospective infrastructure rehearsal",
+  "independent_validation_completed": false,
+  "blocker": "No acquired, provenance-complete, unexposed prospective observations; fixed future test is not mature.",
+  "protocol_sha256": "7ee57f4148576b8f40d4c883d947432c0c6169ba1391ee271b17ead143abf40a",
+  "environment": {
+    "mode": "full",
+    "python": "3.13.2",
+    "platform": "macOS-14.5-arm64-arm-64bit-Mach-O",
+    "versions": {
+      "marketpulse": "0.1.0",
+      "numpy": "2.5.4",
+      "pandas": "3.1.0",
+      "scikit-learn": "1.9.1",
+      "torch": "2.14.1"
+    },
+    "git_sha": "2aa2ff441c618a2442b1e4b8c13135680a00a173"
+  },
+  "provenance": [
+    {
+      "dataset": "NASDAQ-100",
+      "path": "data/nasdaq100.csv",
+      "sha256": "deb35f9888f892ceb61ff92883b5a5825d7567bc5973fe7b9080d06c893ca450",
+      "first": "2000-01-03 00:00:00",
+      "last": "2024-12-31 00:00:00",
+      "source": "The preprocessing notebook records yf.download('^NDX', start='2000-01-01', end='2024-12-31'). The file has the multi-row header written by recent yfinance versions and a ticker row of ^NDX. No acquisition timestamp or yfinance version is stored.",
+      "acquisition_utc": null,
+      "license": "not recorded",
+      "adjustments": "price-index closes; dividend total returns unavailable",
+      "independent": false
+    },
+    {
+      "dataset": "S&P 500",
+      "path": "data/SPX.csv",
+      "sha256": "54aa877d5d275b660bc8171642dc3a2eece16b9709e1d35f13a3b4e7972cc35c",
+      "first": "1927-12-30 00:00:00",
+      "last": "2020-11-04 00:00:00",
+      "source": "The README and the S&P 500 preprocessing notebook describe this file as a Kaggle download. The repository does not store a source URL, dataset version, or retrieval timestamp.",
+      "acquisition_utc": null,
+      "license": "not recorded",
+      "adjustments": "price-index closes; dividend total returns unavailable",
+      "independent": false
+    }
+  ],
+  "plans": [
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 1,
+      "blocks": [
+        {
+          "name": "train",
+          "n": 5490,
+          "first": "2000-02-29",
+          "last": "2021-12-21",
+          "last_endpoint": "2021-12-22"
+        },
+        {
+          "name": "validation",
+          "n": 252,
+          "first": "2021-12-23",
+          "last": "2022-12-22",
+          "last_endpoint": "2022-12-23"
+        },
+        {
+          "name": "calibration",
+          "n": 252,
+          "first": "2022-12-27",
+          "last": "2023-12-27",
+          "last_endpoint": "2023-12-28"
+        },
+        {
+          "name": "test",
+          "n": 252,
+          "first": "2023-12-29",
+          "last": "2024-12-30",
+          "last_endpoint": "2024-12-31"
+        }
+      ]
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 5,
+      "blocks": [
+        {
+          "name": "train",
+          "n": 5474,
+          "first": "2000-02-29",
+          "last": "2021-11-29",
+          "last_endpoint": "2021-12-06"
+        },
+        {
+          "name": "validation",
+          "n": 252,
+          "first": "2021-12-07",
+          "last": "2022-12-06",
+          "last_endpoint": "2022-12-13"
+        },
+        {
+          "name": "calibration",
+          "n": 252,
+          "first": "2022-12-14",
+          "last": "2023-12-14",
+          "last_endpoint": "2023-12-21"
+        },
+        {
+          "name": "test",
+          "n": 252,
+          "first": "2023-12-22",
+          "last": "2024-12-23",
+          "last_endpoint": "2024-12-31"
+        }
+      ]
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 20,
+      "blocks": [
+        {
+          "name": "train",
+          "n": 5414,
+          "first": "2000-02-29",
+          "last": "2021-09-02",
+          "last_endpoint": "2021-10-01"
+        },
+        {
+          "name": "validation",
+          "n": 252,
+          "first": "2021-10-04",
+          "last": "2022-10-03",
+          "last_endpoint": "2022-10-31"
+        },
+        {
+          "name": "calibration",
+          "n": 252,
+          "first": "2022-11-01",
+          "last": "2023-11-01",
+          "last_endpoint": "2023-11-30"
+        },
+        {
+          "name": "test",
+          "n": 252,
+          "first": "2023-12-01",
+          "last": "2024-12-02",
+          "last_endpoint": "2024-12-31"
+        }
+      ]
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 1,
+      "blocks": [
+        {
+          "name": "train",
+          "n": 22524,
+          "first": "1928-02-28",
+          "last": "2017-10-27",
+          "last_endpoint": "2017-10-30"
+        },
+        {
+          "name": "validation",
+          "n": 252,
+          "first": "2017-10-31",
+          "last": "2018-10-30",
+          "last_endpoint": "2018-10-31"
+        },
+        {
+          "name": "calibration",
+          "n": 252,
+          "first": "2018-11-01",
+          "last": "2019-11-01",
+          "last_endpoint": "2019-11-04"
+        },
+        {
+          "name": "test",
+          "n": 252,
+          "first": "2019-11-05",
+          "last": "2020-11-03",
+          "last_endpoint": "2020-11-04"
+        }
+      ]
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 5,
+      "blocks": [
+        {
+          "name": "train",
+          "n": 22508,
+          "first": "1928-02-28",
+          "last": "2017-10-05",
+          "last_endpoint": "2017-10-12"
+        },
+        {
+          "name": "validation",
+          "n": 252,
+          "first": "2017-10-13",
+          "last": "2018-10-12",
+          "last_endpoint": "2018-10-19"
+        },
+        {
+          "name": "calibration",
+          "n": 252,
+          "first": "2018-10-22",
+          "last": "2019-10-22",
+          "last_endpoint": "2019-10-29"
+        },
+        {
+          "name": "test",
+          "n": 252,
+          "first": "2019-10-30",
+          "last": "2020-10-28",
+          "last_endpoint": "2020-11-04"
+        }
+      ]
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 20,
+      "blocks": [
+        {
+          "name": "train",
+          "n": 22448,
+          "first": "1928-02-28",
+          "last": "2017-07-12",
+          "last_endpoint": "2017-08-09"
+        },
+        {
+          "name": "validation",
+          "n": 252,
+          "first": "2017-08-10",
+          "last": "2018-08-09",
+          "last_endpoint": "2018-09-07"
+        },
+        {
+          "name": "calibration",
+          "n": 252,
+          "first": "2018-09-10",
+          "last": "2019-09-10",
+          "last_endpoint": "2019-10-08"
+        },
+        {
+          "name": "test",
+          "n": 252,
+          "first": "2019-10-09",
+          "last": "2020-10-07",
+          "last_endpoint": "2020-11-04"
+        }
+      ]
+    }
+  ]
+}

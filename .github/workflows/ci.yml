@@ -73,3 +73,6 @@ jobs:
 
       - name: Audit robustness, statistical comparisons, and calibration
         run: python scripts/research_cycle.py verify
+
+      - name: Audit four-block validation rehearsal
+        run: python scripts/audit_phase9.py

@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "classification": "prospective protocol; no independent results yet",
+  "freeze_date_utc": "2026-10-23",
+  "earliest_test_origin": "2026-10-26",
+  "test_origins": 252,
+  "validation_origins": 252,
+  "calibration_origins": 252,
+  "minimum_training_origins": 2520,
+  "horizons": [1, 5, 20],
+  "seed": 171,
+  "models": ["zero_return", "historical_mean", "linear_regression", "random_forest", "lstm"],
+  "model_configuration": "configs/benchmark.toml",
+  "target": "log(Close[t+h]/Close[t]); price index, no dividend total return",
+  "primary_pairs": [["random_forest", "zero_return"], ["random_forest", "historical_mean"], ["lstm", "zero_return"], ["lstm", "historical_mean"]],
+  "primary_loss": "MSE",
+  "secondary_metrics": ["MAE", "RMSE", "bias", "directional_accuracy", "MSE_skill"],
+  "inference": {"method": "paired moving block bootstrap and Bartlett HAC", "block_lengths": [20, 40, 80], "primary_block_length": 20, "replicates": 2000, "seed": 9171, "confidence": 0.95, "multiplicity": "Holm across all 24 index/horizon/pair tests; bootstrap intervals marginal"},
+  "intervals": {"levels": [0.8, 0.9], "method": "fixed absolute-residual split calibration", "quantile": "ceil((n+1)*coverage); infinite if rank exceeds n", "updates": false},
+  "selection": "validation RMSE only; smaller candidate wins exact tie; no refit after validation",
+  "gate": "new source must record URL/version/retrieval UTC/license/adjustments/SHA256 and prior exposure declaration; human independence cannot be inferred from timestamps",
+  "stopping": "one fixed 252-origin prospective test per index/horizon; no optional stopping or retuning on outcomes"
+}

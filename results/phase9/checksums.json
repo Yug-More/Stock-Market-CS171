@@ -1,0 +1,17 @@
+{
+  "audit.json": "bf214d55d1fb742591148d00d4fd07e635c10ed4ce834eb76a45bbffc2851db4",
+  "rehearsal/NASDAQ-100_h1.csv.gz": "2d489c15dbdce1723b9832a8a96765415e01966658e676ba8043e7d225fb5fd7",
+  "rehearsal/NASDAQ-100_h1.json": "2e7243083b85e2c0c02266bda3f9bd45d9e0ef8b2900a4d64f14c9a88d35fc22",
+  "rehearsal/NASDAQ-100_h20.csv.gz": "cd56f951c08596b661ec8a24be4904131c5931373abf2bb11b0fb3a0d4796596",
+  "rehearsal/NASDAQ-100_h20.json": "ba2cbf1adbf2debd4a55099189fa0bc58412ccb6eed561379acd6791607f2d4e",
+  "rehearsal/NASDAQ-100_h5.csv.gz": "894e15df1dd5e9194e11b8d26309ff2a779ea724af03295f5eab02e0cd9e52eb",
+  "rehearsal/NASDAQ-100_h5.json": "82ddefe6cb8ecbba327280764f02515bacd90eccf23ca997e3e4f968eb3708b2",
+  "rehearsal/S&P_500_h1.csv.gz": "9ff895a95465e510322ab628cfb981eacbf4b4e592359b2fd45057a8a33ef87d",
+  "rehearsal/S&P_500_h1.json": "72134cd877db326bac92a03b7229db3c233a2c811c05bb3c6de698fd9c11a56b",
+  "rehearsal/S&P_500_h20.csv.gz": "25b2f4ba642fc8f80469836c185a04195ee865debde34b16fae44362caa7f854",
+  "rehearsal/S&P_500_h20.json": "b6086129896ba4775bfc4d4a4211429a23ae200d8dcc936761ac6bba3fc8265d",
+  "rehearsal/S&P_500_h5.csv.gz": "2db559af5fa2c62583969ff1d08e176d4b839bccf4bd8970a8dd72b3b526b942",
+  "rehearsal/S&P_500_h5.json": "ca7f23cf8ffeba7819e5023cdf0a7f1de3d7f16cea7f18db7df1737943a905ce",
+  "rehearsal/manifest.json": "b685998fb59e2828e627703e5751935d9589e29d14fc34c5c2972790a7ceef96",
+  "rehearsal/metrics.csv": "56e71dbde80c702eb07f8ca371b8a540ff01dde55b6275d208d941273936d74a"
+}
