@@ -1,0 +1,91 @@
+dataset,horizon,model,population,n,native_n,removed,retained_fraction
+NASDAQ-100,1,zero_return,native,3276,3276,0,1.0
+NASDAQ-100,1,historical_mean,native,3276,3276,0,1.0
+NASDAQ-100,1,linear_regression,native,3276,3276,0,1.0
+NASDAQ-100,1,random_forest,native,3276,3276,0,1.0
+NASDAQ-100,1,lstm,native,3276,3276,0,1.0
+NASDAQ-100,20,zero_return,native,3276,3276,0,1.0
+NASDAQ-100,20,historical_mean,native,3276,3276,0,1.0
+NASDAQ-100,20,linear_regression,native,3276,3276,0,1.0
+NASDAQ-100,20,random_forest,native,3276,3276,0,1.0
+NASDAQ-100,20,lstm,native,3276,3276,0,1.0
+NASDAQ-100,5,zero_return,native,3276,3276,0,1.0
+NASDAQ-100,5,historical_mean,native,3276,3276,0,1.0
+NASDAQ-100,5,linear_regression,native,3276,3276,0,1.0
+NASDAQ-100,5,random_forest,native,3276,3276,0,1.0
+NASDAQ-100,5,lstm,native,3276,3276,0,1.0
+S&P 500,1,zero_return,native,20412,20412,0,1.0
+S&P 500,1,historical_mean,native,20412,20412,0,1.0
+S&P 500,1,linear_regression,native,20412,20412,0,1.0
+S&P 500,1,random_forest,native,20412,20412,0,1.0
+S&P 500,1,lstm,native,20412,20412,0,1.0
+S&P 500,20,zero_return,native,20412,20412,0,1.0
+S&P 500,20,historical_mean,native,20412,20412,0,1.0
+S&P 500,20,linear_regression,native,20412,20412,0,1.0
+S&P 500,20,random_forest,native,20412,20412,0,1.0
+S&P 500,20,lstm,native,20412,20412,0,1.0
+S&P 500,5,zero_return,native,20412,20412,0,1.0
+S&P 500,5,historical_mean,native,20412,20412,0,1.0
+S&P 500,5,linear_regression,native,20412,20412,0,1.0
+S&P 500,5,random_forest,native,20412,20412,0,1.0
+S&P 500,5,lstm,native,20412,20412,0,1.0
+NASDAQ-100,1,zero_return,origin_matched,2232,3276,1044,0.6813186813186813
+NASDAQ-100,1,historical_mean,origin_matched,2232,3276,1044,0.6813186813186813
+NASDAQ-100,1,linear_regression,origin_matched,2232,3276,1044,0.6813186813186813
+NASDAQ-100,1,random_forest,origin_matched,2232,3276,1044,0.6813186813186813
+NASDAQ-100,1,lstm,origin_matched,2232,3276,1044,0.6813186813186813
+NASDAQ-100,20,zero_return,origin_matched,2232,3276,1044,0.6813186813186813
+NASDAQ-100,20,historical_mean,origin_matched,2232,3276,1044,0.6813186813186813
+NASDAQ-100,20,linear_regression,origin_matched,2232,3276,1044,0.6813186813186813
+NASDAQ-100,20,random_forest,origin_matched,2232,3276,1044,0.6813186813186813
+NASDAQ-100,20,lstm,origin_matched,2232,3276,1044,0.6813186813186813
+NASDAQ-100,5,zero_return,origin_matched,2232,3276,1044,0.6813186813186813
+NASDAQ-100,5,historical_mean,origin_matched,2232,3276,1044,0.6813186813186813
+NASDAQ-100,5,linear_regression,origin_matched,2232,3276,1044,0.6813186813186813
+NASDAQ-100,5,random_forest,origin_matched,2232,3276,1044,0.6813186813186813
+NASDAQ-100,5,lstm,origin_matched,2232,3276,1044,0.6813186813186813
+S&P 500,1,zero_return,origin_matched,2232,20412,18180,0.10934744268077601
+S&P 500,1,historical_mean,origin_matched,2232,20412,18180,0.10934744268077601
+S&P 500,1,linear_regression,origin_matched,2232,20412,18180,0.10934744268077601
+S&P 500,1,random_forest,origin_matched,2232,20412,18180,0.10934744268077601
+S&P 500,1,lstm,origin_matched,2232,20412,18180,0.10934744268077601
+S&P 500,20,zero_return,origin_matched,2232,20412,18180,0.10934744268077601
+S&P 500,20,historical_mean,origin_matched,2232,20412,18180,0.10934744268077601
+S&P 500,20,linear_regression,origin_matched,2232,20412,18180,0.10934744268077601
+S&P 500,20,random_forest,origin_matched,2232,20412,18180,0.10934744268077601
+S&P 500,20,lstm,origin_matched,2232,20412,18180,0.10934744268077601
+S&P 500,5,zero_return,origin_matched,2232,20412,18180,0.10934744268077601
+S&P 500,5,historical_mean,origin_matched,2232,20412,18180,0.10934744268077601
+S&P 500,5,linear_regression,origin_matched,2232,20412,18180,0.10934744268077601
+S&P 500,5,random_forest,origin_matched,2232,20412,18180,0.10934744268077601
+S&P 500,5,lstm,origin_matched,2232,20412,18180,0.10934744268077601
+NASDAQ-100,1,zero_return,endpoint_matched,2232,3276,1044,0.6813186813186813
+NASDAQ-100,1,historical_mean,endpoint_matched,2232,3276,1044,0.6813186813186813
+NASDAQ-100,1,linear_regression,endpoint_matched,2232,3276,1044,0.6813186813186813
+NASDAQ-100,1,random_forest,endpoint_matched,2232,3276,1044,0.6813186813186813
+NASDAQ-100,1,lstm,endpoint_matched,2232,3276,1044,0.6813186813186813
+NASDAQ-100,20,zero_return,endpoint_matched,2232,3276,1044,0.6813186813186813
+NASDAQ-100,20,historical_mean,endpoint_matched,2232,3276,1044,0.6813186813186813
+NASDAQ-100,20,linear_regression,endpoint_matched,2232,3276,1044,0.6813186813186813
+NASDAQ-100,20,random_forest,endpoint_matched,2232,3276,1044,0.6813186813186813
+NASDAQ-100,20,lstm,endpoint_matched,2232,3276,1044,0.6813186813186813
+NASDAQ-100,5,zero_return,endpoint_matched,2232,3276,1044,0.6813186813186813
+NASDAQ-100,5,historical_mean,endpoint_matched,2232,3276,1044,0.6813186813186813
+NASDAQ-100,5,linear_regression,endpoint_matched,2232,3276,1044,0.6813186813186813
+NASDAQ-100,5,random_forest,endpoint_matched,2232,3276,1044,0.6813186813186813
+NASDAQ-100,5,lstm,endpoint_matched,2232,3276,1044,0.6813186813186813
+S&P 500,1,zero_return,endpoint_matched,2232,20412,18180,0.10934744268077601
+S&P 500,1,historical_mean,endpoint_matched,2232,20412,18180,0.10934744268077601
+S&P 500,1,linear_regression,endpoint_matched,2232,20412,18180,0.10934744268077601
+S&P 500,1,random_forest,endpoint_matched,2232,20412,18180,0.10934744268077601
+S&P 500,1,lstm,endpoint_matched,2232,20412,18180,0.10934744268077601
+S&P 500,20,zero_return,endpoint_matched,2232,20412,18180,0.10934744268077601
+S&P 500,20,historical_mean,endpoint_matched,2232,20412,18180,0.10934744268077601
+S&P 500,20,linear_regression,endpoint_matched,2232,20412,18180,0.10934744268077601
+S&P 500,20,random_forest,endpoint_matched,2232,20412,18180,0.10934744268077601
+S&P 500,20,lstm,endpoint_matched,2232,20412,18180,0.10934744268077601
+S&P 500,5,zero_return,endpoint_matched,2232,20412,18180,0.10934744268077601
+S&P 500,5,historical_mean,endpoint_matched,2232,20412,18180,0.10934744268077601
+S&P 500,5,linear_regression,endpoint_matched,2232,20412,18180,0.10934744268077601
+S&P 500,5,random_forest,endpoint_matched,2232,20412,18180,0.10934744268077601
+S&P 500,5,lstm,endpoint_matched,2232,20412,18180,0.10934744268077601

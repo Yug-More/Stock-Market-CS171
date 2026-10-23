@@ -143,9 +143,28 @@ The run saves exact fold plans, predictions, selected hyperparameters, training-
 - `docs/`: audit, original research design, methods, results, and recovery record.
 - `notebooks/`: preserved original course work.
 
+## Robustness, statistical reliability, and forecast uncertainty
+
+Phases 6–8 extend the preserved benchmark with an independent audit, shared-origin-and-endpoint evaluation, five-seed sensitivity, dependence-aware forecast comparisons, and chronological prediction intervals. See the [measured results](docs/ROBUSTNESS_RESULTS.md), [predeclared design](docs/ROBUSTNESS_METHODOLOGY.md), [statistical methods](docs/STATISTICAL_RELIABILITY.md), [calibration](docs/FORECAST_CALIBRATION.md), and [limitations](docs/RESEARCH_LIMITATIONS.md).
+
+- Matching retains 2,232 origins per index/horizon. Equal evaluation dates do not equalize training histories.
+- Five seeds retrain RF/LSTM on earliest/middle/latest folds in every cell: 90 full-budget tasks, 180 stochastic model-fold evaluations. This is an 18-fold sensitivity subset, not a five-seed rerun of all 282 folds. Fresh seed-171 outputs match all 36 selected original model/fold forecasts numerically.
+- An 18-test retrospective primary family uses paired squared losses, Bartlett HAC and Holm correction, with 2,000-replicate moving-block intervals and 20/40/80-session sensitivity. No RF improvement over a simple baseline survives the primary Holm correction. Nonsignificance does not establish equivalence or future accuracy.
+- LSTM seed sensitivity is material on selected NASDAQ twenty-session folds: pooled ranks range from first to fifth. This does not reverse its original full-history ranking.
+- All five procedures have prequential 80%/90% intervals using strictly matured OOS residuals: trailing 504, expanding, and volatility-scaled alternatives. The independent audit verifies 1,065,960 wide interval records and 2,085,000 evaluated quantiles/bounds, including every calibration population and all coverage/width/score summaries. Wider intervals are not automatically better; no exchangeability-based guarantee is claimed.
+
+```bash
+# Audit the saved extension study; no retraining required.
+tar -xzf results/walkforward/full/fold_predictions.tar.gz -C results/walkforward/full
+python scripts/research_cycle.py verify
+# Separate reproducible steps: audit, matched, seeds, statistics, calibration, figures, report.
+```
+
+[Artifact schemas and complete commands](results/robustness/README.md) distinguish historical evidence, newly executed training, interval warmup exclusions, primary versus exploratory inference, and unresolved legacy provenance. Ten new figures derive from actual saved artifacts. The older Phase 4/5 report remains a snapshot of that original one-seed study.
+
 ## Next research cycle
 
-Run a matched-calendar comparison with common fold dates and comparable histories, predeclared multi-seed neural repetitions, dependence-aware uncertainty analysis, and chronological interval calibration with regime-specific coverage. Prediction intervals, transaction-cost modeling, portfolio returns, and profitable-trading claims are outside the completed phases.
+Prioritize a genuinely unseen chronological holdout or additional market with complete acquisition provenance. Extend the declared seed design beyond the balanced subset, then compare fixed adaptive calibration methods on that fresh population using proper scores and dependence-aware coverage uncertainty. Save model weights and cross-platform replay metadata. Keep retrospective findings separate from confirmation on new data. Trading evaluation remains a separate research question.
 
 ## Contributors
 

@@ -1,0 +1,271 @@
+train nasdaq-100_h1_f000_s171
+NASDAQ-100 horizon 1 fold 1/13: random_forest
+NASDAQ-100 horizon 1 fold 1/13: lstm
+train nasdaq-100_h1_f000_s271
+NASDAQ-100 horizon 1 fold 1/13: random_forest
+NASDAQ-100 horizon 1 fold 1/13: lstm
+train nasdaq-100_h1_f000_s371
+NASDAQ-100 horizon 1 fold 1/13: random_forest
+NASDAQ-100 horizon 1 fold 1/13: lstm
+train nasdaq-100_h1_f000_s471
+NASDAQ-100 horizon 1 fold 1/13: random_forest
+NASDAQ-100 horizon 1 fold 1/13: lstm
+train nasdaq-100_h1_f000_s571
+NASDAQ-100 horizon 1 fold 1/13: random_forest
+NASDAQ-100 horizon 1 fold 1/13: lstm
+train nasdaq-100_h1_f006_s171
+NASDAQ-100 horizon 1 fold 7/13: random_forest
+NASDAQ-100 horizon 1 fold 7/13: lstm
+train nasdaq-100_h1_f006_s271
+NASDAQ-100 horizon 1 fold 7/13: random_forest
+NASDAQ-100 horizon 1 fold 7/13: lstm
+train nasdaq-100_h1_f006_s371
+NASDAQ-100 horizon 1 fold 7/13: random_forest
+NASDAQ-100 horizon 1 fold 7/13: lstm
+train nasdaq-100_h1_f006_s471
+NASDAQ-100 horizon 1 fold 7/13: random_forest
+NASDAQ-100 horizon 1 fold 7/13: lstm
+train nasdaq-100_h1_f006_s571
+NASDAQ-100 horizon 1 fold 7/13: random_forest
+NASDAQ-100 horizon 1 fold 7/13: lstm
+train nasdaq-100_h1_f012_s171
+NASDAQ-100 horizon 1 fold 13/13: random_forest
+NASDAQ-100 horizon 1 fold 13/13: lstm
+train nasdaq-100_h1_f012_s271
+NASDAQ-100 horizon 1 fold 13/13: random_forest
+NASDAQ-100 horizon 1 fold 13/13: lstm
+train nasdaq-100_h1_f012_s371
+NASDAQ-100 horizon 1 fold 13/13: random_forest
+NASDAQ-100 horizon 1 fold 13/13: lstm
+train nasdaq-100_h1_f012_s471
+NASDAQ-100 horizon 1 fold 13/13: random_forest
+NASDAQ-100 horizon 1 fold 13/13: lstm
+train nasdaq-100_h1_f012_s571
+NASDAQ-100 horizon 1 fold 13/13: random_forest
+NASDAQ-100 horizon 1 fold 13/13: lstm
+train nasdaq-100_h5_f000_s171
+NASDAQ-100 horizon 5 fold 1/13: random_forest
+NASDAQ-100 horizon 5 fold 1/13: lstm
+train nasdaq-100_h5_f000_s271
+NASDAQ-100 horizon 5 fold 1/13: random_forest
+NASDAQ-100 horizon 5 fold 1/13: lstm
+train nasdaq-100_h5_f000_s371
+NASDAQ-100 horizon 5 fold 1/13: random_forest
+NASDAQ-100 horizon 5 fold 1/13: lstm
+train nasdaq-100_h5_f000_s471
+NASDAQ-100 horizon 5 fold 1/13: random_forest
+NASDAQ-100 horizon 5 fold 1/13: lstm
+train nasdaq-100_h5_f000_s571
+NASDAQ-100 horizon 5 fold 1/13: random_forest
+NASDAQ-100 horizon 5 fold 1/13: lstm
+train nasdaq-100_h5_f006_s171
+NASDAQ-100 horizon 5 fold 7/13: random_forest
+NASDAQ-100 horizon 5 fold 7/13: lstm
+train nasdaq-100_h5_f006_s271
+NASDAQ-100 horizon 5 fold 7/13: random_forest
+NASDAQ-100 horizon 5 fold 7/13: lstm
+train nasdaq-100_h5_f006_s371
+NASDAQ-100 horizon 5 fold 7/13: random_forest
+NASDAQ-100 horizon 5 fold 7/13: lstm
+train nasdaq-100_h5_f006_s471
+NASDAQ-100 horizon 5 fold 7/13: random_forest
+NASDAQ-100 horizon 5 fold 7/13: lstm
+train nasdaq-100_h5_f006_s571
+NASDAQ-100 horizon 5 fold 7/13: random_forest
+NASDAQ-100 horizon 5 fold 7/13: lstm
+train nasdaq-100_h5_f012_s171
+NASDAQ-100 horizon 5 fold 13/13: random_forest
+NASDAQ-100 horizon 5 fold 13/13: lstm
+train nasdaq-100_h5_f012_s271
+NASDAQ-100 horizon 5 fold 13/13: random_forest
+NASDAQ-100 horizon 5 fold 13/13: lstm
+train nasdaq-100_h5_f012_s371
+NASDAQ-100 horizon 5 fold 13/13: random_forest
+NASDAQ-100 horizon 5 fold 13/13: lstm
+train nasdaq-100_h5_f012_s471
+NASDAQ-100 horizon 5 fold 13/13: random_forest
+NASDAQ-100 horizon 5 fold 13/13: lstm
+train nasdaq-100_h5_f012_s571
+NASDAQ-100 horizon 5 fold 13/13: random_forest
+NASDAQ-100 horizon 5 fold 13/13: lstm
+train nasdaq-100_h20_f000_s171
+NASDAQ-100 horizon 20 fold 1/13: random_forest
+NASDAQ-100 horizon 20 fold 1/13: lstm
+train nasdaq-100_h20_f000_s271
+NASDAQ-100 horizon 20 fold 1/13: random_forest
+NASDAQ-100 horizon 20 fold 1/13: lstm
+train nasdaq-100_h20_f000_s371
+NASDAQ-100 horizon 20 fold 1/13: random_forest
+NASDAQ-100 horizon 20 fold 1/13: lstm
+train nasdaq-100_h20_f000_s471
+NASDAQ-100 horizon 20 fold 1/13: random_forest
+NASDAQ-100 horizon 20 fold 1/13: lstm
+train nasdaq-100_h20_f000_s571
+NASDAQ-100 horizon 20 fold 1/13: random_forest
+NASDAQ-100 horizon 20 fold 1/13: lstm
+train nasdaq-100_h20_f006_s171
+NASDAQ-100 horizon 20 fold 7/13: random_forest
+NASDAQ-100 horizon 20 fold 7/13: lstm
+train nasdaq-100_h20_f006_s271
+NASDAQ-100 horizon 20 fold 7/13: random_forest
+NASDAQ-100 horizon 20 fold 7/13: lstm
+train nasdaq-100_h20_f006_s371
+NASDAQ-100 horizon 20 fold 7/13: random_forest
+NASDAQ-100 horizon 20 fold 7/13: lstm
+train nasdaq-100_h20_f006_s471
+NASDAQ-100 horizon 20 fold 7/13: random_forest
+NASDAQ-100 horizon 20 fold 7/13: lstm
+train nasdaq-100_h20_f006_s571
+NASDAQ-100 horizon 20 fold 7/13: random_forest
+NASDAQ-100 horizon 20 fold 7/13: lstm
+train nasdaq-100_h20_f012_s171
+NASDAQ-100 horizon 20 fold 13/13: random_forest
+NASDAQ-100 horizon 20 fold 13/13: lstm
+train nasdaq-100_h20_f012_s271
+NASDAQ-100 horizon 20 fold 13/13: random_forest
+NASDAQ-100 horizon 20 fold 13/13: lstm
+train nasdaq-100_h20_f012_s371
+NASDAQ-100 horizon 20 fold 13/13: random_forest
+NASDAQ-100 horizon 20 fold 13/13: lstm
+train nasdaq-100_h20_f012_s471
+NASDAQ-100 horizon 20 fold 13/13: random_forest
+NASDAQ-100 horizon 20 fold 13/13: lstm
+train nasdaq-100_h20_f012_s571
+NASDAQ-100 horizon 20 fold 13/13: random_forest
+NASDAQ-100 horizon 20 fold 13/13: lstm
+train sandp_500_h1_f000_s171
+S&P 500 horizon 1 fold 1/81: random_forest
+S&P 500 horizon 1 fold 1/81: lstm
+train sandp_500_h1_f000_s271
+S&P 500 horizon 1 fold 1/81: random_forest
+S&P 500 horizon 1 fold 1/81: lstm
+train sandp_500_h1_f000_s371
+S&P 500 horizon 1 fold 1/81: random_forest
+S&P 500 horizon 1 fold 1/81: lstm
+train sandp_500_h1_f000_s471
+S&P 500 horizon 1 fold 1/81: random_forest
+S&P 500 horizon 1 fold 1/81: lstm
+train sandp_500_h1_f000_s571
+S&P 500 horizon 1 fold 1/81: random_forest
+S&P 500 horizon 1 fold 1/81: lstm
+train sandp_500_h1_f040_s171
+S&P 500 horizon 1 fold 41/81: random_forest
+S&P 500 horizon 1 fold 41/81: lstm
+train sandp_500_h1_f040_s271
+S&P 500 horizon 1 fold 41/81: random_forest
+S&P 500 horizon 1 fold 41/81: lstm
+train sandp_500_h1_f040_s371
+S&P 500 horizon 1 fold 41/81: random_forest
+S&P 500 horizon 1 fold 41/81: lstm
+train sandp_500_h1_f040_s471
+S&P 500 horizon 1 fold 41/81: random_forest
+S&P 500 horizon 1 fold 41/81: lstm
+train sandp_500_h1_f040_s571
+S&P 500 horizon 1 fold 41/81: random_forest
+S&P 500 horizon 1 fold 41/81: lstm
+train sandp_500_h1_f080_s171
+S&P 500 horizon 1 fold 81/81: random_forest
+S&P 500 horizon 1 fold 81/81: lstm
+train sandp_500_h1_f080_s271
+S&P 500 horizon 1 fold 81/81: random_forest
+S&P 500 horizon 1 fold 81/81: lstm
+train sandp_500_h1_f080_s371
+S&P 500 horizon 1 fold 81/81: random_forest
+S&P 500 horizon 1 fold 81/81: lstm
+train sandp_500_h1_f080_s471
+S&P 500 horizon 1 fold 81/81: random_forest
+S&P 500 horizon 1 fold 81/81: lstm
+train sandp_500_h1_f080_s571
+S&P 500 horizon 1 fold 81/81: random_forest
+S&P 500 horizon 1 fold 81/81: lstm
+train sandp_500_h5_f000_s171
+S&P 500 horizon 5 fold 1/81: random_forest
+S&P 500 horizon 5 fold 1/81: lstm
+train sandp_500_h5_f000_s271
+S&P 500 horizon 5 fold 1/81: random_forest
+S&P 500 horizon 5 fold 1/81: lstm
+train sandp_500_h5_f000_s371
+S&P 500 horizon 5 fold 1/81: random_forest
+S&P 500 horizon 5 fold 1/81: lstm
+train sandp_500_h5_f000_s471
+S&P 500 horizon 5 fold 1/81: random_forest
+S&P 500 horizon 5 fold 1/81: lstm
+train sandp_500_h5_f000_s571
+S&P 500 horizon 5 fold 1/81: random_forest
+S&P 500 horizon 5 fold 1/81: lstm
+train sandp_500_h5_f040_s171
+S&P 500 horizon 5 fold 41/81: random_forest
+S&P 500 horizon 5 fold 41/81: lstm
+train sandp_500_h5_f040_s271
+S&P 500 horizon 5 fold 41/81: random_forest
+S&P 500 horizon 5 fold 41/81: lstm
+train sandp_500_h5_f040_s371
+S&P 500 horizon 5 fold 41/81: random_forest
+S&P 500 horizon 5 fold 41/81: lstm
+train sandp_500_h5_f040_s471
+S&P 500 horizon 5 fold 41/81: random_forest
+S&P 500 horizon 5 fold 41/81: lstm
+train sandp_500_h5_f040_s571
+S&P 500 horizon 5 fold 41/81: random_forest
+S&P 500 horizon 5 fold 41/81: lstm
+train sandp_500_h5_f080_s171
+S&P 500 horizon 5 fold 81/81: random_forest
+S&P 500 horizon 5 fold 81/81: lstm
+train sandp_500_h5_f080_s271
+S&P 500 horizon 5 fold 81/81: random_forest
+S&P 500 horizon 5 fold 81/81: lstm
+train sandp_500_h5_f080_s371
+S&P 500 horizon 5 fold 81/81: random_forest
+S&P 500 horizon 5 fold 81/81: lstm
+train sandp_500_h5_f080_s471
+S&P 500 horizon 5 fold 81/81: random_forest
+S&P 500 horizon 5 fold 81/81: lstm
+train sandp_500_h5_f080_s571
+S&P 500 horizon 5 fold 81/81: random_forest
+S&P 500 horizon 5 fold 81/81: lstm
+train sandp_500_h20_f000_s171
+S&P 500 horizon 20 fold 1/81: random_forest
+S&P 500 horizon 20 fold 1/81: lstm
+train sandp_500_h20_f000_s271
+S&P 500 horizon 20 fold 1/81: random_forest
+S&P 500 horizon 20 fold 1/81: lstm
+train sandp_500_h20_f000_s371
+S&P 500 horizon 20 fold 1/81: random_forest
+S&P 500 horizon 20 fold 1/81: lstm
+train sandp_500_h20_f000_s471
+S&P 500 horizon 20 fold 1/81: random_forest
+S&P 500 horizon 20 fold 1/81: lstm
+train sandp_500_h20_f000_s571
+S&P 500 horizon 20 fold 1/81: random_forest
+S&P 500 horizon 20 fold 1/81: lstm
+train sandp_500_h20_f040_s171
+S&P 500 horizon 20 fold 41/81: random_forest
+S&P 500 horizon 20 fold 41/81: lstm
+train sandp_500_h20_f040_s271
+S&P 500 horizon 20 fold 41/81: random_forest
+S&P 500 horizon 20 fold 41/81: lstm
+train sandp_500_h20_f040_s371
+S&P 500 horizon 20 fold 41/81: random_forest
+S&P 500 horizon 20 fold 41/81: lstm
+train sandp_500_h20_f040_s471
+S&P 500 horizon 20 fold 41/81: random_forest
+S&P 500 horizon 20 fold 41/81: lstm
+train sandp_500_h20_f040_s571
+S&P 500 horizon 20 fold 41/81: random_forest
+S&P 500 horizon 20 fold 41/81: lstm
+train sandp_500_h20_f080_s171
+S&P 500 horizon 20 fold 81/81: random_forest
+S&P 500 horizon 20 fold 81/81: lstm
+train sandp_500_h20_f080_s271
+S&P 500 horizon 20 fold 81/81: random_forest
+S&P 500 horizon 20 fold 81/81: lstm
+train sandp_500_h20_f080_s371
+S&P 500 horizon 20 fold 81/81: random_forest
+S&P 500 horizon 20 fold 81/81: lstm
+train sandp_500_h20_f080_s471
+S&P 500 horizon 20 fold 81/81: random_forest
+S&P 500 horizon 20 fold 81/81: lstm
+train sandp_500_h20_f080_s571
+S&P 500 horizon 20 fold 81/81: random_forest
+S&P 500 horizon 20 fold 81/81: lstm
+completed 90 tasks

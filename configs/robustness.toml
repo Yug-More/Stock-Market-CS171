@@ -1,0 +1,14 @@
+schema_version = 1
+seeds = [171, 271, 371, 471, 571]
+fold_quantiles = [0.0, 0.5, 1.0]
+models = ["random_forest", "lstm"]
+bootstrap_seed = 6171
+bootstrap_replicates = 2000
+confidence = 0.95
+block_lengths = [20, 40, 80]
+minimum_block_equivalents = 10
+primary_pairs = [["random_forest", "zero_return"], ["random_forest", "historical_mean"], ["random_forest", "lstm"]]
+coverage_levels = [0.8, 0.9]
+calibration_minimum = 252
+calibration_trailing = 504
+calibration_methods = ["trailing", "expanding", "volatility_scaled"]

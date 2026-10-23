@@ -1,0 +1,52 @@
+{
+  "recorded_at_utc": "2026-10-23T20:16:49.555248+00:00",
+  "environment": {
+    "mode": "phase678_delivery",
+    "python": "3.13.2",
+    "platform": "macOS-14.5-arm64-arm-64bit-Mach-O",
+    "versions": {
+      "marketpulse": "0.1.0",
+      "numpy": "2.5.4",
+      "pandas": "3.1.0",
+      "scikit-learn": "1.9.1",
+      "torch": "2.14.1"
+    },
+    "git_sha": "920bd69fd940b942a08e915f3611d8a01f135b5b"
+  },
+  "cpu_count": 10,
+  "torch_threads": 6,
+  "device": "cpu",
+  "workstation_reference": {
+    "machine": "arm64",
+    "platform": "macOS-14.5-arm64-arm-64bit-Mach-O",
+    "torch_cpu_threads": 6,
+    "torch_interop_threads": 10,
+    "device": "cpu",
+    "legacy_execution_hardware": "not recorded",
+    "generating_revision": "ce58c9263d5fabad2476b1cf46c07d7c61ae3cd9",
+    "chip": "Apple M2 Pro",
+    "model": "Mac14,9",
+    "memory_bytes": 17179869184,
+    "physical_cpu_cores": 10
+  },
+  "seed_tasks": 90,
+  "training_runtime_seconds": 1262.7722457534983,
+  "training_revisions": [
+    "1af6a41372f73d0acf53a2e8943e95283c23a3f5",
+    "48beed5a6d372e3dc975603c6b1d87bdc5cd2082",
+    "658ba156b731fe3a456572026834fe52c651f053",
+    "920bd69fd940b942a08e915f3611d8a01f135b5b"
+  ],
+  "input_references": {
+    "recorded_during": "post-execution independent audit, not retroactive run metadata",
+    "predictions": {
+      "path": "results/walkforward/full/predictions.csv.gz",
+      "sha256": "e51751e1f1f18e546d7cda406c3d61f393ea0b704ba3c7033e97515d87cada08"
+    },
+    "datasets": {
+      "data/nasdaq100.csv": "deb35f9888f892ceb61ff92883b5a5825d7567bc5973fe7b9080d06c893ca450",
+      "data/SPX.csv": "54aa877d5d275b660bc8171642dc3a2eece16b9709e1d35f13a3b4e7972cc35c"
+    },
+    "configuration_sha256": "1d60bd99a089d517b30e20804b24bb17d3efda5db7e3b8997c15c4d440294a9d"
+  }
+}

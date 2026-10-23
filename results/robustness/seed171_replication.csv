@@ -1,0 +1,37 @@
+dataset,horizon,fold,model,max_prediction_difference,numerically_equal_at_1e_10
+NASDAQ-100,1,0,random_forest,0.0,True
+NASDAQ-100,1,0,lstm,0.0,True
+NASDAQ-100,1,6,random_forest,0.0,True
+NASDAQ-100,1,6,lstm,0.0,True
+NASDAQ-100,1,12,random_forest,0.0,True
+NASDAQ-100,1,12,lstm,0.0,True
+NASDAQ-100,20,0,random_forest,0.0,True
+NASDAQ-100,20,0,lstm,0.0,True
+NASDAQ-100,20,6,random_forest,0.0,True
+NASDAQ-100,20,6,lstm,0.0,True
+NASDAQ-100,20,12,random_forest,0.0,True
+NASDAQ-100,20,12,lstm,0.0,True
+NASDAQ-100,5,0,random_forest,0.0,True
+NASDAQ-100,5,0,lstm,0.0,True
+NASDAQ-100,5,6,random_forest,0.0,True
+NASDAQ-100,5,6,lstm,0.0,True
+NASDAQ-100,5,12,random_forest,0.0,True
+NASDAQ-100,5,12,lstm,0.0,True
+S&P 500,1,0,random_forest,0.0,True
+S&P 500,1,0,lstm,0.0,True
+S&P 500,1,40,random_forest,0.0,True
+S&P 500,1,40,lstm,0.0,True
+S&P 500,1,80,random_forest,0.0,True
+S&P 500,1,80,lstm,0.0,True
+S&P 500,20,0,random_forest,0.0,True
+S&P 500,20,0,lstm,0.0,True
+S&P 500,20,40,random_forest,0.0,True
+S&P 500,20,40,lstm,0.0,True
+S&P 500,20,80,random_forest,0.0,True
+S&P 500,20,80,lstm,0.0,True
+S&P 500,5,0,random_forest,0.0,True
+S&P 500,5,0,lstm,0.0,True
+S&P 500,5,40,random_forest,0.0,True
+S&P 500,5,40,lstm,0.0,True
+S&P 500,5,80,random_forest,0.0,True
+S&P 500,5,80,lstm,0.0,True

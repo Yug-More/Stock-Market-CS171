@@ -18,3 +18,5 @@ results/walkforward/full/folds/**/*.csv
 
 # Compressed complete forecasts and exact fold archive are versioned instead.
 results/walkforward/full/predictions.csv
+# Seed smoke outputs remain wiring checks, not research evidence.
+results/robustness/smoke/

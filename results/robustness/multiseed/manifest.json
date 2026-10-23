@@ -1,0 +1,159 @@
+{
+  "identity": {
+    "inputs": {
+      "configs/benchmark.toml": "9fc67fe65dff154f3afe2a6f9e9402258ffc96150c5133bf80e37612b686251f",
+      "configs/datasets.toml": "c1510f76ce52a5c720da9acf0193c9cf9cea59efedf42992f0c321d2b59a4892",
+      "configs/forecasting.toml": "f279017aa384cbd2afe8ce06895b3827959f4d2bb755f07a110f688f76596162",
+      "configs/robustness.toml": "1d60bd99a089d517b30e20804b24bb17d3efda5db7e3b8997c15c4d440294a9d",
+      "data/SPX.csv": "54aa877d5d275b660bc8171642dc3a2eece16b9709e1d35f13a3b4e7972cc35c",
+      "data/nasdaq100.csv": "deb35f9888f892ceb61ff92883b5a5825d7567bc5973fe7b9080d06c893ca450",
+      "src/marketpulse/__init__.py": "5bee90bcf3542a831df2a668c957b4d703dd2aad4dcd64af41d20bb3760d2959",
+      "src/marketpulse/data/__init__.py": "8c800dadf435c5d7c99e5f162e69a20e230aa052b79cfdbff1271515278fbae5",
+      "src/marketpulse/data/__main__.py": "dc014806947d3145c5211c5919477c0e0772df0209c0d91317fc532cdf63d8b0",
+      "src/marketpulse/data/catalog.py": "397c2068b10140f5aa6e3de6d005fa6d8b8a179667d5ff9cc921cbb851ba46f9",
+      "src/marketpulse/data/cli.py": "0692121e869c00928a1c48158efa4008023f3ae4027819cc3836856c3f3400f8",
+      "src/marketpulse/data/exceptions.py": "f17b1377820db1b8038fcfe3f5a8c95857a9f0ec5991a3e68b56f1b92726da38",
+      "src/marketpulse/data/loader.py": "6a8c4000bba5d4c8646db31aafa128ee4a9f81dae8249725ea349e3ebdbddaa5",
+      "src/marketpulse/data/validation.py": "66d61260d31bcff500eec44c6559d18681fc9ea92b7125bb824c543421b8df3b",
+      "src/marketpulse/evaluation/__init__.py": "c383216385ea53385d88b3904a86c899ba574c762a4ed72abac96d9e37db535c",
+      "src/marketpulse/evaluation/metrics.py": "cf9f65b644d669d9bc48cd99d686e3c6f2de82ba5fc9eb69a713a043746ceeb8",
+      "src/marketpulse/evaluation/partitions.py": "ab2a29d60b4938d3245bbc186cf7a0254bdf0cc84202e86903cc34967d08141e",
+      "src/marketpulse/evaluation/preprocessing.py": "61e8dee68d2ab093813dfcc0de17459b5dd77d3c794dece5a274d88e92217d96",
+      "src/marketpulse/evaluation/regimes.py": "aa5c99f4f415db674dcd90762dd223fd7c08379f9cd7d8c5a1758b7af9a47b78",
+      "src/marketpulse/evaluation/splits.py": "c38cd44fdb23e0ae14610b6f2251d953724273e86b3038e2a644efc5aebdedc4",
+      "src/marketpulse/experiments/__init__.py": "a72b9a48557113d81a83cd3b4d995b41c26c911e2ebd84db7a0bf280618b26f6",
+      "src/marketpulse/experiments/benchmark.py": "93906ebee6032270b3a460884a9a37378d43f00c1aa2389f2b6d9827ef6ba494",
+      "src/marketpulse/experiments/cli.py": "11b4fba03ca602e4174e6cf1f8e4d007ee69a82dd97da67aaf7d958fedc2f20e",
+      "src/marketpulse/experiments/figures.py": "7fad87c88763ccaee2c0e21cde8b87b3b7401c6523098213165c4e1441e788a4",
+      "src/marketpulse/experiments/multiseed.py": "356ac4ac20f4b3c7139f7488932e6c5100ec82f6e423c1a3bb7746a2960b78d5",
+      "src/marketpulse/experiments/recovery.py": "f612924505795915d3dd2d2e36ab4addf821987f59924236ab1a0d68da442993",
+      "src/marketpulse/experiments/robustness_data.py": "19d1f0983e6705ec3c9df0cc5330210ad25a58ed7c0c6970c19eb5dc7c7264f1",
+      "src/marketpulse/experiments/summary.py": "30aa39b3c703091e38f9927c822bf64fecc170acb333bb35971ba0dd25223516",
+      "src/marketpulse/experiments/walkforward.py": "409c3b8e382910f652f57a0d99d1706707c2de93871d054f1e9dc77cfdba6030",
+      "src/marketpulse/experiments/walkforward_cli.py": "2a0ddafb9399153ee1739c481af2113802fcbde356a53e3c18057fdbbc31144a",
+      "src/marketpulse/features.py": "17a5d06811aa73e65ff7392a25eabaaad221d45db926cf8843333500a088e267",
+      "src/marketpulse/models/__init__.py": "f127d48fd30dc2612f12935e7444381092bedafe78286c09b76bf7f45e0e4500",
+      "src/marketpulse/models/baselines.py": "855aae60768e5fd6be750f8af66d8f6d005455518d856f8559e02d7e6d6b1f80",
+      "src/marketpulse/models/classical.py": "fa693e679aba0492370b0a68b053794dace285065782d03563c1acfee40ce636",
+      "src/marketpulse/models/lstm.py": "eaae942324e9db86171f9b8df8c95e512ce714221f41ef393e8f6a882d91c315",
+      "src/marketpulse/protocol.py": "441374d58d6a1a46a649a83596a923c570c60e611c474aa7e60993c363ba1a16",
+      "src/marketpulse/sequences.py": "2a30dc63d41d5a3eaf980ac125d05e2975fa6bde93ace756ed484d7b1593e95e",
+      "src/marketpulse/targets.py": "e47cc5e745e9182fb902a9c23578b2e15a67cffafed194b78ca4b7b8185b4163"
+    },
+    "mode": "full",
+    "seeds": [
+      171,
+      271,
+      371,
+      471,
+      571
+    ],
+    "tasks": [
+      {
+        "dataset": "NASDAQ-100",
+        "horizon": 1,
+        "fold": 0
+      },
+      {
+        "dataset": "NASDAQ-100",
+        "horizon": 1,
+        "fold": 6
+      },
+      {
+        "dataset": "NASDAQ-100",
+        "horizon": 1,
+        "fold": 12
+      },
+      {
+        "dataset": "NASDAQ-100",
+        "horizon": 5,
+        "fold": 0
+      },
+      {
+        "dataset": "NASDAQ-100",
+        "horizon": 5,
+        "fold": 6
+      },
+      {
+        "dataset": "NASDAQ-100",
+        "horizon": 5,
+        "fold": 12
+      },
+      {
+        "dataset": "NASDAQ-100",
+        "horizon": 20,
+        "fold": 0
+      },
+      {
+        "dataset": "NASDAQ-100",
+        "horizon": 20,
+        "fold": 6
+      },
+      {
+        "dataset": "NASDAQ-100",
+        "horizon": 20,
+        "fold": 12
+      },
+      {
+        "dataset": "S&P 500",
+        "horizon": 1,
+        "fold": 0
+      },
+      {
+        "dataset": "S&P 500",
+        "horizon": 1,
+        "fold": 40
+      },
+      {
+        "dataset": "S&P 500",
+        "horizon": 1,
+        "fold": 80
+      },
+      {
+        "dataset": "S&P 500",
+        "horizon": 5,
+        "fold": 0
+      },
+      {
+        "dataset": "S&P 500",
+        "horizon": 5,
+        "fold": 40
+      },
+      {
+        "dataset": "S&P 500",
+        "horizon": 5,
+        "fold": 80
+      },
+      {
+        "dataset": "S&P 500",
+        "horizon": 20,
+        "fold": 0
+      },
+      {
+        "dataset": "S&P 500",
+        "horizon": 20,
+        "fold": 40
+      },
+      {
+        "dataset": "S&P 500",
+        "horizon": 20,
+        "fold": 80
+      }
+    ]
+  },
+  "environment": {
+    "mode": "full",
+    "python": "3.13.2",
+    "platform": "macOS-14.5-arm64-arm-64bit-Mach-O",
+    "versions": {
+      "marketpulse": "0.1.0",
+      "numpy": "2.5.4",
+      "pandas": "3.1.0",
+      "scikit-learn": "1.9.1",
+      "torch": "2.14.1"
+    },
+    "git_sha": "1af6a41372f73d0acf53a2e8943e95283c23a3f5"
+  },
+  "declared_at_utc": "2026-10-23T19:45:18.669781+00:00",
+  "expected_tasks": 90
+}
