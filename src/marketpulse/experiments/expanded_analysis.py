@@ -16,6 +16,8 @@ from marketpulse.experiments.robustness_data import (
     enrich_predictions,
     inventory,
     load_predictions,
+    matched_membership,
+    select_matched,
     write_json,
 )
 from marketpulse.experiments.summary import pooled_metrics
@@ -23,6 +25,8 @@ from marketpulse.experiments.summary import pooled_metrics
 
 def matched_seed_losses(frames: list[pd.DataFrame]) -> pd.DataFrame:
     """Average losses, never predictions; reject even a one-day endpoint mismatch."""
+    if not frames or any(frame.empty for frame in frames):
+        raise ValueError("nonempty seed populations required")
     reference = (
         frames[0].sort_values(["dataset", "horizon", "model", "date"]).reset_index(drop=True)
     )
@@ -137,8 +141,23 @@ def analyze(root: Path) -> None:
         raise ValueError("preserve published analysis; choose a new version")
     design = json.loads((root / "configs/phase10.json").read_text())
     frames, reports = load_expanded(root)
-    metrics, folds, regimes = [], [], []
+    metrics, folds, regimes, calendars, calendar_counts = [], [], [], [], []
     for seed, frame in zip(design["seeds"], frames, strict=True):
+        membership = matched_membership(frame)
+        for horizon, dates in membership.groupby("horizon"):
+            calendar_counts.append(
+                {
+                    "seed": seed,
+                    "horizon": horizon,
+                    "shared_origins": int(dates.origin_match.sum()),
+                    "shared_endpoints": int(dates.endpoint_match.sum()),
+                }
+            )
+        matched = select_matched(frame, membership, endpoints=True)
+        if not matched.empty:
+            calendar_metrics = pooled_metrics(matched, ("dataset", "horizon"))
+            calendar_metrics["seed"] = seed
+            calendars.append(calendar_metrics)
         for group, target in [
             (("dataset", "horizon"), metrics),
             (("dataset", "horizon", "fold"), folds),
@@ -153,6 +172,13 @@ def analyze(root: Path) -> None:
         ("regime_metrics", regimes),
     ]:
         pd.concat(rows, ignore_index=True).to_csv(output / f"{name}.csv", index=False)
+    common = (
+        pd.concat(calendars, ignore_index=True)
+        if calendars
+        else pd.DataFrame(columns=["dataset", "horizon", "model", "seed", "n", "rmse"])
+    )
+    common.to_csv(output / "common_calendar_metrics.csv", index=False)
+    pd.DataFrame(calendar_counts).to_csv(output / "common_calendar_counts.csv", index=False)
     losses = matched_seed_losses(frames)
     losses.to_csv(
         output / "matched_losses.csv.gz", index=False, compression={"method": "gzip", "mtime": 0}
@@ -295,6 +321,12 @@ populations show period sensitivity, not a reason to retune. Loss averaging
 conditions on five fixed seeds, not all possible optimizer realizations. Regime
 estimates retain the full timeline; their selected days are not independent.
 Training histories, index construction and source quality remain unequal.
+`common_calendar_metrics.csv` additionally restricts the expanded sample to the
+intersection of both indexes' origins AND actual target endpoints. There are zero
+shared origins/endpoints in this five-fold-per-cell selection
+(as recorded in `common_calendar_counts.csv`), so that metric file is header-only:
+no cross-index matched seed comparison is available. The earlier full-history
+matched analysis remains available and does not equalize training history.
 
 Run `python scripts/phase10.py train` (checksum-checked resume),
 `python scripts/phase10.py analyze` (unsealed output only), and
@@ -340,6 +372,16 @@ def verify(root: Path, *, seal: bool = False) -> None:
             np.testing.assert_allclose(model["test"]["rmse"], np.sqrt(np.mean(error**2)))
             assert details.get("n_estimators", 200) == 200
             assert details.get("max_epochs", 25) == 25
+    common_counts = pd.read_csv(output / "common_calendar_counts.csv")
+    for seed, frame in zip([171, 271, 371, 471, 571], frames, strict=True):
+        membership = matched_membership(frame)
+        for horizon, dates in membership.groupby("horizon"):
+            row = common_counts[
+                (common_counts.seed == seed) & (common_counts.horizon == horizon)
+            ].iloc[0]
+            assert row.shared_origins == dates.origin_match.sum() == 0
+            assert row.shared_endpoints == dates.endpoint_match.sum() == 0
+    assert pd.read_csv(output / "common_calendar_metrics.csv").empty
     metrics = pd.read_csv(output / "seed_metrics.csv")
     for seed, frame in zip([171, 271, 371, 471, 571], frames, strict=True):
         for (dataset, horizon, model), part in frame.groupby(["dataset", "horizon", "model"]):
