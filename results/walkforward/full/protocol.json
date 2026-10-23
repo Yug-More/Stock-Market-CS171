@@ -1,0 +1,14 @@
+{
+  "horizons": [
+    1,
+    5,
+    20
+  ],
+  "seed": 171,
+  "minimum_training_origins": 2520,
+  "validation_window": 252,
+  "test_window": 252,
+  "step": 252,
+  "lookback": 20,
+  "mode": "full"
+}

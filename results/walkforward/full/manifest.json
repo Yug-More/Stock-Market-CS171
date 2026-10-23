@@ -1,0 +1,1563 @@
+{
+  "identity": {
+    "schema_version": 1,
+    "mode": "full",
+    "protocol": {
+      "schema_version": 1,
+      "primary_target": "forward_log_return",
+      "horizons": [
+        1,
+        5,
+        20
+      ],
+      "seed": 171,
+      "minimum_training_origins": 2520,
+      "validation_window": 252,
+      "test_window": 252,
+      "step": 252,
+      "nominal_coverage": 0.9
+    },
+    "settings": {
+      "lookback": 20,
+      "rf_n_estimators": 200,
+      "rf_min_samples_leaf": 5,
+      "rf_max_depth": [
+        4,
+        8
+      ],
+      "lstm_hidden_size": [
+        16,
+        32
+      ],
+      "lstm_learning_rate": 0.001,
+      "lstm_batch_size": 256,
+      "lstm_max_epochs": 25,
+      "lstm_patience": 5
+    },
+    "inputs": {
+      "src/marketpulse/__init__.py": "5bee90bcf3542a831df2a668c957b4d703dd2aad4dcd64af41d20bb3760d2959",
+      "src/marketpulse/data/__init__.py": "8c800dadf435c5d7c99e5f162e69a20e230aa052b79cfdbff1271515278fbae5",
+      "src/marketpulse/data/__main__.py": "dc014806947d3145c5211c5919477c0e0772df0209c0d91317fc532cdf63d8b0",
+      "src/marketpulse/data/catalog.py": "397c2068b10140f5aa6e3de6d005fa6d8b8a179667d5ff9cc921cbb851ba46f9",
+      "src/marketpulse/data/cli.py": "0692121e869c00928a1c48158efa4008023f3ae4027819cc3836856c3f3400f8",
+      "src/marketpulse/data/exceptions.py": "f17b1377820db1b8038fcfe3f5a8c95857a9f0ec5991a3e68b56f1b92726da38",
+      "src/marketpulse/data/loader.py": "6a8c4000bba5d4c8646db31aafa128ee4a9f81dae8249725ea349e3ebdbddaa5",
+      "src/marketpulse/data/validation.py": "66d61260d31bcff500eec44c6559d18681fc9ea92b7125bb824c543421b8df3b",
+      "src/marketpulse/evaluation/__init__.py": "c383216385ea53385d88b3904a86c899ba574c762a4ed72abac96d9e37db535c",
+      "src/marketpulse/evaluation/metrics.py": "cf9f65b644d669d9bc48cd99d686e3c6f2de82ba5fc9eb69a713a043746ceeb8",
+      "src/marketpulse/evaluation/partitions.py": "ab2a29d60b4938d3245bbc186cf7a0254bdf0cc84202e86903cc34967d08141e",
+      "src/marketpulse/evaluation/preprocessing.py": "61e8dee68d2ab093813dfcc0de17459b5dd77d3c794dece5a274d88e92217d96",
+      "src/marketpulse/evaluation/regimes.py": "aa5c99f4f415db674dcd90762dd223fd7c08379f9cd7d8c5a1758b7af9a47b78",
+      "src/marketpulse/evaluation/splits.py": "c38cd44fdb23e0ae14610b6f2251d953724273e86b3038e2a644efc5aebdedc4",
+      "src/marketpulse/experiments/__init__.py": "a72b9a48557113d81a83cd3b4d995b41c26c911e2ebd84db7a0bf280618b26f6",
+      "src/marketpulse/experiments/benchmark.py": "93906ebee6032270b3a460884a9a37378d43f00c1aa2389f2b6d9827ef6ba494",
+      "src/marketpulse/experiments/cli.py": "11b4fba03ca602e4174e6cf1f8e4d007ee69a82dd97da67aaf7d958fedc2f20e",
+      "src/marketpulse/experiments/figures.py": "7fad87c88763ccaee2c0e21cde8b87b3b7401c6523098213165c4e1441e788a4",
+      "src/marketpulse/experiments/recovery.py": "f612924505795915d3dd2d2e36ab4addf821987f59924236ab1a0d68da442993",
+      "src/marketpulse/experiments/summary.py": "30aa39b3c703091e38f9927c822bf64fecc170acb333bb35971ba0dd25223516",
+      "src/marketpulse/experiments/walkforward.py": "409c3b8e382910f652f57a0d99d1706707c2de93871d054f1e9dc77cfdba6030",
+      "src/marketpulse/experiments/walkforward_cli.py": "2a0ddafb9399153ee1739c481af2113802fcbde356a53e3c18057fdbbc31144a",
+      "src/marketpulse/features.py": "17a5d06811aa73e65ff7392a25eabaaad221d45db926cf8843333500a088e267",
+      "src/marketpulse/models/__init__.py": "f127d48fd30dc2612f12935e7444381092bedafe78286c09b76bf7f45e0e4500",
+      "src/marketpulse/models/baselines.py": "855aae60768e5fd6be750f8af66d8f6d005455518d856f8559e02d7e6d6b1f80",
+      "src/marketpulse/models/classical.py": "fa693e679aba0492370b0a68b053794dace285065782d03563c1acfee40ce636",
+      "src/marketpulse/models/lstm.py": "eaae942324e9db86171f9b8df8c95e512ce714221f41ef393e8f6a882d91c315",
+      "src/marketpulse/protocol.py": "441374d58d6a1a46a649a83596a923c570c60e611c474aa7e60993c363ba1a16",
+      "src/marketpulse/sequences.py": "2a30dc63d41d5a3eaf980ac125d05e2975fa6bde93ace756ed484d7b1593e95e",
+      "src/marketpulse/targets.py": "e47cc5e745e9182fb902a9c23578b2e15a67cffafed194b78ca4b7b8185b4163",
+      "configs/benchmark.toml": "9fc67fe65dff154f3afe2a6f9e9402258ffc96150c5133bf80e37612b686251f",
+      "configs/datasets.toml": "c1510f76ce52a5c720da9acf0193c9cf9cea59efedf42992f0c321d2b59a4892",
+      "configs/forecasting.toml": "f279017aa384cbd2afe8ce06895b3827959f4d2bb755f07a110f688f76596162",
+      "data/SPX.csv": "54aa877d5d275b660bc8171642dc3a2eece16b9709e1d35f13a3b4e7972cc35c",
+      "data/nasdaq100.csv": "deb35f9888f892ceb61ff92883b5a5825d7567bc5973fe7b9080d06c893ca450"
+    },
+    "max_folds": null
+  },
+  "recovery_environment": {
+    "mode": "full",
+    "python": "3.13.2",
+    "platform": "macOS-14.5-arm64-arm-64bit-Mach-O",
+    "versions": {
+      "marketpulse": "0.1.0",
+      "numpy": "2.5.4",
+      "pandas": "3.1.0",
+      "scikit-learn": "1.9.1",
+      "torch": "2.14.1"
+    },
+    "git_sha": "ce58c9263d5fabad2476b1cf46c07d7c61ae3cd9"
+  },
+  "legacy_provenance": "Original execution environment and revision were not recorded; recovery validation cannot establish those missing facts.",
+  "recovered": [
+    {
+      "marker": "full/folds/nasdaq-100/h1/fold_000.json",
+      "predictions_sha256": "287eec4a1c418e7ee60c1ef02ad9fb01653926d2a77ea0125f380ca74a1791b3",
+      "marker_sha256": "e135cbd9d489136c20a311b43f6bc76c204690ff6cb41b74968756d5b7647128",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/nasdaq-100/h1/fold_001.json",
+      "predictions_sha256": "e912418508e8b637fe79e92839e54bff36418bf17576d5fd716908232a4c111c",
+      "marker_sha256": "5fa318a8bf665080d7ee5bf0e827d361b91cd759a5bc25055d10e2f7d78a30a3",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/nasdaq-100/h1/fold_002.json",
+      "predictions_sha256": "835ed3f531dcc08fbd66850d944d83f21df3b011fc0963ce6c2b86681b32ed10",
+      "marker_sha256": "c62fcb0191ad37b48c37f0dd5c354807875c9435dd1674fbddbb27fbb3bfe31c",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/nasdaq-100/h1/fold_003.json",
+      "predictions_sha256": "e35ade1a4a8274d50c753eed744383160c98e51602b7ef2662b42ad393eaa1e7",
+      "marker_sha256": "d9c83e4a9e90d996b2684449e8d72ea9e6c50c610adee00c72694166aa28fa81",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/nasdaq-100/h1/fold_004.json",
+      "predictions_sha256": "14a64284dbbfb9d89c64944713c6f9a773afec635bf5928675f21129ad77d49d",
+      "marker_sha256": "9d8f81e152867e02368ca72857e93009358ef697aae4843a5ab672aeaafa3497",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/nasdaq-100/h1/fold_005.json",
+      "predictions_sha256": "fbe9eab2f01c3b99e2aeea53fe72e5f33f6905aea60df6e44f7ddffd847122e3",
+      "marker_sha256": "faee2b18becaa2c98accd5f70064c435058575a3f94f1898e27bc4c4ad8b1225",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/nasdaq-100/h1/fold_006.json",
+      "predictions_sha256": "1cf5d27e4122ce13b5d0ae2acd6d1c812cb34de40c3d096e46303c4a36993fc2",
+      "marker_sha256": "e752acda3d53a20a985d6000ecf6189fe73d0f12ebebf5aaabd3305ad58b3994",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/nasdaq-100/h1/fold_007.json",
+      "predictions_sha256": "a387c4967715f17258730e0b61365e192a0fd98c6260f4a40c24166f514531a5",
+      "marker_sha256": "26ed58dadb3b1a292f23e0713bdee27eb37c10b163382e61e7a1862cc44d0971",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/nasdaq-100/h1/fold_008.json",
+      "predictions_sha256": "5e573af1c1efc2aa372f2f4d98425753329214ee96b5ef70ad668c760293d4bd",
+      "marker_sha256": "78407178bb962f29e8d1d88efa4c0f916bbc1d4bf18a73a0eec61e5d53359728",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/nasdaq-100/h1/fold_009.json",
+      "predictions_sha256": "dfe878ba4a81286ff47296c9deabf45e3cc384ff231d90aa95994f49252efc9e",
+      "marker_sha256": "8616cc876a140d1aac10dd75803a241083e03d9ab3aa51f6e95010d5c2901a40",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/nasdaq-100/h1/fold_010.json",
+      "predictions_sha256": "fe7a5a8d9ec9c6a457dca7c7abdeb706743416af51db6d0f965cd235e5694d6f",
+      "marker_sha256": "32b79c619aea54d92e4c6522f62687de8e7b10392a28d4a6bd003dc8230d980d",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/nasdaq-100/h1/fold_011.json",
+      "predictions_sha256": "1246c6313402572b6a273d3f25eab48abffde79427b3dab5c5e69f06b9290826",
+      "marker_sha256": "e320043e4d86b189163847b7bb6116b504f211980bd03cddfe4d9b09254c5daf",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/nasdaq-100/h1/fold_012.json",
+      "predictions_sha256": "39cf16f25c0dc95792fe5c58ac52ee6f2c585fe6b5a31aa9796041755ce34099",
+      "marker_sha256": "2acf43f681f5680b570adbf1e2d91390c2c3102719b2e75bb955b0479864730f",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/nasdaq-100/h5/fold_000.json",
+      "predictions_sha256": "ce7e4589718b1f503d066b9b25b4bc9cadc16a3905722c0bda79039369e5ba03",
+      "marker_sha256": "06f4a50e63fdf66952df5b0d32ba5477b540f416ab54215b0ca5f5eed2159a20",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/nasdaq-100/h5/fold_001.json",
+      "predictions_sha256": "cc806536695f0b5c5ffe107506fc4cd334e8561a0b0f1618e289849180c6a8ae",
+      "marker_sha256": "d9c0c4f2cf48775885aa549b3d75dadc40a4fe0fc97cb3c59796f0f2e2cdda8a",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/nasdaq-100/h5/fold_002.json",
+      "predictions_sha256": "0556d0b333ed616712a2eeb1e586ebc85b258d1f32eeef2b3e6fa06dd9d8d16d",
+      "marker_sha256": "067511cdc40c946bd0df70751a15cbb2f00d1a5e7255355685c95794268d9692",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/nasdaq-100/h5/fold_003.json",
+      "predictions_sha256": "987d68b142e3522f87f8773929aaba36a8aa6bc9b37d39044a524dc08ecf3d72",
+      "marker_sha256": "5cc560bbaa4b99131137f3a982e414b81dad48b7ce84dbafd7e93660ebf41f5c",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/nasdaq-100/h5/fold_004.json",
+      "predictions_sha256": "1aa2921fc5a4196ba3daffe09a24299e5800afb068366159e59de62b069f7ada",
+      "marker_sha256": "09005d076498264cf9b374b3e74bbf4e842754df4c184df8508aa736390baa5c",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/nasdaq-100/h5/fold_005.json",
+      "predictions_sha256": "210c93f20081e678fc103c9111f5e36e1bdfddb91ebf3061dda1092e573a2272",
+      "marker_sha256": "65b019b1072b4a20de8e5cfa8a3df1e3361e26702c81bd4527d1b57eb32eee88",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/nasdaq-100/h5/fold_006.json",
+      "predictions_sha256": "debdec294ef29f6be7b9ccfc251892ac6c628859f6dc27e6d0f51150e5428210",
+      "marker_sha256": "7dfe42ed2002c1db2a721718d15bc8b2d1f76f476b5b04969597378888c8219b",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/nasdaq-100/h5/fold_007.json",
+      "predictions_sha256": "ad05f940b871cec733b325c7eb35f4856bc2d3732f6f35e673da05a3822e826f",
+      "marker_sha256": "cbbca15ccb4ceaf1ca6988d2c6467552316d8e37cddbcb8edf76b158cd107491",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/nasdaq-100/h5/fold_008.json",
+      "predictions_sha256": "8ee84c747e863ccc7f04da324ee1f1ab61a8fac0db19095265960b0b0b15bf4a",
+      "marker_sha256": "11a7142646b0fd8882b42555eb9244fbe0d260fa0e135f97fd72ee022ba10bd5",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/nasdaq-100/h5/fold_009.json",
+      "predictions_sha256": "fc65a9093516752b36ae4b31e6b438b1dc3495ed9f9fa8340ba7ab0e0de6eff7",
+      "marker_sha256": "e9cb461486b9cc614e1a534a514a865db8f1963dafd8ee6a92a3b65bcf7d4b7a",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/nasdaq-100/h5/fold_010.json",
+      "predictions_sha256": "c7492454df5cdc46ad2307b8a7dc9ceb00c5d5a568406e8b06e758ee82270763",
+      "marker_sha256": "957697a715a52433db251c1575633a9c32c7abdd9c404e91465596f53c735117",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/nasdaq-100/h5/fold_011.json",
+      "predictions_sha256": "91282d77cb25d6d807e75dad347c737f3930f2a70276b5e022cfceed729b5fa8",
+      "marker_sha256": "510d77d270a75d93d77bb83f8eab9bd7e8b0c98423353a5de22ace2758490a08",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/nasdaq-100/h5/fold_012.json",
+      "predictions_sha256": "2264c4b88ca7c08be13502a4af068a50e6d27cf6dbb2e10ee5649575c504f269",
+      "marker_sha256": "dabb6d2d38913d117863e93459194049ad5eb0a39d738a751938308637cafcf0",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/nasdaq-100/h20/fold_000.json",
+      "predictions_sha256": "86caeeeb732dd672ae750e745647a2dbe12a1bc0970793858147e2ede4742285",
+      "marker_sha256": "e4ec2116bdd9909c9bcbc79b964cae5d0a9e414dd7d3ebc0930f7e972f8972b7",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/nasdaq-100/h20/fold_001.json",
+      "predictions_sha256": "db6ff48cdb07fa6fd1cf071b7b350a2aa8803e7aeb4b9580c10d7b072c45d358",
+      "marker_sha256": "e67c0b8a5821d9bf47cd457356b7e7b30f32dd8109fa7d8c95a4c88fd267c136",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/nasdaq-100/h20/fold_002.json",
+      "predictions_sha256": "b28322cbba7dbc671e973745216e251a9c6709291758d47fe33af752f46db9b9",
+      "marker_sha256": "419ec63dd59dcb4bf624c85242ad9de223d720630c0481e6ca8a2696fbeb8dc1",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/nasdaq-100/h20/fold_003.json",
+      "predictions_sha256": "37194f96771ffb0eec1e8f513541dc035a6169f6b20909c80f30779bb6317066",
+      "marker_sha256": "30d37bf408cf1253dadb689c3a6a53337107cc6741037a911ff6e89eb52f4632",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/nasdaq-100/h20/fold_004.json",
+      "predictions_sha256": "6a289e830047c6fb2107dc9202ee7dbd69338570b141bc2d40786c599486723b",
+      "marker_sha256": "a432cadebbe13adcd89cbe65f30a5c04cf8c4ed45f57cf383a44895f0e7930d5",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/nasdaq-100/h20/fold_005.json",
+      "predictions_sha256": "0113f73be4c901555cb0a57680f7af0de005e55746878f03663225997ed1a14b",
+      "marker_sha256": "1e0c1f214bae456fdd6ec5b93a81bc0ec4b0f33b2f6092f79b3a629687faf5d3",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/nasdaq-100/h20/fold_006.json",
+      "predictions_sha256": "9cb2afcd40478cfbd487acb9e393ac16e1d53d85b082ff5c0f01890b90dcd44c",
+      "marker_sha256": "75be34d97ea23584a8f194619059641515a69b2bc22a8892a2f2ae036c73b743",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/nasdaq-100/h20/fold_007.json",
+      "predictions_sha256": "b4e12671de805c36a1468926fe81884ba5ee7890b362ca2c842102a09110fbcc",
+      "marker_sha256": "9345d368fc11dcb89baf3b22654b63a5b7272b7a9dcafac821b73a754adc4cc7",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/nasdaq-100/h20/fold_008.json",
+      "predictions_sha256": "bff949adcc12c10ef3a81fe972c97d48697b0c427d4bb6444c2c64624cfc7c82",
+      "marker_sha256": "237c8d811ba27c5c057e2ca358ece3e8d0c06899078ceb1c80f6eb3231117724",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/nasdaq-100/h20/fold_009.json",
+      "predictions_sha256": "44524a1aff934d1786993c4d2cbbca44f43ba424757ae923e8ef0df1dddab1bd",
+      "marker_sha256": "4d75f542e9d720d31cc21a78485c16122ade3419b8d390ebb5047b15ee1dace7",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/nasdaq-100/h20/fold_010.json",
+      "predictions_sha256": "9fcfdf3f83368431d9be453ab543a0155ac07893a490eddd79e53228512d01e4",
+      "marker_sha256": "bb409ec14afb1a27106ad8e76eccbf12db5605dab28f4bb0a6b08137763df743",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/nasdaq-100/h20/fold_011.json",
+      "predictions_sha256": "2f942a1a387afdd813b3e05f29877bf3740d96fa41ab6bf7da902e206dd73ee2",
+      "marker_sha256": "3863474eddf0843d10706ef8819e54b2fde79a6c77b8be6f1931dfc8e24d22ad",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/nasdaq-100/h20/fold_012.json",
+      "predictions_sha256": "4168fc30dcb9d4804d0eb72070e08b14e1a5bc7692c8a584bd4b7d5206f2ad1f",
+      "marker_sha256": "271e75be263db1794ea61cc1336a7076151b05c1e36eafc36066293698e4e73e",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_000.json",
+      "predictions_sha256": "8e28c094ed6d79c9821536676826189c4ea187340d9a80e85ac401c44c28a2bc",
+      "marker_sha256": "e58fadd2cc00acfe7934723f849d61c43eed39b288619f23df98220c19d09e0b",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_001.json",
+      "predictions_sha256": "248276735b99163239e42935e4a67ffc8b2d8f87b35e41c1adc7224840fef61f",
+      "marker_sha256": "6df2b28fdd0fa3ffdc90868d1d7e630f60c7b9d0d460443c079133998bde9476",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_002.json",
+      "predictions_sha256": "6e07e0af506aee4ad1cb709956570b52b908a565b97d3bab85398856b59309cd",
+      "marker_sha256": "dd013241495336bd19ebe0fd8404def5d58d9340c73b7f0360ec46f8b0995ac8",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_003.json",
+      "predictions_sha256": "647566a364e6306a30dce0f3023d7c862e4bebf71777b2ee3a425fbb0c03c131",
+      "marker_sha256": "ff81760856c46d80b41ba9ac17236c119924aac51e1db3f58983e040a826aee4",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_004.json",
+      "predictions_sha256": "853e07cfd08f0355238091244e7d0bdd93af7f5bf6555f8fb0309bff2decafd6",
+      "marker_sha256": "a2542dc226656012b4f487be475a27dc90ee9668631c3049ffb542121c574b64",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_005.json",
+      "predictions_sha256": "0a7d054069c15a52c6ee0e19c8597a9537157664067d933037f1720d04417490",
+      "marker_sha256": "e6d0871e6ec31dfacaab31a1563508a99a72bf7fcbc2eb0813c8d726194e3da7",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_006.json",
+      "predictions_sha256": "824df01caa8cdfae19e4ba95667b8dbafd0dcfea0d3be9b7f02a754e2de792cc",
+      "marker_sha256": "45d26e71fb3c69448149d088e69a9d74ce37b45299e161331e807eca46c8377f",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_007.json",
+      "predictions_sha256": "d7303dc616dd19961711bca662fea04853bd66d6b3f2da6bfb6221bb0bfb3b02",
+      "marker_sha256": "ce91348ec629c0af575bf344e6546a016a8cc0051d997723e76ae419d0592bb1",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_008.json",
+      "predictions_sha256": "8c620a12f8f1c93e8683e40a6303bb2adbc15f4ab37b31a3d240769f11bad95f",
+      "marker_sha256": "7b68850d985ee5716d2106cf0723b664a6aac9b2d48afeb59c08331d995cdb9b",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_009.json",
+      "predictions_sha256": "7db51b2a634ddd369b4f5607fb0e113d4ba1f02a273ba1a11c74e6a6fdd8def9",
+      "marker_sha256": "2614683d9b5d9db91ccffa9c7d1b335299a98e3e465b1b8dab83da5a486a5ec8",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_010.json",
+      "predictions_sha256": "01a778fb1b9275ec07e19455b532740eb1e3cd102ef20441d253922410fd964e",
+      "marker_sha256": "e95d5734d251952451502fd295e515886b0351e0781b8335eb996981dd93eb9d",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_011.json",
+      "predictions_sha256": "ce10e2b5b3fec505201672d42c395ca8867f35247d767efcfbb8d8cdfd886115",
+      "marker_sha256": "165a614c148d8f247199b077296b65c58b1589b7b85d4918f08d6bfd1ef92bed",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_012.json",
+      "predictions_sha256": "4ab8319ba82549eb7ae960447a9502a6a4f5ca0013fa2c4bbe587cfc872fed4b",
+      "marker_sha256": "905cd71cfcca11ccbc15fa334c9916cb5f64dd229d1213d75b7d8ec986cbc556",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_013.json",
+      "predictions_sha256": "a8374c373edd8ef4eb52379c14bb8bafcb1eb37cc5c141537a71964a3fe631e9",
+      "marker_sha256": "a3fe1fd968505b3f0230896ae6ce5cca16b030b76d552a8de72abb32bdcc5b5b",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_014.json",
+      "predictions_sha256": "6e5d0f727146a8d198d75d291b955cdbbb5055bf6a185b942368554cc078967e",
+      "marker_sha256": "31172a5248ebe64823794ee885620494309c3c3c851ce9abe424e559ea550f7d",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_015.json",
+      "predictions_sha256": "ed8f0b180b5f55f4c93d56ddc41efb1b3661f633a9a61f6492e779930bb45c5d",
+      "marker_sha256": "84729594d8d5365a6e757612fc18662237f3c01410721aa60f490624ae721be0",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_016.json",
+      "predictions_sha256": "b47a1e334e1c981a0588804088d3a67e5de12a01a4e738687ec493d5d42d79cb",
+      "marker_sha256": "e00fb620e1126f74171e2bd0f9e552b0d4914223bacb913d8f9317209591b088",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_017.json",
+      "predictions_sha256": "637bd603f352b00e48677b5c4baed399999389f01966abf9ca9a4d6d8eaa45da",
+      "marker_sha256": "7df95c838c829ba01b32e6f91e74045b0d67fd67f2813931360a785cca464a76",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_018.json",
+      "predictions_sha256": "c64fff879251e5e4ce7ede701811640805d6ff0f1dd9a771b6d2f6420d1e6401",
+      "marker_sha256": "d8f40753a441378d927de23f258b9c68b819d60f25a7be8a1cd9e2fa10012176",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_019.json",
+      "predictions_sha256": "4f26f1d83ec9b142242894e0c4fa378f5748abde1b53736d47926d276014c572",
+      "marker_sha256": "c87964e6400bbc983669de5408ba8981a0ed9b9b3caa4aa2cb05166777ac5790",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_020.json",
+      "predictions_sha256": "4a09edaa38bec99c0af33a60679cbabb95319ba3e79a382f309d361c645ed333",
+      "marker_sha256": "fb3a8449a78c6285e6329c9073e11f156f044d955759aad057afcb724334a5b6",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_021.json",
+      "predictions_sha256": "9fd348774d9fb0b85f6c18cfa7d522685210b1664c414f3baa0569032ba1fae6",
+      "marker_sha256": "e5c00e483ac2ac8a0a2846ebc1273d3baece3339da76f07b125e9e83783ef012",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_022.json",
+      "predictions_sha256": "8070ef263b56d2764c8d813c34b49c0d0ff9b430ade8468ec5218e526a26cee9",
+      "marker_sha256": "60565de05e0e901c51b1eaf579a1cb79b1f8b3c059f233ac0faa8ddbc3c483ee",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_023.json",
+      "predictions_sha256": "bc4704caea85f77bee5d50527c0c7d4149d82c4bc09dbfda704c6f96ca8cf49f",
+      "marker_sha256": "f516b7f9593393ff1e20831c3dc642fc24443a46b1199e3a3a8e395eb29267ef",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_024.json",
+      "predictions_sha256": "e50978a2cd86beda2ba776182c50cd1894866c4c4c08e2ec3d1aa99df426a90f",
+      "marker_sha256": "24a91499562ac8d8a4cf56505d024473b15da2504d43cdf4d51f4acd27bf4023",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_025.json",
+      "predictions_sha256": "96c129678409a6fcc989d37f121d6decb832a1d04d566fc17a3ed97a4d558e85",
+      "marker_sha256": "114eb2a8cbd6dd7ee7de5b87393982349f14ed85313968ef18cf4ef9625e67a7",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_026.json",
+      "predictions_sha256": "dbab34fcfb43210a60bef7e93e805ddc1c7651ab37be729426a5514c2981bac2",
+      "marker_sha256": "fca958953e804177a2e7d5b690379811c2d49f57c360f252a976aeb52d101f63",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_027.json",
+      "predictions_sha256": "b83b6968b7592b3e5932358b6f5d5b6d075f9edfec558e0cb3b138efaef9c0f5",
+      "marker_sha256": "dcce906367104b666318470b0f432f65c78ab3cce67ff6e2b0faac0a0fdf7f67",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_028.json",
+      "predictions_sha256": "1bac627a759a778ee86d3c939d9cc443eb614e4bc56a2092cf872b5bc8e03ccd",
+      "marker_sha256": "322f628a10e0e26c582d3375d92ddb3f7000733d6f567945f9a7879c90eb981e",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_029.json",
+      "predictions_sha256": "90e1e125613c73314ea1e23a454ebdbe0bf622fe01cca51989565b4cc80f83ed",
+      "marker_sha256": "5c59db26cbf8846014cc0c08e6d99509068e10eff59424561040235b7397ed6d",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_030.json",
+      "predictions_sha256": "6357e8cf8b0870412584338e9295c49819326d1971d79a8ed924bad7470176d8",
+      "marker_sha256": "cdcc677faebdb5387475b5e0767a97e96a1782bb5e301950df432d72b9f71700",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_031.json",
+      "predictions_sha256": "7acc4a7faa0618c550e594d56ea56e059658c92188248f2a5a3a75eecae8eb1b",
+      "marker_sha256": "370a0efb6a3da9b861e0950db7a9b5a8639231af56e75c9c84ac58fd207331a1",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_032.json",
+      "predictions_sha256": "600f536dc384fc9cc41ee5c7baacc666f9d74b1b65f22d216aa32202c8a02e31",
+      "marker_sha256": "69167fddd1e27d2b4db0078f0ac6504d77019bf8665b93fbd7d632bd37e6e815",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_033.json",
+      "predictions_sha256": "c30e5c4740c9d60323675c2ddf9d98f26421a895bbd2892afe926cf24066ced9",
+      "marker_sha256": "990f9478d205b5df63d68b3749ecf5b53bfd89576ca0bc396909fa12ee19b650",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_034.json",
+      "predictions_sha256": "156d7b3c95359f66ab540d635b27d80a4fb7655bf6ad0fe8101ecb03e30fccab",
+      "marker_sha256": "1bc38c21737eccf70a5688cfe890ad6b5cb98b31c11f11ae54b62f32611c6cdb",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_035.json",
+      "predictions_sha256": "39c02d431c45d9dce7fb09cb18aab11fab78a0339830816d943e1fe497e2b18d",
+      "marker_sha256": "3d2e254a089bd26b41e6af68dd242bcad9442f5df9a9af6999da173a878607c2",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_036.json",
+      "predictions_sha256": "99f7325c84b2efd36f7e3f8a4f6b8589991b427219c6f530952fc477d921e8ad",
+      "marker_sha256": "d5e8f885c010ecab850bc77bf9528fb329a63a4988b0c4fe2b822fd4dd0e3be8",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_037.json",
+      "predictions_sha256": "b894e21c31696f137a3aff22f9f4d1977d6399a38de6ad82eb1b4ed1938d823e",
+      "marker_sha256": "c869f046411e493bc76ea019c5dfc023a977705cadb28534a0fd174ac542403d",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_038.json",
+      "predictions_sha256": "d04ccd5e90e9ada16bb3e8d6b999caccec987dd65e7d789baf536fc3a1ff4e0e",
+      "marker_sha256": "1c6ff5dd1b49a18fb7eaa3f3a00325cd05652bd40bc0640fc90a3859d2b061fe",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_039.json",
+      "predictions_sha256": "157ca90046d4d13a6d16972a8072458f6474a0508e1456c87070ee50652cfe40",
+      "marker_sha256": "958ba149d0a9d3e37783b83226b900f14b1f3ccacf34bbe5bbee6379f2a04b34",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_040.json",
+      "predictions_sha256": "f66b5190fa595ccc81b50db505dda0311e5c5fb51ed83d350f4003be16d4c18c",
+      "marker_sha256": "b683727cc60cf78992bac40276fb47fe74353f218315cb13e1d412c3470d4ae8",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_041.json",
+      "predictions_sha256": "1f32bf7976108623106c3f2141857fc55ae33694bb1c8cc3846d9f6cc32a5f4a",
+      "marker_sha256": "477a10c739b654552100aac8639dfa92c581f6b9ccb0a521f83d6bfc25bec8a8",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_042.json",
+      "predictions_sha256": "5047b8c6b37c5b5855037cc6e32bcae0fd406a8be0bfae1919e27dbb75b8f465",
+      "marker_sha256": "6a45141d2d091caf420b7b95b11f6aa7fa4825f203fd7b2d0f881115d7215314",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_043.json",
+      "predictions_sha256": "59dae5de7e225358f66c83c687ae7175f9c2f343af25735866cc7f0cf4d8d6d5",
+      "marker_sha256": "216e1163bd7a1cb28adaf293631e0425343596222b8b7a246ea57bade88c720b",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_044.json",
+      "predictions_sha256": "ad804466e9b96284503379df3d31dd05a8af279c7d9d271dc2660ab6be07f4b7",
+      "marker_sha256": "2b93b3a6a2eb65ffc26aa8dbbcb531ca69a15b5f816f8fd19ea8098c4842efa6",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_045.json",
+      "predictions_sha256": "03a43d65d4869a1175ed75c819fdac16adf413636671c0e16d55160019ca63ea",
+      "marker_sha256": "6ed7a2e5554b6cde53ce9513fa06f5355ef5ae1e90dbfa6c309c053d3f834bdd",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_046.json",
+      "predictions_sha256": "590037d22e7c9de0f2f3e0df7d7c4fbdbc6cb89cce816aa2a7d1f0ecfe50c15a",
+      "marker_sha256": "c6d903010ecd4b09833b35946c56f94f4c8483ff37b8f0ed860405a52eff3b46",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_047.json",
+      "predictions_sha256": "ab9b2fe9aa07862d7cd1eb0d8ae14a9ee1f34996a82f64b9d62d4e95f8c0d03b",
+      "marker_sha256": "2dc745a49079f88605c4ea6f69501eb6bd99a85c33c3af0c41aca45ea287a6fe",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_048.json",
+      "predictions_sha256": "0914e8a7611652e2f190bbe43bae361dd55eba87e4e24ff37972d7dc700ddcc7",
+      "marker_sha256": "45bd365ee1dca46f6ba95a34137bc75c563f4e5c2402cd4f0ef3d6159178fa7a",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_049.json",
+      "predictions_sha256": "6c1d344526d0b3a9cc8f4be3067d4c8f1bd946c03bb692ea4bea7f6c185a93ba",
+      "marker_sha256": "62cb38b3bb1a784a9b3ecb2f9de5806b8639c79c25fe7a4501dd05eb7ea7c204",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_050.json",
+      "predictions_sha256": "f7fa5c1bcdf16f5bc62b0b78cb4528ad19770e7cb4a67483d221b2f4f8edeb10",
+      "marker_sha256": "9bd09ef6d96e583be482131faabff22b055439596a8cba5e21cfe25990600b9e",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_051.json",
+      "predictions_sha256": "86bb9d2a323d492588a9f0def7a9293911c4aa64c731e73f16f105d10d714304",
+      "marker_sha256": "f4c24976907d529f1ea27f7774c99f453abbd9016b6df2a757a6b3230297f0b4",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_052.json",
+      "predictions_sha256": "e06b406cf53c936bebde6ec49d6669f61d40781aaf44f45ce204835fba175783",
+      "marker_sha256": "40d0fa3e73673aa470f21aee7d5503a1136457d387f7f51dc5e767852a8073f0",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_053.json",
+      "predictions_sha256": "346da8edbd40c4524447123cd9de2486268bbc77333b22ef43bcb7975439b0df",
+      "marker_sha256": "a08ce127627f0a1ff76b0953120324bbb21525fa52bc42c6abfc6dab41d35708",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_054.json",
+      "predictions_sha256": "5e3a00f71148cd0e73427fe513b08721ef5a21ac863372de33117be975c51980",
+      "marker_sha256": "ee195109e1db0fa27e87018a7e6445f7a56ece4d267da9e553f44531db5f8751",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_055.json",
+      "predictions_sha256": "67677b27ad8c52a65cda914289f8f13595a16f5f6b34c1cc4a332b5889214b5b",
+      "marker_sha256": "7dce5fa4ccd51fcaf43fcb8415a7fa912ba3ea1a217e1522a6d787375cb1c779",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_056.json",
+      "predictions_sha256": "f60e292d2b9c58eaa076122597a8a18d71c6eda08ae84c4b92cadcfbec00e816",
+      "marker_sha256": "24aa5f1e75f5f3b238eba7b8a4da90ca7073e59dd42166f3ba17394cec3e5e16",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_057.json",
+      "predictions_sha256": "fb23e51d1353a40060274a48292a65b2a55171805089d5d3833b4584b79fc182",
+      "marker_sha256": "e0e32bc59f7f4abb106de0300abb29b0d0c5c9e2a657ef86898a9244408aef4e",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_058.json",
+      "predictions_sha256": "b535aae54afd08a276a5a875701e001b747a4623382d9cd0828612d7bbbbca32",
+      "marker_sha256": "ff456980b909ebc714eebc8fcdca2cfb073f30124eda938e297004e9cc950667",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_059.json",
+      "predictions_sha256": "e1db2a8aada3fd2a43d45ed2c27c31d83f952d0fcdd3535beac67753ac37baf1",
+      "marker_sha256": "d1942384f3d737a4d7355bb4b1524b56882a034cd9a4cf07f6366e3c29e573df",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_060.json",
+      "predictions_sha256": "5b83c9ebe97fb4bd409375570f315ed939eae49edb78a91e6e934c66f2e72a3d",
+      "marker_sha256": "7e5ee8052c98ef7b3ea7c6588ecf8c1fe58e929c6e4fdf580fb4844056b6f6b7",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_061.json",
+      "predictions_sha256": "3e174d456bc53720121189690f090d3e38c38cf9bf9d653ee6d475b9bbd335c7",
+      "marker_sha256": "c707559becefda1f0585fa5d71fe938d6e54fde71a5fe4f543b272fbbdbf8e73",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_062.json",
+      "predictions_sha256": "1b87363d0cdb9038591cc74a30174ea8a348a6011c89adeb303e2be464cef23d",
+      "marker_sha256": "6ece7231bf3f3a7202570413de0dcb99ab364936ed612bc2c23a441c504a239f",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_063.json",
+      "predictions_sha256": "373e7d0a15f58df011222449debd48d617cec7103a77f5030365576406b7f462",
+      "marker_sha256": "33102a2397d687f9c774b5425d1b51963b30478b543d9cfd9b642abd471d07bc",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_064.json",
+      "predictions_sha256": "4bd2671cc637e8e6a8967fa422b6b35747952066095123ff3eb4b26ce626297c",
+      "marker_sha256": "b3be630fad386a0199d2caeab0c4f871345aa2a061dabca0564de8f6a2ece0f0",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_065.json",
+      "predictions_sha256": "599da9ed3b2a916c27d30799e02b64fc281799c813942d7cd343713375571cd9",
+      "marker_sha256": "48befe93c03b8710e3ae968f8590947c8823b78244eaf786f24185fbc14cedb9",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_066.json",
+      "predictions_sha256": "b7897ca5ec2843d054c9d3b2dcc6e3bbc649cc623aeb3a526e625be71122d9d7",
+      "marker_sha256": "29ff96aa4688ff7891c1184a23ff5879834b1f1c657a17e9a10e153584ff73bd",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_067.json",
+      "predictions_sha256": "879ec8c37befb32e8707df260636ed0f821d45bd8f61bd2e30c2713791f3ec8e",
+      "marker_sha256": "e168c862c988b159ac1c3b158e90ac8dd9f78ac27688c5c4e11b93de8dbb3582",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_068.json",
+      "predictions_sha256": "47dcd2843db3ba658e37e36833d5026c4e3d1d1f9a7bd4a795304806cf02b3c2",
+      "marker_sha256": "d3a3fc83ca7543e497372a5afd097cc945bd0da42e5f48389caab6b3763cab39",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_069.json",
+      "predictions_sha256": "34ad50bece68b8d1406f8be1c58c615cfeee71b8338fc5d49e9fbbbec1cddcba",
+      "marker_sha256": "3615122364b26f0e445d04a2c6d3a03e40427c6ca1bbdd02cdb97dac5d9fd4a1",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_070.json",
+      "predictions_sha256": "f1f59fec38946e505ba1a1daa8d36bbd672af34f33a86091bd0992cb8ad2ee66",
+      "marker_sha256": "a2c584c256fe49f4b52448db6b4343ec233f7a5864ecc278036367a885bf1142",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_071.json",
+      "predictions_sha256": "a04a166675b1f730e57c7d1a7f19fccac7e3959219e66bdbe5cf76f4bc359e73",
+      "marker_sha256": "06f456753d97028eb217b9d2ad3de648a558871a78f79ea113f42f8d3670a715",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_072.json",
+      "predictions_sha256": "4654ce47503e9b192830022733bcc4508439070ac76a1fb09701fe91475ae416",
+      "marker_sha256": "000ffd8cf7f0e74e9b6d537bd2f755eeeb9bba267829fbf66b8763334ab6714f",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_073.json",
+      "predictions_sha256": "8232256246a5eeed8d407b652f826c8a0495a6318bf5fae5e92017d865b85180",
+      "marker_sha256": "a88e40383d547471896075b813b14b450f3a0512b9f40c3dcda0ac7ba6f1067a",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_074.json",
+      "predictions_sha256": "825c134321d29bb86e541cd87f81cfd98b702d1e2d18a3e544fbbc3691712291",
+      "marker_sha256": "a5af40424da3a096cef5cad2c92173f8770f7cfe0c89d527e6efcb8d19b4301b",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_075.json",
+      "predictions_sha256": "952b7a976bd1444d28847529e41ed9b86e0ba9a54516fda61058af4d9b693173",
+      "marker_sha256": "50cd3c4199958d6e96c2411f90b42acd04853ad9dfad09ddb1ff8f6661769c2a",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_076.json",
+      "predictions_sha256": "caacb74d63218cfa8e82c2f21969731e81fe31b401c51028b481a498f58b452a",
+      "marker_sha256": "28eacdf9ac48db6a8b45beb498835245c38600359c80775a909b92a4bdce3c00",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_077.json",
+      "predictions_sha256": "78801e16d9d6b0a1f7380adeed0ca5a0f84a254c4ce241e5318be22a9e32d780",
+      "marker_sha256": "25d2bbe647d692f73c172262fe09cfea41164a28b139a50436321a0ee81e7123",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_078.json",
+      "predictions_sha256": "415ebe86b73fb3f9b092850bdb7d16b18a0deb6273fd10a3caa3514d689d668b",
+      "marker_sha256": "524f2dd656a25bf11c352a7bc3a12e264be65309afe9df9e46a8e5fa03afcb3c",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_079.json",
+      "predictions_sha256": "ebbdab1e7dfd6cc7ad501fb50404ef3cd38b66a5081a7cbaae4eaea42c23a6ab",
+      "marker_sha256": "1c64ada119ac99be280d244ed7344cf007e8f49811bac96c541619931eff9717",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h1/fold_080.json",
+      "predictions_sha256": "b9fb9d6d0c7db2858e39ce3b2040ea7f5d89fcec60ea3c7b77cd21d6a7b12810",
+      "marker_sha256": "6a2fef4945ff2c8447acaeb742823023862696c51b8eb46498007feb6e9288d3",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_000.json",
+      "predictions_sha256": "f8877e643ab6fb14a50c3233b6ace4dc42cb8446e8db472e7fd2346bc880d208",
+      "marker_sha256": "3fad615d102018cad538651a523f020603478de37a5124152f4bb105230d9a03",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_001.json",
+      "predictions_sha256": "bab4f4cc1066dc3c80b5fec00c7244592f712cfc62dc48fa98bfe513a2444f26",
+      "marker_sha256": "1857d057aad1d0c011cc8ac5781d42d2df9114e2571c9f5af41cf5124579e945",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_002.json",
+      "predictions_sha256": "a08d42c3122e1a9778449b84e899e12d07a6cc11ae201288aa9a262ec54ecad3",
+      "marker_sha256": "b1db8d9a2ff9dae958fdd0b2e4768c045e172a5f762a885c80088f476423cc67",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_003.json",
+      "predictions_sha256": "2d4beb61642468544f1aac26973021423f656c80282e47d0a11cf32d0fdad80c",
+      "marker_sha256": "124f57a99c1512d193c278055f79f5ac12af683b0412c4e48ac3f5023cbaa98f",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_004.json",
+      "predictions_sha256": "74b8234d6459768daa1013e35e8e42ae04ddd726feb2f2dc8d6d4a2771ae3408",
+      "marker_sha256": "ad791489f5681dfaeaf89191c452989381b9a3b809e263d1db10e4dc6347efdd",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_005.json",
+      "predictions_sha256": "30364f343c7a4aebd4dfae9b881af4c54b10d2c6637733135b9f3f51b8766411",
+      "marker_sha256": "e3ac52399b896a5bee6fb7bb841f3abcdea79a85a16fbd39fcd8294064e4a68e",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_006.json",
+      "predictions_sha256": "4c8f7cc443bfe5bc6837219f681aab06a04fc28bb809d79e30614845de33bedd",
+      "marker_sha256": "2b21e6763c8d25cf1c7363a664e1c1efbc40d8e0a99ca18d968ade675a0ea45b",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_007.json",
+      "predictions_sha256": "4b20d2787748e7a07dfab6f82d414ef87711524252b8786a119a522185df2278",
+      "marker_sha256": "702c7f9a98966bd014867691ae7d1f55057a96d6399d6879421e84bfda2fc6f1",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_008.json",
+      "predictions_sha256": "5909f8df1545d1a9561cb36d4c561a594005e139739c5785006ba924b5355fa3",
+      "marker_sha256": "afc496ae2bef5d0eb6fbaa1d02e0a7fae82a94c069fb504b5187240e31df8a9b",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_009.json",
+      "predictions_sha256": "cd5bcdac933198c0c6def83492ca7f1d1604188b58636d5c76d49a033901f4a2",
+      "marker_sha256": "acf7eb0c1af2e318416a464dc6a2eaa3a380924d0b7478e30ba641c6ca63ad14",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_010.json",
+      "predictions_sha256": "e34d142b558abc8665161fc0c893df2b797bd6338748b5189046c4d1c9b2ff37",
+      "marker_sha256": "536858ddbc1bd2d281174bf6850ee603452f0754c52579a426ea4123507e31de",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_011.json",
+      "predictions_sha256": "eda84814c99336114dea63fa796c5605f48b0c33f0badba810e1d30233a40b52",
+      "marker_sha256": "4223e27350e65972506ab5df6657c98a8e9aa544f56958fb97a48524267e7c7b",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_012.json",
+      "predictions_sha256": "6ffc66fbb8147564c3aa77298a7ad7afb487334b9fd3633a6ee81d9afe7bdca3",
+      "marker_sha256": "c9011575d770d70e4e5c7f0687f2d4af149933b62e3635a57ac838c577d02694",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_013.json",
+      "predictions_sha256": "14161cfa0b74af15504ff7a8e82420088578814ed76b31b38bd7d94bc9ba8fe4",
+      "marker_sha256": "a76dd454170688ea6c4e97c3b54790cf421c5db0c9770a9099e5de7fe9f2ef6d",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_014.json",
+      "predictions_sha256": "f36aba33cf946049fc4d315f219aa652312dc95bf3291262f8c8a8fe410ea194",
+      "marker_sha256": "26aa2a51f9397566f25146333b208125894f470e55c452d4a50070ce9961791b",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_015.json",
+      "predictions_sha256": "dfe4047cced521e0524dcfa493c26684464bd1dbf57bd905e722e68e02cac246",
+      "marker_sha256": "56c34355d588863bbe61314cf7b44331e949b47882ca159333eaeaccf3bdf20f",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_016.json",
+      "predictions_sha256": "0a661a81cac531f22c48cfd73c5b5194f8a6813212b24096c421bdaf8edb7b94",
+      "marker_sha256": "347c7b8e201ae8470a6ff4c49c4de212268eee6435452905fd5ff1113e7df596",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_017.json",
+      "predictions_sha256": "1fe21b4f88b0f65b569f09128c7fc90fd5bb5a21d1e3f80c79fbd64bac1366bb",
+      "marker_sha256": "c637ed687a1fb08751041c634935e4a10ec0c9b4d73c8783968dfa029b6f6c98",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_018.json",
+      "predictions_sha256": "52d34a7ed4ce72033503b405440f43bce462b460ef4cf62a5253e0c0d608e006",
+      "marker_sha256": "56484ab54c4b2e8a1bbdb0162f6461f7da01e0b2105fae1ebbd2324009ad3e44",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_019.json",
+      "predictions_sha256": "d4bd9cba8993ece12d1bfb3850047005a3ab78a864783b463f08be8949df98fd",
+      "marker_sha256": "2750ff93644312fed0c4ec9955cedf8a41a00b9634238ad42e5d3dca9959a1fe",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_020.json",
+      "predictions_sha256": "f2049fb546692712086293a460c3032ff463e4f2e5d24b60caedad628d9381ba",
+      "marker_sha256": "93fe5f006a72923eb364791267b5122b3474a4001c261d23592c4edbdd975de1",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_021.json",
+      "predictions_sha256": "151ae313981c3ffa426dc493d068e3d5a6c31ef86a73e3a1a9a2947a728fae8b",
+      "marker_sha256": "f6caa2dd82ac5cbcd627a3a206371faadd58851069ee7a17409d0bf1a148b943",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_022.json",
+      "predictions_sha256": "38a090b085668a06a2cfc74af0767d0cc5a348928aa9df8f48f593341da32e92",
+      "marker_sha256": "4436c55abfac15bd3795ce273e906028453891b594c689e426105a885768918f",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_023.json",
+      "predictions_sha256": "f1d119da12f14e1b74cfedd1a340c430641894d4f82c9e6080a4772030b43a45",
+      "marker_sha256": "d14c2604b6993f396dfa22feeeab1f11a58a03e847f7fc16fe04a7288a82b9c3",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_024.json",
+      "predictions_sha256": "8fb91b5ca71ced15e889f38affaa3d7b50f773919b5cef35a6bb9f16be24711d",
+      "marker_sha256": "5b436f35446caa40bafdbaff6277ed50751fcdc9b15a7c0082a1c717d9e36eee",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_025.json",
+      "predictions_sha256": "1b74bbef5aa6d9898b8ea721fa5edb49e0a4c77bd4506ddb0a1cca877af6e815",
+      "marker_sha256": "e2cc194de232a51acda11b14d34a4a66f92bbf345abc687cbd42a319ec458ab7",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_026.json",
+      "predictions_sha256": "e1a79b849375cfea055359e4a240e163f835235a9986c0abd0231454d10a7b97",
+      "marker_sha256": "3a4f6ae45ebc3355059e4bd608daea22b4e2cff7abb9ed549598ac89be11c36a",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_027.json",
+      "predictions_sha256": "d0cd6deaf2e51a10cbe89add229ca567f088ee1b0121b27394c09a5388730b04",
+      "marker_sha256": "f55f52eb2ecd8d9e7dcdd65abd22c8d2ef472fae9f892d5dafd6e5da771bccbd",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_028.json",
+      "predictions_sha256": "92c5b9cfe6c4aecb1711ddc9494514ef37fb35f6e76e0b91cffe7d3181e1a995",
+      "marker_sha256": "65d575de5d081ce914b2adffcae5ff16cbb0d8ba70eac0d382dd27d281af4658",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_029.json",
+      "predictions_sha256": "4b9edd5ac93d3227c8f66956aed6e7ff9f71db5f4c009fdd6b01219f0a811a14",
+      "marker_sha256": "25edfd07dbefd639ad0f7639cdb35da3c20c618b5a294b7b31b6b91467aa65f9",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_030.json",
+      "predictions_sha256": "c32da19607638b52f1891b87fa95dcf01479fb8acc855e9fbae8cb36b2ee37a0",
+      "marker_sha256": "3055d6f9ed6378ef44d638433b28823cdc0adf0476d0d496ad4a35fc167c6bc1",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_031.json",
+      "predictions_sha256": "621d8ae4b4daed72743c2912662cf988d368a2821c1c24508bb1f1260cef00f4",
+      "marker_sha256": "6f6e011d43207aaa43aa841a7ed504a75b34ff8093ad5a03e1fea2f6b1953949",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_032.json",
+      "predictions_sha256": "3c2c587363b62ed4aa11677a551a6b701e8278dbd2a550d165f1921fa9b6cf02",
+      "marker_sha256": "e6eee8f4bde370bf37f6f50bb66626babffd55001dccafa02b8189d61a120236",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_033.json",
+      "predictions_sha256": "54b968953550da555f9e771b29504761c26f4b8beb6156be2c768d872e8a3470",
+      "marker_sha256": "84992279c83a3fe12d5c1cebbde2663e600852e538a42722dea4d1eb847e2f57",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_034.json",
+      "predictions_sha256": "9d60905f476cdac4cd1399cde9cdc5b00634504ed6ce419f4e6552793ae72ebe",
+      "marker_sha256": "abc58255a6ba05ea20b35b105353899cc0ccaa9dd8527a8354c938b1d076c364",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_035.json",
+      "predictions_sha256": "f1cd910c365809c3cfa4830b7751477c791267b16ce754244d8dcdb78d99b804",
+      "marker_sha256": "d18508a8bfbda3eee3fb8a7148c3357dfe50023b30749d34ddfc6dc671e5e07d",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_036.json",
+      "predictions_sha256": "47be12725ea3ec839ea55fc6446ecfa6383327de3653fe3c502be473da7b5f19",
+      "marker_sha256": "9275deaf16ba69642bf35c92254b48f6a60015f581c560da7e929383416517cd",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_037.json",
+      "predictions_sha256": "05ae108ffe07dcebc66d4375704921f67404d9396b93399dd69f803619fa3f6e",
+      "marker_sha256": "eea9d6cfd08697d20bfd8fb50676f28075ac47ca02bfed88e564fe198ec56407",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_038.json",
+      "predictions_sha256": "1bd93c9974ac966b9ca95971b05699e6ac74119bef2813e4a10a2178d25c9e69",
+      "marker_sha256": "68c79e5cb77095b28c7d2bd2c78e559fc3554639f42a966d3d62edf760fde11c",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_039.json",
+      "predictions_sha256": "f7bbda8e2891a8ba29ad5073c41ffc0e3394c1dd0b66c190e48b00e5fdf097b7",
+      "marker_sha256": "df5b7f6c2a0e02eeabe7ad8e780a2168826ec3d1e636fcbd62bdd8fa96bf9c1d",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_040.json",
+      "predictions_sha256": "b4d88e64b646b9162ca7bda3fdf27e5bad3f0b03ea2081b3cf6b9edc38ab7393",
+      "marker_sha256": "99d2f87a59e5302248f8a8976975cd40d574724d98c039384394d17ef13e48ae",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_041.json",
+      "predictions_sha256": "e9e13991207491c00201167c226eba25591fef42ad148b3d78e44a7b8ae59577",
+      "marker_sha256": "e15bedb323dc8db22f91872469684a73f45fc0fd2e6b95c770cb54bbc9c5855a",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_042.json",
+      "predictions_sha256": "0f60e61cf8e3f084751419052dc9f25e5edb2b8396d648a3e437af4c1029b7f6",
+      "marker_sha256": "87d779abbe4f5eb59e408c12d709f4d0ecee2b27ef20225ad961d05c6979fcf2",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_043.json",
+      "predictions_sha256": "bc6f54ecfba6b19a1113702173c685d1153b454a550f9f36ab649a72a77b3fcb",
+      "marker_sha256": "97a41dadedca7a09bdb9b3ea0f71358f89e1c20a999d0ab7602a4ac3505afe15",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_044.json",
+      "predictions_sha256": "90bc8df209e7c80dba0eef421b9ebec37cc34f6a914b53323fe95fd34702ff47",
+      "marker_sha256": "53778b15c5ece718b187757c314172ca23cc3eae3aed374cf2da151e694bf768",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_045.json",
+      "predictions_sha256": "87c6ff8b698a4b575593212fca44b11c205c37dcd2e7d9ee2a40f22df389d210",
+      "marker_sha256": "98821291a0cfec12352f6d3b25d1077391934c59322761a559b27cbae182c2f6",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_046.json",
+      "predictions_sha256": "9cff4220003bfb6e40cabe59e2fe5c1ac983f6a6713889f8e5ef012d18200bbd",
+      "marker_sha256": "baa51daa5205fed5a591fe3ca83a30d9db0518c83d62d712dfd9344489ca6ea4",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_047.json",
+      "predictions_sha256": "e9caefc6fe403f2e6d5a02920b3c0e9d22ccc0650be7e3511b8e3950971baa39",
+      "marker_sha256": "df57d8a796cd38d577e3f69421d0a40922b6db4f040ba1e52e7c08e1ae6a6450",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_048.json",
+      "predictions_sha256": "4e33726c657df63a011471ab52ead0d3aa0561564e697aca7b2739601f9e053b",
+      "marker_sha256": "cc418bb58840fe8310576977663051d121f3c99bdc357ffb5c0c75b2296eab9e",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_049.json",
+      "predictions_sha256": "ad3cdc88306024e85009a5276eafa527468f380a31cd873a18c3a273f29f9686",
+      "marker_sha256": "425ea31f30ba7f041f0c715ae9ad73e7ecdf9c770482a9b133f371ba753a9ac0",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_050.json",
+      "predictions_sha256": "ff6f85373e72f8cc9b198e926acaa73d4dfbb276b9d3d5ff9785fa97765a6056",
+      "marker_sha256": "c00bef5e9bb7ed2446888fb8cccc3f7c4f30bc7563c15ac10e277a39ef350507",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_051.json",
+      "predictions_sha256": "ffa7ba2281df3187a9484dea52ee5a9a0e688409c64f5c97016ed2b97ac45d9f",
+      "marker_sha256": "23e53ee214b3bcd8b2375c27e8581414b99b93d7e310857119254dc76d7258e9",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_052.json",
+      "predictions_sha256": "90fd7404bbfd32c361c2c53f5892cf4ad03d7efff85374c13bacc8b17190cf17",
+      "marker_sha256": "fef583f7b6c10bbe72f0ddd098bdbf05097fa96915cbd8ba31020fbed8e83f75",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_053.json",
+      "predictions_sha256": "ae0a2cf5f52c7b18f326c7cd648c032fa7a634b950867dc56fa961a948dcadf0",
+      "marker_sha256": "221bf3a074d2242ae0417d0a3392ed4d417a1bc46fc817072a14ca5749be3dcd",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_054.json",
+      "predictions_sha256": "bc6dcc39d87dc49d3362a3d7f66210f8e03902d47b9ea40c998487d69ec14f57",
+      "marker_sha256": "e7e28c752b6f65040274841bff89e0f91c0599c51fc301dd8074fd6071cf8e6c",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_055.json",
+      "predictions_sha256": "ebdd2e8b4d9920b6d11203f4a0b16c1e862b0510ee7ea43b6d2b3bbb3a0ed2fb",
+      "marker_sha256": "ca867fd58b3e79983cbaa2babdc2220679c63c26f9a29e1deac2bb790d53a13a",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_056.json",
+      "predictions_sha256": "7774d34fe5763511c34a4d9baa3775e9f02afc47d7e4ffc103f8db9cef50e4f7",
+      "marker_sha256": "6a5e1462fd56fd7de9e7feb755e6dffa1861198b64d9281f90a66d6942e8c45c",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_057.json",
+      "predictions_sha256": "190fcc0b3f33ecff345f72a81b933438952aebc3dbf43172c873b73684c36ece",
+      "marker_sha256": "35aedca545b65b6e0d9db82061b5c636720c114d8eb9e8afd40d16b9313cb294",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_058.json",
+      "predictions_sha256": "b0db177360b17197be8b9b9df554e1fd6f659050b65d6fd2457897361b1f4298",
+      "marker_sha256": "bf7dfdd453224a842f0594684cb8da9eac1790eaa02395112aa52e1211c783a7",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_059.json",
+      "predictions_sha256": "f425a00094b44afd08b25450aa1205760826255b74bf5f1acd6e42d04388bde8",
+      "marker_sha256": "a2e60ba5452dec867a1c4a3ca23582fe8b3dc9f1fc27dd8de2c0cebe5ee7ea5d",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_060.json",
+      "predictions_sha256": "e9238c37db851aa56618135f557b23e1887b3254201d8bc9a524de316a91b547",
+      "marker_sha256": "38e77b8b45032203ff63777171c51a0550df5031d3a04830c05ae24f565f5277",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_061.json",
+      "predictions_sha256": "82435bc49a08bdddc97d4ab6649d5cea0a76b098260ef9c46d84032076e74157",
+      "marker_sha256": "89aa0959b0e97fe2601cbc6ddac38bb6f6612e1cbf7d7448ba3806f47c763fba",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_062.json",
+      "predictions_sha256": "adb8ec664086120ca376e804f29f87efc8e71dbd67f5dff1f7aaabd66172ac9f",
+      "marker_sha256": "76d2bb3846534fc2d0f9cba5be8efbf9562fa9b0fa3d2a51e0b1484c074266ed",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_063.json",
+      "predictions_sha256": "ab6e9d29b87728628d8a90c90d680575fe82b8187e0bf76013994005c5fe4990",
+      "marker_sha256": "396f7f502ec99eb6c933ace4cd30caa4e60288de5663b6d109284c365c22015f",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_064.json",
+      "predictions_sha256": "a4bcb122c2bc44d154c28a59f053907f2848ee56c20eadca8a070c52313a9e4a",
+      "marker_sha256": "c233517c987b7918b0afd3fe95da0d2c310ef69f323defd746353a6b913da555",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_065.json",
+      "predictions_sha256": "30cfac2f7d8747ef1702a82af4907f54baadd7371e88a685c84af37ac9417f2b",
+      "marker_sha256": "889b02902e5a22f1d40e9fe26f729f7158512da94a76d1f325b4b2e23c2050d1",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_066.json",
+      "predictions_sha256": "cabfbc0a5eba833c56691ebd48d462b3978c6071960e11b554a0e6bebb811010",
+      "marker_sha256": "9237685e5697e81f1842266fdb1935d8549d3dc4ba202659aa67c41c5165e2aa",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_067.json",
+      "predictions_sha256": "b4663125c2d053212c28d4cb8c5e7efb30818663ceb31a382557beb031e34b4f",
+      "marker_sha256": "18c5e2a28b97ba31ce336d54c4682b07e90a9ceb1f792865daac8729e79e6d31",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_068.json",
+      "predictions_sha256": "258ed308d511d1d39dd7a97e7ee4cad56750bd296a7b5dcf9b5e41e6c383c34f",
+      "marker_sha256": "0dc506ead073740d9956b34299b0e12cc13e92886e1c1a103f724771fb1a33fd",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_069.json",
+      "predictions_sha256": "3ff75bdb4b514dde1cbcebb63c3801852ba31106981d77c4e4b870d4e43049b7",
+      "marker_sha256": "db664cb10d8650c871912551ffcc2ff7328a785cfbb4935ffa6ba7c9582e4868",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_070.json",
+      "predictions_sha256": "23bfe5d16edc0337118ce1c4b70b06021f9a30cc998e15d99d87194716c8e6a1",
+      "marker_sha256": "67404af232e089cba43808ed0742ddc3b865ecc7865e56661066d70e36db4902",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_071.json",
+      "predictions_sha256": "da58ddb862334731ff09301cf55886f494eabf000fc17a8eb02d861bb43fa5f3",
+      "marker_sha256": "0102842b99806130c4750ce1a317bed2532875cce29cea5f3135e64415531c88",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_072.json",
+      "predictions_sha256": "39fcf970ad3dec95447478f77a85fac0f7514051df97723d241a5c035489e3a2",
+      "marker_sha256": "ed995ca2a5f86a918e2930b6a93e4201556a493a62b8618d2368ddd766d50857",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_073.json",
+      "predictions_sha256": "23b09f468017d8cd5084202b30b90e0423bf0407d0960b28cde52dfbcb9389ec",
+      "marker_sha256": "189f2def8bc76addf1a7f67454d612a6042fd30608c31a105703abaeba1cf196",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_074.json",
+      "predictions_sha256": "b91469d2f242a5fbe7570d41f495cdde9aaddf8a5118c040dac925602117d134",
+      "marker_sha256": "0c4046654a587b38d43463f60138b0985b77aa99b16fd3debc07e77d26aae14b",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_075.json",
+      "predictions_sha256": "c6646d1e610727a0f75218641cfe63f4edd66601e6ee1ce3972b0e2665d76d5b",
+      "marker_sha256": "9719c336c6267d7ea79110aa2395a7ed8cdf88948a528de7499d4763a7e4c340",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_076.json",
+      "predictions_sha256": "b6e6376cdf024fd051ec3c1161de64c607867799b71f8e9c0e39772ff2212881",
+      "marker_sha256": "5bc315b5f7ab076f82492571755431e7bee4748ae0dfa553e231c85669bb1ec6",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_077.json",
+      "predictions_sha256": "d1e14a88075b46b64d9210095f01f409367b06ed0b686796d8904a2d9e69833e",
+      "marker_sha256": "b400cf24f0caeaabe0d29a204c24d816b1a53198facb67c599d60493c796537f",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_078.json",
+      "predictions_sha256": "16bc408fe390526d3cd2b7ad24fd4b1d735ee239585e40d4e518a92da862bdc1",
+      "marker_sha256": "b618a535c7d802eb2ccfcb6c2653810533345d397a91209e64c8c187987fbc87",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_079.json",
+      "predictions_sha256": "17d42afc42162bec6ea4c887d2ffc82d03aa19c74ae46c8f5887a82558f3c157",
+      "marker_sha256": "36ddb661fff03272ddb0e6778cbecc3d9668ca1d7d39115f25e58a9acffee607",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h5/fold_080.json",
+      "predictions_sha256": "9e14ccaa9805fa90b54a193d22d32c22a68ec92e6469318ba7fa32094df0e998",
+      "marker_sha256": "d10ce1105f8e77329a6654b03f672a1905e9c313cb626a3030fb513106fe7787",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h20/fold_000.json",
+      "predictions_sha256": "27f7c660457f52b17c9ed92e5076c3dca17e715b2250d14ef07a01b90d95e0f4",
+      "marker_sha256": "949c9e97c2bcc1d6e470a736db9abc08a8bf1cd7b17cec5dadc79af778e07727",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h20/fold_001.json",
+      "predictions_sha256": "8d6464ca78f7373547298cd8a7f8ad48d3cee1acd09def45783617c83dbb751b",
+      "marker_sha256": "77c14670fffd9845c2796497810a4ce574ef12e9c4c502a553b2d5a0e634974d",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h20/fold_002.json",
+      "predictions_sha256": "90ec925391e34868fb59b5b4ece4af98f1dfe022acda3b3e405e14ff1518e2ca",
+      "marker_sha256": "6d3abe2e4222c31843b4a892a582fe0040fb0932342b40147926bf7f1416754f",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h20/fold_003.json",
+      "predictions_sha256": "565bc0d3b3e8bf46cb3565960d30dcaaadc886e0ff50f489577069f8f810e833",
+      "marker_sha256": "8ff152200d1dd4291028ab4f62070f3650942edb69e000aefc43c8be000c2c47",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h20/fold_004.json",
+      "predictions_sha256": "e07a3a99d2e394d55a0d430fc543dd5f28205d6000aacebe84f3a42fa104554d",
+      "marker_sha256": "3ae1f88b09c2c65f966ca0d9b323438a74b4f1ba0e94f6f725de9b51b5c2e7fb",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h20/fold_005.json",
+      "predictions_sha256": "42b06ce5457df8c3b098c92df31cd0b2985372dbd95c7b90fe76fa6412087b6b",
+      "marker_sha256": "7f8a7b5bf75886797f8d34d6277719c6acd0a076cca9163a2cd0419204c94ee6",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h20/fold_006.json",
+      "predictions_sha256": "bbd814ca29126508886dd66f90dfc6ce4bdc68e81ef12d09b093d9624a71b6d6",
+      "marker_sha256": "f5151aa52fdfcb0925f52ef429fd192899f212a81a27ce4ad3bd04fbeb8e7b48",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h20/fold_007.json",
+      "predictions_sha256": "9438756e28112e75f1cce56c7bb645a7fc8d86328d8ac0329ab93a6503dd25f9",
+      "marker_sha256": "6ba0cd56f2551d04a1cde86b24f7a548b21c7d35fb39667afff4b7b77c3aeec7",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    },
+    {
+      "marker": "full/folds/sandp_500/h20/fold_008.json",
+      "predictions_sha256": "c8eb80a58084af668ec7a460d47432d3c555c17b5fa488a380e267b4bfce4dda",
+      "marker_sha256": "fe4b48d11f8d1eb7d03cf206bb36e27ab1c8e4b9e0af5f998236e7a868c7fd8c",
+      "validated": true,
+      "provenance": "legacy_unrecorded"
+    }
+  ],
+  "expected_folds": 282
+}

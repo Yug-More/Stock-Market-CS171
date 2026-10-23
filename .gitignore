@@ -15,3 +15,6 @@ htmlcov/
 results/benchmarks/smoke/
 results/walkforward/smoke/
 results/walkforward/full/folds/**/*.csv
+
+# Compressed complete forecasts and exact fold archive are versioned instead.
+results/walkforward/full/predictions.csv

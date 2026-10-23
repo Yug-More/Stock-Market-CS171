@@ -1,0 +1,291 @@
+{
+  "dataset": "S&P 500",
+  "index_id": "^GSPC",
+  "horizon": 1,
+  "lookback": 20,
+  "seed": 171,
+  "fold": 1,
+  "sample": {
+    "rows": 23323,
+    "missing_feature_rows": 20,
+    "missing_target_rows": 1,
+    "train": {
+      "n": 2869,
+      "start_date": "1928-02-28",
+      "end_date": "1939-08-22"
+    },
+    "validation": {
+      "n": 252,
+      "start_date": "1939-08-24",
+      "end_date": "1940-08-26"
+    },
+    "test": {
+      "n": 252,
+      "start_date": "1940-08-28",
+      "end_date": "1941-08-28"
+    },
+    "purged_before_validation": 1,
+    "purged_before_test": 1,
+    "horizon": 1
+  },
+  "models": [
+    {
+      "model": "zero_return",
+      "details": {
+        "definition": "predict 0; fixed and not estimated"
+      },
+      "validation": {
+        "n": 252,
+        "mae": 0.009005459763101274,
+        "rmse": 0.015512089917924413,
+        "bias": 0.000237149740247043,
+        "directional_accuracy": 0.0,
+        "skill_vs_zero": 0.0,
+        "skill_vs_historical_mean": -0.00020806078747259704
+      },
+      "test": {
+        "n": 252,
+        "mae": 0.006853342089679196,
+        "rmse": 0.009838426803204603,
+        "bias": 3.459032624768902e-05,
+        "directional_accuracy": 0.0,
+        "skill_vs_zero": 0.0,
+        "skill_vs_historical_mean": 0.00014623760547338716
+      }
+    },
+    {
+      "model": "historical_mean",
+      "details": {
+        "definition": "mean of embargoed training targets, held fixed",
+        "training_mean": -0.00015849988048621436
+      },
+      "validation": {
+        "n": 252,
+        "mae": 0.00902181292537366,
+        "rmse": 0.015510476440874194,
+        "bias": 7.864985976082864e-05,
+        "directional_accuracy": 0.4808510638297872,
+        "skill_vs_zero": 0.0002080175071861312,
+        "skill_vs_historical_mean": 0.0
+      },
+      "test": {
+        "n": 252,
+        "mae": 0.006863405574154509,
+        "rmse": 0.009839146256102528,
+        "bias": -0.00012390955423852536,
+        "directional_accuracy": 0.5064377682403434,
+        "skill_vs_zero": -0.00014625899403841736,
+        "skill_vs_historical_mean": 0.0
+      }
+    },
+    {
+      "model": "linear_regression",
+      "details": {
+        "scaling": "StandardScaler fit on training origins only"
+      },
+      "validation": {
+        "n": 252,
+        "mae": 0.009143457256711871,
+        "rmse": 0.015712484112306257,
+        "bias": -0.0006776353298100683,
+        "directional_accuracy": 0.4723404255319149,
+        "skill_vs_zero": -0.026004052296341618,
+        "skill_vs_historical_mean": -0.026217523507412466
+      },
+      "test": {
+        "n": 252,
+        "mae": 0.007108817766895416,
+        "rmse": 0.009965618409884571,
+        "bias": -0.0010216483269144794,
+        "directional_accuracy": 0.48068669527896996,
+        "skill_vs_zero": -0.026023220690294613,
+        "skill_vs_historical_mean": -0.025873177511340772
+      }
+    },
+    {
+      "model": "random_forest",
+      "details": {
+        "selected_max_depth": 4,
+        "validation_rmse_by_depth": {
+          "4": 0.015354968713622057,
+          "8": 0.01541636946630182
+        },
+        "n_estimators": 200,
+        "min_samples_leaf": 5,
+        "seed": 171,
+        "scaling": "StandardScaler fit on training origins only"
+      },
+      "validation": {
+        "n": 252,
+        "mae": 0.009045981723145316,
+        "rmse": 0.015354968713622057,
+        "bias": -0.00021458417101234123,
+        "directional_accuracy": 0.49361702127659574,
+        "skill_vs_zero": 0.020155307068399186,
+        "skill_vs_historical_mean": 0.019951439809987037
+      },
+      "test": {
+        "n": 252,
+        "mae": 0.006866107319348676,
+        "rmse": 0.009818418439133099,
+        "bias": -0.0004538901153316089,
+        "directional_accuracy": 0.5107296137339056,
+        "skill_vs_zero": 0.004063255032858648,
+        "skill_vs_historical_mean": 0.004208898437645492
+      }
+    },
+    {
+      "model": "lstm",
+      "details": {
+        "selected_hidden_size": 32,
+        "validation_rmse_by_hidden_size": {
+          "16": 0.01802389640802734,
+          "32": 0.016963223793784305
+        },
+        "epochs_trained": 25,
+        "best_epoch": 24,
+        "lookback": 20,
+        "learning_rate": 0.001,
+        "batch_size": 256,
+        "max_epochs": 25,
+        "patience": 5,
+        "seed": 171,
+        "scaling": "training-origin mean and scale applied before windowing",
+        "history": [
+          {
+            "epoch": 1,
+            "validation_mse": 0.0017470294586234938
+          },
+          {
+            "epoch": 2,
+            "validation_mse": 0.0011443732515105237
+          },
+          {
+            "epoch": 3,
+            "validation_mse": 0.0003973446641867083
+          },
+          {
+            "epoch": 4,
+            "validation_mse": 0.0003482973135459718
+          },
+          {
+            "epoch": 5,
+            "validation_mse": 0.0003714134589499789
+          },
+          {
+            "epoch": 6,
+            "validation_mse": 0.0003290942362280604
+          },
+          {
+            "epoch": 7,
+            "validation_mse": 0.0003321901656407439
+          },
+          {
+            "epoch": 8,
+            "validation_mse": 0.00031769874272725355
+          },
+          {
+            "epoch": 9,
+            "validation_mse": 0.00031522952067924314
+          },
+          {
+            "epoch": 10,
+            "validation_mse": 0.0003084932415738154
+          },
+          {
+            "epoch": 11,
+            "validation_mse": 0.00030801688459086636
+          },
+          {
+            "epoch": 12,
+            "validation_mse": 0.0003088382109953196
+          },
+          {
+            "epoch": 13,
+            "validation_mse": 0.00029945613621794814
+          },
+          {
+            "epoch": 14,
+            "validation_mse": 0.00030186097369152415
+          },
+          {
+            "epoch": 15,
+            "validation_mse": 0.0003002296282982574
+          },
+          {
+            "epoch": 16,
+            "validation_mse": 0.0003064301239120353
+          },
+          {
+            "epoch": 17,
+            "validation_mse": 0.000294614989986968
+          },
+          {
+            "epoch": 18,
+            "validation_mse": 0.0003012988337883578
+          },
+          {
+            "epoch": 19,
+            "validation_mse": 0.0002949702194282799
+          },
+          {
+            "epoch": 20,
+            "validation_mse": 0.00028809890327868495
+          },
+          {
+            "epoch": 21,
+            "validation_mse": 0.00029271303999040313
+          },
+          {
+            "epoch": 22,
+            "validation_mse": 0.0003010220829457971
+          },
+          {
+            "epoch": 23,
+            "validation_mse": 0.00029564841916891754
+          },
+          {
+            "epoch": 24,
+            "validation_mse": 0.00028775096147801003
+          },
+          {
+            "epoch": 25,
+            "validation_mse": 0.0003008153757897152
+          }
+        ],
+        "reproducibility": "Seeds are set for Python, NumPy, and PyTorch. CPU LSTM results are not guaranteed to be bitwise identical across library versions."
+      },
+      "validation": {
+        "n": 252,
+        "mae": 0.010323880366224227,
+        "rmse": 0.016963223793784305,
+        "bias": 3.101866608339407e-05,
+        "directional_accuracy": 0.46808510638297873,
+        "skill_vs_zero": -0.19584848148078104,
+        "skill_vs_historical_mean": -0.19609729065753556
+      },
+      "test": {
+        "n": 252,
+        "mae": 0.007844055289596322,
+        "rmse": 0.010681171523533768,
+        "bias": -0.0019517076742810097,
+        "directional_accuracy": 0.48068669527896996,
+        "skill_vs_zero": -0.178654342870757,
+        "skill_vs_historical_mean": -0.17848197928197473
+      }
+    }
+  ],
+  "volatility_thresholds": {
+    "low_max": 0.013279348017416743,
+    "high_min": 0.020809246588482114,
+    "validation_mean": 0.012961335745404399,
+    "test_mean": 0.009728718460218774
+  },
+  "models_present": [
+    "zero_return",
+    "historical_mean",
+    "linear_regression",
+    "random_forest",
+    "lstm"
+  ]
+}
