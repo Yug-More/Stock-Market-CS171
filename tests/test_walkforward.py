@@ -350,3 +350,47 @@ def _settings() -> BenchmarkSettings:
         lstm_max_epochs=1,
         lstm_patience=1,
     )
+
+
+@pytest.mark.parametrize("values", [[], [1, 2], [1, np.nan, 2], [1, np.inf, 2]])
+def test_volatility_thresholds_reject_insufficient_or_nonfinite(values):
+    with pytest.raises(ValueError, match="finite vector"):
+        volatility_thresholds(np.asarray(values))
+
+
+@pytest.mark.parametrize("values", [[], [np.nan], [np.inf]])
+def test_regime_assignment_rejects_missing_observations(values):
+    with pytest.raises(ValueError, match="finite vector"):
+        assign_volatility_regime(np.asarray(values), 1, 2)
+
+
+def test_equal_thresholds_leave_medium_empty():
+    lower, upper = volatility_thresholds(np.ones(6))
+    assert list(assign_volatility_regime(np.array([0.5, 1, 2]), lower, upper)) == [
+        "low",
+        "low",
+        "high",
+    ]
+
+
+def test_pooling_weights_observations_instead_of_averaging_fold_rmse():
+    rows = []
+    for fold, outcomes in enumerate(([1.0], [3.0, 3.0, 3.0])):
+        for offset, actual in enumerate(outcomes):
+            for model in ("zero_return", "historical_mean"):
+                rows.append(
+                    {
+                        "dataset": "synthetic",
+                        "horizon": 1,
+                        "fold": fold,
+                        "date": f"2020-01-{fold * 10 + offset + 1:02d}",
+                        "model": model,
+                        "y_true": actual,
+                        "y_pred": 0.0,
+                    }
+                )
+    result = pooled_metrics(pd.DataFrame(rows), ("dataset", "horizon"))
+    np.testing.assert_allclose(result.rmse, np.sqrt(7.0))
+    assert all(result.n == 4)
+    assert all(result["rank"] == 1)
+    assert all(result.rmse != 2.0)  # Mean fold RMSE would be (1 + 3) / 2.

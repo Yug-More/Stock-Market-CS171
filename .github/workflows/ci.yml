@@ -39,3 +39,32 @@ jobs:
 
       - name: Run unit tests
         run: pytest
+
+  research-smoke:
+    name: Neural smoke and artifact integrity
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install CPU research dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -e ".[research,dev]"
+
+      - name: Run tests with PyTorch available
+        run: pytest
+
+      - name: Exercise all forecast models and figure generation
+        run: marketpulse-walkforward --mode smoke --output /tmp/marketpulse-ci-smoke
+
+      - name: Verify the complete saved research study
+        run: |
+          tar -xzf results/walkforward/full/fold_predictions.tar.gz -C results/walkforward/full
+          python scripts/verify_walkforward.py
