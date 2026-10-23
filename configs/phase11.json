@@ -1,0 +1,21 @@
+{
+  "classification": "retrospective delayed-feedback adaptive sensitivity",
+  "levels": [0.8, 0.9],
+  "minimum": 252,
+  "alpha_bounds": [0.02, 0.5],
+  "variants": [
+    {"name": "aci_w504_g001", "window": 504, "gamma": 0.01},
+    {"name": "aci_w252_g001", "window": 252, "gamma": 0.01},
+    {"name": "aci_w504_g005", "window": 504, "gamma": 0.05},
+    {"name": "aci_w252_g005", "window": 252, "gamma": 0.05}
+  ],
+  "reference": "trailing",
+  "primary_variant": "aci_w504_g001",
+  "bootstrap_replicates": 2000,
+  "bootstrap_seed": 11171,
+  "block_lengths": [20, 40, 80],
+  "inference_family": "60 overall primary-variant vs trailing interval-score comparisons (30 point-model cells times two levels), L20, Holm; sensitivity lengths and other variants exploratory",
+  "update": "alpha <- clip(alpha + gamma*((1-nominal)-past_miss), 0.02, 0.5), only after actual target_date < current_origin",
+  "selection": "all four fixed before execution; no retrospective winner is independently validated",
+  "guarantee": "none; delay, clipping, market dependence and changing point fits differ from original ACI theory"
+}
