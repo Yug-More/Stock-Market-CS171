@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import json
+import time
+from dataclasses import asdict
 from pathlib import Path
 
 import numpy as np
@@ -16,10 +18,12 @@ from marketpulse.evaluation.regimes import assign_volatility_regime, volatility_
 from marketpulse.experiments.benchmark import (
     ALL_MODELS,
     BenchmarkSettings,
+    _sample_record,
     environment_record,
     score_split,
 )
 from marketpulse.experiments.figures import write_walkforward_figures
+from marketpulse.experiments.recovery import experiment_identity, file_hash, validate_fold
 from marketpulse.experiments.summary import fold_summary, pooled_metrics, stress_tables
 from marketpulse.features import build_features
 from marketpulse.protocol import ForecastingProtocol
@@ -42,6 +46,8 @@ def run_walk_forward(
     per series. Models are not reused across folds.
     """
 
+    if mode not in ("full", "smoke"):
+        raise ValueError("mode must be full or smoke")
     output_dir.mkdir(parents=True, exist_ok=True)
     catalogs = load_catalog(root)
     horizons = protocol.horizons
@@ -51,9 +57,60 @@ def run_walk_forward(
         settings = settings.for_smoke()
         max_folds = 2 if max_folds is None else max_folds
     tasks = _plan(root, catalogs, horizons, protocol, settings, max_folds)
+    identity = experiment_identity(root, mode, protocol, settings)
+    identity["max_folds"] = max_folds
+    manifest_path = output_dir / "manifest.json"
+    # JSON normalizes tuple settings to lists before comparison.
+    identity = json.loads(json.dumps(identity))
+    if manifest_path.exists():
+        previous = json.loads(manifest_path.read_text())
+        if previous["identity"] != identity:
+            raise ValueError("run inputs changed; use a new output directory")
+    else:
+        recovered = []
+        for task in tasks:
+            directory = output_dir / "folds" / _slug(task["entry"].name) / f"h{task['horizon']}"
+            marker = directory / f"fold_{task['fold_index']:03d}.json"
+            csv = marker.with_suffix(".csv")
+            if marker.exists() or csv.exists():
+                if not marker.exists() or not csv.exists():
+                    raise ValueError(f"partial fold preserved at {marker}; inspect before recovery")
+                recovered.append(validate_fold(task, settings, protocol.seed, marker, csv))
+        manifest_path.write_text(
+            json.dumps(
+                {
+                    "identity": identity,
+                    "recovery_environment": environment_record(root, mode),
+                    "legacy_provenance": (
+                        "Original execution environment and revision were not recorded; "
+                        "recovery validation cannot establish those missing facts."
+                    ),
+                    "recovered": recovered,
+                    "expected_folds": len(tasks),
+                },
+                indent=2,
+            )
+            + "\n"
+        )
+    planned = []
+    for task in tasks:
+        planned.append(
+            {
+                "dataset": task["entry"].name,
+                "horizon": task["horizon"],
+                "fold": task["fold_index"],
+                "sample": _sample_record(
+                    pd.to_datetime(task["market"]["date"]),
+                    task["split"],
+                    task["target"],
+                    task["features"],
+                ),
+            }
+        )
+    (output_dir / "fold_plan.json").write_text(json.dumps(planned, indent=2) + "\n")
     print(f"{mode}: {len(tasks)} walk-forward folds", flush=True)
     for task in tasks:
-        _run_task(task, settings, protocol.seed, output_dir)
+        _run_task(task, settings, protocol.seed, output_dir, root, mode)
     _write_summaries(output_dir, mode, root, protocol, settings)
 
 
@@ -97,7 +154,12 @@ def _plan(root, catalogs, horizons, protocol, settings, max_folds):
 
 
 def _run_task(
-    task: dict[str, object], settings: BenchmarkSettings, seed: int, output_dir: Path
+    task: dict[str, object],
+    settings: BenchmarkSettings,
+    seed: int,
+    output_dir: Path,
+    root: Path,
+    mode: str,
 ) -> None:
     entry = task["entry"]
     horizon = int(task["horizon"])
@@ -106,9 +168,13 @@ def _run_task(
     directory.mkdir(parents=True, exist_ok=True)
     marker = directory / f"fold_{fold_index:03d}.json"
     predictions_path = directory / f"fold_{fold_index:03d}.csv"
-    if marker.is_file() and predictions_path.is_file() and _marker_complete(marker):
+    if marker.is_file() or predictions_path.is_file():
+        if not marker.is_file() or not predictions_path.is_file():
+            raise ValueError(f"partial fold preserved at {marker}; inspect before recovery")
+        validate_fold(task, settings, seed, marker, predictions_path)
         print(f"reuse {entry.name} horizon {horizon} fold {fold_index + 1}", flush=True)
         return
+    started = time.monotonic()
     features = task["features"]
     result = score_split(
         dataset_name=entry.name,
@@ -132,8 +198,19 @@ def _run_task(
     payload = {key: value for key, value in result.items() if key != "predictions"}
     payload["volatility_thresholds"] = thresholds
     payload["models_present"] = [model["model"] for model in result["models"]]
-    marker.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
-    frame.to_csv(predictions_path, index=False)
+    payload["execution"] = {
+        **environment_record(root, mode),
+        "settings": asdict(settings),
+        "elapsed_seconds": time.monotonic() - started,
+    }
+    temporary_csv = predictions_path.with_suffix(".csv.tmp")
+    frame.to_csv(temporary_csv, index=False)
+    temporary_csv.replace(predictions_path)
+    payload["predictions_sha256"] = file_hash(predictions_path)
+    temporary_marker = marker.with_suffix(".json.tmp")
+    temporary_marker.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+    temporary_marker.replace(marker)
+    validate_fold(task, settings, seed, marker, predictions_path)
 
 
 def _with_regimes(frame: pd.DataFrame, features: pd.DataFrame, split: object) -> pd.DataFrame:
@@ -184,7 +261,19 @@ def _write_summaries(
     protocol: ForecastingProtocol,
     settings: BenchmarkSettings,
 ) -> None:
-    frames = [pd.read_csv(path) for path in sorted(output_dir.glob("folds/*/*/*.csv"))]
+    plan = json.loads((output_dir / "fold_plan.json").read_text())
+    expected = {
+        output_dir
+        / "folds"
+        / _slug(item["dataset"])
+        / f"h{item['horizon']}"
+        / f"fold_{item['fold']:03d}.csv"
+        for item in plan
+    }
+    actual = set(output_dir.glob("folds/*/*/*.csv"))
+    if actual != expected:
+        raise ValueError("saved fold files do not match the complete run plan")
+    frames = [pd.read_csv(path) for path in sorted(expected)]
     if not frames:
         raise ValueError("the walk-forward run produced no fold predictions")
     predictions = pd.concat(frames, ignore_index=True)
@@ -193,6 +282,13 @@ def _write_summaries(
     pooled = pooled_metrics(predictions, ("dataset", "horizon"))
     summary = fold_summary(fold_metrics)
     regime = pooled_metrics(predictions, ("dataset", "horizon", "regime"))
+    low = regime.loc[regime["regime"] == "low", ["dataset", "horizon", "model", "rmse"]]
+    regime = regime.merge(
+        low.rename(columns={"rmse": "low_regime_rmse"}),
+        on=["dataset", "horizon", "model"],
+        how="left",
+    )
+    regime["rmse_ratio_to_low"] = regime["rmse"] / regime["low_regime_rmse"].replace(0, np.nan)
     eligible = _eligible_table(root, protocol, settings, predictions)
     stress = stress_tables(predictions, eligible)
     predictions.to_csv(output_dir / "predictions.csv", index=False)
@@ -325,11 +421,6 @@ def _assert_unique_tests(predictions: pd.DataFrame) -> None:
     duplicate = zero.duplicated(["dataset", "horizon", "date"])
     if bool(duplicate.any()):
         raise AssertionError("a test origin was scored in more than one fold")
-
-
-def _marker_complete(path: Path) -> bool:
-    payload = json.loads(path.read_text(encoding="utf-8"))
-    return set(payload.get("models_present", [])) == set(ALL_MODELS)
 
 
 def _slug(name: str) -> str:

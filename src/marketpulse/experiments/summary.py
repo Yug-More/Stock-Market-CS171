@@ -43,7 +43,9 @@ def pooled_metrics(predictions: pd.DataFrame, group_columns: tuple[str, ...]) ->
                 mean["y_pred"].to_numpy(dtype=float),
             )
             rows.append({**fields, "model": model, **metrics})
-    return pd.DataFrame(rows)
+    result = pd.DataFrame(rows)
+    result["rank"] = result.groupby(list(group_columns))["rmse"].rank(method="min")
+    return result
 
 
 def fold_summary(fold_metrics: pd.DataFrame) -> pd.DataFrame:
@@ -72,6 +74,8 @@ def fold_summary(fold_metrics: pd.DataFrame) -> pd.DataFrame:
                 "mean_fold_rmse": float(frame["rmse"].mean()),
                 "median_fold_rmse": float(frame["rmse"].median()),
                 "mean_rank": float(frame["rank"].mean()),
+                "rank_std": float(frame["rank"].std(ddof=0)),
+                "rank_changes": int(np.sum(np.diff(frame.sort_values("fold")["rank"]) != 0)),
                 "times_best": int(np.sum(frame["rank"].to_numpy() == 1)),
                 "folds_better_than_zero": int(np.sum(skill_zero > 0.0)),
                 "folds_better_than_historical_mean": int(np.sum(skill_mean > 0.0)),

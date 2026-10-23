@@ -25,21 +25,28 @@ def write_walkforward_figures(
     regime_metrics: pd.DataFrame,
     stress_metrics: pd.DataFrame,
 ) -> None:
-    """Write one figure per comparison. A missing matplotlib install skips the files."""
+    """Write figures from persisted test metrics; matplotlib is required."""
 
     try:
         import matplotlib
 
         matplotlib.use("Agg")
         import matplotlib.pyplot as plt
-    except ImportError:
-        return
+    except ImportError as exc:
+        raise RuntimeError("install the research extra to generate research figures") from exc
     figure_dir = output_dir / "figures"
     figure_dir.mkdir(parents=True, exist_ok=True)
     test = fold_metrics.loc[fold_metrics["partition"] == "test"].copy()
     for dataset, frame in test.groupby("dataset", sort=False):
         _rmse_by_fold(
             plt, figure_dir / f"rmse_by_fold_{_slug(str(dataset))}.png", str(dataset), frame
+        )
+        _rmse_by_fold(
+            plt,
+            figure_dir / f"mae_by_fold_{_slug(str(dataset))}.png",
+            str(dataset),
+            frame,
+            metric="mae",
         )
         _regime_bars(
             plt,
@@ -67,17 +74,26 @@ def write_walkforward_figures(
     _rank_bars(plt, figure_dir / "rank_stability.png", summary)
 
 
-def _rmse_by_fold(plt: object, path: Path, dataset: str, frame: pd.DataFrame) -> None:
+def _rmse_by_fold(
+    plt: object, path: Path, dataset: str, frame: pd.DataFrame, *, metric: str = "rmse"
+) -> None:
     horizons = sorted(int(value) for value in frame["horizon"].unique())
     figure, axes = plt.subplots(1, len(horizons), figsize=(5.2 * len(horizons), 4.2), squeeze=False)
     for axis, horizon in zip(axes[0], horizons, strict=True):
         subset = frame.loc[frame["horizon"] == horizon]
         for model in _present(subset["model"]):
             ordered = subset.loc[subset["model"] == model].sort_values("fold")
-            axis.plot(ordered["test_end"], ordered["rmse"], marker="o", linewidth=1.4, label=model)
+            axis.plot(
+                pd.to_datetime(ordered["test_end"]),
+                ordered[metric],
+                marker="o",
+                markersize=2,
+                linewidth=1,
+                label=model,
+            )
         axis.set_title(f"{dataset}, horizon {horizon}")
         axis.set_xlabel("Test-window end")
-        axis.set_ylabel("Test RMSE")
+        axis.set_ylabel(f"Test {metric.upper()}")
         axis.tick_params(axis="x", labelrotation=45)
         n_folds = int(subset["fold"].nunique())
         n_test = int(subset.loc[subset["model"] == subset["model"].iloc[0], "n"].sum())
@@ -86,7 +102,7 @@ def _rmse_by_fold(plt: object, path: Path, dataset: str, frame: pd.DataFrame) ->
         )
     axes[0, 0].legend(fontsize=8)
     figure.tight_layout()
-    figure.savefig(path, dpi=140)
+    figure.savefig(path, dpi=220)
     plt.close(figure)
 
 
@@ -111,7 +127,7 @@ def _pooled_bars(plt: object, path: Path, pooled: pd.DataFrame, column: str, yla
         axis.axhline(0.0, color="black", linewidth=0.6)
     axes[0, 0].legend(fontsize=8)
     figure.tight_layout()
-    figure.savefig(path, dpi=140)
+    figure.savefig(path, dpi=220)
     plt.close(figure)
 
 
@@ -140,7 +156,7 @@ def _rank_bars(plt: object, path: Path, summary: pd.DataFrame) -> None:
         axis.set_title(dataset)
     axes[0, 0].legend(fontsize=8)
     figure.tight_layout()
-    figure.savefig(path, dpi=140)
+    figure.savefig(path, dpi=220)
     plt.close(figure)
 
 
@@ -184,7 +200,7 @@ def _regime_bars(
         axis.axhline(0.0, color="black", linewidth=0.6)
     axes[0, 0].legend(fontsize=8)
     figure.tight_layout()
-    figure.savefig(path, dpi=140)
+    figure.savefig(path, dpi=220)
     plt.close(figure)
 
 
@@ -223,7 +239,7 @@ def _stress_bars(plt: object, path: Path, dataset: str, stress_metrics: pd.DataF
         axis.set_title(f"{dataset}, horizon {horizon}")
     axes[0, 0].legend(fontsize=8)
     figure.tight_layout()
-    figure.savefig(path, dpi=140)
+    figure.savefig(path, dpi=220)
     plt.close(figure)
 
 
