@@ -39,6 +39,11 @@ def main():
     manifest = json.loads((output / "manifest.json").read_text())
     identity = experiment_identity(root, "full", protocol, settings)
     identity["max_folds"] = None
+    # New extension files are not inputs to the historical generating pipeline.
+    # Every original manifest input must still exist and match byte-for-byte.
+    identity["inputs"] = {
+        path: identity["inputs"].get(path) for path in manifest["identity"]["inputs"]
+    }
     if json.loads(json.dumps(identity)) != manifest["identity"]:
         raise AssertionError("source, configuration, or data differ from the saved manifest")
     tasks = _plan(root, load_catalog(root), protocol.horizons, protocol, settings, None)
