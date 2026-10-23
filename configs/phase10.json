@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "classification": "retrospective balanced temporal sensitivity",
+  "seeds": [
+    171,
+    271,
+    371,
+    471,
+    571
+  ],
+  "fold_quantiles": [
+    0.25,
+    0.75
+  ],
+  "models": [
+    "random_forest",
+    "lstm"
+  ],
+  "reuse_quantiles": [
+    0,
+    0.5,
+    1
+  ],
+  "bootstrap_seed": 10171,
+  "bootstrap_replicates": 2000,
+  "block_lengths": [
+    20,
+    40,
+    80
+  ],
+  "primary_pairs": [
+    [
+      "random_forest",
+      "zero_return"
+    ],
+    [
+      "random_forest",
+      "historical_mean"
+    ],
+    [
+      "lstm",
+      "zero_return"
+    ],
+    [
+      "lstm",
+      "historical_mean"
+    ],
+    [
+      "random_forest",
+      "lstm"
+    ]
+  ],
+  "family": "30 primary overall L20 MSE comparisons; Holm; other lengths/regimes exploratory",
+  "aggregation": "arithmetic mean of per-seed losses at each matched origin, not loss of ensemble forecast",
+  "cost_estimate_minutes": [
+    15,
+    25
+  ]
+}

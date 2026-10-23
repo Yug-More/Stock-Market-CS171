@@ -1,0 +1,25 @@
+dataset,horizon,fold,model,max_abs_difference
+NASDAQ-100,1,3,random_forest,0.0
+NASDAQ-100,1,3,lstm,0.0
+NASDAQ-100,1,9,random_forest,0.0
+NASDAQ-100,1,9,lstm,0.0
+NASDAQ-100,20,3,random_forest,0.0
+NASDAQ-100,20,3,lstm,0.0
+NASDAQ-100,20,9,random_forest,0.0
+NASDAQ-100,20,9,lstm,0.0
+NASDAQ-100,5,3,random_forest,0.0
+NASDAQ-100,5,3,lstm,0.0
+NASDAQ-100,5,9,random_forest,0.0
+NASDAQ-100,5,9,lstm,0.0
+S&P 500,1,20,random_forest,0.0
+S&P 500,1,20,lstm,0.0
+S&P 500,1,60,random_forest,0.0
+S&P 500,1,60,lstm,0.0
+S&P 500,20,20,random_forest,0.0
+S&P 500,20,20,lstm,0.0
+S&P 500,20,60,random_forest,0.0
+S&P 500,20,60,lstm,0.0
+S&P 500,5,20,random_forest,0.0
+S&P 500,5,20,lstm,0.0
+S&P 500,5,60,random_forest,0.0
+S&P 500,5,60,lstm,0.0

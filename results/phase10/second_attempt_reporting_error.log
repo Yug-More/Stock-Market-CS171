@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/Users/amolair/Desktop/Stock-Market-CS171/scripts/phase10.py", line 23, in <module>
+    main()
+    ~~~~^^
+  File "/Users/amolair/Desktop/Stock-Market-CS171/scripts/phase10.py", line 19, in main
+    (analyze if args.step == "analyze" else verify)(root)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/amolair/Desktop/Stock-Market-CS171/src/marketpulse/experiments/expanded_analysis.py", line 238, in analyze
+    report(root)
+    ~~~~~~^^^^^^
+TypeError: 'dict' object is not callable

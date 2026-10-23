@@ -1,0 +1,43 @@
+{
+  "environment": {
+    "mode": "full",
+    "python": "3.13.2",
+    "platform": "macOS-14.5-arm64-arm-64bit-Mach-O",
+    "versions": {
+      "marketpulse": "0.1.0",
+      "numpy": "2.5.4",
+      "pandas": "3.1.0",
+      "scikit-learn": "1.9.1",
+      "torch": "2.14.1"
+    },
+    "git_sha": "f6bf15a3ed8c84da54ed08b411da1ff1d7ea10f6"
+  },
+  "config_sha256": "1026fc63a540bafb62c674f7d954af60a6763ec9e4fb1c630a080903302d5ca6",
+  "new_tasks": 60,
+  "new_training_seconds": 825.7620851699612,
+  "settings": {
+    "lookback": 20,
+    "rf_n_estimators": 200,
+    "rf_min_samples_leaf": 5,
+    "rf_max_depth": [
+      4,
+      8
+    ],
+    "lstm_hidden_size": [
+      16,
+      32
+    ],
+    "lstm_learning_rate": 0.001,
+    "lstm_batch_size": 256,
+    "lstm_max_epochs": 25,
+    "lstm_patience": 5
+  },
+  "combined_folds": 30,
+  "temporal_origins_per_cell": 1260,
+  "new_stochastic_predictions": 30240,
+  "source_sha256": "7149dc1d87ba196eaa8dfaa3eccbaaa8dd1e844d4829f2a376aca6d7aff19e89",
+  "historical_inputs": {
+    "results/walkforward/full/predictions.csv.gz": "e51751e1f1f18e546d7cda406c3d61f393ea0b704ba3c7033e97515d87cada08",
+    "results/robustness/multiseed/manifest.json": "d9083a0096b8a4396fc0cf9b41b23a80587dcd40af60f46e4313e9f3af168d83"
+  }
+}
