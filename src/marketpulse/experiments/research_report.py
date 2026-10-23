@@ -175,6 +175,24 @@ def write_report(root: Path) -> None:
             "interval_score",
         ],
     )
+    lines += ["", "High-volatility diagnostics for the zero-return procedure at nominal 90%:", ""]
+    high = calibration[
+        (calibration["slice"] == "volatility_high")
+        & (calibration.nominal == 0.9)
+        & (calibration.model == "zero_return")
+    ]
+    lines += markdown_table(
+        high, ["dataset", "horizon", "method", "n", "coverage", "mean_width", "interval_score"]
+    )
+    lines += ["", "COVID diagnostics at nominal 90% (52 origins per cell; descriptive only):", ""]
+    covid = calibration[
+        (calibration["slice"] == "covid_crash")
+        & (calibration.nominal == 0.9)
+        & (calibration.model == "zero_return")
+    ]
+    lines += markdown_table(
+        covid, ["dataset", "horizon", "method", "n", "coverage", "mean_width", "interval_score"]
+    )
     lines += [
         "",
         "Coverage close to 90% overall does not imply conditional coverage in high "

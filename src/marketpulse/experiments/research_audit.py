@@ -6,6 +6,7 @@ import hashlib
 import json
 import math
 import subprocess
+from dataclasses import asdict
 from pathlib import Path
 
 import numpy as np
@@ -204,6 +205,9 @@ def audit_seeds(root: Path, source: pd.DataFrame, design: dict) -> int:
     assert len(markers) == manifest["expected_tasks"] == 90
     for relative, expected in manifest["identity"]["inputs"].items():
         assert file_hash(root / relative) == expected
+    from marketpulse.experiments.benchmark import load_benchmark_settings
+
+    expected_settings = json.loads(json.dumps(asdict(load_benchmark_settings(root))))
     metrics = pd.read_csv(root / "results/robustness/seed_metrics.csv")
     pieces = []
     identifiers = set()
@@ -213,6 +217,7 @@ def audit_seeds(root: Path, source: pd.DataFrame, design: dict) -> int:
         assert key not in identifiers
         identifiers.add(key)
         assert payload["seed"] in design["seeds"]
+        assert payload["execution"]["settings"] == expected_settings
         csv = marker.with_suffix(".csv.gz")
         assert file_hash(csv) == payload["predictions_sha256"]
         fresh = pd.read_csv(csv)
