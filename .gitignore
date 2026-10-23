@@ -13,3 +13,5 @@ build/
 .coverage
 htmlcov/
 results/benchmarks/smoke/
+results/walkforward/smoke/
+results/walkforward/full/folds/**/*.csv
