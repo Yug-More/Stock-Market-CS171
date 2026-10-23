@@ -115,8 +115,8 @@ def matched_analysis(root: Path, output: Path) -> None:
     )
 
 
-def seed_summary(root: Path, output: Path) -> None:
-    directory = root / "results/robustness/multiseed"
+def seed_summary(root: Path, output: Path, directory: Path | None = None) -> None:
+    directory = directory or root / "results/robustness/multiseed"
     manifest = json.loads((directory / "manifest.json").read_text())
     reports = sorted((directory / "runs").glob("*.json"))
     if len(reports) != manifest["expected_tasks"]:

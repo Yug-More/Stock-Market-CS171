@@ -120,6 +120,8 @@ def run_statistics(root: Path, output: Path) -> None:
             "environment": environment_record(root, "statistics"),
             "configuration": design,
             "primary_family_size": 18,
-            "interpretation": "retrospective weak-dependence approximations; no independent replication",
+            "interpretation": (
+                "retrospective weak-dependence approximations; no independent replication"
+            ),
         },
     )

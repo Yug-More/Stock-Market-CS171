@@ -72,3 +72,25 @@ def test_missing_and_unpaired_observations_are_rejected():
     )
     with pytest.raises(ValueError, match="unpaired"):
         paired_losses(frame, "a", "b")
+
+
+def test_prefix_sum_bootstrap_matches_independent_row_resampling():
+    positions = np.arange(50)
+    values = np.column_stack([positions**2, positions, np.ones(50)])
+    rng = np.random.default_rng(6171)
+    starts = rng.integers(0, 44, size=(100, 7))
+    short = rng.choice(np.arange(50), size=100)
+    indices = np.concatenate(
+        [(starts[:, :, None] + np.arange(7)).reshape(100, 49), short[:, None]], axis=1
+    )
+    expected = values[indices].mean(axis=1)
+    np.testing.assert_allclose(moving_block_means(values, positions, 7, 100, 6171), expected)
+
+
+def test_hac_detects_positive_serial_dependence_in_fixed_ar_series():
+    rng = np.random.default_rng(171)
+    values = np.zeros(2000)
+    innovations = rng.normal(size=2000)
+    for i in range(1, len(values)):
+        values[i] = 0.8 * values[i - 1] + innovations[i]
+    assert hac_variance(values, np.arange(len(values)), 19) > 3 * np.var(values) / len(values)

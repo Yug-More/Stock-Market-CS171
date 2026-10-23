@@ -97,3 +97,28 @@ def test_volatility_scaling_and_missing_data():
     frame.loc[2, "volatility"] = np.nan
     with pytest.raises(ValueError, match="volatility"):
         chronological_intervals(frame, method="volatility_scaled", **kwargs)
+
+
+def test_independent_audit_rejects_changed_bounds_and_cutoffs():
+    from marketpulse.experiments.research_audit import audit_intervals
+
+    frame = sample()
+    design = {"coverage_levels": [0.8, 0.9], "calibration_minimum": 10, "calibration_trailing": 12}
+    records = chronological_intervals(
+        frame, method="trailing", levels=[0.8, 0.9], minimum=10, window=12
+    )
+    assert audit_intervals(frame, records, "trailing", design) > 0
+    records.loc[20, "upper_90"] += 1
+    with pytest.raises(AssertionError):
+        audit_intervals(frame, records, "trailing", design)
+
+
+def test_count_tree_matches_known_quantiles_with_removal():
+    from marketpulse.experiments.research_audit import ScoreTree
+
+    tree = ScoreTree(np.array([3.0, 1.0, 4.0, 1.0, 5.0]))
+    for i in range(5):
+        tree.update(i, 1)
+    assert [tree.quantile(k) for k in range(1, 6)] == [1.0, 1.0, 3.0, 4.0, 5.0]
+    tree.update(1, -1)
+    assert [tree.quantile(k) for k in range(1, 5)] == [1.0, 3.0, 4.0, 5.0]

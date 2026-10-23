@@ -30,6 +30,10 @@ def main() -> None:
 
         output = args.output or root / "results/robustness/multiseed"
         run_multiseed(root, output, smoke=args.smoke)
+        if not args.smoke:
+            from marketpulse.experiments.robustness_analysis import seed_summary
+
+            seed_summary(root, output.parent, directory=output)
     else:
         from marketpulse.experiments.research_cycle import run_step
 
