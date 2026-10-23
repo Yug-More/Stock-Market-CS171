@@ -240,6 +240,9 @@ def analyze(root: Path) -> None:
 
 
 def figures(root: Path) -> None:
+    import matplotlib
+
+    matplotlib.use("Agg")
     import matplotlib.pyplot as plt
 
     output = root / "results/phase10"
