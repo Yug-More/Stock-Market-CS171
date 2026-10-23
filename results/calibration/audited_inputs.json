@@ -1,0 +1,12 @@
+{
+  "recorded_during": "post-execution independent audit, not retroactive run metadata",
+  "predictions": {
+    "path": "results/walkforward/full/predictions.csv.gz",
+    "sha256": "e51751e1f1f18e546d7cda406c3d61f393ea0b704ba3c7033e97515d87cada08"
+  },
+  "datasets": {
+    "data/nasdaq100.csv": "deb35f9888f892ceb61ff92883b5a5825d7567bc5973fe7b9080d06c893ca450",
+    "data/SPX.csv": "54aa877d5d275b660bc8171642dc3a2eece16b9709e1d35f13a3b4e7972cc35c"
+  },
+  "configuration_sha256": "1d60bd99a089d517b30e20804b24bb17d3efda5db7e3b8997c15c4d440294a9d"
+}

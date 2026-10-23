@@ -195,6 +195,28 @@ def audit_statistics(root: Path, source: pd.DataFrame) -> int:
         np.testing.assert_allclose(
             table.loc[index, "holm_p_value"], expected, rtol=1e-10, atol=1e-14
         )
+    regimes = pd.read_csv(root / "results/statistical_reliability/regime_comparisons.csv")
+    for row in regimes.itertuples():
+        group = source[(source.dataset == row.dataset) & (source.horizon == row.horizon)]
+        left = group[group.model == row.first].sort_values("date")
+        right = group[group.model == row.second].sort_values("date")
+        assert left.date.tolist() == right.date.tolist()
+        mask = (
+            left.regime.eq(row.slice.removeprefix("volatility_"))
+            if row.slice.startswith("volatility_")
+            else left.stress.eq(row.slice)
+        ).to_numpy()
+        assert int(mask.sum()) == row.n
+        if not mask.any():
+            assert row.status == "unavailable"
+            continue
+        a = (left.y_pred.to_numpy() - left.y_true.to_numpy()) ** 2
+        b = (right.y_pred.to_numpy() - right.y_true.to_numpy()) ** 2
+        np.testing.assert_allclose(
+            row.mean_loss_difference, np.mean((a - b)[mask]), rtol=1e-9, atol=1e-14
+        )
+        if mask.sum() < 200:
+            assert row.status == "descriptive_small_sample" and pd.isna(row.p_value)
     return len(table)
 
 
@@ -291,6 +313,10 @@ def audit_seeds(root: Path, source: pd.DataFrame, design: dict) -> int:
 
 def audit_cycle(root: Path) -> None:
     design = load_design(root)
+    bundle = root / "results/robustness/study_checksums.json"
+    if bundle.exists():
+        for relative, expected in json.loads(bundle.read_text()).items():
+            assert file_hash(root / relative) == expected, f"bundle changed: {relative}"
     source = load_predictions(root)
     for area in (
         "robustness/audit",
@@ -380,6 +406,7 @@ def audit_cycle(root: Path) -> None:
         "historical_predictions": len(source),
         "seed_tasks": seed_runs,
         "paired_statistical_rows": statistical_rows,
+        "regime_statistical_rows": 108,
         "interval_records": interval_rows,
         "independently_verified_quantiles_and_bounds": quantiles,
         "all_residual_populations_mature": True,

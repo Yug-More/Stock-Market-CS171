@@ -1,0 +1,12 @@
+{
+  "matched_rmse": "Native and shared origin+endpoint populations; unchanged fitted forecasts. Different training histories remain. Source: matched/metrics.csv.",
+  "calendar_coverage": "Actual evaluated origins, not raw data coverage. Source: membership.csv.gz.",
+  "seed_rmse": "Five fixed seeds on three time-stratified folds per cell; points can overlap. Horizontal lines are unchanged deterministic baselines. Source: seed_metrics.csv.",
+  "seed_ranks": "Five optimization seeds, not independent historical samples. Source: seed_metrics.csv.",
+  "paired_loss_intervals": "Marginal percentile intervals are not Holm-simultaneous intervals. Adjusted HAC p-values are in comparisons.csv; these are retrospective follow-ups.",
+  "dependence_sensitivity": "RF versus zero, block lengths 20/40/80; 2,000 paired replicates per point.",
+  "nominal_coverage": "Trailing 504 mature residuals, minimum 252; exclusions counted in metrics.csv. No time-series coverage guarantee is asserted.",
+  "volatility_coverage": "Trailing intervals by training-defined regimes; diagnostic conditional coverage.",
+  "width_coverage": "Circles: trailing; squares: expanding; triangles: volatility scaled. Colors identify models. Proper interval scores are also reported; wider is not automatically better.",
+  "covid_intervals": "Bounds use earlier matured OOS residuals. Returns realize 20 sessions after each plotted origin; overlapping targets are dependent."
+}

@@ -93,6 +93,20 @@ def write_report(root: Path) -> None:
             "rank_max",
         ],
     )
+    neural = seeds[
+        (seeds.dataset == "NASDAQ-100") & (seeds.horizon == 20) & (seeds.model == "lstm")
+    ].iloc[0]
+    lines += [
+        "",
+        f"On the selected NASDAQ twenty-session folds, LSTM spans ranks "
+        f"{neural.rank_min:.0f}–{neural.rank_max:.0f} and skill versus zero "
+        f"{neural.skill_min:+.4f} to {neural.skill_max:+.4f}. This is a material "
+        "optimization-sensitivity result, not evidence that the full-history LSTM "
+        "ranking reverses. The selected S&P five-session subset also ranks RF last "
+        "across seeds, unlike its full-history pooled rank. Subset history and "
+        "optimization variability must be kept distinct.",
+        "",
+    ]
     lines += [
         "",
         f"Fresh seed-171 predictions agree numerically at rtol=1e-10/atol=1e-12 "

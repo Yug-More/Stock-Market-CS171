@@ -1,0 +1,182 @@
+[
+  {
+    "dataset": "NASDAQ-100",
+    "horizon": 1,
+    "first": "random_forest",
+    "second": "zero_return",
+    "loss": "squared_error",
+    "population": "native",
+    "block_length": 20,
+    "family": "18 retrospective primary follow-up comparisons"
+  },
+  {
+    "dataset": "NASDAQ-100",
+    "horizon": 1,
+    "first": "random_forest",
+    "second": "historical_mean",
+    "loss": "squared_error",
+    "population": "native",
+    "block_length": 20,
+    "family": "18 retrospective primary follow-up comparisons"
+  },
+  {
+    "dataset": "NASDAQ-100",
+    "horizon": 1,
+    "first": "random_forest",
+    "second": "lstm",
+    "loss": "squared_error",
+    "population": "native",
+    "block_length": 20,
+    "family": "18 retrospective primary follow-up comparisons"
+  },
+  {
+    "dataset": "NASDAQ-100",
+    "horizon": 5,
+    "first": "random_forest",
+    "second": "zero_return",
+    "loss": "squared_error",
+    "population": "native",
+    "block_length": 20,
+    "family": "18 retrospective primary follow-up comparisons"
+  },
+  {
+    "dataset": "NASDAQ-100",
+    "horizon": 5,
+    "first": "random_forest",
+    "second": "historical_mean",
+    "loss": "squared_error",
+    "population": "native",
+    "block_length": 20,
+    "family": "18 retrospective primary follow-up comparisons"
+  },
+  {
+    "dataset": "NASDAQ-100",
+    "horizon": 5,
+    "first": "random_forest",
+    "second": "lstm",
+    "loss": "squared_error",
+    "population": "native",
+    "block_length": 20,
+    "family": "18 retrospective primary follow-up comparisons"
+  },
+  {
+    "dataset": "NASDAQ-100",
+    "horizon": 20,
+    "first": "random_forest",
+    "second": "zero_return",
+    "loss": "squared_error",
+    "population": "native",
+    "block_length": 20,
+    "family": "18 retrospective primary follow-up comparisons"
+  },
+  {
+    "dataset": "NASDAQ-100",
+    "horizon": 20,
+    "first": "random_forest",
+    "second": "historical_mean",
+    "loss": "squared_error",
+    "population": "native",
+    "block_length": 20,
+    "family": "18 retrospective primary follow-up comparisons"
+  },
+  {
+    "dataset": "NASDAQ-100",
+    "horizon": 20,
+    "first": "random_forest",
+    "second": "lstm",
+    "loss": "squared_error",
+    "population": "native",
+    "block_length": 20,
+    "family": "18 retrospective primary follow-up comparisons"
+  },
+  {
+    "dataset": "S&P 500",
+    "horizon": 1,
+    "first": "random_forest",
+    "second": "zero_return",
+    "loss": "squared_error",
+    "population": "native",
+    "block_length": 20,
+    "family": "18 retrospective primary follow-up comparisons"
+  },
+  {
+    "dataset": "S&P 500",
+    "horizon": 1,
+    "first": "random_forest",
+    "second": "historical_mean",
+    "loss": "squared_error",
+    "population": "native",
+    "block_length": 20,
+    "family": "18 retrospective primary follow-up comparisons"
+  },
+  {
+    "dataset": "S&P 500",
+    "horizon": 1,
+    "first": "random_forest",
+    "second": "lstm",
+    "loss": "squared_error",
+    "population": "native",
+    "block_length": 20,
+    "family": "18 retrospective primary follow-up comparisons"
+  },
+  {
+    "dataset": "S&P 500",
+    "horizon": 5,
+    "first": "random_forest",
+    "second": "zero_return",
+    "loss": "squared_error",
+    "population": "native",
+    "block_length": 20,
+    "family": "18 retrospective primary follow-up comparisons"
+  },
+  {
+    "dataset": "S&P 500",
+    "horizon": 5,
+    "first": "random_forest",
+    "second": "historical_mean",
+    "loss": "squared_error",
+    "population": "native",
+    "block_length": 20,
+    "family": "18 retrospective primary follow-up comparisons"
+  },
+  {
+    "dataset": "S&P 500",
+    "horizon": 5,
+    "first": "random_forest",
+    "second": "lstm",
+    "loss": "squared_error",
+    "population": "native",
+    "block_length": 20,
+    "family": "18 retrospective primary follow-up comparisons"
+  },
+  {
+    "dataset": "S&P 500",
+    "horizon": 20,
+    "first": "random_forest",
+    "second": "zero_return",
+    "loss": "squared_error",
+    "population": "native",
+    "block_length": 20,
+    "family": "18 retrospective primary follow-up comparisons"
+  },
+  {
+    "dataset": "S&P 500",
+    "horizon": 20,
+    "first": "random_forest",
+    "second": "historical_mean",
+    "loss": "squared_error",
+    "population": "native",
+    "block_length": 20,
+    "family": "18 retrospective primary follow-up comparisons"
+  },
+  {
+    "dataset": "S&P 500",
+    "horizon": 20,
+    "first": "random_forest",
+    "second": "lstm",
+    "loss": "squared_error",
+    "population": "native",
+    "block_length": 20,
+    "family": "18 retrospective primary follow-up comparisons"
+  }
+]

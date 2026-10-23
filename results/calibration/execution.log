@@ -1,0 +1,90 @@
+calibrate NASDAQ-100 h1 historical_mean trailing
+calibrate NASDAQ-100 h1 historical_mean expanding
+calibrate NASDAQ-100 h1 historical_mean volatility_scaled
+calibrate NASDAQ-100 h1 linear_regression trailing
+calibrate NASDAQ-100 h1 linear_regression expanding
+calibrate NASDAQ-100 h1 linear_regression volatility_scaled
+calibrate NASDAQ-100 h1 lstm trailing
+calibrate NASDAQ-100 h1 lstm expanding
+calibrate NASDAQ-100 h1 lstm volatility_scaled
+calibrate NASDAQ-100 h1 random_forest trailing
+calibrate NASDAQ-100 h1 random_forest expanding
+calibrate NASDAQ-100 h1 random_forest volatility_scaled
+calibrate NASDAQ-100 h1 zero_return trailing
+calibrate NASDAQ-100 h1 zero_return expanding
+calibrate NASDAQ-100 h1 zero_return volatility_scaled
+calibrate NASDAQ-100 h5 historical_mean trailing
+calibrate NASDAQ-100 h5 historical_mean expanding
+calibrate NASDAQ-100 h5 historical_mean volatility_scaled
+calibrate NASDAQ-100 h5 linear_regression trailing
+calibrate NASDAQ-100 h5 linear_regression expanding
+calibrate NASDAQ-100 h5 linear_regression volatility_scaled
+calibrate NASDAQ-100 h5 lstm trailing
+calibrate NASDAQ-100 h5 lstm expanding
+calibrate NASDAQ-100 h5 lstm volatility_scaled
+calibrate NASDAQ-100 h5 random_forest trailing
+calibrate NASDAQ-100 h5 random_forest expanding
+calibrate NASDAQ-100 h5 random_forest volatility_scaled
+calibrate NASDAQ-100 h5 zero_return trailing
+calibrate NASDAQ-100 h5 zero_return expanding
+calibrate NASDAQ-100 h5 zero_return volatility_scaled
+calibrate NASDAQ-100 h20 historical_mean trailing
+calibrate NASDAQ-100 h20 historical_mean expanding
+calibrate NASDAQ-100 h20 historical_mean volatility_scaled
+calibrate NASDAQ-100 h20 linear_regression trailing
+calibrate NASDAQ-100 h20 linear_regression expanding
+calibrate NASDAQ-100 h20 linear_regression volatility_scaled
+calibrate NASDAQ-100 h20 lstm trailing
+calibrate NASDAQ-100 h20 lstm expanding
+calibrate NASDAQ-100 h20 lstm volatility_scaled
+calibrate NASDAQ-100 h20 random_forest trailing
+calibrate NASDAQ-100 h20 random_forest expanding
+calibrate NASDAQ-100 h20 random_forest volatility_scaled
+calibrate NASDAQ-100 h20 zero_return trailing
+calibrate NASDAQ-100 h20 zero_return expanding
+calibrate NASDAQ-100 h20 zero_return volatility_scaled
+calibrate S&P 500 h1 historical_mean trailing
+calibrate S&P 500 h1 historical_mean expanding
+calibrate S&P 500 h1 historical_mean volatility_scaled
+calibrate S&P 500 h1 linear_regression trailing
+calibrate S&P 500 h1 linear_regression expanding
+calibrate S&P 500 h1 linear_regression volatility_scaled
+calibrate S&P 500 h1 lstm trailing
+calibrate S&P 500 h1 lstm expanding
+calibrate S&P 500 h1 lstm volatility_scaled
+calibrate S&P 500 h1 random_forest trailing
+calibrate S&P 500 h1 random_forest expanding
+calibrate S&P 500 h1 random_forest volatility_scaled
+calibrate S&P 500 h1 zero_return trailing
+calibrate S&P 500 h1 zero_return expanding
+calibrate S&P 500 h1 zero_return volatility_scaled
+calibrate S&P 500 h5 historical_mean trailing
+calibrate S&P 500 h5 historical_mean expanding
+calibrate S&P 500 h5 historical_mean volatility_scaled
+calibrate S&P 500 h5 linear_regression trailing
+calibrate S&P 500 h5 linear_regression expanding
+calibrate S&P 500 h5 linear_regression volatility_scaled
+calibrate S&P 500 h5 lstm trailing
+calibrate S&P 500 h5 lstm expanding
+calibrate S&P 500 h5 lstm volatility_scaled
+calibrate S&P 500 h5 random_forest trailing
+calibrate S&P 500 h5 random_forest expanding
+calibrate S&P 500 h5 random_forest volatility_scaled
+calibrate S&P 500 h5 zero_return trailing
+calibrate S&P 500 h5 zero_return expanding
+calibrate S&P 500 h5 zero_return volatility_scaled
+calibrate S&P 500 h20 historical_mean trailing
+calibrate S&P 500 h20 historical_mean expanding
+calibrate S&P 500 h20 historical_mean volatility_scaled
+calibrate S&P 500 h20 linear_regression trailing
+calibrate S&P 500 h20 linear_regression expanding
+calibrate S&P 500 h20 linear_regression volatility_scaled
+calibrate S&P 500 h20 lstm trailing
+calibrate S&P 500 h20 lstm expanding
+calibrate S&P 500 h20 lstm volatility_scaled
+calibrate S&P 500 h20 random_forest trailing
+calibrate S&P 500 h20 random_forest expanding
+calibrate S&P 500 h20 random_forest volatility_scaled
+calibrate S&P 500 h20 zero_return trailing
+calibrate S&P 500 h20 zero_return expanding
+calibrate S&P 500 h20 zero_return volatility_scaled

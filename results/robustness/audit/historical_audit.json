@@ -1,0 +1,38 @@
+{
+  "planned_folds": 282,
+  "validated_folds": 282,
+  "legacy_folds": 210,
+  "new_folds": 72,
+  "prediction_rows": 355320,
+  "origin_horizon_pairs": 71064,
+  "new_fold_runtime_seconds": 1452.5605312457192,
+  "published_test_and_slice_metrics_recomputed": true,
+  "fold_summaries_and_thresholds_verified": true,
+  "recovered_file_hashes_unchanged": true,
+  "actual_target_dates_verified": 355320,
+  "input_predictions_sha256": "e51751e1f1f18e546d7cda406c3d61f393ea0b704ba3c7033e97515d87cada08",
+  "original_artifact_inventory_sha256": "1cf29dbd98afe88893124f3065bd854628281615bb7aebd03c924b45b5e2a941",
+  "environment": {
+    "mode": "historical_audit",
+    "python": "3.13.2",
+    "platform": "macOS-14.5-arm64-arm-64bit-Mach-O",
+    "versions": {
+      "marketpulse": "0.1.0",
+      "numpy": "2.5.4",
+      "pandas": "3.1.0",
+      "scikit-learn": "1.9.1",
+      "torch": "2.14.1"
+    },
+    "git_sha": "658ba156b731fe3a456572026834fe52c651f053"
+  },
+  "provenance": {
+    "legacy_without_execution_metadata": 210,
+    "folds_with_execution_metadata": 72,
+    "new_targeted_reruns": "18 folds, seed 171, separately identified",
+    "cannot_reconstruct": [
+      "legacy execution revision",
+      "legacy runtime",
+      "legacy hardware/dependency context"
+    ]
+  }
+}

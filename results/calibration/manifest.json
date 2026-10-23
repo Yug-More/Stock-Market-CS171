@@ -1,0 +1,882 @@
+{
+  "configuration": {
+    "schema_version": 1,
+    "seeds": [
+      171,
+      271,
+      371,
+      471,
+      571
+    ],
+    "fold_quantiles": [
+      0.0,
+      0.5,
+      1.0
+    ],
+    "models": [
+      "random_forest",
+      "lstm"
+    ],
+    "bootstrap_seed": 6171,
+    "bootstrap_replicates": 2000,
+    "confidence": 0.95,
+    "block_lengths": [
+      20,
+      40,
+      80
+    ],
+    "minimum_block_equivalents": 10,
+    "primary_pairs": [
+      [
+        "random_forest",
+        "zero_return"
+      ],
+      [
+        "random_forest",
+        "historical_mean"
+      ],
+      [
+        "random_forest",
+        "lstm"
+      ]
+    ],
+    "coverage_levels": [
+      0.8,
+      0.9
+    ],
+    "calibration_minimum": 252,
+    "calibration_trailing": 504,
+    "calibration_methods": [
+      "trailing",
+      "expanding",
+      "volatility_scaled"
+    ]
+  },
+  "files": [
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 1,
+      "model": "historical_mean",
+      "method": "trailing",
+      "path": "records/nasdaq-100_h1_historical_mean_trailing.csv.gz",
+      "sha256": "ffd24cb913a48c75f7b236c90bfba0604034cb3ad13631fbff3e6baa5355c942",
+      "rows": 3276
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 1,
+      "model": "historical_mean",
+      "method": "expanding",
+      "path": "records/nasdaq-100_h1_historical_mean_expanding.csv.gz",
+      "sha256": "309c0a39c26f9fa819def50b268815558e7639f3932dd8bdfca9ffcabede9ddc",
+      "rows": 3276
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 1,
+      "model": "historical_mean",
+      "method": "volatility_scaled",
+      "path": "records/nasdaq-100_h1_historical_mean_volatility_scaled.csv.gz",
+      "sha256": "7c8b601dd58b4dffd13871766d34b727b67b804782b1edfa09e7c363538ba3ab",
+      "rows": 3276
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 1,
+      "model": "linear_regression",
+      "method": "trailing",
+      "path": "records/nasdaq-100_h1_linear_regression_trailing.csv.gz",
+      "sha256": "25f9c1f93048ab8b97799d6c972eeff29fd246bbefd83021fa27b6fae78415c7",
+      "rows": 3276
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 1,
+      "model": "linear_regression",
+      "method": "expanding",
+      "path": "records/nasdaq-100_h1_linear_regression_expanding.csv.gz",
+      "sha256": "86a29698cfd1dc1be2dec31697f20ebc08149b7e6737ad9fe1308982fe661f59",
+      "rows": 3276
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 1,
+      "model": "linear_regression",
+      "method": "volatility_scaled",
+      "path": "records/nasdaq-100_h1_linear_regression_volatility_scaled.csv.gz",
+      "sha256": "3f5a362b73a703ef817655c14b396d3629127cca8596a2aed4c35e61e0dbc324",
+      "rows": 3276
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 1,
+      "model": "lstm",
+      "method": "trailing",
+      "path": "records/nasdaq-100_h1_lstm_trailing.csv.gz",
+      "sha256": "29f1759fd9191fcbb9ccfd614de6da873f98a7c54b539b6c8cb86bd23747dccb",
+      "rows": 3276
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 1,
+      "model": "lstm",
+      "method": "expanding",
+      "path": "records/nasdaq-100_h1_lstm_expanding.csv.gz",
+      "sha256": "ac1c48d0327d46ccfd4c8bdc086f61b8ea54f7ef691752443828f0f3703e1e11",
+      "rows": 3276
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 1,
+      "model": "lstm",
+      "method": "volatility_scaled",
+      "path": "records/nasdaq-100_h1_lstm_volatility_scaled.csv.gz",
+      "sha256": "b3fc70bed781c9fb46e90c2e26ea8224430f717defa57bf357a2049df269f411",
+      "rows": 3276
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 1,
+      "model": "random_forest",
+      "method": "trailing",
+      "path": "records/nasdaq-100_h1_random_forest_trailing.csv.gz",
+      "sha256": "66fc24a7d737c723b9f052f6d655273edab804951acd55091220f49338ffdc93",
+      "rows": 3276
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 1,
+      "model": "random_forest",
+      "method": "expanding",
+      "path": "records/nasdaq-100_h1_random_forest_expanding.csv.gz",
+      "sha256": "41877aa559ca89a3874dd0480cfae9213142ffc455b049f09814b057eacaceff",
+      "rows": 3276
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 1,
+      "model": "random_forest",
+      "method": "volatility_scaled",
+      "path": "records/nasdaq-100_h1_random_forest_volatility_scaled.csv.gz",
+      "sha256": "37d3842bfa75e4266c63fdbf9c8a5912057e3365013f79e8f1090aa1237fa047",
+      "rows": 3276
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 1,
+      "model": "zero_return",
+      "method": "trailing",
+      "path": "records/nasdaq-100_h1_zero_return_trailing.csv.gz",
+      "sha256": "afabcb750b24743e2458b643976c18f6f89bec1d247fd1616e1b5d392a0b5f11",
+      "rows": 3276
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 1,
+      "model": "zero_return",
+      "method": "expanding",
+      "path": "records/nasdaq-100_h1_zero_return_expanding.csv.gz",
+      "sha256": "4a2df74c2e3e825eb3a622653fde93dba24bd8372747a185bd5aea6f77bd611b",
+      "rows": 3276
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 1,
+      "model": "zero_return",
+      "method": "volatility_scaled",
+      "path": "records/nasdaq-100_h1_zero_return_volatility_scaled.csv.gz",
+      "sha256": "f8eebca28a64f5e0465aef7a79a31432436cb2acb23736ad414271e185cc846a",
+      "rows": 3276
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 5,
+      "model": "historical_mean",
+      "method": "trailing",
+      "path": "records/nasdaq-100_h5_historical_mean_trailing.csv.gz",
+      "sha256": "2c8061f71587f574cf3217e9d743ddea63d18feb6cb612401ee21af15cc7b903",
+      "rows": 3276
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 5,
+      "model": "historical_mean",
+      "method": "expanding",
+      "path": "records/nasdaq-100_h5_historical_mean_expanding.csv.gz",
+      "sha256": "5aaa9262d80bcbe6bc4a05c90c156d13fc209d11cb846a528486ed848ec013bd",
+      "rows": 3276
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 5,
+      "model": "historical_mean",
+      "method": "volatility_scaled",
+      "path": "records/nasdaq-100_h5_historical_mean_volatility_scaled.csv.gz",
+      "sha256": "745d8648dec1aabbe3805c8b09ae81f80c46308dea7067e312d95fb002fa0866",
+      "rows": 3276
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 5,
+      "model": "linear_regression",
+      "method": "trailing",
+      "path": "records/nasdaq-100_h5_linear_regression_trailing.csv.gz",
+      "sha256": "593f6a45c8555e4cb0756f3c1326b92c386ed1721f1a3cf328eae21fa2575b73",
+      "rows": 3276
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 5,
+      "model": "linear_regression",
+      "method": "expanding",
+      "path": "records/nasdaq-100_h5_linear_regression_expanding.csv.gz",
+      "sha256": "518019098bd31f09f3dd76b5625f0c12589fcf5712ad994e68a0d9c38cc68ed7",
+      "rows": 3276
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 5,
+      "model": "linear_regression",
+      "method": "volatility_scaled",
+      "path": "records/nasdaq-100_h5_linear_regression_volatility_scaled.csv.gz",
+      "sha256": "6c3ddaa45f552bcdd35773f7d44e80108806410a1bd0f7d0c4401418af6283b7",
+      "rows": 3276
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 5,
+      "model": "lstm",
+      "method": "trailing",
+      "path": "records/nasdaq-100_h5_lstm_trailing.csv.gz",
+      "sha256": "d11b6c8d7d36921d84ddda8697f07c6ef572f9888d186ded7a2ab8d43f69563d",
+      "rows": 3276
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 5,
+      "model": "lstm",
+      "method": "expanding",
+      "path": "records/nasdaq-100_h5_lstm_expanding.csv.gz",
+      "sha256": "6b7ffca93098dfe3e94c66ec161838717a36dc8ddcc53559393f9082d5579c81",
+      "rows": 3276
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 5,
+      "model": "lstm",
+      "method": "volatility_scaled",
+      "path": "records/nasdaq-100_h5_lstm_volatility_scaled.csv.gz",
+      "sha256": "90ba44d0d2fdb38b80e39d0550adfcdcffc98414162c10a49f34428c6645b71b",
+      "rows": 3276
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 5,
+      "model": "random_forest",
+      "method": "trailing",
+      "path": "records/nasdaq-100_h5_random_forest_trailing.csv.gz",
+      "sha256": "b913d2e11d3ad2d411c1b88357229d5c941a30512044abf6fa68b13b36a12c16",
+      "rows": 3276
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 5,
+      "model": "random_forest",
+      "method": "expanding",
+      "path": "records/nasdaq-100_h5_random_forest_expanding.csv.gz",
+      "sha256": "ba0ee1bed2542e6f61f5d60be5b707230c28dd5c1ff0a3bcb22b5061f0e33fc8",
+      "rows": 3276
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 5,
+      "model": "random_forest",
+      "method": "volatility_scaled",
+      "path": "records/nasdaq-100_h5_random_forest_volatility_scaled.csv.gz",
+      "sha256": "32adcef2db932dbb956ab0ffb24ef4c7108a9ac6966812d4c03b1720d44c8058",
+      "rows": 3276
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 5,
+      "model": "zero_return",
+      "method": "trailing",
+      "path": "records/nasdaq-100_h5_zero_return_trailing.csv.gz",
+      "sha256": "8ddb7c9114769e1710969ae72d497639b42e610c2634fe2a36cce5787124ff06",
+      "rows": 3276
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 5,
+      "model": "zero_return",
+      "method": "expanding",
+      "path": "records/nasdaq-100_h5_zero_return_expanding.csv.gz",
+      "sha256": "39e5b6a773813768498f9e2d0dc8e319fbb0421c6c05cce191490cdb803c8247",
+      "rows": 3276
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 5,
+      "model": "zero_return",
+      "method": "volatility_scaled",
+      "path": "records/nasdaq-100_h5_zero_return_volatility_scaled.csv.gz",
+      "sha256": "777d7920417bff25f7347c473e36eccd95792513d2d6e8c90eee1b3bc90da5b9",
+      "rows": 3276
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 20,
+      "model": "historical_mean",
+      "method": "trailing",
+      "path": "records/nasdaq-100_h20_historical_mean_trailing.csv.gz",
+      "sha256": "017da3e4fae7da06403a9f3cea4b02583270419e4f35d5cd8f4561181007ee5f",
+      "rows": 3276
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 20,
+      "model": "historical_mean",
+      "method": "expanding",
+      "path": "records/nasdaq-100_h20_historical_mean_expanding.csv.gz",
+      "sha256": "764762ae15390cc3a55dc36b42cb802602cf2e59d0233f6f82be3375a9f0046c",
+      "rows": 3276
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 20,
+      "model": "historical_mean",
+      "method": "volatility_scaled",
+      "path": "records/nasdaq-100_h20_historical_mean_volatility_scaled.csv.gz",
+      "sha256": "0d8d3cf9b7433fdcc30697f61b8b154a61730cd138a175c0fccbf91c4b5519b5",
+      "rows": 3276
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 20,
+      "model": "linear_regression",
+      "method": "trailing",
+      "path": "records/nasdaq-100_h20_linear_regression_trailing.csv.gz",
+      "sha256": "808fccfe47536ed315d3f9d43f067768e19b018c2e7d259d4140065e4c5c8da7",
+      "rows": 3276
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 20,
+      "model": "linear_regression",
+      "method": "expanding",
+      "path": "records/nasdaq-100_h20_linear_regression_expanding.csv.gz",
+      "sha256": "a6da4534a990d286c320fd97201353e5ea3c0e4f009af8c1eda8e9899c126e95",
+      "rows": 3276
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 20,
+      "model": "linear_regression",
+      "method": "volatility_scaled",
+      "path": "records/nasdaq-100_h20_linear_regression_volatility_scaled.csv.gz",
+      "sha256": "7df3a9678283428c3abc612cf26c05886c83050af1ebb442f6ac58771538e880",
+      "rows": 3276
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 20,
+      "model": "lstm",
+      "method": "trailing",
+      "path": "records/nasdaq-100_h20_lstm_trailing.csv.gz",
+      "sha256": "ec2ccddf10ae3591c9296f383284372ad2f076636139583cea30d10f92c4fa13",
+      "rows": 3276
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 20,
+      "model": "lstm",
+      "method": "expanding",
+      "path": "records/nasdaq-100_h20_lstm_expanding.csv.gz",
+      "sha256": "a8c3038fb11d925d68e7cd2a8de2a28103c024ba3ca8254f3c224ba0cb4e2bb9",
+      "rows": 3276
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 20,
+      "model": "lstm",
+      "method": "volatility_scaled",
+      "path": "records/nasdaq-100_h20_lstm_volatility_scaled.csv.gz",
+      "sha256": "52b2d582dab06e742a6f76f184e2e96e51d0ef68f5c995b5ab9774e1a0c32c18",
+      "rows": 3276
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 20,
+      "model": "random_forest",
+      "method": "trailing",
+      "path": "records/nasdaq-100_h20_random_forest_trailing.csv.gz",
+      "sha256": "f489ca4cc861d0cb28c597aa9af3e40b1daff016a80dca93144e34677d77aa85",
+      "rows": 3276
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 20,
+      "model": "random_forest",
+      "method": "expanding",
+      "path": "records/nasdaq-100_h20_random_forest_expanding.csv.gz",
+      "sha256": "a8a50daeb24e30f16828113c8dbfdb554dcd7e4289279a1ec47865afdea5f749",
+      "rows": 3276
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 20,
+      "model": "random_forest",
+      "method": "volatility_scaled",
+      "path": "records/nasdaq-100_h20_random_forest_volatility_scaled.csv.gz",
+      "sha256": "938156a1e3fa40f7efaf32c8b70f73c351b10eeff13808baf261bba884da4078",
+      "rows": 3276
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 20,
+      "model": "zero_return",
+      "method": "trailing",
+      "path": "records/nasdaq-100_h20_zero_return_trailing.csv.gz",
+      "sha256": "f49093b01db2bd60bfe09b315d64451740f560345fbab67e6fa6c0fad540b04d",
+      "rows": 3276
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 20,
+      "model": "zero_return",
+      "method": "expanding",
+      "path": "records/nasdaq-100_h20_zero_return_expanding.csv.gz",
+      "sha256": "b7afc0ae61f38e26bec7dfa732afc5847737045326dae6200c1e056cf2eecbb2",
+      "rows": 3276
+    },
+    {
+      "dataset": "NASDAQ-100",
+      "horizon": 20,
+      "model": "zero_return",
+      "method": "volatility_scaled",
+      "path": "records/nasdaq-100_h20_zero_return_volatility_scaled.csv.gz",
+      "sha256": "a51168501e6412cfcd9935691a01b213ca28d26d0ecce04b1340875b8d7ad94c",
+      "rows": 3276
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 1,
+      "model": "historical_mean",
+      "method": "trailing",
+      "path": "records/sandp_500_h1_historical_mean_trailing.csv.gz",
+      "sha256": "f3a8ca94c3d25ab9a901709b2f0e5f34e5ebb3b6de2eca283cba68e4cc841bba",
+      "rows": 20412
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 1,
+      "model": "historical_mean",
+      "method": "expanding",
+      "path": "records/sandp_500_h1_historical_mean_expanding.csv.gz",
+      "sha256": "8b8f907f289eeb74fb1f99661b233a25a87eb70ba772e354490ce6a9b89457a7",
+      "rows": 20412
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 1,
+      "model": "historical_mean",
+      "method": "volatility_scaled",
+      "path": "records/sandp_500_h1_historical_mean_volatility_scaled.csv.gz",
+      "sha256": "d32758b0264dd86ccc3a481aa3a048bd2977dd9db950ad567b75642e194910cd",
+      "rows": 20412
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 1,
+      "model": "linear_regression",
+      "method": "trailing",
+      "path": "records/sandp_500_h1_linear_regression_trailing.csv.gz",
+      "sha256": "021b97df9f429559a6e182bc3067e9077d534e857a7bc69d9342bd18bd5d443a",
+      "rows": 20412
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 1,
+      "model": "linear_regression",
+      "method": "expanding",
+      "path": "records/sandp_500_h1_linear_regression_expanding.csv.gz",
+      "sha256": "13a039a00afbcf14b14a9ad50f3de401b97198b6baa202f5367d04f04ff4932a",
+      "rows": 20412
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 1,
+      "model": "linear_regression",
+      "method": "volatility_scaled",
+      "path": "records/sandp_500_h1_linear_regression_volatility_scaled.csv.gz",
+      "sha256": "0166dcbb909ea7439164b25522e53a514d74fe79d292b6a81d27b470f879d2f9",
+      "rows": 20412
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 1,
+      "model": "lstm",
+      "method": "trailing",
+      "path": "records/sandp_500_h1_lstm_trailing.csv.gz",
+      "sha256": "26287031a61c351720314c945fa3eba94815000edc26c47d90e2b71feeb7be87",
+      "rows": 20412
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 1,
+      "model": "lstm",
+      "method": "expanding",
+      "path": "records/sandp_500_h1_lstm_expanding.csv.gz",
+      "sha256": "31a1aa1e2f9d7bce8b6f8fce3074308f30f2efd79c5196147bc649cfeb14d104",
+      "rows": 20412
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 1,
+      "model": "lstm",
+      "method": "volatility_scaled",
+      "path": "records/sandp_500_h1_lstm_volatility_scaled.csv.gz",
+      "sha256": "a2be20c95583bd1cb65990510799e72244502a95d119de5f0ae392822c644300",
+      "rows": 20412
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 1,
+      "model": "random_forest",
+      "method": "trailing",
+      "path": "records/sandp_500_h1_random_forest_trailing.csv.gz",
+      "sha256": "b1ae08173357e0a4ac19959bf6c3393f663d8c4a34e160f2bf1728f9b6ca6421",
+      "rows": 20412
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 1,
+      "model": "random_forest",
+      "method": "expanding",
+      "path": "records/sandp_500_h1_random_forest_expanding.csv.gz",
+      "sha256": "001462b4e3a88fef6754378e66206884a8ef62a62a43d622012e7fede2b3f06b",
+      "rows": 20412
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 1,
+      "model": "random_forest",
+      "method": "volatility_scaled",
+      "path": "records/sandp_500_h1_random_forest_volatility_scaled.csv.gz",
+      "sha256": "1b847a4e2d3f5ab521b57eed34f91b7414f805b0b948ead6aa82927bbb5e7c22",
+      "rows": 20412
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 1,
+      "model": "zero_return",
+      "method": "trailing",
+      "path": "records/sandp_500_h1_zero_return_trailing.csv.gz",
+      "sha256": "cc438fdbfdfcc81ce5cb3956fe3c3bcbf03cb05e5db19cefeb198316fa3de100",
+      "rows": 20412
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 1,
+      "model": "zero_return",
+      "method": "expanding",
+      "path": "records/sandp_500_h1_zero_return_expanding.csv.gz",
+      "sha256": "45075561b39af01fafe94bbe7e3db76608896a8cc15f0c53f13fab06449e9c5c",
+      "rows": 20412
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 1,
+      "model": "zero_return",
+      "method": "volatility_scaled",
+      "path": "records/sandp_500_h1_zero_return_volatility_scaled.csv.gz",
+      "sha256": "06cd66bfc05b4f21236eafcd2bcb12c84a0803131d6513f61a46bd2eef1625f4",
+      "rows": 20412
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 5,
+      "model": "historical_mean",
+      "method": "trailing",
+      "path": "records/sandp_500_h5_historical_mean_trailing.csv.gz",
+      "sha256": "da7c3a07dd21129b433bbf7c23204bc1d8a14a0bc507c9fa8d65ccb67be440e8",
+      "rows": 20412
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 5,
+      "model": "historical_mean",
+      "method": "expanding",
+      "path": "records/sandp_500_h5_historical_mean_expanding.csv.gz",
+      "sha256": "7c81d5aafd9e44ad6714afdd030ffcdd3b2a10f4d08cae4ffd4f4ab40f92a6b4",
+      "rows": 20412
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 5,
+      "model": "historical_mean",
+      "method": "volatility_scaled",
+      "path": "records/sandp_500_h5_historical_mean_volatility_scaled.csv.gz",
+      "sha256": "377022602d81206e9c4f666c9dc715279ccc79c95fba35353d8b12bd469460b3",
+      "rows": 20412
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 5,
+      "model": "linear_regression",
+      "method": "trailing",
+      "path": "records/sandp_500_h5_linear_regression_trailing.csv.gz",
+      "sha256": "f5684d3036a8c822fdbd28700debce3df9f12d3d0f0b92acb824510ddf6930d2",
+      "rows": 20412
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 5,
+      "model": "linear_regression",
+      "method": "expanding",
+      "path": "records/sandp_500_h5_linear_regression_expanding.csv.gz",
+      "sha256": "65ab5ba7c33c48018525a9d4b2b781f694d437130005a2165ce2615e00bc45f9",
+      "rows": 20412
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 5,
+      "model": "linear_regression",
+      "method": "volatility_scaled",
+      "path": "records/sandp_500_h5_linear_regression_volatility_scaled.csv.gz",
+      "sha256": "e85b409e733f35aded85c52195bec6561715a9eace393d6ce76421378a606a31",
+      "rows": 20412
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 5,
+      "model": "lstm",
+      "method": "trailing",
+      "path": "records/sandp_500_h5_lstm_trailing.csv.gz",
+      "sha256": "f9efd73ccde3bd16f3b6b877f353b35cb11201144b719cddd0ccfb9b079c6aed",
+      "rows": 20412
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 5,
+      "model": "lstm",
+      "method": "expanding",
+      "path": "records/sandp_500_h5_lstm_expanding.csv.gz",
+      "sha256": "2fa48c9aaac65f4774e835681b44189bc304eca953b08a0cf8a95af585594ac2",
+      "rows": 20412
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 5,
+      "model": "lstm",
+      "method": "volatility_scaled",
+      "path": "records/sandp_500_h5_lstm_volatility_scaled.csv.gz",
+      "sha256": "6e42b91e462a3f838826553d474fd9c0065665e715d0dca7c4fa072a5e089711",
+      "rows": 20412
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 5,
+      "model": "random_forest",
+      "method": "trailing",
+      "path": "records/sandp_500_h5_random_forest_trailing.csv.gz",
+      "sha256": "dfba3af6afb73c326782ed1eff8427f937588b376d96d69f8c44330955534391",
+      "rows": 20412
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 5,
+      "model": "random_forest",
+      "method": "expanding",
+      "path": "records/sandp_500_h5_random_forest_expanding.csv.gz",
+      "sha256": "61f80ac1f0bab48ba19e2e02301d9bde9805df72f8d09fa4b11aa38e7ef97407",
+      "rows": 20412
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 5,
+      "model": "random_forest",
+      "method": "volatility_scaled",
+      "path": "records/sandp_500_h5_random_forest_volatility_scaled.csv.gz",
+      "sha256": "77db4ccbb0c92092f8ce1bf69b23451867401f6e812a54ffa2f66475af7bea85",
+      "rows": 20412
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 5,
+      "model": "zero_return",
+      "method": "trailing",
+      "path": "records/sandp_500_h5_zero_return_trailing.csv.gz",
+      "sha256": "b25612944013497d288342bc1f2c49c8bd6708233edfc6075e2628e1ca16d90a",
+      "rows": 20412
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 5,
+      "model": "zero_return",
+      "method": "expanding",
+      "path": "records/sandp_500_h5_zero_return_expanding.csv.gz",
+      "sha256": "557991cd62c9a91c2b7b42ce7b36779308d45f6582bab0e7ec357644d64ef69f",
+      "rows": 20412
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 5,
+      "model": "zero_return",
+      "method": "volatility_scaled",
+      "path": "records/sandp_500_h5_zero_return_volatility_scaled.csv.gz",
+      "sha256": "a5d79631f7fa7c77db4d0f921938c9756e06eed912c6e04e39f7d3876e2a1724",
+      "rows": 20412
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 20,
+      "model": "historical_mean",
+      "method": "trailing",
+      "path": "records/sandp_500_h20_historical_mean_trailing.csv.gz",
+      "sha256": "453d095797e75e3241d42a1a411176826b2d0cc0037a66b81e1dc6bceb639f33",
+      "rows": 20412
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 20,
+      "model": "historical_mean",
+      "method": "expanding",
+      "path": "records/sandp_500_h20_historical_mean_expanding.csv.gz",
+      "sha256": "5feedb805aa274d8a7c4c47cbb1dfbbaf0705513a1a37a366b4d779705c4fc6d",
+      "rows": 20412
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 20,
+      "model": "historical_mean",
+      "method": "volatility_scaled",
+      "path": "records/sandp_500_h20_historical_mean_volatility_scaled.csv.gz",
+      "sha256": "6a7d6492ab5c60d114865b5eb33e3809a8db8f7c4b57d44e6ea6ce1ac0f958a2",
+      "rows": 20412
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 20,
+      "model": "linear_regression",
+      "method": "trailing",
+      "path": "records/sandp_500_h20_linear_regression_trailing.csv.gz",
+      "sha256": "255b3cf6c94f759641961be4cdd5b073fcfc2cc5be3c4ecc81f8fd62088c46e1",
+      "rows": 20412
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 20,
+      "model": "linear_regression",
+      "method": "expanding",
+      "path": "records/sandp_500_h20_linear_regression_expanding.csv.gz",
+      "sha256": "e75abadb7ffce181e5726da5751a1187e59d0f2e657e4837c3f5f5edcfc96144",
+      "rows": 20412
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 20,
+      "model": "linear_regression",
+      "method": "volatility_scaled",
+      "path": "records/sandp_500_h20_linear_regression_volatility_scaled.csv.gz",
+      "sha256": "19a1c699b62864c837c7817091372fa182ccb8b3aa094b31ff16cd9c1fcfa765",
+      "rows": 20412
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 20,
+      "model": "lstm",
+      "method": "trailing",
+      "path": "records/sandp_500_h20_lstm_trailing.csv.gz",
+      "sha256": "ae74042d92496e3d18cfa76ba64a18b1c94f0e0e66dde78ac29a6a517d909bb6",
+      "rows": 20412
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 20,
+      "model": "lstm",
+      "method": "expanding",
+      "path": "records/sandp_500_h20_lstm_expanding.csv.gz",
+      "sha256": "90428d912c94f71d8a88f03ef0d1eca7871429fd2ffb37e8b0400212e0a1f279",
+      "rows": 20412
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 20,
+      "model": "lstm",
+      "method": "volatility_scaled",
+      "path": "records/sandp_500_h20_lstm_volatility_scaled.csv.gz",
+      "sha256": "ef797cfc391ff05df822ed1f44d54774d12acaf4f38ff062654cb2a4fd27f62b",
+      "rows": 20412
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 20,
+      "model": "random_forest",
+      "method": "trailing",
+      "path": "records/sandp_500_h20_random_forest_trailing.csv.gz",
+      "sha256": "45343fce4b5eb463ceaddf86442b02c61bfb474e1fc3d549351b14f3e639a419",
+      "rows": 20412
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 20,
+      "model": "random_forest",
+      "method": "expanding",
+      "path": "records/sandp_500_h20_random_forest_expanding.csv.gz",
+      "sha256": "59cd2a2d2ba8d4e9861bb6782ba0782754abf7403682a0a90ffa40b06a0e163d",
+      "rows": 20412
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 20,
+      "model": "random_forest",
+      "method": "volatility_scaled",
+      "path": "records/sandp_500_h20_random_forest_volatility_scaled.csv.gz",
+      "sha256": "5663b6a29b6271347d41410fc776cb146b0808885c995e94a963b75b1f81c1cc",
+      "rows": 20412
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 20,
+      "model": "zero_return",
+      "method": "trailing",
+      "path": "records/sandp_500_h20_zero_return_trailing.csv.gz",
+      "sha256": "cb0f2f914bce671783b3ba62fab62f50950d9291b8c17e1a152b48bbbce5edcc",
+      "rows": 20412
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 20,
+      "model": "zero_return",
+      "method": "expanding",
+      "path": "records/sandp_500_h20_zero_return_expanding.csv.gz",
+      "sha256": "355c44a8fd01cc97909610c8269a4be515df9c912f208ba1bbdf786751a9e9e5",
+      "rows": 20412
+    },
+    {
+      "dataset": "S&P 500",
+      "horizon": 20,
+      "model": "zero_return",
+      "method": "volatility_scaled",
+      "path": "records/sandp_500_h20_zero_return_volatility_scaled.csv.gz",
+      "sha256": "b72af83b09ee01608675194bcc034b762b15e5844e50ede267f2cec9ee29f5a4",
+      "rows": 20412
+    }
+  ],
+  "environment": {
+    "mode": "calibration",
+    "python": "3.13.2",
+    "platform": "macOS-14.5-arm64-arm-64bit-Mach-O",
+    "versions": {
+      "marketpulse": "0.1.0",
+      "numpy": "2.5.4",
+      "pandas": "3.1.0",
+      "scikit-learn": "1.9.1",
+      "torch": "2.14.1"
+    },
+    "git_sha": "658ba156b731fe3a456572026834fe52c651f053"
+  },
+  "evaluation": "same eligible origins; online matured OOS residuals",
+  "coverage_guarantee": "none under market dependence and distribution shift"
+}
