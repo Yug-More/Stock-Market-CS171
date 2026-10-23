@@ -316,7 +316,30 @@ def verify(root: Path, *, seal: bool = False) -> None:
     frames, reports = load_expanded(root)
     settings = json.loads(json.dumps(asdict(load_benchmark_settings(root))))
     for item in reports:
-        assert item["report"]["execution"]["settings"] == settings
+        payload = item["report"]
+        assert payload["execution"]["settings"] == settings
+        from marketpulse.experiments.walkforward import _slug
+
+        slug = _slug(payload["dataset"])
+        historical = root / "results/walkforward/full/folds" / slug
+        historical = historical / f"h{payload['horizon']}" / f"fold_{payload['fold']:03d}.json"
+        assert payload["sample"] == json.loads(historical.read_text())["sample"]
+        predictions = pd.read_csv(item["path"].with_suffix(".csv.gz"))
+        for model in payload["models"]:
+            details = model["details"]
+            is_rf = model["model"] == "random_forest"
+            key = "depth" if is_rf else "hidden_size"
+            grid = details[f"validation_rmse_by_{key}"]
+            assert sorted(map(int, grid)) == ([4, 8] if is_rf else [16, 32])
+            selected = min(grid, key=lambda value: (grid[value], int(value)))
+            chosen = details["selected_max_depth" if is_rf else "selected_hidden_size"]
+            assert chosen == int(selected)
+            assert details["seed"] == payload["seed"]
+            part = predictions[predictions.model == model["model"]]
+            error = part.y_true.to_numpy() - part.y_pred.to_numpy()
+            np.testing.assert_allclose(model["test"]["rmse"], np.sqrt(np.mean(error**2)))
+            assert details.get("n_estimators", 200) == 200
+            assert details.get("max_epochs", 25) == 25
     metrics = pd.read_csv(output / "seed_metrics.csv")
     for seed, frame in zip([171, 271, 371, 471, 571], frames, strict=True):
         for (dataset, horizon, model), part in frame.groupby(["dataset", "horizon", "model"]):
