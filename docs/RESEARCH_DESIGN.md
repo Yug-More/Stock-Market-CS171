@@ -1,6 +1,8 @@
 # Research design
 
-This document defines the experiments that later phases will run. It does not report their results. Initial numeric choices also live in `configs/forecasting.toml`. If those choices change before the experiments, the config file and this document must change together.
+This document defines the forecasting protocol. Initial numeric choices also live in `configs/forecasting.toml`. If those choices change, the config file and this document must change together.
+
+`docs/BENCHMARK_RESULTS.md` reports one terminal chronological split for each series and horizon. The repeated walk-forward evaluation, the regime slices, and the prediction-interval study defined below remain unrun.
 
 The primary series are the committed raw files, read by `marketpulse.data`. `notebooks/nasdaq100/nasdaq_processed.csv` is a historical feature table. It is not the input to the new experiments.
 

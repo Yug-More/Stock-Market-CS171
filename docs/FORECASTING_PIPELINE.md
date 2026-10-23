@@ -78,4 +78,4 @@ marketpulse-benchmark --mode smoke --output results/benchmarks/smoke
 marketpulse-benchmark --mode full --output results/benchmarks/full
 ```
 
-Smoke mode runs the NASDAQ-100 file at the first configured horizon with one forest depth, one LSTM size, and two epochs. Its output is a wiring check. The research result is the full mode.
+Smoke mode runs the NASDAQ-100 file at the first configured horizon with one forest depth, one LSTM size, and two epochs. Its output is a wiring check. The research result is the full mode. The full run saved under `results/benchmarks/full/` is interpreted in `docs/BENCHMARK_RESULTS.md`.
