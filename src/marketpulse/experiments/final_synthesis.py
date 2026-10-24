@@ -516,7 +516,15 @@ def write_figure(output, native, seeds, calibration):
         for offset, method in enumerate(["trailing", "aci_w504_g001", "volatility_scaled"]):
             row = part[part.method == method].iloc[0]
             axes[1].scatter(
-                row.coverage, i + (offset - 1) * 0.12, label=method if i == 0 else None, s=25
+                row.coverage,
+                i + (offset - 1) * 0.12,
+                label=method if i == 0 else None,
+                color={
+                    "trailing": "tab:blue",
+                    "aci_w504_g001": "tab:orange",
+                    "volatility_scaled": "tab:green",
+                }[method],
+                s=25,
             )
     for ax in axes:
         ax.set_yticks(range(len(cells)), [f"{d} h{h}" for d, h in cells])
