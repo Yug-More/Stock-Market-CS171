@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "records": 1421280,
+  "independent_bounds": 2780000,
+  "metric_rows": 1680,
+  "paired_score_rows": 360,
+  "primary_family": 60,
+  "strict_endpoint_feedback": true,
+  "distribution_free_guarantee": false
+}

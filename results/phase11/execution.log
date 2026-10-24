@@ -1,0 +1,121 @@
+adaptive NASDAQ-100 h1 historical_mean aci_w504_g001
+adaptive NASDAQ-100 h1 historical_mean aci_w252_g001
+adaptive NASDAQ-100 h1 historical_mean aci_w504_g005
+adaptive NASDAQ-100 h1 historical_mean aci_w252_g005
+adaptive NASDAQ-100 h1 linear_regression aci_w504_g001
+adaptive NASDAQ-100 h1 linear_regression aci_w252_g001
+adaptive NASDAQ-100 h1 linear_regression aci_w504_g005
+adaptive NASDAQ-100 h1 linear_regression aci_w252_g005
+adaptive NASDAQ-100 h1 lstm aci_w504_g001
+adaptive NASDAQ-100 h1 lstm aci_w252_g001
+adaptive NASDAQ-100 h1 lstm aci_w504_g005
+adaptive NASDAQ-100 h1 lstm aci_w252_g005
+adaptive NASDAQ-100 h1 random_forest aci_w504_g001
+adaptive NASDAQ-100 h1 random_forest aci_w252_g001
+adaptive NASDAQ-100 h1 random_forest aci_w504_g005
+adaptive NASDAQ-100 h1 random_forest aci_w252_g005
+adaptive NASDAQ-100 h1 zero_return aci_w504_g001
+adaptive NASDAQ-100 h1 zero_return aci_w252_g001
+adaptive NASDAQ-100 h1 zero_return aci_w504_g005
+adaptive NASDAQ-100 h1 zero_return aci_w252_g005
+adaptive NASDAQ-100 h5 historical_mean aci_w504_g001
+adaptive NASDAQ-100 h5 historical_mean aci_w252_g001
+adaptive NASDAQ-100 h5 historical_mean aci_w504_g005
+adaptive NASDAQ-100 h5 historical_mean aci_w252_g005
+adaptive NASDAQ-100 h5 linear_regression aci_w504_g001
+adaptive NASDAQ-100 h5 linear_regression aci_w252_g001
+adaptive NASDAQ-100 h5 linear_regression aci_w504_g005
+adaptive NASDAQ-100 h5 linear_regression aci_w252_g005
+adaptive NASDAQ-100 h5 lstm aci_w504_g001
+adaptive NASDAQ-100 h5 lstm aci_w252_g001
+adaptive NASDAQ-100 h5 lstm aci_w504_g005
+adaptive NASDAQ-100 h5 lstm aci_w252_g005
+adaptive NASDAQ-100 h5 random_forest aci_w504_g001
+adaptive NASDAQ-100 h5 random_forest aci_w252_g001
+adaptive NASDAQ-100 h5 random_forest aci_w504_g005
+adaptive NASDAQ-100 h5 random_forest aci_w252_g005
+adaptive NASDAQ-100 h5 zero_return aci_w504_g001
+adaptive NASDAQ-100 h5 zero_return aci_w252_g001
+adaptive NASDAQ-100 h5 zero_return aci_w504_g005
+adaptive NASDAQ-100 h5 zero_return aci_w252_g005
+adaptive NASDAQ-100 h20 historical_mean aci_w504_g001
+adaptive NASDAQ-100 h20 historical_mean aci_w252_g001
+adaptive NASDAQ-100 h20 historical_mean aci_w504_g005
+adaptive NASDAQ-100 h20 historical_mean aci_w252_g005
+adaptive NASDAQ-100 h20 linear_regression aci_w504_g001
+adaptive NASDAQ-100 h20 linear_regression aci_w252_g001
+adaptive NASDAQ-100 h20 linear_regression aci_w504_g005
+adaptive NASDAQ-100 h20 linear_regression aci_w252_g005
+adaptive NASDAQ-100 h20 lstm aci_w504_g001
+adaptive NASDAQ-100 h20 lstm aci_w252_g001
+adaptive NASDAQ-100 h20 lstm aci_w504_g005
+adaptive NASDAQ-100 h20 lstm aci_w252_g005
+adaptive NASDAQ-100 h20 random_forest aci_w504_g001
+adaptive NASDAQ-100 h20 random_forest aci_w252_g001
+adaptive NASDAQ-100 h20 random_forest aci_w504_g005
+adaptive NASDAQ-100 h20 random_forest aci_w252_g005
+adaptive NASDAQ-100 h20 zero_return aci_w504_g001
+adaptive NASDAQ-100 h20 zero_return aci_w252_g001
+adaptive NASDAQ-100 h20 zero_return aci_w504_g005
+adaptive NASDAQ-100 h20 zero_return aci_w252_g005
+adaptive S&P 500 h1 historical_mean aci_w504_g001
+adaptive S&P 500 h1 historical_mean aci_w252_g001
+adaptive S&P 500 h1 historical_mean aci_w504_g005
+adaptive S&P 500 h1 historical_mean aci_w252_g005
+adaptive S&P 500 h1 linear_regression aci_w504_g001
+adaptive S&P 500 h1 linear_regression aci_w252_g001
+adaptive S&P 500 h1 linear_regression aci_w504_g005
+adaptive S&P 500 h1 linear_regression aci_w252_g005
+adaptive S&P 500 h1 lstm aci_w504_g001
+adaptive S&P 500 h1 lstm aci_w252_g001
+adaptive S&P 500 h1 lstm aci_w504_g005
+adaptive S&P 500 h1 lstm aci_w252_g005
+adaptive S&P 500 h1 random_forest aci_w504_g001
+adaptive S&P 500 h1 random_forest aci_w252_g001
+adaptive S&P 500 h1 random_forest aci_w504_g005
+adaptive S&P 500 h1 random_forest aci_w252_g005
+adaptive S&P 500 h1 zero_return aci_w504_g001
+adaptive S&P 500 h1 zero_return aci_w252_g001
+adaptive S&P 500 h1 zero_return aci_w504_g005
+adaptive S&P 500 h1 zero_return aci_w252_g005
+adaptive S&P 500 h5 historical_mean aci_w504_g001
+adaptive S&P 500 h5 historical_mean aci_w252_g001
+adaptive S&P 500 h5 historical_mean aci_w504_g005
+adaptive S&P 500 h5 historical_mean aci_w252_g005
+adaptive S&P 500 h5 linear_regression aci_w504_g001
+adaptive S&P 500 h5 linear_regression aci_w252_g001
+adaptive S&P 500 h5 linear_regression aci_w504_g005
+adaptive S&P 500 h5 linear_regression aci_w252_g005
+adaptive S&P 500 h5 lstm aci_w504_g001
+adaptive S&P 500 h5 lstm aci_w252_g001
+adaptive S&P 500 h5 lstm aci_w504_g005
+adaptive S&P 500 h5 lstm aci_w252_g005
+adaptive S&P 500 h5 random_forest aci_w504_g001
+adaptive S&P 500 h5 random_forest aci_w252_g001
+adaptive S&P 500 h5 random_forest aci_w504_g005
+adaptive S&P 500 h5 random_forest aci_w252_g005
+adaptive S&P 500 h5 zero_return aci_w504_g001
+adaptive S&P 500 h5 zero_return aci_w252_g001
+adaptive S&P 500 h5 zero_return aci_w504_g005
+adaptive S&P 500 h5 zero_return aci_w252_g005
+adaptive S&P 500 h20 historical_mean aci_w504_g001
+adaptive S&P 500 h20 historical_mean aci_w252_g001
+adaptive S&P 500 h20 historical_mean aci_w504_g005
+adaptive S&P 500 h20 historical_mean aci_w252_g005
+adaptive S&P 500 h20 linear_regression aci_w504_g001
+adaptive S&P 500 h20 linear_regression aci_w252_g001
+adaptive S&P 500 h20 linear_regression aci_w504_g005
+adaptive S&P 500 h20 linear_regression aci_w252_g005
+adaptive S&P 500 h20 lstm aci_w504_g001
+adaptive S&P 500 h20 lstm aci_w252_g001
+adaptive S&P 500 h20 lstm aci_w504_g005
+adaptive S&P 500 h20 lstm aci_w252_g005
+adaptive S&P 500 h20 random_forest aci_w504_g001
+adaptive S&P 500 h20 random_forest aci_w252_g001
+adaptive S&P 500 h20 random_forest aci_w504_g005
+adaptive S&P 500 h20 random_forest aci_w252_g005
+adaptive S&P 500 h20 zero_return aci_w504_g001
+adaptive S&P 500 h20 zero_return aci_w252_g001
+adaptive S&P 500 h20 zero_return aci_w504_g005
+adaptive S&P 500 h20 zero_return aci_w252_g005
+{"status": "passed", "records": 1421280, "independent_bounds": 2780000, "metric_rows": 1680, "paired_score_rows": 360, "primary_family": 60, "strict_endpoint_feedback": true, "distribution_free_guarantee": false}
