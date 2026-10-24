@@ -55,7 +55,16 @@ def figures(frames: dict[str, pd.DataFrame], output: Path) -> None:
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
 
-    plt.rcParams.update({"font.size": 10, "savefig.dpi": 300, "pdf.fonttype": 42})
+    plt.rcParams.update(
+        {
+            "font.size": 10.5,
+            "axes.titlesize": 12,
+            "axes.labelsize": 10.5,
+            "axes.unicode_minus": False,
+            "savefig.dpi": 300,
+            "pdf.fonttype": 42,
+        }
+    )
     output.mkdir(parents=True, exist_ok=True)
 
     def save(fig, name):
@@ -83,7 +92,7 @@ def figures(frames: dict[str, pd.DataFrame], output: Path) -> None:
                 values,
                 np.arange(6) + (j - 2) * 0.12,
                 label=LABELS[model],
-                s=25,
+                s=38,
                 color=COLORS[model],
             )
         ax.axvline(0, color=".6", linewidth=0.8)
@@ -103,65 +112,123 @@ def figures(frames: dict[str, pd.DataFrame], output: Path) -> None:
     frame = frames["original_primary"]
     frame = frame[frame.second.isin(["zero_return", "historical_mean"])].copy()
     assert len(frame) == 12
-    fig, ax = plt.subplots(figsize=(12, 7))
-    for i, row in enumerate(frame.itertuples()):
-        color = "#D55E00" if row.holm_p_value < 0.05 else "#0072B2"
-        ax.plot([row.ci_lower * 1e4, row.ci_upper * 1e4], [i, i], color=color)
-        ax.scatter(row.mean_loss_difference * 1e4, i, color=color, s=25)
-        ax.text(
-            1.02,
-            i,
-            f"{row.p_value:.3g} / {row.holm_p_value:.3g}",
-            transform=ax.get_yaxis_transform(),
-            va="center",
+    fig, axes = plt.subplots(
+        2,
+        2,
+        figsize=(13, 8.8),
+        gridspec_kw={"width_ratios": [4.2, 1.4], "height_ratios": [1, 1]},
+    )
+    palette = {"favorable": "#0072B2", "unfavorable": "#D55E00"}
+    all_lowers = frame.ci_lower.to_numpy() * 1e4
+    all_uppers = frame.ci_upper.to_numpy() * 1e4
+    xmin, xmax = min(all_lowers.min(), -0.05), max(all_uppers.max(), 0.05)
+    pad = (xmax - xmin) * 0.04
+    for row_i, dataset in enumerate(["NASDAQ-100", "S&P 500"]):
+        part = frame[frame.dataset.eq(dataset)].reset_index(drop=True)
+        ax, p_axis = axes[row_i]
+        for i, row in enumerate(part.itertuples()):
+            difference = row.mean_loss_difference * 1e4
+            color = palette["favorable" if difference < 0 else "unfavorable"]
+            ax.plot([row.ci_lower * 1e4, row.ci_upper * 1e4], [i, i], color=color, linewidth=1.7)
+            ax.scatter(
+                difference,
+                i,
+                s=48,
+                marker="o" if row.holm_p_value < 0.05 else "o",
+                facecolor=color if row.holm_p_value < 0.05 else "white",
+                edgecolor=color,
+                linewidth=1.4,
+                zorder=3,
+            )
+        ax.set_yticks(
+            range(len(part)),
+            [f"h={r.horizon}, RF - {LABELS[r.second]}" for r in part.itertuples()],
         )
-    ax.set_yticks(
-        range(len(frame)),
-        [f"{r.dataset}, h={r.horizon}, RF minus {LABELS[r.second]}" for r in frame.itertuples()],
+        ax.invert_yaxis()
+        ax.axvline(0, color=".35", linewidth=0.9)
+        ax.grid(axis="x", alpha=0.22)
+        ax.set_xlim(xmin - pad, xmax + pad)
+        ax.set_title(dataset, loc="left", fontweight="bold")
+        p_axis.set_xlim(0, 1)
+        p_axis.set_ylim(ax.get_ylim())
+        p_axis.axis("off")
+        p_axis.text(0.02, -0.72, "Nominal p     Holm p", fontsize=9.5, fontweight="bold")
+        for i, row in enumerate(part.itertuples()):
+            p_axis.text(0.02, i, f"{row.p_value:.3g}       {row.holm_p_value:.3g}", va="center")
+    axes[1, 0].set_xlabel(
+        "Mean squared-loss difference (squared log-return × 10,000); negative favors RF"
     )
-    ax.invert_yaxis()
-    ax.axvline(0, color=".5", linewidth=0.8)
-    ax.grid(axis="x", alpha=0.2)
-    ax.set_xlabel("Mean squared-loss difference (squared log-return × 10,000); left favors RF")
-    ax.set_title(
+    fig.suptitle(
         "RF versus simple baselines: all 12 contrasts in the original 18-test family\n"
-        "Bars: marginal 95% moving-block intervals; right: nominal p / Holm p"
+        "Points mark effects; bars are marginal 95% moving-block intervals; "
+        "filled points indicate Holm p < 0.05",
+        y=0.99,
     )
-    fig.subplots_adjust(left=0.30, right=0.78, bottom=0.12, top=0.88)
+    fig.subplots_adjust(left=0.23, right=0.98, bottom=0.08, top=0.89, hspace=0.35, wspace=0.08)
     save(fig, "baseline_effects")
 
-    fig, axes = plt.subplots(2, 2, figsize=(12, 9), sharey=True)
+    markers = ["o", "s", "D", "^", "v", "P", "X"]
     frame = frames["interval_metrics"]
-    for row_i, scope in enumerate(["overall", "volatility_high"]):
-        selected = frame[
-            frame.model.eq("zero_return") & frame.nominal.eq(0.9) & frame.slice.eq(scope)
-        ]
-        for j, (method, (label, color)) in enumerate(METHODS.items()):
-            part = selected[selected.method.eq(method)].set_index(["dataset", "horizon"]).loc[CELLS]
-            for col, metric in enumerate(["coverage", "mean_width"]):
-                axes[row_i, col].scatter(
-                    part[metric], np.arange(6) + (j - 3) * 0.10, s=20, label=label, color=color
+    for metric, filename, xlabel in [
+        ("coverage", "interval_coverage", "Empirical coverage fraction; nominal target = 0.90"),
+        ("mean_width", "interval_width", "Mean interval width (log-return units)"),
+    ]:
+        fig, axes = plt.subplots(2, 1, figsize=(10.5, 8), sharex=True, sharey=True)
+        for row_i, scope in enumerate(["overall", "volatility_high"]):
+            selected = frame[
+                frame.model.eq("zero_return") & frame.nominal.eq(0.9) & frame.slice.eq(scope)
+            ]
+            offsets = np.linspace(-0.28, 0.28, len(METHODS))
+            for j, (method, (label, color)) in enumerate(METHODS.items()):
+                part = (
+                    selected[selected.method.eq(method)]
+                    .set_index(["dataset", "horizon"])
+                    .loc[CELLS]
                 )
-        axes[row_i, 0].axvline(0.9, color=".5", linestyle="--", linewidth=1)
-        axes[row_i, 0].set_xlim(0, 1)
-        axes[row_i, 1].set_xlim(left=0)
-        axes[row_i, 0].set_title(
-            f"{'All eligible' if scope == 'overall' else 'High-volatility'} origins"
+                axes[row_i].scatter(
+                    part[metric],
+                    np.arange(6) + offsets[j],
+                    s=42,
+                    marker=markers[j],
+                    label=label,
+                    color=color,
+                    edgecolor="white",
+                    linewidth=0.45,
+                    zorder=3,
+                )
+            if metric == "coverage":
+                axes[row_i].axvline(0.9, color=".35", linestyle="--", linewidth=1.1)
+                axes[row_i].set_xlim(0, 1)
+            else:
+                axes[row_i].set_xlim(
+                    left=0,
+                    right=frame[
+                        frame.model.eq("zero_return") & frame.nominal.eq(0.9)
+                    ].mean_width.max()
+                    * 1.04,
+                )
+            axes[row_i].set_title(
+                f"{'All eligible' if scope == 'overall' else 'High-volatility'} origins",
+                loc="left",
+            )
+            axes[row_i].set_yticks(range(6), [f"{d}, h={h}" for d, h in CELLS])
+            axes[row_i].grid(axis="x", alpha=0.22)
+        axes[0].invert_yaxis()
+        handles, labels = axes[0].get_legend_handles_labels()
+        fig.legend(handles, labels, loc="lower center", ncols=4, fontsize=9, frameon=False)
+        fig.suptitle(
+            "Zero-return 90% intervals: all seven calibration methods\n"
+            "Descriptive estimates on the same eligible origins; no coverage guarantee",
+            y=0.99,
         )
-        for col in range(2):
-            axes[row_i, col].set_yticks(range(6), [f"{d}, h={h}" for d, h in CELLS])
-            axes[row_i, col].grid(axis="x", alpha=0.2)
-    axes[0, 0].invert_yaxis()
-    axes[1, 0].set_xlabel("Coverage fraction; nominal 0.90")
-    axes[1, 1].set_xlabel("Mean interval width (log-return units)")
-    handles, labels = axes[0, 1].get_legend_handles_labels()
-    fig.legend(handles, labels, loc="lower center", ncols=4, fontsize=8)
-    fig.suptitle(
-        "Zero-return 90% intervals: all seven methods, descriptive points\n"
-        "No coverage guarantee; marginal adaptive coverage intervals supplied separately"
-    )
-    fig.tight_layout(rect=(0, 0.07, 1, 1))
-    save(fig, "interval_tradeoffs")
+        axes[1].set_xlabel(xlabel)
+        fig.tight_layout(rect=(0, 0.10, 1, 0.92), h_pad=1.0)
+        save(fig, filename)
+
+    # Retire the former combined coverage/width panel after replacing it with
+    # metric-specific figures so stale graphics cannot be cited accidentally.
+    for suffix in (".png", ".pdf"):
+        (output / f"interval_tradeoffs{suffix}").unlink(missing_ok=True)
 
 
 def build(root: Path) -> None:
@@ -188,7 +255,8 @@ def build(root: Path) -> None:
         "figure_sources": {
             "point_skill": [TABLES["native_metrics"], TABLES["matched_metrics"]],
             "baseline_effects": [TABLES["original_comparisons"]],
-            "interval_tradeoffs": [TABLES["interval_metrics"]],
+            "interval_coverage": [TABLES["interval_metrics"]],
+            "interval_width": [TABLES["interval_metrics"]],
         },
         "notes": "No fitting or artifact rewriting. Precision retained in CSV exports. "
         "Figure effects use source CIs; p columns retain the complete original family. "
@@ -205,4 +273,12 @@ def verify(root: Path) -> None:
     for name, frame in tables(root).items():
         actual = pd.read_csv(root / f"paper/tables/{name}.csv")
         pd.testing.assert_frame_equal(actual, frame, check_exact=False, rtol=1e-13, atol=1e-15)
-    print(json.dumps({"status": "passed", "tables": len(manifest["table_rows"]), "figures": 3}))
+    print(
+        json.dumps(
+            {
+                "status": "passed",
+                "tables": len(manifest["table_rows"]),
+                "figures": sum(path.endswith(".png") for path in manifest["outputs"]),
+            }
+        )
+    )

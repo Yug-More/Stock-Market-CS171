@@ -1,13 +1,13 @@
 # Manuscript claim-to-evidence audit
 
 Run `.venv/bin/python scripts/manuscript.py verify` from the repository root.
-The generated manifest in `evidence/manuscript_manifest.json` binds every cited
-C-number to the Phase 12 registry and every E-tag to the listed source files,
-configurations or methodological documentation. All bound files have SHA256
-checksums. Thirty-seven distinct quantitative claim IDs and ten authentic
-references are cited. Numerical tables and illustrative comparisons are generated
-from the CSVs, not transcribed from earlier reports. The manuscript source contains
-the explicit bindings; the generated Markdown and TeX contain display-rounded values.
+The authoritative source stores claim and evidence-group bindings in HTML comments.
+The generated Markdown and TeX omit those internal identifiers, while
+`evidence/manuscript_manifest.json` retains all 37 distinct quantitative claim IDs,
+the bound evidence groups, and SHA256 checksums for source artifacts. Twelve
+references are cited and checked against the bibliography and the records in
+`evidence/reference_verification.json`. Numerical tables and comparisons are
+generated from CSVs, not transcribed from earlier reports.
 
 This is traceability, not a machine proof of prose semantics. The initial audit
 compared the narrative with code and raw/processed evidence; the later Phase 15
@@ -28,4 +28,6 @@ Full model/level/regime results remain available in the cited source artifacts.
 References were checked against original papers, primary publisher/arXiv records,
 or deposited Crossref metadata. `evidence/reference_verification.json` records the
 actual verification route, including cases where publisher full text was inaccessible.
+The Bergmeir et al. publisher page could not be opened directly in the review tool;
+its bibliographic metadata was checked in the official journal listing and DOI record.
 No external human peer review or independent dataset validation is claimed.

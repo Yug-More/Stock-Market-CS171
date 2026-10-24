@@ -9,7 +9,7 @@
     "results/phase11/all_methods_metrics.csv": "4592f07afcc747684e17c4c4b50ee52ff1f6125230c6d6da9edab413bbfd8acf",
     "results/phase11/coverage_uncertainty.csv": "274aabff69439e517169b1994c462ee4efc7e1c70c21c54a8327a8eca9109986",
     "results/phase11/diagnostics.csv": "3d67e7b23f55ccbd017dc403a6a15cb86ea3c63524737c7d11e8624664ad1160",
-    "src/marketpulse/publication_assets.py": "c314656180304422c4b37c55c66fb2f55fe3a166bfdf85ba1223c645b5720064",
+    "src/marketpulse/publication_assets.py": "8014710f7616fcd5cc1ebe46c5a901a6236aaffb63c2f4c2f10db4599b6b23d6",
     "scripts/publication_assets.py": "b0b46de7ff3a573a8da3a2bd9de528c5163160d9dc55587164aaff4460173694"
   },
   "outputs": {
@@ -25,12 +25,14 @@
     "paper/tables/original_comparisons.csv": "ad2277023c19c47d2a7ffa9b4084338f18d5bde7eddcabebb554f16b7983b0e2",
     "paper/tables/original_primary.csv": "abdcdcbfb54ac414bf8cf6cbc1303d526ac3a349b627c5f310686ea2c3e48315",
     "paper/tables/seed_metrics.csv": "6ffc8bf971ec6e2c44fa372d4c2ad38e77640f4a2b84726e6c5a04498d04025c",
-    "paper/figures/baseline_effects.pdf": "62e5375fc2360af910c1e7f637f8579cae73a7638a7d809b0a5ad55f6b2415d8",
-    "paper/figures/baseline_effects.png": "912cf80e118e69d5bbe308f4c52e9371511ee22186603b74c1fc6ff740407390",
-    "paper/figures/interval_tradeoffs.pdf": "3566419ba263a8df0431e36a0f1bad72ddcbd3d4481c9d3e754680ad07cf9ba0",
-    "paper/figures/interval_tradeoffs.png": "28ca478046863b16d8b14fda6212b6e651e4b09ba541a62eed4d5da6ab209b7c",
-    "paper/figures/point_skill.pdf": "a308e1c068b6f2b14a5b997b63074411b81fd0b02e3e300646a7cf571d7cd5d0",
-    "paper/figures/point_skill.png": "2b14b9c14e1490292c88e1da91a2d35aa5a410d9f1820725ef9a6972912aa2b3"
+    "paper/figures/baseline_effects.pdf": "cb1d6e4da31f37addc223f8771bae4921b8a0fb5c4402fb985063d32da727760",
+    "paper/figures/baseline_effects.png": "1f83f706383e5f91cb0829412b136c44658ae2144066372650f0d48a15e85ec6",
+    "paper/figures/interval_coverage.pdf": "7dbcf268a2129e3135fd719f1e6bd1ade1e6aae7fa848497995eedf9b7896267",
+    "paper/figures/interval_coverage.png": "87c0b1f25a8458f88d7d89e49bd2de0d9ac631446535fe141898bda534405225",
+    "paper/figures/interval_width.pdf": "1211f1f0049c5d1b6922ae6dd9593f1ae97c0c486c5337683d93b03778962a85",
+    "paper/figures/interval_width.png": "d0dd0a7bc78c0e104a4cc699b6ba1bce6a8923756ef4e52e6a0a374a73e6f403",
+    "paper/figures/point_skill.pdf": "598762004dfd94476d12b929a229145433a3eb2f855c79642f2aa67d952c7ee4",
+    "paper/figures/point_skill.png": "9a13ba6aa4156582f3a4a85bcdc3cdfd033a1470d7e90e90e8d2f561803e0570"
   },
   "table_rows": {
     "native_metrics": 30,
@@ -54,7 +56,10 @@
     "baseline_effects": [
       "results/statistical_reliability/comparisons.csv"
     ],
-    "interval_tradeoffs": [
+    "interval_coverage": [
+      "results/phase11/all_methods_metrics.csv"
+    ],
+    "interval_width": [
       "results/phase11/all_methods_metrics.csv"
     ]
   },

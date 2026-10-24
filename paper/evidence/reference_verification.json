@@ -98,5 +98,25 @@
     "doi": null,
     "publication": "arXiv:2202.13415v5, revised 17 March 2023; first submitted 2022",
     "verification": "metadata verified against primary publisher/original-paper/arXiv or publisher-deposited Crossref record; no paywalled full-text verification claimed"
+  },
+  {
+    "key": "bergmeir2018",
+    "title": "A Note on the Validity of Cross-Validation for Evaluating Autoregressive Time Series Prediction",
+    "authors": "Christoph Bergmeir; Rob J. Hyndman; Bonsoo Koo",
+    "year": 2018,
+    "verification_url": "https://doi.org/10.1016/j.csda.2017.11.003",
+    "doi": "10.1016/j.csda.2017.11.003",
+    "publication": "Computational Statistics & Data Analysis 120, 70-83",
+    "verification": "metadata verified from the official ScienceDirect journal listing and DOI record; publisher page was not directly accessible during review"
+  },
+  {
+    "key": "white2000",
+    "title": "A Reality Check for Data Snooping",
+    "authors": "Halbert White",
+    "year": 2000,
+    "verification_url": "https://onlinelibrary.wiley.com/doi/10.1111/1468-0262.00152",
+    "doi": "10.1111/1468-0262.00152",
+    "publication": "Econometrica 68(5), 1097-1126",
+    "verification": "issue citation, author, title, volume, pages, and DOI verified on the primary Wiley journal page; full text was inaccessible"
   }
 ]

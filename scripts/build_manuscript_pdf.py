@@ -40,8 +40,14 @@ with tempfile.TemporaryDirectory(prefix="marketpulse-tex-") as temporary:
     shutil.copyfile(pdf, root / "paper/MarketPulse_Research_Paper.pdf")
     (root / "paper/evidence/tectonic_console.txt").write_text(result.stdout + result.stderr)
 paths = [
+    "paper/manuscript_source.md",
     "paper/MarketPulse_Research_Paper.tex",
     "paper/references.bib",
+    "paper/evidence/manuscript_manifest.json",
+    "paper/evidence/assets_manifest.json",
+    "src/marketpulse/publication.py",
+    "src/marketpulse/publication_assets.py",
+    "scripts/build_manuscript_pdf.py",
     "paper/MarketPulse_Research_Paper.pdf",
     "paper/evidence/tectonic_console.txt",
 ]

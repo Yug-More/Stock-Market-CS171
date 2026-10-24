@@ -284,6 +284,28 @@ def render(root: Path) -> tuple[str, str, dict]:
         text = text.replace("{{" + key + "}}", str(value))
     if re.search(r"\{\{[^}]+\}\}", text):
         raise ValueError("unresolved manuscript evidence binding")
+    evidence = sources(root)
+    bindings = re.findall(r"<!-- evidence: (.*?) -->", text)
+    if not bindings:
+        raise ValueError("manuscript has no machine-readable evidence bindings")
+    bound_claims: set[str] = set()
+    bound_groups: set[str] = set()
+    for binding in bindings:
+        for item in binding.split(";"):
+            item = item.strip()
+            if item.startswith("E:"):
+                bound_groups.add(item[2:])
+            elif re.fullmatch(r"C\d{2}(?:,C\d{2})*", item):
+                bound_claims.update(item.split(","))
+            else:
+                raise ValueError(f"invalid evidence binding: {item}")
+    claim_ids = {claim["id"] for claim in claims}
+    if not bound_claims <= claim_ids:
+        raise ValueError(f"unknown bound claim IDs: {sorted(bound_claims - claim_ids)}")
+    if not bound_groups <= evidence.keys():
+        raise ValueError(f"unknown evidence groups: {sorted(bound_groups - evidence.keys())}")
+    # Bindings stay in the authoritative source and manifest, not reader-facing prose.
+    text = re.sub(r"\s*<!-- evidence: .*? -->", "", text)
     cited = set(re.findall(r"\[@(\w+)\]", text))
     assert cited == {r["key"] for r in references}
     bib = (root / "paper/references.bib").read_text()
@@ -294,10 +316,6 @@ def render(root: Path) -> tuple[str, str, dict]:
         assert re.search(r"year\s*=\s*\{" + str(reference["year"]) + r"\}", body)
         assert not reference.get("doi") or reference["doi"] in body
         assert reference["title"].lower() in body.lower()
-    evidence = sources(root)
-    assert set(re.findall(r"E:([a-z]+)", text)) <= evidence.keys()
-    for group in re.findall(r"\[(C\d+(?:,C\d+)*)\]", text):
-        assert set(group.split(",")) <= {c["id"] for c in claims}
     inputs = {c["artifact"]: c["sha256"] for c in claims}
     for paths in evidence.values():
         inputs.update({p: file_hash(root / p) for p in paths})
@@ -321,7 +339,8 @@ def render(root: Path) -> tuple[str, str, dict]:
         {
             "inputs": inputs,
             "evidence_groups": evidence,
-            "claim_ids": sorted(set(re.findall(r"C\d{2}", text))),
+            "claim_ids": sorted(bound_claims),
+            "bound_evidence_groups": sorted(bound_groups),
             "citation_keys": sorted(cited),
             "precision": "tables are display-rounded; exact saved CSVs are authoritative",
             "scope": (
@@ -377,16 +396,27 @@ def latex(text: str) -> str:
         r"\setlength{\tabcolsep}{3pt}",
         r"\title{" + inline(title) + "}",
         r"\author{Yug More\\\texttt{yugmore20@gmail.com}}",
-        r"\date{October 2026 --- research manuscript draft}",
+        r"\date{October 2026\\Unpublished research draft}",
         r"\begin{document}",
         r"\maketitle",
     ]
     i, caption = 2, None
-    if lines[2].startswith("Yug More,"):
+    if lines[2].startswith("Yug More"):
         i = 3
     while i < len(lines):
         line = lines[i]
-        if line.startswith("## References"):
+        if line.strip() == "$$":
+            output.append(r"\[")
+            i += 1
+            while i < len(lines) and lines[i].strip() != "$$":
+                output.append(lines[i])
+                i += 1
+            if i == len(lines):
+                raise ValueError("unclosed display-math block")
+            output.append(r"\]")
+            i += 1
+            continue
+        elif line.startswith("## References"):
             output += [r"\bibliographystyle{plainnat}", r"\bibliography{references}"]
             i += 1
             while i < len(lines) and not lines[i].startswith("## "):
@@ -477,6 +507,9 @@ def verify(root: Path) -> None:
     markdown, tex, _ = render(root)
     assert markdown == (root / "paper/MarketPulse_Research_Paper.md").read_text()
     assert tex == (root / "paper/MarketPulse_Research_Paper.tex").read_text()
+    for generated in (markdown, tex):
+        if re.search(r"\bC\d{2}\b|E:[a-z]+", generated):
+            raise ValueError("internal evidence identifiers leaked into reader-facing manuscript")
     print(
         json.dumps(
             {
