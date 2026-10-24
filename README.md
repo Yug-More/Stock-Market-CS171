@@ -44,6 +44,25 @@ HAC or moving-block calculations, and separate Holm families for the original,
 expanded, and interval studies. See the [statistical methods](docs/STATISTICAL_RELIABILITY.md)
 and [robustness reports](docs/PHASE10_ROBUSTNESS.md).
 
+```mermaid
+flowchart LR
+    A[Stored index closes] --> B[Validate data and build causal features]
+    B --> C[Forward log-return targets<br/>1, 5, 20 sessions]
+    C --> D[Purged expanding-window folds]
+    D --> E[Five forecast procedures<br/>shared test origins]
+    E --> F[Saved prediction records]
+    F --> G[Paired-loss and seed analyses]
+    F --> H[Prequential interval analyses]
+    G --> I[Evidence-bound tables and figures]
+    H --> I
+    I --> J[Manuscript and audit]
+```
+
+The diagram summarizes the saved retrospective workflow. The fold generator
+purges labels whose forward outcomes overlap later blocks; later outcomes still
+enter subsequent training folds, so the evaluated histories are chronological
+but not permanently held out.
+
 ## Verified findings
 
 In native pooled RMSE, random forest ranks first in three of six index/horizon
@@ -109,6 +128,8 @@ explains what can be reconstructed, required tools, and the remaining limits.
   [compiled PDF](paper/MarketPulse_Research_Paper.pdf).
 - [Claim-to-evidence audit](paper/CLAIM_EVIDENCE_AUDIT.md), references, source
   tables, and publication figures under [`paper/`](paper/).
+- [Academic reviewer-style assessment](docs/ACADEMIC_REVIEW_REPORT.md), including
+  findings that need new data or external review.
 - [Final findings](docs/FINAL_RESEARCH_RESULTS.md) and
   [contribution boundaries](docs/RESEARCH_CONTRIBUTIONS.md).
 - [Methods](docs/WALKFORWARD_METHODOLOGY.md), [results](docs/WALKFORWARD_RESULTS.md),
