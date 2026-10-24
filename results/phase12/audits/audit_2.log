@@ -1,0 +1,11 @@
+{
+  "historical_predictions": 355320,
+  "seed_tasks": 90,
+  "paired_statistical_rows": 216,
+  "regime_statistical_rows": 108,
+  "interval_records": 1065960,
+  "independently_verified_quantiles_and_bounds": 2085000,
+  "all_residual_populations_mature": true,
+  "all_coverage_and_score_metrics_verified": true,
+  "historical_provenance_repaired": false
+}

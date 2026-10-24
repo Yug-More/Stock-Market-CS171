@@ -17,6 +17,8 @@ def test_later_acquisition_cannot_slide_the_frozen_test_window():
     assert dates.iloc[test[0]] == pd.Timestamp("2026-10-26")
     assert cal[-1] + 20 < test[0]
     assert a.validation[-1] + 20 < cal[0]
+    with pytest.raises(ValueError, match="cannot shift"):
+        frozen_window(origins[origins != test[0]], dates, 20, "2026-10-26")
     with pytest.raises(ValueError, match="not yet mature"):
         frozen_window(origins[:4000], dates, 20, "2026-10-26")
 

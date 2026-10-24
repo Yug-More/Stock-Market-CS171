@@ -1,0 +1,9 @@
+{
+  "figure": "research_summary.png",
+  "left_sources": [
+    "point_comparisons.csv (native)",
+    "seed_comparisons.csv"
+  ],
+  "right_source": "calibration_comparisons.csv (zero, 90%, high volatility)",
+  "caveat": "five separated selected years versus full history; seed ranges are not inferential CIs; no independently validated gain"
+}

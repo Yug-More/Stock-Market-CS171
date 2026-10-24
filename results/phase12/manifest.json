@@ -1,0 +1,24 @@
+{
+  "classification": "retrospective synthesis; independent confirmation unavailable",
+  "environment": {
+    "mode": "synthesis",
+    "python": "3.13.2",
+    "platform": "macOS-14.5-arm64-arm-64bit-Mach-O",
+    "versions": {
+      "marketpulse": "0.1.0",
+      "numpy": "2.5.4",
+      "pandas": "3.1.0",
+      "scikit-learn": "1.9.1",
+      "torch": "2.14.1"
+    },
+    "git_sha": "de0d798323d4c5cc387ffac902fa65bd23f5d4a0"
+  },
+  "source_sha256": "e8b435ea9538d186b75470d703d27a1cee4a18890ae4b029b900005368c71864",
+  "report_documents": {
+    "docs/FINAL_RESEARCH_RESULTS.md": "9eef4f0e7728de146570f7d21961fefbc62afdbcd17720b9ca5b8f1498dd6f2d",
+    "docs/RESEARCH_CONTRIBUTIONS.md": "0b6445d9005f254551eb76acc9dd029d195d69de785609c4dd8f7968aee88bd6",
+    "docs/PHASE12_SCIENTIFIC_SYNTHESIS.md": "8cb703d640cc1376da170417becc63fd9903309637d9ab5d3530582a3482ae06"
+  },
+  "claim_count": 40,
+  "prior_audit_count": 6
+}

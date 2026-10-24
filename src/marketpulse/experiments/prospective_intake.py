@@ -122,6 +122,22 @@ def run(root: Path, manifest_path: Path, output: Path) -> None:
             settings=load_benchmark_settings(root),
             seed=protocol["seed"],
         )
+        result["four_block_plan"] = [
+            {
+                "partition": name,
+                "n": len(block),
+                "first_origin": str(dates.iloc[block[0]].date()),
+                "last_origin": str(dates.iloc[block[-1]].date()),
+                "last_target_date": str(dates.iloc[block[-1] + task["horizon"]].date()),
+            }
+            for name, block in [
+                ("train", task["split"].train),
+                ("validation", task["split"].validation),
+                ("calibration", task["calibration"]),
+                ("test", task["test"]),
+            ]
+        ]
+        result["combined_trainer_diagnostics"] = result.pop("models")
         frame = pd.DataFrame(result.pop("predictions"))
         lookup = {str(date.date()): pos for pos, date in enumerate(dates)}
         frame["origin_position"] = frame.date.map(lookup)

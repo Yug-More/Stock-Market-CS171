@@ -1,0 +1,17 @@
+{
+  "audits/audit_1.log": "4a53a1b514a7aff6d5c4b27df122c56429b95e205fca8387adf300e7cfaa82b1",
+  "audits/audit_2.log": "754766f2a1302f4308cd06c1fd41580e828eecf70cf09af958b8b1557cc18b7b",
+  "audits/audit_3.log": "819518e6a0b6feb8aa8b5496ce4d114ed04564af5fa4ef1990f52e86688974cb",
+  "audits/audit_4.log": "e7e8c334b47f9a83d6140824515cd71112e63f76d0e094b71bbde1099bb1c9f4",
+  "audits/audit_5.log": "a712c37984ffc439ff7abb4ae07b595bac5a7cf512ec7bceb98286fd0b2658b1",
+  "audits/audit_6.log": "5cf1c63da693e290e2442cc8250a3486320194f2f0402bdfe3d766631ecf6b8d",
+  "audits/manifest.json": "ca638c2a7006535c58cca715ac535566a9a9f23746f06ae04ebbef0c393bb5c6",
+  "calibration_comparisons.csv": "27e3a5feb0a26d61307f1ae3f689bf436cc5d975c41908abdbea14117c0f06b8",
+  "claims.json": "27b1a05f4433624ff4987afcaa70fe29f24bad233c689e4616e73d75f5e7dbbf",
+  "figures/caption.json": "a463b922f26db9c974632615721471c3552897a427af96dfd12b82d974af6d7c",
+  "figures/research_summary.png": "b91ed1b7c86186e9bc001869cd7bcfbe734a192aa36a0a540b54512bc6c0d617",
+  "manifest.json": "db132a5736385950c7b0927954948c22c6b61c05690b2081728ffbdc2b3757ed",
+  "point_comparisons.csv": "1bb50d194196c9e562b0e56877c35d587581bcb36a4348bd24dbc71b547cdb86",
+  "seed_comparisons.csv": "a337c747d3162a8be79d0ca27bd0c163d6e051cdfe5d1f78d676dca476b4cd73",
+  "statistical_summary.csv": "f5ad6aa44561e5ed4c62c1d19894239fccdcd06944608e8a5070e5e1ea5a89ee"
+}
