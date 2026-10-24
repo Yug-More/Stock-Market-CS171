@@ -98,6 +98,8 @@ Table 2 includes the complete original primary family. It preserves negative, un
 
 {{INFERENCE_TABLE}}
 
+![All twelve original RF versus simple-baseline contrasts. Bars are marginal 95% moving-block intervals; nominal and Holm p-values remain separate, with adjustment over the full 18-test family including RF versus LSTM.](figures/baseline_effects.png)
+
 For NASDAQ h1 RF versus zero, the mean MSE difference is {{RF_NDX1_EFFECT}}, with marginal interval {{RF_NDX1_CI}}, nominal p={{RF_NDX1_P}} and Holm p={{RF_NDX1_ADJ}}. This illustrates why a favorable pooled skill is not automatically a corrected statistical finding. S&P h20 RF versus historical mean is unfavorable: difference {{RF_SP20_EFFECT}}, interval {{RF_SP20_CI}}, nominal p={{RF_SP20_P}} and Holm p={{RF_SP20_ADJ}}. No RF improvement over a simple baseline survives the original correction; RF has adjusted evidence of lower error than LSTM in {{C26}} cells and higher error than the simple baselines in the two S&P h20 comparisons. Neither observation demonstrates trading value. [C09,C26,C34,C39,C40]
 
 ## 9. Robustness and sensitivity
@@ -110,7 +112,7 @@ The expanded NASDAQ h20 LSTM ranks remain 1--5; choosing its best seed would hid
 
 Endpoint matching in the full historical study retains 2,232 origins per index/horizon. S&P h5 then has linear regression as the RMSE winner, unlike its native historical-mean winner. This is evaluation-population sensitivity, not evidence of a changed model or a common training history. The selected seed-study calendars have no shared cross-index endpoints, so a cross-index matched seed result is unavailable. Volatility and stress summaries are descriptive where sample support is limited; complete regime/stress evidence is retained in the repository. [C10,C11,C25,C30,E:regimes]
 
-![Retrospective evidence on period/seed sensitivity and high-volatility coverage. Seed ranges are not confidence intervals; coverage points are not guarantees.](../results/phase12/figures/research_summary.png)
+![All five point models on native and endpoint-matched populations. MSE skill is relative to zero; these are descriptive points, not confidence intervals.](figures/point_skill.png)
 
 ## 10. Predictive uncertainty and calibration
 
@@ -131,6 +133,8 @@ The designated sensitivity uses window 504 and rate 0.01; it was not chosen as t
 Table 4 shows all index/horizon cells for zero-return 90% intervals under trailing, designated adaptive and volatility scaling. This is a clearly labelled view of the method trade-off, not a restriction of the statistical family to the best-looking point model. Complete files include both levels, all point models, all four adaptive variants and the fixed expanding alternative. [C17,C18,C35]
 
 {{CALIBRATION_TABLE}}
+
+![Zero-return 90% intervals for all seven methods, all eligible and high-volatility origins. Points show coverage and log-return width without inferential intervals; adaptive marginal coverage intervals are supplied in the supplementary CSV.](figures/interval_tradeoffs.png)
 
 The designated variant has {{C15}} adjusted score improvements, all S&P h1/h5 comparisons across point models and nominal levels. None of its NASDAQ or h20 primary improvements survives correction. For illustration, NASDAQ h1 historical-mean 80% score improvement has nominal p={{ACI_NOMINAL_P}} but Holm p={{ACI_ADJUSTED_P}}. Selecting only its nominal significance would misstate the result. A small adjusted p-value elsewhere remains retrospective evidence under the inferential approximation, not future calibration assurance. [C15,C16,C35]
 

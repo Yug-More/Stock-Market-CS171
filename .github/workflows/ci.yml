@@ -90,3 +90,4 @@ jobs:
           python scripts/final_synthesis.py verify
           python scripts/manuscript.py verify
           python scripts/verify_manuscript_pdf.py
+          python scripts/publication_assets.py verify
