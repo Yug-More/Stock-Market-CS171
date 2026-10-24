@@ -3,13 +3,9 @@ note: Running BibTeX on MarketPulse_Research_Paper.aux ...
 note: Rerunning TeX because bibtex was run ...
 note: Rerunning TeX because "MarketPulse_Research_Paper.aux" changed ...
 note: Running xdvipdfmx ...
+note: Writing `/var/folders/57/5_c0gzws2kzbkc1_vj90f8v40000gn/T/marketpulse-tex-wx_l6uur/MarketPulse_Research_Paper.pdf` (198.8486328125 KiB)
+note: Writing `/var/folders/57/5_c0gzws2kzbkc1_vj90f8v40000gn/T/marketpulse-tex-wx_l6uur/MarketPulse_Research_Paper.bbl` (3.6435546875 KiB)
+note: Writing `/var/folders/57/5_c0gzws2kzbkc1_vj90f8v40000gn/T/marketpulse-tex-wx_l6uur/MarketPulse_Research_Paper.aux` (5.0849609375 KiB)
+note: Writing `/var/folders/57/5_c0gzws2kzbkc1_vj90f8v40000gn/T/marketpulse-tex-wx_l6uur/MarketPulse_Research_Paper.blg` (216 B)
 note: Not writing `MarketPulse_Research_Paper.out`: it would be empty.
-note: Writing `/var/folders/57/5_c0gzws2kzbkc1_vj90f8v40000gn/T/marketpulse-tex-shwcmhg5/MarketPulse_Research_Paper.pdf` (171.666015625 KiB)
-note: Writing `/var/folders/57/5_c0gzws2kzbkc1_vj90f8v40000gn/T/marketpulse-tex-shwcmhg5/MarketPulse_Research_Paper.blg` (216 B)
-note: Writing `/var/folders/57/5_c0gzws2kzbkc1_vj90f8v40000gn/T/marketpulse-tex-shwcmhg5/MarketPulse_Research_Paper.bbl` (3.0791015625 KiB)
-note: Writing `/var/folders/57/5_c0gzws2kzbkc1_vj90f8v40000gn/T/marketpulse-tex-shwcmhg5/MarketPulse_Research_Paper.log` (12.724609375 KiB)
-note: Writing `/var/folders/57/5_c0gzws2kzbkc1_vj90f8v40000gn/T/marketpulse-tex-shwcmhg5/MarketPulse_Research_Paper.aux` (4.3642578125 KiB)
-warning: MarketPulse_Research_Paper.tex:301: Underfull \hbox (badness 1097) in paragraph at lines 300--301
-warning: MarketPulse_Research_Paper.tex:301: Underfull \hbox (badness 1097) in paragraph at lines 300--301
-warning: MarketPulse_Research_Paper.tex:301: Underfull \hbox (badness 1097) in paragraph at lines 300--301
-warning: warnings were issued by the TeX engine; use --print and/or --keep-logs for details.
+note: Writing `/var/folders/57/5_c0gzws2kzbkc1_vj90f8v40000gn/T/marketpulse-tex-wx_l6uur/MarketPulse_Research_Paper.log` (12.6572265625 KiB)

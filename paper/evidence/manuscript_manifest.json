@@ -61,7 +61,7 @@
     "tests/test_independent_validation.py": "3137615f71321f4f3bc3617de464401218a2c5927a3948e79557cb404d1aa1e7",
     "tests/test_loader.py": "e24c4b4d05beb0ffcead9895223b898109fe28f12db8ae7260a9fbcf6e654941",
     "tests/test_prospective_intake.py": "be74b739560329df2db2f77fbaa0b534c2bf068c91b0dec9e06c322fb41b839a",
-    "tests/test_publication.py": "a2d65cf4999666cfe5a8b4de79301452ee7dade7ee8b3e272076784bfe2101c1",
+    "tests/test_publication.py": "dc4a1ccd1a9b488c28e69b990288e7a85363e5357c2da407184a5d9044ecfd22",
     "tests/test_real_datasets.py": "ad4cdbbd8a29d81e4c85bfd7521e5bf72cb7b8a517a7b416cf9f06535b078e50",
     "tests/test_recovery.py": "e0a85b8b077cd86e096a586790b118fd16cb670a25192995e9dc32f07f13a90a",
     "tests/test_reliability.py": "27cd084838288ece42dd2ddc682ff25dc0eeb9dd1cc51c98a800f0c1d2a3639a",
@@ -70,18 +70,20 @@
     "tests/test_scientific_review.py": "2f4f331be574199490e89de46557e1d2d540193d007e6032e81bbddeede502bd",
     "tests/test_validation.py": "881be6ec472b8cfa3c43669d791e2c70058e76b52d98957bc633d9e015c5ff7d",
     "tests/test_walkforward.py": "9b1411a9bdc4933cc69f7c1d91f975c0c02e53742293f9b92a1582fdfbec5b2d",
-    "paper/manuscript_source.md": "670c8da21c3e0209a1f5b098aef7379159402c59bf3ef8e9c06e8b2a54c2ad93",
+    "paper/manuscript_source.md": "5ffcd0adf7c25ffec2743caa4dff0a39253691d2f8c51f49a17c94d2fa57c6a3",
     "scripts/manuscript.py": "aee51e9e802fdaf152531c7bf8f92d0555767e5d459ef7d67e2c754fc0e130b4",
-    "src/marketpulse/publication.py": "97b8819063e79e47dba58337bf4e035f84423213456b722f0c6b711edd247c89",
-    "paper/references.bib": "b4120e659345ca7f9bd83296951812cefe3024ad3375c90d4f0f1524cb3c0f14",
-    "paper/evidence/reference_verification.json": "12c08998e71b3172e15f076aa0efe3226420ba5c74e4f37819058e382c35ae7d",
+    "src/marketpulse/publication.py": "934ede002a2d4451d0286794f13d4f2ee096a309cc454e0a6974fad0304f63b3",
+    "paper/references.bib": "2f44cd365e2a5baca5cf5ba6447bccf09ed4e1ef4630b0be04ef6a792f8b65c1",
+    "paper/evidence/reference_verification.json": "35023e09cf61ea97e322c1430ceac5699d8777d29af9863647add640d6f99212",
     "results/phase12/claims.json": "27b1a05f4433624ff4987afcaa70fe29f24bad233c689e4616e73d75f5e7dbbf",
-    "paper/figures/baseline_effects.png": "912cf80e118e69d5bbe308f4c52e9371511ee22186603b74c1fc6ff740407390",
-    "paper/figures/baseline_effects.pdf": "62e5375fc2360af910c1e7f637f8579cae73a7638a7d809b0a5ad55f6b2415d8",
-    "paper/figures/point_skill.png": "2b14b9c14e1490292c88e1da91a2d35aa5a410d9f1820725ef9a6972912aa2b3",
-    "paper/figures/point_skill.pdf": "a308e1c068b6f2b14a5b997b63074411b81fd0b02e3e300646a7cf571d7cd5d0",
-    "paper/figures/interval_tradeoffs.png": "28ca478046863b16d8b14fda6212b6e651e4b09ba541a62eed4d5da6ab209b7c",
-    "paper/figures/interval_tradeoffs.pdf": "3566419ba263a8df0431e36a0f1bad72ddcbd3d4481c9d3e754680ad07cf9ba0"
+    "paper/figures/baseline_effects.png": "1f83f706383e5f91cb0829412b136c44658ae2144066372650f0d48a15e85ec6",
+    "paper/figures/baseline_effects.pdf": "cb1d6e4da31f37addc223f8771bae4921b8a0fb5c4402fb985063d32da727760",
+    "paper/figures/point_skill.png": "9a13ba6aa4156582f3a4a85bcdc3cdfd033a1470d7e90e90e8d2f561803e0570",
+    "paper/figures/point_skill.pdf": "598762004dfd94476d12b929a229145433a3eb2f855c79642f2aa67d952c7ee4",
+    "paper/figures/interval_coverage.png": "87c0b1f25a8458f88d7d89e49bd2de0d9ac631446535fe141898bda534405225",
+    "paper/figures/interval_coverage.pdf": "7dbcf268a2129e3135fd719f1e6bd1ade1e6aae7fa848497995eedf9b7896267",
+    "paper/figures/interval_width.png": "d0dd0a7bc78c0e104a4cc699b6ba1bce6a8923756ef4e52e6a0a374a73e6f403",
+    "paper/figures/interval_width.pdf": "1211f1f0049c5d1b6922ae6dd9593f1ae97c0c486c5337683d93b03778962a85"
   },
   "evidence_groups": {
     "history": [
@@ -216,8 +218,27 @@
     "C39",
     "C40"
   ],
+  "bound_evidence_groups": [
+    "adaptive",
+    "calibration",
+    "data",
+    "diagnostics",
+    "features",
+    "folds",
+    "history",
+    "loader",
+    "manuscript",
+    "metrics",
+    "models",
+    "prospective",
+    "protocols",
+    "regimes",
+    "statistics",
+    "tests"
+  ],
   "citation_keys": [
     "barber2023",
+    "bergmeir2018",
     "breiman2001",
     "campbell2005",
     "diebold1995",
@@ -226,7 +247,8 @@
     "hochreiter1997",
     "holm1979",
     "kunsch1989",
-    "newey1986"
+    "newey1986",
+    "white2000"
   ],
   "precision": "tables are display-rounded; exact saved CSVs are authoritative",
   "scope": "executable traceability and arithmetic bindings; not automated semantic proof or external peer review",
@@ -241,10 +263,10 @@
       "scikit-learn": "1.9.1",
       "torch": "2.14.1"
     },
-    "git_sha": "35e715dfa7d5e91d48f49d1da206e0ddd3e81395"
+    "git_sha": "53d9bd84441e600dd0a2d567d08f213f47cadc5f"
   },
   "outputs": {
-    "paper/MarketPulse_Research_Paper.md": "a3ef171bc6f6d9e546beed0cc3b9f0905282c93e53ac397ce2e392c922fa4770",
-    "paper/MarketPulse_Research_Paper.tex": "57cd43b147fb04debb458c346b81d96c7240cda3734bda8626a599bf77479c29"
+    "paper/MarketPulse_Research_Paper.md": "31312d993f61abbf2f32696ed78e36a7268f4308c2b987bf2a39d493d492e821",
+    "paper/MarketPulse_Research_Paper.tex": "52edd80d0add2af6b4b8df2355c180c9fa32a4291462c3102b0fcf9433e1f54c"
   }
 }
