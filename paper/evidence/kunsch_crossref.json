@@ -1,0 +1,36 @@
+{
+  "DOI": "10.1214/aos/1176347265",
+  "title": [
+    "The Jackknife and the Bootstrap for General Stationary Observations"
+  ],
+  "author": [
+    {
+      "given": "Hans R.",
+      "family": "Kunsch",
+      "sequence": "first",
+      "affiliation": [],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    }
+  ],
+  "published": {
+    "date-parts": [
+      [
+        1989,
+        9,
+        1
+      ]
+    ]
+  },
+  "container-title": [
+    "The Annals of Statistics"
+  ],
+  "volume": "17",
+  "issue": "3",
+  "page": "1217-1241",
+  "URL": "https://doi.org/10.1214/aos/1176347265"
+}
