@@ -86,7 +86,7 @@ The repository does not provide a fully clean replay of all original fits becaus
 
 ## Git and release status
 
-The work is on the requested local feature branch, `research/final-evidence-authenticity-audit`, based on the fetched `origin/main` commit listed above. The checkout's configured `origin` URL is `https://github.com/Yug-More/Stock-Market-CS171.git`, whereas the task identifies `Yug-More/MarketPulse` as the target repository. GitHub API access also failed from this environment. The audit is committed locally, but no branch push, pull request, CI wait, or merge is reported as completed. Resolve the repository target and restore GitHub connectivity before the requested PR/merge workflow. No release or tag was created.
+The work is on the requested feature branch, `research/final-evidence-authenticity-audit`, based on the fetched `origin/main` commit listed above. The checkout's configured origin URL still uses the former repository name, `https://github.com/Yug-More/Stock-Market-CS171.git`; GitHub confirmed the move to `https://github.com/Yug-More/MarketPulse.git` and accepted the branch push at the new location. No release or tag was created.
 
 ## Final disposition
 
