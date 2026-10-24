@@ -67,6 +67,7 @@
     "tests/test_reliability.py": "27cd084838288ece42dd2ddc682ff25dc0eeb9dd1cc51c98a800f0c1d2a3639a",
     "tests/test_research_foundations.py": "54489e71a801f22fa69adf425aaa04784b912545ae7ea0f6838c77f9f72471ce",
     "tests/test_robustness.py": "55369abd41d39649a5a8d0a0a9a2bdf03c2a42bd5e2ee0cd97cd376694501b14",
+    "tests/test_scientific_review.py": "2f4f331be574199490e89de46557e1d2d540193d007e6032e81bbddeede502bd",
     "tests/test_validation.py": "881be6ec472b8cfa3c43669d791e2c70058e76b52d98957bc633d9e015c5ff7d",
     "tests/test_walkforward.py": "9b1411a9bdc4933cc69f7c1d91f975c0c02e53742293f9b92a1582fdfbec5b2d",
     "paper/manuscript_source.md": "2646baac8969be500c232491ea1e0d2dd5db70a27ac3759285e4c6fbeafd5ef7",
@@ -166,6 +167,7 @@
       "tests/test_reliability.py",
       "tests/test_research_foundations.py",
       "tests/test_robustness.py",
+      "tests/test_scientific_review.py",
       "tests/test_validation.py",
       "tests/test_walkforward.py"
     ],
@@ -238,7 +240,7 @@
       "scikit-learn": "1.9.1",
       "torch": "2.14.1"
     },
-    "git_sha": "9903f9df0e4cf893d17d4907c5c48c75c9bf4f3a"
+    "git_sha": "6666f7264239fe94a6c62f41bda82ce3b3c4aee8"
   },
   "outputs": {
     "paper/MarketPulse_Research_Paper.md": "5af5e81854e6aa2a71fdf9d2092c62caaada51b4c6bf2a3de12ad3c1125417e2",

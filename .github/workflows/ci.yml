@@ -91,3 +91,8 @@ jobs:
           python scripts/manuscript.py verify
           python scripts/verify_manuscript_pdf.py
           python scripts/publication_assets.py verify
+
+      - name: Challenge primary calculations with separate arithmetic
+        run: |
+          python scripts/scientific_verification.py
+          python scripts/verify_comparison_families.py
