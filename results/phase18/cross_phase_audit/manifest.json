@@ -1,0 +1,93 @@
+{
+  "environment": {
+    "mode": "synthesis_audit",
+    "python": "3.13.2",
+    "platform": "macOS-14.5-arm64-arm-64bit-Mach-O",
+    "versions": {
+      "marketpulse": "0.1.0",
+      "numpy": "2.5.4",
+      "pandas": "3.1.0",
+      "scikit-learn": "1.9.1",
+      "torch": "2.14.1"
+    },
+    "git_sha": "475addd448076c35d1dc015759c97dda9ff7bb65"
+  },
+  "audits": [
+    {
+      "command": [
+        "python",
+        "scripts/verify_walkforward.py"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 6.417326416994911,
+      "log": "audit_1.log",
+      "sha256": "4a53a1b514a7aff6d5c4b27df122c56429b95e205fca8387adf300e7cfaa82b1"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/research_cycle.py",
+        "verify"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 27.776432417042088,
+      "log": "audit_2.log",
+      "sha256": "754766f2a1302f4308cd06c1fd41580e828eecf70cf09af958b8b1557cc18b7b"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/audit_phase9.py"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.9806417919462547,
+      "log": "audit_3.log",
+      "sha256": "819518e6a0b6feb8aa8b5496ce4d114ed04564af5fa4ef1990f52e86688974cb"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/phase10.py",
+        "verify"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 8.654759375029244,
+      "log": "audit_4.log",
+      "sha256": "e7e8c334b47f9a83d6140824515cd71112e63f76d0e094b71bbde1099bb1c9f4"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/phase11.py",
+        "verify"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 33.636484874994494,
+      "log": "audit_5.log",
+      "sha256": "a712c37984ffc439ff7abb4ae07b595bac5a7cf512ec7bceb98286fd0b2658b1"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/phase11_diagnostics.py",
+        "--verify"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 2.093367166002281,
+      "log": "audit_6.log",
+      "sha256": "5cf1c63da693e290e2442cc8250a3486320194f2f0402bdfe3d766631ecf6b8d"
+    }
+  ],
+  "preserved_paths": [
+    "data",
+    "notebooks",
+    "results/benchmarks",
+    "results/walkforward",
+    "results/robustness",
+    "results/calibration",
+    "results/statistical_reliability"
+  ],
+  "baseline": "1e4b2f373a7b12a983ca457f32d1e18c870c21e9",
+  "historical_tree_unchanged": true,
+  "source_sha256": "26c41fb43ed03d03242765c5c139e06f5ffdcd7b5fd765a4d894b402006e1295"
+}

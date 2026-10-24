@@ -113,7 +113,8 @@ explains what can be reconstructed, required tools, and the remaining limits.
   [contribution boundaries](docs/RESEARCH_CONTRIBUTIONS.md).
 - [Methods](docs/WALKFORWARD_METHODOLOGY.md), [results](docs/WALKFORWARD_RESULTS.md),
   [prospective intake protocol](docs/PROSPECTIVE_INTAKE.md), and
-  [quality assurance](docs/PHASE16_FINAL_QUALITY_ASSURANCE.md).
+  [quality assurance](docs/PHASE16_FINAL_QUALITY_ASSURANCE.md) and
+  [final research handoff](docs/PHASE18_FINAL_HANDOFF.md).
 - Original notebooks and contributor history are documented in
   [the repository audit](docs/REPOSITORY_AUDIT.md). Historical rehearsal results
   are not independent confirmation.
