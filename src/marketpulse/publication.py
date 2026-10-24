@@ -312,6 +312,9 @@ def render(root: Path) -> tuple[str, str, dict]:
     for path in re.findall(r"!\[[^\]]*\]\(([^)]+)\)", text):
         target = (root / "paper" / path).resolve()
         inputs[str(target.relative_to(root))] = file_hash(target)
+        if path.startswith("figures/") and path.endswith(".png"):
+            vector = target.with_suffix(".pdf")
+            inputs[str(vector.relative_to(root))] = file_hash(vector)
     return (
         text,
         latex(text),
@@ -437,7 +440,9 @@ def latex(text: str) -> str:
             assert match
             output += [
                 r"\begin{figure}[htbp]\centering",
-                r"\includegraphics[width=\textwidth]{" + match[2] + "}",
+                r"\includegraphics[width=\textwidth]{"
+                + (match[2][:-4] + ".pdf" if match[2].startswith("figures/") else match[2])
+                + "}",
                 r"\caption{" + inline(match[1]) + "}",
                 r"\end{figure}",
             ]

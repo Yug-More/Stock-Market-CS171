@@ -1,23 +1,17 @@
 note: Running TeX ...
-note: downloading cmr9.tfm
-note: downloading cmmi9.tfm
-note: downloading cmsy9.tfm
-note: downloading cmex9.tfm
-note: downloading msam5.tfm
-note: downloading msbm5.tfm
-warning: MarketPulse_Research_Paper.tex:285: Underfull \hbox (badness 1097) in paragraph at lines 284--285
 note: Running BibTeX on MarketPulse_Research_Paper.aux ...
 note: Rerunning TeX because bibtex was run ...
-warning: MarketPulse_Research_Paper.tex:285: Underfull \hbox (badness 1097) in paragraph at lines 284--285
 note: Rerunning TeX because "MarketPulse_Research_Paper.aux" changed ...
-warning: MarketPulse_Research_Paper.tex:285: Underfull \hbox (badness 1097) in paragraph at lines 284--285
 note: Rerunning TeX because "MarketPulse_Research_Paper.aux" changed ...
-warning: MarketPulse_Research_Paper.tex:285: Underfull \hbox (badness 1097) in paragraph at lines 284--285
-warning: warnings were issued by the TeX engine; use --print and/or --keep-logs for details.
 note: Running xdvipdfmx ...
-note: Writing `/private/tmp/marketpulse-paper13/MarketPulse_Research_Paper.aux` (3.6171875 KiB)
-note: Writing `/private/tmp/marketpulse-paper13/MarketPulse_Research_Paper.pdf` (268.9365234375 KiB)
-note: Writing `/private/tmp/marketpulse-paper13/MarketPulse_Research_Paper.bbl` (2.7568359375 KiB)
-note: Writing `/private/tmp/marketpulse-paper13/MarketPulse_Research_Paper.log` (12.568359375 KiB)
-note: Writing `/private/tmp/marketpulse-paper13/MarketPulse_Research_Paper.blg` (216 B)
+note: Writing `/var/folders/57/5_c0gzws2kzbkc1_vj90f8v40000gn/T/marketpulse-tex-1d1rzscd/MarketPulse_Research_Paper.pdf` (168.9873046875 KiB)
 note: Not writing `MarketPulse_Research_Paper.out`: it would be empty.
+note: Writing `/var/folders/57/5_c0gzws2kzbkc1_vj90f8v40000gn/T/marketpulse-tex-1d1rzscd/MarketPulse_Research_Paper.blg` (216 B)
+note: Writing `/var/folders/57/5_c0gzws2kzbkc1_vj90f8v40000gn/T/marketpulse-tex-1d1rzscd/MarketPulse_Research_Paper.log` (12.724609375 KiB)
+note: Writing `/var/folders/57/5_c0gzws2kzbkc1_vj90f8v40000gn/T/marketpulse-tex-1d1rzscd/MarketPulse_Research_Paper.aux` (4.2783203125 KiB)
+note: Writing `/var/folders/57/5_c0gzws2kzbkc1_vj90f8v40000gn/T/marketpulse-tex-1d1rzscd/MarketPulse_Research_Paper.bbl` (2.7568359375 KiB)
+warning: MarketPulse_Research_Paper.tex:295: Underfull \hbox (badness 1097) in paragraph at lines 294--295
+warning: MarketPulse_Research_Paper.tex:295: Underfull \hbox (badness 1097) in paragraph at lines 294--295
+warning: MarketPulse_Research_Paper.tex:295: Underfull \hbox (badness 1097) in paragraph at lines 294--295
+warning: MarketPulse_Research_Paper.tex:295: Underfull \hbox (badness 1097) in paragraph at lines 294--295
+warning: warnings were issued by the TeX engine; use --print and/or --keep-logs for details.

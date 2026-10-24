@@ -1,20 +1,20 @@
 {
   "compiler": "Tectonic 0.17.0",
-  "compiler_release_archive_sha256": "a3f1cac7c5678f01661a92212f58480ae3b0634115d880dbc59e2953ded45667",
-  "command": "tectonic --keep-logs --keep-intermediates --outdir /tmp/marketpulse-paper paper/MarketPulse_Research_Paper.tex",
   "exit_code": 0,
-  "pages": 12,
+  "pages": 14,
+  "command": "tectonic --keep-logs --keep-intermediates --outdir TEMP MarketPulse_Research_Paper.tex",
   "files": {
-    "paper/MarketPulse_Research_Paper.tex": "37bfc19f76d8958f525b31c24122cb9f940284eee41878c9449897d2e543c6ff",
+    "paper/MarketPulse_Research_Paper.tex": "fa5933320927432a6df7e72120f32ab3cc9bb91c99bc6b4302cad9378214c696",
     "paper/references.bib": "de2ff9f38a47bae0854d702feb10a4a5f178e2be6104632711fd988f1d2b7b37",
-    "paper/MarketPulse_Research_Paper.pdf": "2863d8cc1da369a96bcfcf174a811e5908570c282d48c8fb47ebc51a751a5d79",
-    "paper/evidence/tectonic_console.txt": "8293c1908099215243d519280bb82458bbaf0aa264a08bb8f01bc6d2f46c3cc2",
-    "results/phase12/figures/research_summary.png": "11e5d81e3908c84b767457e0bf85544c61e5ee3bb8d950de09665ed3ee7977a3"
+    "paper/MarketPulse_Research_Paper.pdf": "e284818f91985cd6ee84e85ae9e1eef93ef4e44021d0f4d01888e6d8b7c8963f",
+    "paper/evidence/tectonic_console.txt": "e7aeb33f6be1ca9abfd0fe742b0dd0ad76c5b48f4a0c7b77cda34f791e2ffafc",
+    "paper/figures/baseline_effects.pdf": "62e5375fc2360af910c1e7f637f8579cae73a7638a7d809b0a5ad55f6b2415d8",
+    "paper/figures/baseline_effects.png": "912cf80e118e69d5bbe308f4c52e9371511ee22186603b74c1fc6ff740407390",
+    "paper/figures/interval_tradeoffs.pdf": "3566419ba263a8df0431e36a0f1bad72ddcbd3d4481c9d3e754680ad07cf9ba0",
+    "paper/figures/interval_tradeoffs.png": "28ca478046863b16d8b14fda6212b6e651e4b09ba541a62eed4d5da6ab209b7c",
+    "paper/figures/point_skill.pdf": "a308e1c068b6f2b14a5b997b63074411b81fd0b02e3e300646a7cf571d7cd5d0",
+    "paper/figures/point_skill.png": "2b14b9c14e1490292c88e1da91a2d35aa5a410d9f1820725ef9a6972912aa2b3"
   },
-  "review": "All 12 rendered pages inspected in three contact sheets; table numbering, retained headers, references, math and page boundaries checked. Computational-workflow review, not human peer review.",
-  "warnings": "One underfull paragraph warning; no final overfull boxes or unresolved citations.",
-  "earlier_failures": [
-    "Initial caret escaping error corrected.",
-    "A subsequent sandboxed font download failed; compilation retried with authorized network access. Only final successful build is recorded here."
-  ]
+  "visual_review": "Required separately for this PDF; see phase review report",
+  "scope": "Successful compilation and source hashes, not external scientific review"
 }

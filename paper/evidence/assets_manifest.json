@@ -1,0 +1,62 @@
+{
+  "inputs": {
+    "results/walkforward/full/pooled_metrics.csv": "4b22e23a418bf1ad549ce7a93922130376dadcbf332de1231a3cf75b5a675cfe",
+    "results/robustness/matched/metrics.csv": "6cc6c2653985b0116834978637e8180e27788b995738b79fd16cd0daa782bdff",
+    "results/phase10/seed_metrics.csv": "6ffc8bf971ec6e2c44fa372d4c2ad38e77640f4a2b84726e6c5a04498d04025c",
+    "results/statistical_reliability/comparisons.csv": "ad2277023c19c47d2a7ffa9b4084338f18d5bde7eddcabebb554f16b7983b0e2",
+    "results/phase10/comparisons.csv": "1ec380f0890d445995095dac8f8ac704c671c6dc062f5256a5934c335551ba78",
+    "results/phase11/score_comparisons.csv": "8d5b11a5a515f76d642aa57a05c25b4062cab853238c2dec51e72f1ac60daa47",
+    "results/phase11/all_methods_metrics.csv": "4592f07afcc747684e17c4c4b50ee52ff1f6125230c6d6da9edab413bbfd8acf",
+    "results/phase11/coverage_uncertainty.csv": "274aabff69439e517169b1994c462ee4efc7e1c70c21c54a8327a8eca9109986",
+    "results/phase11/diagnostics.csv": "3d67e7b23f55ccbd017dc403a6a15cb86ea3c63524737c7d11e8624664ad1160",
+    "src/marketpulse/publication_assets.py": "c314656180304422c4b37c55c66fb2f55fe3a166bfdf85ba1223c645b5720064",
+    "scripts/publication_assets.py": "b0b46de7ff3a573a8da3a2bd9de528c5163160d9dc55587164aaff4460173694"
+  },
+  "outputs": {
+    "paper/tables/adaptive_comparisons.csv": "8d5b11a5a515f76d642aa57a05c25b4062cab853238c2dec51e72f1ac60daa47",
+    "paper/tables/adaptive_primary.csv": "4bf2e0b02c4f76ff03c95733e1536fd4c10607b236c39e9396cc2a4561ec5781",
+    "paper/tables/coverage_intervals.csv": "274aabff69439e517169b1994c462ee4efc7e1c70c21c54a8327a8eca9109986",
+    "paper/tables/expanded_comparisons.csv": "1ec380f0890d445995095dac8f8ac704c671c6dc062f5256a5934c335551ba78",
+    "paper/tables/expanded_primary.csv": "3afff2546ebd178c07bfc2f107567448255d7b73a44035c78f46ec47e053a479",
+    "paper/tables/interval_metrics.csv": "4592f07afcc747684e17c4c4b50ee52ff1f6125230c6d6da9edab413bbfd8acf",
+    "paper/tables/matched_metrics.csv": "6cc6c2653985b0116834978637e8180e27788b995738b79fd16cd0daa782bdff",
+    "paper/tables/native_metrics.csv": "4b22e23a418bf1ad549ce7a93922130376dadcbf332de1231a3cf75b5a675cfe",
+    "paper/tables/nesting_diagnostics.csv": "3d67e7b23f55ccbd017dc403a6a15cb86ea3c63524737c7d11e8624664ad1160",
+    "paper/tables/original_comparisons.csv": "ad2277023c19c47d2a7ffa9b4084338f18d5bde7eddcabebb554f16b7983b0e2",
+    "paper/tables/original_primary.csv": "abdcdcbfb54ac414bf8cf6cbc1303d526ac3a349b627c5f310686ea2c3e48315",
+    "paper/tables/seed_metrics.csv": "6ffc8bf971ec6e2c44fa372d4c2ad38e77640f4a2b84726e6c5a04498d04025c",
+    "paper/figures/baseline_effects.pdf": "62e5375fc2360af910c1e7f637f8579cae73a7638a7d809b0a5ad55f6b2415d8",
+    "paper/figures/baseline_effects.png": "912cf80e118e69d5bbe308f4c52e9371511ee22186603b74c1fc6ff740407390",
+    "paper/figures/interval_tradeoffs.pdf": "3566419ba263a8df0431e36a0f1bad72ddcbd3d4481c9d3e754680ad07cf9ba0",
+    "paper/figures/interval_tradeoffs.png": "28ca478046863b16d8b14fda6212b6e651e4b09ba541a62eed4d5da6ab209b7c",
+    "paper/figures/point_skill.pdf": "a308e1c068b6f2b14a5b997b63074411b81fd0b02e3e300646a7cf571d7cd5d0",
+    "paper/figures/point_skill.png": "2b14b9c14e1490292c88e1da91a2d35aa5a410d9f1820725ef9a6972912aa2b3"
+  },
+  "table_rows": {
+    "native_metrics": 30,
+    "matched_metrics": 90,
+    "seed_metrics": 150,
+    "original_comparisons": 216,
+    "expanded_comparisons": 330,
+    "adaptive_comparisons": 360,
+    "interval_metrics": 2940,
+    "coverage_intervals": 240,
+    "nesting_diagnostics": 120,
+    "original_primary": 18,
+    "expanded_primary": 30,
+    "adaptive_primary": 60
+  },
+  "figure_sources": {
+    "point_skill": [
+      "results/walkforward/full/pooled_metrics.csv",
+      "results/robustness/matched/metrics.csv"
+    ],
+    "baseline_effects": [
+      "results/statistical_reliability/comparisons.csv"
+    ],
+    "interval_tradeoffs": [
+      "results/phase11/all_methods_metrics.csv"
+    ]
+  },
+  "notes": "No fitting or artifact rewriting. Precision retained in CSV exports. Figure effects use source CIs; p columns retain the complete original family. PDF metadata timestamps excluded; binary graphics can vary by library/platform."
+}
