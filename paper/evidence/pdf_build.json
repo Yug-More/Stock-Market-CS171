@@ -4,10 +4,10 @@
   "pages": 14,
   "command": "tectonic --keep-logs --keep-intermediates --outdir TEMP MarketPulse_Research_Paper.tex",
   "files": {
-    "paper/MarketPulse_Research_Paper.tex": "fa5933320927432a6df7e72120f32ab3cc9bb91c99bc6b4302cad9378214c696",
+    "paper/MarketPulse_Research_Paper.tex": "6c9a601473bbedbed92d5ef423717367d2666140042e9aaafc85d795f213a008",
     "paper/references.bib": "de2ff9f38a47bae0854d702feb10a4a5f178e2be6104632711fd988f1d2b7b37",
-    "paper/MarketPulse_Research_Paper.pdf": "e284818f91985cd6ee84e85ae9e1eef93ef4e44021d0f4d01888e6d8b7c8963f",
-    "paper/evidence/tectonic_console.txt": "e7aeb33f6be1ca9abfd0fe742b0dd0ad76c5b48f4a0c7b77cda34f791e2ffafc",
+    "paper/MarketPulse_Research_Paper.pdf": "ba5d1cf5489b04e44e7b2e6faadba6e94aed6e3268f272120b6d5a84d92f87f9",
+    "paper/evidence/tectonic_console.txt": "69be3b19bf4238a513129e24f5b02114265dd02f98d2679259fc72402b8d2136",
     "paper/figures/baseline_effects.pdf": "62e5375fc2360af910c1e7f637f8579cae73a7638a7d809b0a5ad55f6b2415d8",
     "paper/figures/baseline_effects.png": "912cf80e118e69d5bbe308f4c52e9371511ee22186603b74c1fc6ff740407390",
     "paper/figures/interval_tradeoffs.pdf": "3566419ba263a8df0431e36a0f1bad72ddcbd3d4481c9d3e754680ad07cf9ba0",

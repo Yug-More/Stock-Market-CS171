@@ -70,7 +70,7 @@
     "tests/test_scientific_review.py": "2f4f331be574199490e89de46557e1d2d540193d007e6032e81bbddeede502bd",
     "tests/test_validation.py": "881be6ec472b8cfa3c43669d791e2c70058e76b52d98957bc633d9e015c5ff7d",
     "tests/test_walkforward.py": "9b1411a9bdc4933cc69f7c1d91f975c0c02e53742293f9b92a1582fdfbec5b2d",
-    "paper/manuscript_source.md": "2646baac8969be500c232491ea1e0d2dd5db70a27ac3759285e4c6fbeafd5ef7",
+    "paper/manuscript_source.md": "a63023604a507f27205e2f4667ff93b503cf283f601bb9d1e5ac2ac5edf9542a",
     "scripts/manuscript.py": "aee51e9e802fdaf152531c7bf8f92d0555767e5d459ef7d67e2c754fc0e130b4",
     "src/marketpulse/publication.py": "97b8819063e79e47dba58337bf4e035f84423213456b722f0c6b711edd247c89",
     "paper/references.bib": "de2ff9f38a47bae0854d702feb10a4a5f178e2be6104632711fd988f1d2b7b37",
@@ -231,19 +231,19 @@
   "scope": "executable traceability and arithmetic bindings; not automated semantic proof or external peer review",
   "environment": {
     "mode": "manuscript_authoring",
-    "python": "3.13.2",
-    "platform": "macOS-14.5-arm64-arm-64bit-Mach-O",
+    "python": "3.12.12",
+    "platform": "macOS-14.5-arm64-arm-64bit",
     "versions": {
       "marketpulse": "0.1.0",
       "numpy": "2.5.4",
       "pandas": "3.1.0",
       "scikit-learn": "1.9.1",
-      "torch": "2.14.1"
+      "torch": "not-installed"
     },
-    "git_sha": "6666f7264239fe94a6c62f41bda82ce3b3c4aee8"
+    "git_sha": "fc09b2dac851403c30051e08dab8698505bc194b"
   },
   "outputs": {
-    "paper/MarketPulse_Research_Paper.md": "5af5e81854e6aa2a71fdf9d2092c62caaada51b4c6bf2a3de12ad3c1125417e2",
-    "paper/MarketPulse_Research_Paper.tex": "fa5933320927432a6df7e72120f32ab3cc9bb91c99bc6b4302cad9378214c696"
+    "paper/MarketPulse_Research_Paper.md": "f0b8f6ebba10c16b4c6429adc1ce3f49ce4bfd3fd9dc8b15fd65d4f80c75f184",
+    "paper/MarketPulse_Research_Paper.tex": "6c9a601473bbedbed92d5ef423717367d2666140042e9aaafc85d795f213a008"
   }
 }

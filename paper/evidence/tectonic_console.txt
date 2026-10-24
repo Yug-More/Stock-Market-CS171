@@ -4,12 +4,12 @@ note: Rerunning TeX because bibtex was run ...
 note: Rerunning TeX because "MarketPulse_Research_Paper.aux" changed ...
 note: Rerunning TeX because "MarketPulse_Research_Paper.aux" changed ...
 note: Running xdvipdfmx ...
-note: Writing `/var/folders/57/5_c0gzws2kzbkc1_vj90f8v40000gn/T/marketpulse-tex-1d1rzscd/MarketPulse_Research_Paper.pdf` (168.9873046875 KiB)
+note: Writing `/var/folders/57/5_c0gzws2kzbkc1_vj90f8v40000gn/T/marketpulse-tex-q7avupf3/MarketPulse_Research_Paper.bbl` (2.7568359375 KiB)
+note: Writing `/var/folders/57/5_c0gzws2kzbkc1_vj90f8v40000gn/T/marketpulse-tex-q7avupf3/MarketPulse_Research_Paper.aux` (4.2783203125 KiB)
+note: Writing `/var/folders/57/5_c0gzws2kzbkc1_vj90f8v40000gn/T/marketpulse-tex-q7avupf3/MarketPulse_Research_Paper.log` (12.724609375 KiB)
+note: Writing `/var/folders/57/5_c0gzws2kzbkc1_vj90f8v40000gn/T/marketpulse-tex-q7avupf3/MarketPulse_Research_Paper.pdf` (169.98046875 KiB)
 note: Not writing `MarketPulse_Research_Paper.out`: it would be empty.
-note: Writing `/var/folders/57/5_c0gzws2kzbkc1_vj90f8v40000gn/T/marketpulse-tex-1d1rzscd/MarketPulse_Research_Paper.blg` (216 B)
-note: Writing `/var/folders/57/5_c0gzws2kzbkc1_vj90f8v40000gn/T/marketpulse-tex-1d1rzscd/MarketPulse_Research_Paper.log` (12.724609375 KiB)
-note: Writing `/var/folders/57/5_c0gzws2kzbkc1_vj90f8v40000gn/T/marketpulse-tex-1d1rzscd/MarketPulse_Research_Paper.aux` (4.2783203125 KiB)
-note: Writing `/var/folders/57/5_c0gzws2kzbkc1_vj90f8v40000gn/T/marketpulse-tex-1d1rzscd/MarketPulse_Research_Paper.bbl` (2.7568359375 KiB)
+note: Writing `/var/folders/57/5_c0gzws2kzbkc1_vj90f8v40000gn/T/marketpulse-tex-q7avupf3/MarketPulse_Research_Paper.blg` (216 B)
 warning: MarketPulse_Research_Paper.tex:295: Underfull \hbox (badness 1097) in paragraph at lines 294--295
 warning: MarketPulse_Research_Paper.tex:295: Underfull \hbox (badness 1097) in paragraph at lines 294--295
 warning: MarketPulse_Research_Paper.tex:295: Underfull \hbox (badness 1097) in paragraph at lines 294--295

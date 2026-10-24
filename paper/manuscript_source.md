@@ -186,8 +186,8 @@ The required baseline checks are:
 
 ```bash
 .venv/bin/python scripts/final_synthesis.py verify
-.venv/bin/python scripts/audit_all_research.py \
-  --output /tmp/marketpulse-audit-new
+audit_dir="/tmp/marketpulse-audit-$(date +%Y%m%d%H%M%S)"
+.venv/bin/python scripts/audit_all_research.py --output "$audit_dir"
 .venv/bin/python scripts/manuscript.py verify
 ```
 
