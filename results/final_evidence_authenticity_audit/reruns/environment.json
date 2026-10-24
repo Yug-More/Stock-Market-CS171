@@ -1,0 +1,13 @@
+{
+  "mode": "full",
+  "python": "3.13.2",
+  "platform": "macOS-14.5-arm64-arm-64bit-Mach-O",
+  "versions": {
+    "marketpulse": "0.1.0",
+    "numpy": "2.5.4",
+    "pandas": "3.1.0",
+    "scikit-learn": "1.9.1",
+    "torch": "2.14.1"
+  },
+  "git_sha": "60e77222a467e54d3fa28cbfda54970a5252079f"
+}
