@@ -1,0 +1,92 @@
+[
+  {
+    "key": "breiman2001",
+    "title": "Random Forests",
+    "authors": "Leo Breiman",
+    "year": 2001,
+    "verification_url": "https://link.springer.com/article/10.1023/A:1010933404324",
+    "doi": "10.1023/A:1010933404324",
+    "publication": "Machine Learning 45, 5-32",
+    "verification": "metadata verified against primary publisher/original-paper/arXiv or publisher-deposited Crossref record; no paywalled full-text verification claimed"
+  },
+  {
+    "key": "hochreiter1997",
+    "title": "Long Short-Term Memory",
+    "authors": "Sepp Hochreiter; Jurgen Schmidhuber",
+    "year": 1997,
+    "verification_url": "https://direct.mit.edu/neco/article/9/8/1735/6109/Long-Short-Term-Memory",
+    "doi": "10.1162/neco.1997.9.8.1735",
+    "publication": "Neural Computation 9(8), 1735-1780",
+    "verification": "metadata verified against primary publisher/original-paper/arXiv or publisher-deposited Crossref record; no paywalled full-text verification claimed"
+  },
+  {
+    "key": "diebold1995",
+    "title": "Comparing Predictive Accuracy",
+    "authors": "Francis X. Diebold; Roberto S. Mariano",
+    "year": 1995,
+    "verification_url": "https://api.crossref.org/works/10.1080/07350015.1995.10524599",
+    "doi": "10.1080/07350015.1995.10524599",
+    "publication": "Journal of Business & Economic Statistics 13(3), 253-263",
+    "verification": "metadata verified against primary publisher/original-paper/arXiv or publisher-deposited Crossref record; no paywalled full-text verification claimed"
+  },
+  {
+    "key": "newey1986",
+    "title": "A Simple, Positive Semi-Definite, Heteroskedasticity and Autocorrelation Consistent Covariance Matrix",
+    "authors": "Whitney K. Newey; Kenneth D. West",
+    "year": 1986,
+    "verification_url": "https://www.nber.org/papers/t0055",
+    "doi": "10.3386/t0055",
+    "publication": "NBER Technical Working Paper 0055",
+    "verification": "metadata verified against primary publisher/original-paper/arXiv or publisher-deposited Crossref record; no paywalled full-text verification claimed"
+  },
+  {
+    "key": "holm1979",
+    "title": "A Simple Sequentially Rejective Multiple Test Procedure",
+    "authors": "Sture Holm",
+    "year": 1979,
+    "verification_url": "https://sci2s.ugr.es/keel/pdf/specific/articulo/0052_001.pdf",
+    "doi": null,
+    "publication": "Scandinavian Journal of Statistics 6(2), 65-70",
+    "verification": "metadata verified against primary publisher/original-paper/arXiv or publisher-deposited Crossref record; no paywalled full-text verification claimed"
+  },
+  {
+    "key": "kunsch1989",
+    "title": "The Jackknife and the Bootstrap for General Stationary Observations",
+    "authors": "Hans R. Kunsch",
+    "year": 1989,
+    "verification_url": "https://api.crossref.org/works/10.1214/aos/1176347265",
+    "doi": "10.1214/aos/1176347265",
+    "publication": "The Annals of Statistics 17(3), 1217-1241",
+    "verification": "metadata verified against primary publisher/original-paper/arXiv or publisher-deposited Crossref record; no paywalled full-text verification claimed"
+  },
+  {
+    "key": "gneiting2007",
+    "title": "Strictly Proper Scoring Rules, Prediction, and Estimation",
+    "authors": "Tilmann Gneiting; Adrian E. Raftery",
+    "year": 2007,
+    "verification_url": "https://www.tandfonline.com/doi/abs/10.1198/016214506000001437",
+    "doi": "10.1198/016214506000001437",
+    "publication": "Journal of the American Statistical Association 102(477), 359-378; printed volume year, not the later online posting date",
+    "verification": "metadata verified against primary publisher/original-paper/arXiv or publisher-deposited Crossref record; no paywalled full-text verification claimed"
+  },
+  {
+    "key": "gibbs2021",
+    "title": "Adaptive Conformal Inference Under Distribution Shift",
+    "authors": "Isaac Gibbs; Emmanuel Candes",
+    "year": 2021,
+    "verification_url": "https://arxiv.org/abs/2106.00170v3",
+    "doi": null,
+    "publication": "arXiv:2106.00170v3, revised 28 October 2021",
+    "verification": "metadata verified against primary publisher/original-paper/arXiv or publisher-deposited Crossref record; no paywalled full-text verification claimed"
+  },
+  {
+    "key": "barber2023",
+    "title": "Conformal Prediction Beyond Exchangeability",
+    "authors": "Rina Foygel Barber; Emmanuel J. Candes; Aaditya Ramdas; Ryan J. Tibshirani",
+    "year": 2023,
+    "verification_url": "https://arxiv.org/abs/2202.13415v5",
+    "doi": null,
+    "publication": "arXiv:2202.13415v5, revised 17 March 2023; first submitted 2022",
+    "verification": "metadata verified against primary publisher/original-paper/arXiv or publisher-deposited Crossref record; no paywalled full-text verification claimed"
+  }
+]

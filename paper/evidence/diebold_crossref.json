@@ -1,0 +1,47 @@
+{
+  "DOI": "10.1080/07350015.1995.10524599",
+  "title": [
+    "Comparing Predictive Accuracy"
+  ],
+  "author": [
+    {
+      "given": "Francis X.",
+      "family": "Diebold",
+      "sequence": "first",
+      "affiliation": [],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Roberto S.",
+      "family": "Mariano",
+      "sequence": "additional",
+      "affiliation": [],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    }
+  ],
+  "published": {
+    "date-parts": [
+      [
+        1995,
+        7
+      ]
+    ]
+  },
+  "container-title": [
+    "Journal of Business &amp; Economic Statistics"
+  ],
+  "volume": "13",
+  "issue": "3",
+  "page": "253-263",
+  "URL": "https://doi.org/10.1080/07350015.1995.10524599"
+}

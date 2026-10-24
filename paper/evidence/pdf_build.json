@@ -1,0 +1,20 @@
+{
+  "compiler": "Tectonic 0.17.0",
+  "compiler_release_archive_sha256": "a3f1cac7c5678f01661a92212f58480ae3b0634115d880dbc59e2953ded45667",
+  "command": "tectonic --keep-logs --keep-intermediates --outdir /tmp/marketpulse-paper paper/MarketPulse_Research_Paper.tex",
+  "exit_code": 0,
+  "pages": 12,
+  "files": {
+    "paper/MarketPulse_Research_Paper.tex": "37bfc19f76d8958f525b31c24122cb9f940284eee41878c9449897d2e543c6ff",
+    "paper/references.bib": "de2ff9f38a47bae0854d702feb10a4a5f178e2be6104632711fd988f1d2b7b37",
+    "paper/MarketPulse_Research_Paper.pdf": "2863d8cc1da369a96bcfcf174a811e5908570c282d48c8fb47ebc51a751a5d79",
+    "paper/evidence/tectonic_console.txt": "8293c1908099215243d519280bb82458bbaf0aa264a08bb8f01bc6d2f46c3cc2",
+    "results/phase12/figures/research_summary.png": "11e5d81e3908c84b767457e0bf85544c61e5ee3bb8d950de09665ed3ee7977a3"
+  },
+  "review": "All 12 rendered pages inspected in three contact sheets; table numbering, retained headers, references, math and page boundaries checked. Computational-workflow review, not human peer review.",
+  "warnings": "One underfull paragraph warning; no final overfull boxes or unresolved citations.",
+  "earlier_failures": [
+    "Initial caret escaping error corrected.",
+    "A subsequent sandboxed font download failed; compilation retried with authorized network access. Only final successful build is recorded here."
+  ]
+}
