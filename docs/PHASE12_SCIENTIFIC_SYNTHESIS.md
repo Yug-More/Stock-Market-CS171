@@ -21,3 +21,10 @@ entry point must reject earlier dates, insufficient future origins, unmatured
 endpoints, changed source bytes and incomplete provenance before fitting. It must
 retain the first declared test window rather than sliding it on a later download.
 No prospective data is available to execute that future experiment now.
+
+## Completed cross-phase audit
+
+The logged saved-study audits pass [C31], and all preserved historical trees match
+the Phase 8 baseline [C32]. Logs and execution context are in
+`results/phase12/audits`. Future intake rejects a changed freeze or missing fixed
+window before fitting; no prospective outcomes are available [C04].

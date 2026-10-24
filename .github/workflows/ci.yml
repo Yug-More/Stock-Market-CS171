@@ -84,3 +84,6 @@ jobs:
         run: |
           python scripts/phase11.py verify
           python scripts/phase11_diagnostics.py --verify
+
+      - name: Verify final quantitative claims and manuscript artifacts
+        run: python scripts/final_synthesis.py verify

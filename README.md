@@ -162,9 +162,33 @@ python scripts/research_cycle.py verify
 
 [Artifact schemas and complete commands](results/robustness/README.md) distinguish historical evidence, newly executed training, interval warmup exclusions, primary versus exploratory inference, and unresolved legacy provenance. Ten new figures derive from actual saved artifacts. The older Phase 4/5 report remains a snapshot of that original one-seed study.
 
-## Next research cycle
+## Research completion and manuscript readiness
 
-Prioritize a genuinely unseen chronological holdout or additional market with complete acquisition provenance. Extend the declared seed design beyond the balanced subset, then compare fixed adaptive calibration methods on that fresh population using proper scores and dependence-aware coverage uncertainty. Save model weights and cross-platform replay metadata. Keep retrospective findings separate from confirmation on new data. Trading evaluation remains a separate research question.
+Phases 9–12 preserve the previous study and add a frozen prospective protocol,
+full-budget temporal/seed expansion, delayed adaptive uncertainty with documented
+failure cases, and an executable evidence-to-claim synthesis. Independent validation
+remains pending genuinely unexposed, provenance-complete future data.
+
+Start with [final findings](docs/FINAL_RESEARCH_RESULTS.md),
+[contributions and boundaries](docs/RESEARCH_CONTRIBUTIONS.md),
+[Phase 9 status](docs/PHASE9_INDEPENDENT_VALIDATION.md),
+[expanded robustness](docs/PHASE10_ROBUSTNESS.md),
+[adaptive uncertainty](docs/PHASE11_ADAPTIVE_UNCERTAINTY.md), and
+[prospective intake](docs/PROSPECTIVE_INTAKE.md).
+The paper can report a qualified retrospective empirical study; it cannot claim
+independently confirmed generalization, universal ML inferiority or trading profit.
+
+```bash
+python scripts/final_synthesis.py verify
+python scripts/phase10.py verify
+python scripts/phase11.py verify
+python scripts/phase11_diagnostics.py --verify
+```
+
+The logged cross-phase audit and manuscript tables/figure are in `results/phase12`.
+The original reports remain snapshots of their respective evidence populations.
+Future work requires independent acquisition, separately declared method changes,
+model weight preservation and economic evaluation before stronger claims.
 
 ## Contributors
 
