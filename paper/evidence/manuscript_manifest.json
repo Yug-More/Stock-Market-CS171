@@ -70,11 +70,11 @@
     "tests/test_scientific_review.py": "2f4f331be574199490e89de46557e1d2d540193d007e6032e81bbddeede502bd",
     "tests/test_validation.py": "881be6ec472b8cfa3c43669d791e2c70058e76b52d98957bc633d9e015c5ff7d",
     "tests/test_walkforward.py": "9b1411a9bdc4933cc69f7c1d91f975c0c02e53742293f9b92a1582fdfbec5b2d",
-    "paper/manuscript_source.md": "a63023604a507f27205e2f4667ff93b503cf283f601bb9d1e5ac2ac5edf9542a",
+    "paper/manuscript_source.md": "670c8da21c3e0209a1f5b098aef7379159402c59bf3ef8e9c06e8b2a54c2ad93",
     "scripts/manuscript.py": "aee51e9e802fdaf152531c7bf8f92d0555767e5d459ef7d67e2c754fc0e130b4",
     "src/marketpulse/publication.py": "97b8819063e79e47dba58337bf4e035f84423213456b722f0c6b711edd247c89",
-    "paper/references.bib": "de2ff9f38a47bae0854d702feb10a4a5f178e2be6104632711fd988f1d2b7b37",
-    "paper/evidence/reference_verification.json": "57676faace125462768d13cf4834d817c588bd195309303df206fc1a9690fa1e",
+    "paper/references.bib": "b4120e659345ca7f9bd83296951812cefe3024ad3375c90d4f0f1524cb3c0f14",
+    "paper/evidence/reference_verification.json": "12c08998e71b3172e15f076aa0efe3226420ba5c74e4f37819058e382c35ae7d",
     "results/phase12/claims.json": "27b1a05f4433624ff4987afcaa70fe29f24bad233c689e4616e73d75f5e7dbbf",
     "paper/figures/baseline_effects.png": "912cf80e118e69d5bbe308f4c52e9371511ee22186603b74c1fc6ff740407390",
     "paper/figures/baseline_effects.pdf": "62e5375fc2360af910c1e7f637f8579cae73a7638a7d809b0a5ad55f6b2415d8",
@@ -219,6 +219,7 @@
   "citation_keys": [
     "barber2023",
     "breiman2001",
+    "campbell2005",
     "diebold1995",
     "gibbs2021",
     "gneiting2007",
@@ -231,19 +232,19 @@
   "scope": "executable traceability and arithmetic bindings; not automated semantic proof or external peer review",
   "environment": {
     "mode": "manuscript_authoring",
-    "python": "3.12.12",
-    "platform": "macOS-14.5-arm64-arm-64bit",
+    "python": "3.13.2",
+    "platform": "macOS-14.5-arm64-arm-64bit-Mach-O",
     "versions": {
       "marketpulse": "0.1.0",
       "numpy": "2.5.4",
       "pandas": "3.1.0",
       "scikit-learn": "1.9.1",
-      "torch": "not-installed"
+      "torch": "2.14.1"
     },
-    "git_sha": "fc09b2dac851403c30051e08dab8698505bc194b"
+    "git_sha": "35e715dfa7d5e91d48f49d1da206e0ddd3e81395"
   },
   "outputs": {
-    "paper/MarketPulse_Research_Paper.md": "f0b8f6ebba10c16b4c6429adc1ce3f49ce4bfd3fd9dc8b15fd65d4f80c75f184",
-    "paper/MarketPulse_Research_Paper.tex": "6c9a601473bbedbed92d5ef423717367d2666140042e9aaafc85d795f213a008"
+    "paper/MarketPulse_Research_Paper.md": "a3ef171bc6f6d9e546beed0cc3b9f0905282c93e53ac397ce2e392c922fa4770",
+    "paper/MarketPulse_Research_Paper.tex": "57cd43b147fb04debb458c346b81d96c7240cda3734bda8626a599bf77479c29"
   }
 }

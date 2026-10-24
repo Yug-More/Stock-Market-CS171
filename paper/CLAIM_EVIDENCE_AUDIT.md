@@ -4,7 +4,7 @@ Run `.venv/bin/python scripts/manuscript.py verify` from the repository root.
 The generated manifest in `evidence/manuscript_manifest.json` binds every cited
 C-number to the Phase 12 registry and every E-tag to the listed source files,
 configurations or methodological documentation. All bound files have SHA256
-checksums. Thirty-seven distinct quantitative claim IDs and nine authentic
+checksums. Thirty-seven distinct quantitative claim IDs and ten authentic
 references are cited. Numerical tables and illustrative comparisons are generated
 from the CSVs, not transcribed from earlier reports. The manuscript source contains
 the explicit bindings; the generated Markdown and TeX contain display-rounded values.

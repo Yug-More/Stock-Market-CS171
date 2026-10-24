@@ -20,6 +20,16 @@
     "verification": "metadata verified against primary publisher/original-paper/arXiv or publisher-deposited Crossref record; no paywalled full-text verification claimed"
   },
   {
+    "key": "campbell2005",
+    "title": "Predicting the Equity Premium Out of Sample: Can Anything Beat the Historical Average?",
+    "authors": "John Y. Campbell; Samuel B. Thompson",
+    "year": 2005,
+    "verification_url": "https://www.nber.org/papers/w11468",
+    "doi": "10.3386/w11468",
+    "publication": "NBER Working Paper 11468 (2005); the NBER record lists a published version in Review of Financial Studies 21 (July 2008), 1509-1531, under the title Predicting Excess Stock Returns Out of Sample: Can Anything Beat the Historical Average?",
+    "verification": "working-paper metadata verified against the National Bureau of Economic Research record; published-version metadata is also listed there"
+  },
+  {
     "key": "diebold1995",
     "title": "Comparing Predictive Accuracy",
     "authors": "Francis X. Diebold; Roberto S. Mariano",
