@@ -180,6 +180,8 @@ independently confirmed generalization, universal ML inferiority or trading prof
 
 ```bash
 python scripts/final_synthesis.py verify
+# Fresh full audit logs, without replacing published logs:
+python scripts/audit_all_research.py --output /tmp/marketpulse-final-audit
 python scripts/phase10.py verify
 python scripts/phase11.py verify
 python scripts/phase11_diagnostics.py --verify

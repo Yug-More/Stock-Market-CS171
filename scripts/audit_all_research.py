@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import argparse
 import json
 import subprocess
 import sys
@@ -15,8 +16,13 @@ from marketpulse.experiments.robustness_data import write_json
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--output", type=Path, help="new audit-log directory; existing evidence is never replaced"
+    )
+    args = parser.parse_args()
     root = Path(__file__).resolve().parents[1]
-    output = root / "results/phase12/audits"
+    output = (args.output or root / "results/phase12/audits").resolve()
     if output.exists():
         raise ValueError("preserve previous audit logs")
     output.mkdir(parents=True)
