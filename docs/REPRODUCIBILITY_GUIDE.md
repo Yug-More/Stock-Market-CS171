@@ -24,7 +24,8 @@ can change fitted results. No saved canonical weights exist.
 
 ```bash
 .venv/bin/python scripts/final_synthesis.py verify
-.venv/bin/python scripts/audit_all_research.py --output /tmp/marketpulse-reproduction-audit
+audit_dir="/tmp/marketpulse-reproduction-audit-$(date +%Y%m%d%H%M%S)"
+.venv/bin/python scripts/audit_all_research.py --output "$audit_dir"
 .venv/bin/python scripts/publication_assets.py verify
 .venv/bin/python scripts/manuscript.py verify
 .venv/bin/python scripts/verify_manuscript_pdf.py
@@ -41,6 +42,17 @@ standalone original verifier needs those CSVs restored first if run independentl
 ```bash
 tar -xzf results/walkforward/full/fold_predictions.tar.gz -C results/walkforward/full
 ```
+
+Phase 16 reran all six audits into `results/phase16/cross_phase_audit/`; each
+recorded command returned zero and the preserved historical trees were unchanged.
+The same phase regenerated all 12 manuscript tables and 3 figures from their
+source CSVs, independently verified the publication assets, rebuilt the 14-page
+PDF with Tectonic 0.17.0, and checked the PDF source hashes. A fresh Python 3.12
+environment installed from `requirements-publication.txt` reproduced the synthesis,
+tables, manuscript and PDF checks. Its test run passed 101 tests and skipped two
+PyTorch-dependent tests because that publication-only dependency set omits the
+optional research extra; the full Python 3.13 environment passed all 103 tests.
+See `docs/PHASE16_FINAL_QUALITY_ASSURANCE.md` for exact scopes and limitations.
 
 ## Regenerate presentation artifacts
 

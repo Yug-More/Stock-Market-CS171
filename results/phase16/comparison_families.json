@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "families": [
+    18,
+    30,
+    60
+  ],
+  "scope": "declared Cartesian products, unique contrasts and primary block lengths",
+  "inputs": {
+    "configs/robustness.toml": "1d60bd99a089d517b30e20804b24bb17d3efda5db7e3b8997c15c4d440294a9d",
+    "configs/phase10.json": "1026fc63a540bafb62c674f7d954af60a6763ec9e4fb1c630a080903302d5ca6",
+    "configs/phase11.json": "6ad87e82e2a55d4969ab63392b3cb1b5de3835f207077a82f1b3377d1588d457",
+    "results/statistical_reliability/comparisons.csv": "ad2277023c19c47d2a7ffa9b4084338f18d5bde7eddcabebb554f16b7983b0e2",
+    "results/phase10/comparisons.csv": "1ec380f0890d445995095dac8f8ac704c671c6dc062f5256a5934c335551ba78",
+    "results/phase11/score_comparisons.csv": "8d5b11a5a515f76d642aa57a05c25b4062cab853238c2dec51e72f1ac60daa47",
+    "scripts/verify_comparison_families.py": "41505dcf02abb79a55731f47b3ba0a09b3fbe58ac0e6398110825e0c3f4c854b"
+  }
+}
