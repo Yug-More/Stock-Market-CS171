@@ -1,0 +1,170 @@
+[
+  {
+    "dataset": "NASDAQ-100",
+    "horizon": 1,
+    "fold": 12,
+    "sample": {
+      "rows": 6289,
+      "missing_feature_rows": 20,
+      "missing_target_rows": 1,
+      "train": {
+        "n": 5743,
+        "start_date": "2000-02-29",
+        "end_date": "2022-12-22"
+      },
+      "validation": {
+        "n": 252,
+        "start_date": "2022-12-27",
+        "end_date": "2023-12-27"
+      },
+      "test": {
+        "n": 252,
+        "start_date": "2023-12-29",
+        "end_date": "2024-12-30"
+      },
+      "purged_before_validation": 1,
+      "purged_before_test": 1,
+      "horizon": 1
+    }
+  },
+  {
+    "dataset": "NASDAQ-100",
+    "horizon": 5,
+    "fold": 12,
+    "sample": {
+      "rows": 6289,
+      "missing_feature_rows": 20,
+      "missing_target_rows": 5,
+      "train": {
+        "n": 5731,
+        "start_date": "2000-02-29",
+        "end_date": "2022-12-06"
+      },
+      "validation": {
+        "n": 252,
+        "start_date": "2022-12-14",
+        "end_date": "2023-12-14"
+      },
+      "test": {
+        "n": 252,
+        "start_date": "2023-12-22",
+        "end_date": "2024-12-23"
+      },
+      "purged_before_validation": 5,
+      "purged_before_test": 5,
+      "horizon": 5
+    }
+  },
+  {
+    "dataset": "NASDAQ-100",
+    "horizon": 20,
+    "fold": 12,
+    "sample": {
+      "rows": 6289,
+      "missing_feature_rows": 20,
+      "missing_target_rows": 20,
+      "train": {
+        "n": 5686,
+        "start_date": "2000-02-29",
+        "end_date": "2022-10-03"
+      },
+      "validation": {
+        "n": 252,
+        "start_date": "2022-11-01",
+        "end_date": "2023-11-01"
+      },
+      "test": {
+        "n": 252,
+        "start_date": "2023-12-01",
+        "end_date": "2024-12-02"
+      },
+      "purged_before_validation": 20,
+      "purged_before_test": 20,
+      "horizon": 20
+    }
+  },
+  {
+    "dataset": "S&P 500",
+    "horizon": 1,
+    "fold": 80,
+    "sample": {
+      "rows": 23323,
+      "missing_feature_rows": 20,
+      "missing_target_rows": 1,
+      "train": {
+        "n": 22777,
+        "start_date": "1928-02-28",
+        "end_date": "2018-10-30"
+      },
+      "validation": {
+        "n": 252,
+        "start_date": "2018-11-01",
+        "end_date": "2019-11-01"
+      },
+      "test": {
+        "n": 252,
+        "start_date": "2019-11-05",
+        "end_date": "2020-11-03"
+      },
+      "purged_before_validation": 1,
+      "purged_before_test": 1,
+      "horizon": 1
+    }
+  },
+  {
+    "dataset": "S&P 500",
+    "horizon": 5,
+    "fold": 80,
+    "sample": {
+      "rows": 23323,
+      "missing_feature_rows": 20,
+      "missing_target_rows": 5,
+      "train": {
+        "n": 22765,
+        "start_date": "1928-02-28",
+        "end_date": "2018-10-12"
+      },
+      "validation": {
+        "n": 252,
+        "start_date": "2018-10-22",
+        "end_date": "2019-10-22"
+      },
+      "test": {
+        "n": 252,
+        "start_date": "2019-10-30",
+        "end_date": "2020-10-28"
+      },
+      "purged_before_validation": 5,
+      "purged_before_test": 5,
+      "horizon": 5
+    }
+  },
+  {
+    "dataset": "S&P 500",
+    "horizon": 20,
+    "fold": 80,
+    "sample": {
+      "rows": 23323,
+      "missing_feature_rows": 20,
+      "missing_target_rows": 20,
+      "train": {
+        "n": 22720,
+        "start_date": "1928-02-28",
+        "end_date": "2018-08-09"
+      },
+      "validation": {
+        "n": 252,
+        "start_date": "2018-09-10",
+        "end_date": "2019-09-10"
+      },
+      "test": {
+        "n": 252,
+        "start_date": "2019-10-09",
+        "end_date": "2020-10-07"
+      },
+      "purged_before_validation": 20,
+      "purged_before_test": 20,
+      "horizon": 20
+    }
+  }
+]

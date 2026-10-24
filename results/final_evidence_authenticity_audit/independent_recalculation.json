@@ -1,0 +1,883 @@
+{
+  "scope": "Independent arithmetic and structural checks implemented with direct pandas/NumPy; this report does not prove original data acquisition or historical execution provenance.",
+  "repository_commit": "60e77222a467e54d3fa28cbfda54970a5252079f",
+  "datasets": {
+    "NASDAQ-100": {
+      "path": "data/nasdaq100.csv",
+      "sha256": "deb35f9888f892ceb61ff92883b5a5825d7567bc5973fe7b9080d06c893ca450",
+      "rows": 6289,
+      "columns": [
+        "date",
+        "close",
+        "high",
+        "low",
+        "open",
+        "volume"
+      ],
+      "dtypes": {
+        "date": "datetime64[us]",
+        "close": "float64",
+        "high": "float64",
+        "low": "float64",
+        "open": "float64",
+        "volume": "int64"
+      },
+      "first_date": "2000-01-03",
+      "last_date": "2024-12-31",
+      "missing_by_column": {
+        "date": 0,
+        "close": 0,
+        "high": 0,
+        "low": 0,
+        "open": 0,
+        "volume": 0
+      },
+      "duplicate_dates": 0,
+      "dates_strictly_increasing": true,
+      "numeric_values_finite": true,
+      "nonpositive_ohlc_values": {
+        "open": 0,
+        "high": 0,
+        "low": 0,
+        "close": 0
+      },
+      "ohlc_relationship_violations": 0,
+      "duplicate_full_rows": 0,
+      "consecutive_identical_closes": 4,
+      "consecutive_identical_close_examples": [
+        {
+          "date": "2000-12-18",
+          "previous_date": "2000-12-15",
+          "close": 2543.090087890625
+        },
+        {
+          "date": "2001-07-02",
+          "previous_date": "2001-06-29",
+          "close": 1830.18994140625
+        },
+        {
+          "date": "2002-04-25",
+          "previous_date": "2002-04-24",
+          "close": 1302.3199462890625
+        },
+        {
+          "date": "2012-03-12",
+          "previous_date": "2012-03-09",
+          "close": 2646.85009765625
+        }
+      ],
+      "zero_volume": 0,
+      "negative_volume": 0,
+      "adj_close_equals_close": null,
+      "max_calendar_gap_days": 7,
+      "gaps_over_four_days": [
+        {
+          "previous": "2001-09-10",
+          "next": "2001-09-17",
+          "days": 7
+        },
+        {
+          "previous": "2006-12-29",
+          "next": "2007-01-03",
+          "days": 5
+        },
+        {
+          "previous": "2012-10-26",
+          "next": "2012-10-31",
+          "days": 5
+        }
+      ],
+      "largest_absolute_log_return": [
+        {
+          "date": "2001-01-03",
+          "log_return": 0.1720296756598776
+        },
+        {
+          "date": "2020-03-16",
+          "log_return": -0.130031505833756
+        },
+        {
+          "date": "2008-10-13",
+          "log_return": 0.11849329531818142
+        },
+        {
+          "date": "2008-09-29",
+          "log_return": -0.11114930296005365
+        },
+        {
+          "date": "2000-12-05",
+          "log_return": 0.11050822201161736
+        },
+        {
+          "date": "2008-10-28",
+          "log_return": 0.10367752112708395
+        },
+        {
+          "date": "2001-04-05",
+          "log_return": 0.1027271363061022
+        },
+        {
+          "date": "2000-04-14",
+          "log_return": -0.10238507497996352
+        }
+      ]
+    },
+    "S&P 500": {
+      "path": "data/SPX.csv",
+      "sha256": "54aa877d5d275b660bc8171642dc3a2eece16b9709e1d35f13a3b4e7972cc35c",
+      "rows": 23323,
+      "columns": [
+        "date",
+        "open",
+        "high",
+        "low",
+        "close",
+        "adj_close",
+        "volume"
+      ],
+      "dtypes": {
+        "date": "datetime64[us]",
+        "open": "float64",
+        "high": "float64",
+        "low": "float64",
+        "close": "float64",
+        "adj_close": "float64",
+        "volume": "int64"
+      },
+      "first_date": "1927-12-30",
+      "last_date": "2020-11-04",
+      "missing_by_column": {
+        "date": 0,
+        "open": 0,
+        "high": 0,
+        "low": 0,
+        "close": 0,
+        "adj_close": 0,
+        "volume": 0
+      },
+      "duplicate_dates": 0,
+      "dates_strictly_increasing": true,
+      "numeric_values_finite": true,
+      "nonpositive_ohlc_values": {
+        "open": 0,
+        "high": 0,
+        "low": 0,
+        "close": 0
+      },
+      "ohlc_relationship_violations": 0,
+      "duplicate_full_rows": 0,
+      "consecutive_identical_closes": 313,
+      "consecutive_identical_close_examples": [
+        {
+          "date": "1928-03-02",
+          "previous_date": "1928-03-01",
+          "close": 17.299999
+        },
+        {
+          "date": "1928-04-18",
+          "previous_date": "1928-04-17",
+          "close": 19.52
+        },
+        {
+          "date": "1928-09-14",
+          "previous_date": "1928-09-13",
+          "close": 21.139999
+        },
+        {
+          "date": "1928-09-19",
+          "previous_date": "1928-09-18",
+          "close": 21.18
+        },
+        {
+          "date": "1928-11-07",
+          "previous_date": "1928-11-05",
+          "close": 22.24
+        },
+        {
+          "date": "1928-11-14",
+          "previous_date": "1928-11-13",
+          "close": 22.91
+        },
+        {
+          "date": "1928-11-19",
+          "previous_date": "1928-11-16",
+          "close": 23.370001
+        },
+        {
+          "date": "1929-06-24",
+          "previous_date": "1929-06-21",
+          "close": 26.620001
+        },
+        {
+          "date": "1930-03-07",
+          "previous_date": "1930-03-06",
+          "close": 23.59
+        },
+        {
+          "date": "1930-08-05",
+          "previous_date": "1930-08-04",
+          "close": 21.52
+        },
+        {
+          "date": "1931-01-21",
+          "previous_date": "1931-01-20",
+          "close": 15.78
+        },
+        {
+          "date": "1931-04-24",
+          "previous_date": "1931-04-23",
+          "close": 15.29
+        }
+      ],
+      "zero_volume": 5496,
+      "negative_volume": 0,
+      "adj_close_equals_close": true,
+      "max_calendar_gap_days": 12,
+      "gaps_over_four_days": [
+        {
+          "previous": "1929-11-27",
+          "next": "1929-12-02",
+          "days": 5
+        },
+        {
+          "previous": "1933-03-03",
+          "next": "1933-03-15",
+          "days": 12
+        },
+        {
+          "previous": "1945-12-21",
+          "next": "1945-12-26",
+          "days": 5
+        },
+        {
+          "previous": "1956-12-21",
+          "next": "1956-12-26",
+          "days": 5
+        },
+        {
+          "previous": "1958-12-24",
+          "next": "1958-12-29",
+          "days": 5
+        },
+        {
+          "previous": "1961-05-26",
+          "next": "1961-05-31",
+          "days": 5
+        },
+        {
+          "previous": "1968-07-03",
+          "next": "1968-07-08",
+          "days": 5
+        },
+        {
+          "previous": "2001-09-10",
+          "next": "2001-09-17",
+          "days": 7
+        },
+        {
+          "previous": "2006-12-29",
+          "next": "2007-01-03",
+          "days": 5
+        },
+        {
+          "previous": "2012-10-26",
+          "next": "2012-10-31",
+          "days": 5
+        }
+      ],
+      "largest_absolute_log_return": [
+        {
+          "date": "1987-10-19",
+          "log_return": -0.2289972868039234
+        },
+        {
+          "date": "1933-03-15",
+          "log_return": 0.15366132332128535
+        },
+        {
+          "date": "1929-10-28",
+          "log_return": -0.13857585437067899
+        },
+        {
+          "date": "2020-03-16",
+          "log_return": -0.1276521975671443
+        },
+        {
+          "date": "1929-10-30",
+          "log_return": 0.11805492994555955
+        },
+        {
+          "date": "1931-10-06",
+          "log_return": 0.1165224783231964
+        },
+        {
+          "date": "1939-09-05",
+          "log_return": 0.11206366300041637
+        },
+        {
+          "date": "1932-09-21",
+          "log_return": 0.11163997114266966
+        }
+      ]
+    }
+  },
+  "forecast_records": {
+    "source": "results/walkforward/full/predictions.csv.gz",
+    "sha256": "e51751e1f1f18e546d7cda406c3d61f393ea0b704ba3c7033e97515d87cada08",
+    "rows": 355320,
+    "target_rows_checked": 355320,
+    "target_endpoint_date_order_errors": 0,
+    "maximum_absolute_target_recalculation_error": 0.0,
+    "duplicate_model_fold_origin_keys": 0,
+    "common_population_failures": 0
+  },
+  "folds": {
+    "marker_count": 282,
+    "folds_by_dataset_horizon": [
+      {
+        "dataset": "NASDAQ-100",
+        "horizon": 1,
+        "folds": 13
+      },
+      {
+        "dataset": "NASDAQ-100",
+        "horizon": 5,
+        "folds": 13
+      },
+      {
+        "dataset": "NASDAQ-100",
+        "horizon": 20,
+        "folds": 13
+      },
+      {
+        "dataset": "S&P 500",
+        "horizon": 1,
+        "folds": 81
+      },
+      {
+        "dataset": "S&P 500",
+        "horizon": 5,
+        "folds": 81
+      },
+      {
+        "dataset": "S&P 500",
+        "horizon": 20,
+        "folds": 81
+      }
+    ],
+    "execution_marker_classes": {
+      "recovered_without_execution_metadata": 210,
+      "execution_metadata": 72
+    },
+    "chronology_or_test_boundary_failures": 0
+  },
+  "native_metrics": {
+    "rows_recalculated": 30,
+    "maximum_absolute_differences_from_saved_pooled_metrics": {
+      "n": 0.0,
+      "rmse": 6.938893903907228e-18,
+      "mae": 3.469446951953614e-18,
+      "bias": 1.734723475976807e-18,
+      "directional_accuracy": 0.0,
+      "skill_vs_zero": 4.440892098500626e-16,
+      "skill_vs_historical_mean": 4.440892098500626e-16,
+      "rank": 0.0
+    }
+  },
+  "statistical_families": [
+    {
+      "name": "original native MSE",
+      "source": "results/statistical_reliability/comparisons.csv",
+      "family_size": 18,
+      "unique_comparison_keys": 18,
+      "max_abs_effect_difference": 8.131516293641283e-19,
+      "max_abs_hac_se_difference": 1.3552527156068805e-20,
+      "max_abs_nominal_p_difference": 6.938893903907228e-15,
+      "max_abs_holm_p_difference": 4.335420911161236e-14,
+      "max_abs_moving_block_ci_endpoint_difference": 1.654763565756001e-17,
+      "negative_effect_holm_significant_count": 5,
+      "saved_significant_count": 5,
+      "saved_significant_cells": [
+        {
+          "dataset": "NASDAQ-100",
+          "horizon": 1,
+          "first": "random_forest",
+          "second": "lstm"
+        },
+        {
+          "dataset": "NASDAQ-100",
+          "horizon": 5,
+          "first": "random_forest",
+          "second": "lstm"
+        },
+        {
+          "dataset": "S&P 500",
+          "horizon": 1,
+          "first": "random_forest",
+          "second": "lstm"
+        },
+        {
+          "dataset": "S&P 500",
+          "horizon": 5,
+          "first": "random_forest",
+          "second": "lstm"
+        },
+        {
+          "dataset": "S&P 500",
+          "horizon": 20,
+          "first": "random_forest",
+          "second": "lstm"
+        }
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "expanded five-seed MSE sensitivity",
+      "source": "results/phase10/comparisons.csv",
+      "family_size": 30,
+      "unique_comparison_keys": 30,
+      "max_abs_effect_difference": 7.047314121155779e-19,
+      "max_abs_hac_se_difference": 5.421010862427522e-20,
+      "max_abs_nominal_p_difference": 5.218048215738236e-15,
+      "max_abs_holm_p_difference": 5.329070518200751e-15,
+      "max_abs_moving_block_ci_endpoint_difference": 1.0164395367051604e-17,
+      "negative_effect_holm_significant_count": 1,
+      "saved_significant_count": 1,
+      "saved_significant_cells": [
+        {
+          "dataset": "NASDAQ-100",
+          "horizon": 1,
+          "first": "random_forest",
+          "second": "lstm"
+        }
+      ],
+      "status": "matched"
+    },
+    {
+      "name": "adaptive interval score",
+      "source": "results/phase11/score_comparisons.csv",
+      "family_size": 60,
+      "unique_comparison_keys": 60,
+      "max_abs_effect_difference": 6.071532165918825e-17,
+      "max_abs_hac_se_difference": 8.673617379884035e-19,
+      "max_abs_nominal_p_difference": 7.327471962526033e-15,
+      "max_abs_holm_p_difference": 3.11972669919669e-14,
+      "max_abs_moving_block_ci_endpoint_difference": 7.070732888081466e-15,
+      "negative_effect_holm_significant_count": 20,
+      "saved_significant_count": 20,
+      "saved_significant_cells": [
+        {
+          "dataset": "S&P 500",
+          "horizon": 1,
+          "model": "historical_mean",
+          "nominal": 0.8
+        },
+        {
+          "dataset": "S&P 500",
+          "horizon": 1,
+          "model": "historical_mean",
+          "nominal": 0.9
+        },
+        {
+          "dataset": "S&P 500",
+          "horizon": 1,
+          "model": "linear_regression",
+          "nominal": 0.8
+        },
+        {
+          "dataset": "S&P 500",
+          "horizon": 1,
+          "model": "linear_regression",
+          "nominal": 0.9
+        },
+        {
+          "dataset": "S&P 500",
+          "horizon": 1,
+          "model": "lstm",
+          "nominal": 0.8
+        },
+        {
+          "dataset": "S&P 500",
+          "horizon": 1,
+          "model": "lstm",
+          "nominal": 0.9
+        },
+        {
+          "dataset": "S&P 500",
+          "horizon": 1,
+          "model": "random_forest",
+          "nominal": 0.8
+        },
+        {
+          "dataset": "S&P 500",
+          "horizon": 1,
+          "model": "random_forest",
+          "nominal": 0.9
+        },
+        {
+          "dataset": "S&P 500",
+          "horizon": 1,
+          "model": "zero_return",
+          "nominal": 0.8
+        },
+        {
+          "dataset": "S&P 500",
+          "horizon": 1,
+          "model": "zero_return",
+          "nominal": 0.9
+        },
+        {
+          "dataset": "S&P 500",
+          "horizon": 5,
+          "model": "historical_mean",
+          "nominal": 0.8
+        },
+        {
+          "dataset": "S&P 500",
+          "horizon": 5,
+          "model": "historical_mean",
+          "nominal": 0.9
+        },
+        {
+          "dataset": "S&P 500",
+          "horizon": 5,
+          "model": "linear_regression",
+          "nominal": 0.8
+        },
+        {
+          "dataset": "S&P 500",
+          "horizon": 5,
+          "model": "linear_regression",
+          "nominal": 0.9
+        },
+        {
+          "dataset": "S&P 500",
+          "horizon": 5,
+          "model": "lstm",
+          "nominal": 0.8
+        },
+        {
+          "dataset": "S&P 500",
+          "horizon": 5,
+          "model": "lstm",
+          "nominal": 0.9
+        },
+        {
+          "dataset": "S&P 500",
+          "horizon": 5,
+          "model": "random_forest",
+          "nominal": 0.8
+        },
+        {
+          "dataset": "S&P 500",
+          "horizon": 5,
+          "model": "random_forest",
+          "nominal": 0.9
+        },
+        {
+          "dataset": "S&P 500",
+          "horizon": 5,
+          "model": "zero_return",
+          "nominal": 0.8
+        },
+        {
+          "dataset": "S&P 500",
+          "horizon": 5,
+          "model": "zero_return",
+          "nominal": 0.9
+        }
+      ],
+      "status": "matched"
+    }
+  ],
+  "adaptive_nesting": {
+    "diagnostic_rows_recalculated_from_saved_bounds": 120,
+    "designated_variant_eligible_pairs": 347500,
+    "designated_variant_crossings": 1494,
+    "primary_variant": "aci_w504_g001",
+    "first_any_variant_example": {
+      "dataset": "NASDAQ-100",
+      "horizon": 1,
+      "model": "historical_mean",
+      "variant": "aci_w504_g005",
+      "eligible": 3023,
+      "violations": 74,
+      "first_date": "2015-01-09"
+    }
+  },
+  "seed_artifacts": {
+    "run_file_counts_by_directory": {
+      "results/robustness/multiseed/runs": 90,
+      "results/phase10/multiseed/runs": 60
+    },
+    "seed_values": [
+      171,
+      271,
+      371,
+      471,
+      571
+    ],
+    "prediction_rows_checked_against_raw_price_targets": 75600,
+    "model_run_files": 150
+  },
+  "current_code_rerun": {
+    "fold_tasks": 6,
+    "forecast_records": 7560,
+    "matched_historical_records": 7560,
+    "by_dataset_horizon_model": [
+      {
+        "dataset": "NASDAQ-100",
+        "horizon": 1,
+        "model": "historical_mean",
+        "n": 252,
+        "max_abs_prediction_difference": 0.0,
+        "new_rmse": 0.011498456841039454
+      },
+      {
+        "dataset": "NASDAQ-100",
+        "horizon": 1,
+        "model": "linear_regression",
+        "n": 252,
+        "max_abs_prediction_difference": 0.0,
+        "new_rmse": 0.01154072909596855
+      },
+      {
+        "dataset": "NASDAQ-100",
+        "horizon": 1,
+        "model": "lstm",
+        "n": 252,
+        "max_abs_prediction_difference": 0.0,
+        "new_rmse": 0.01155414306547663
+      },
+      {
+        "dataset": "NASDAQ-100",
+        "horizon": 1,
+        "model": "random_forest",
+        "n": 252,
+        "max_abs_prediction_difference": 0.0,
+        "new_rmse": 0.011507638970963682
+      },
+      {
+        "dataset": "NASDAQ-100",
+        "horizon": 1,
+        "model": "zero_return",
+        "n": 252,
+        "max_abs_prediction_difference": 0.0,
+        "new_rmse": 0.01150989818474685
+      },
+      {
+        "dataset": "NASDAQ-100",
+        "horizon": 5,
+        "model": "historical_mean",
+        "n": 252,
+        "max_abs_prediction_difference": 0.0,
+        "new_rmse": 0.024668892751069628
+      },
+      {
+        "dataset": "NASDAQ-100",
+        "horizon": 5,
+        "model": "linear_regression",
+        "n": 252,
+        "max_abs_prediction_difference": 0.0,
+        "new_rmse": 0.024657007893627344
+      },
+      {
+        "dataset": "NASDAQ-100",
+        "horizon": 5,
+        "model": "lstm",
+        "n": 252,
+        "max_abs_prediction_difference": 0.0,
+        "new_rmse": 0.024507783952618236
+      },
+      {
+        "dataset": "NASDAQ-100",
+        "horizon": 5,
+        "model": "random_forest",
+        "n": 252,
+        "max_abs_prediction_difference": 0.0,
+        "new_rmse": 0.024260342190557165
+      },
+      {
+        "dataset": "NASDAQ-100",
+        "horizon": 5,
+        "model": "zero_return",
+        "n": 252,
+        "max_abs_prediction_difference": 0.0,
+        "new_rmse": 0.024820179409151183
+      },
+      {
+        "dataset": "NASDAQ-100",
+        "horizon": 20,
+        "model": "historical_mean",
+        "n": 252,
+        "max_abs_prediction_difference": 0.0,
+        "new_rmse": 0.04256239609895175
+      },
+      {
+        "dataset": "NASDAQ-100",
+        "horizon": 20,
+        "model": "linear_regression",
+        "n": 252,
+        "max_abs_prediction_difference": 0.0,
+        "new_rmse": 0.04156394141798372
+      },
+      {
+        "dataset": "NASDAQ-100",
+        "horizon": 20,
+        "model": "lstm",
+        "n": 252,
+        "max_abs_prediction_difference": 0.0,
+        "new_rmse": 0.042514947966614945
+      },
+      {
+        "dataset": "NASDAQ-100",
+        "horizon": 20,
+        "model": "random_forest",
+        "n": 252,
+        "max_abs_prediction_difference": 0.0,
+        "new_rmse": 0.040841897331633924
+      },
+      {
+        "dataset": "NASDAQ-100",
+        "horizon": 20,
+        "model": "zero_return",
+        "n": 252,
+        "max_abs_prediction_difference": 0.0,
+        "new_rmse": 0.04404421340525518
+      },
+      {
+        "dataset": "S&P 500",
+        "horizon": 1,
+        "model": "historical_mean",
+        "n": 252,
+        "max_abs_prediction_difference": 0.0,
+        "new_rmse": 0.02171908486321707
+      },
+      {
+        "dataset": "S&P 500",
+        "horizon": 1,
+        "model": "linear_regression",
+        "n": 252,
+        "max_abs_prediction_difference": 0.0,
+        "new_rmse": 0.021756803267548985
+      },
+      {
+        "dataset": "S&P 500",
+        "horizon": 1,
+        "model": "lstm",
+        "n": 252,
+        "max_abs_prediction_difference": 0.0,
+        "new_rmse": 0.02172684440017487
+      },
+      {
+        "dataset": "S&P 500",
+        "horizon": 1,
+        "model": "random_forest",
+        "n": 252,
+        "max_abs_prediction_difference": 0.0,
+        "new_rmse": 0.020852063157761547
+      },
+      {
+        "dataset": "S&P 500",
+        "horizon": 1,
+        "model": "zero_return",
+        "n": 252,
+        "max_abs_prediction_difference": 0.0,
+        "new_rmse": 0.021722548055068253
+      },
+      {
+        "dataset": "S&P 500",
+        "horizon": 5,
+        "model": "historical_mean",
+        "n": 252,
+        "max_abs_prediction_difference": 0.0,
+        "new_rmse": 0.04071044231903074
+      },
+      {
+        "dataset": "S&P 500",
+        "horizon": 5,
+        "model": "linear_regression",
+        "n": 252,
+        "max_abs_prediction_difference": 0.0,
+        "new_rmse": 0.04049582958677844
+      },
+      {
+        "dataset": "S&P 500",
+        "horizon": 5,
+        "model": "lstm",
+        "n": 252,
+        "max_abs_prediction_difference": 0.0,
+        "new_rmse": 0.0414597135926114
+      },
+      {
+        "dataset": "S&P 500",
+        "horizon": 5,
+        "model": "random_forest",
+        "n": 252,
+        "max_abs_prediction_difference": 0.0,
+        "new_rmse": 0.04131729517142646
+      },
+      {
+        "dataset": "S&P 500",
+        "horizon": 5,
+        "model": "zero_return",
+        "n": 252,
+        "max_abs_prediction_difference": 0.0,
+        "new_rmse": 0.04074261541892887
+      },
+      {
+        "dataset": "S&P 500",
+        "horizon": 20,
+        "model": "historical_mean",
+        "n": 252,
+        "max_abs_prediction_difference": 0.0,
+        "new_rmse": 0.08929546085170274
+      },
+      {
+        "dataset": "S&P 500",
+        "horizon": 20,
+        "model": "linear_regression",
+        "n": 252,
+        "max_abs_prediction_difference": 0.0,
+        "new_rmse": 0.08986476380116105
+      },
+      {
+        "dataset": "S&P 500",
+        "horizon": 20,
+        "model": "lstm",
+        "n": 252,
+        "max_abs_prediction_difference": 0.0,
+        "new_rmse": 0.09742224181536459
+      },
+      {
+        "dataset": "S&P 500",
+        "horizon": 20,
+        "model": "random_forest",
+        "n": 252,
+        "max_abs_prediction_difference": 0.0,
+        "new_rmse": 0.08983889390380306
+      },
+      {
+        "dataset": "S&P 500",
+        "horizon": 20,
+        "model": "zero_return",
+        "n": 252,
+        "max_abs_prediction_difference": 0.0,
+        "new_rmse": 0.08969113552620844
+      }
+    ],
+    "execution_metadata": {
+      "mode": "full",
+      "python": "3.13.2",
+      "platform": "macOS-14.5-arm64-arm-64bit-Mach-O",
+      "versions": {
+        "marketpulse": "0.1.0",
+        "numpy": "2.5.4",
+        "pandas": "3.1.0",
+        "scikit-learn": "1.9.1",
+        "torch": "2.14.1"
+      },
+      "git_sha": "60e77222a467e54d3fa28cbfda54970a5252079f"
+    }
+  }
+}

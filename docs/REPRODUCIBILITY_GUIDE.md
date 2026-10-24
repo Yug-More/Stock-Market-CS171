@@ -45,9 +45,14 @@ tar -xzf results/walkforward/full/fold_predictions.tar.gz -C results/walkforward
 
 Phase 16 reran all six audits into `results/phase16/cross_phase_audit/`; each
 recorded command returned zero and the preserved historical trees were unchanged.
-The same phase regenerated all 12 manuscript tables and 3 figures from their
-source CSVs, independently verified the publication assets, rebuilt the 14-page
-PDF with Tectonic 0.17.0, and checked the PDF source hashes. A fresh Python 3.12
+At that phase snapshot, the process regenerated 12 manuscript tables and 3 figures,
+rebuilt the 14-page PDF with Tectonic 0.17.0, and checked the PDF source hashes.
+The later manuscript revision in PR #16 replaced the combined interval-tradeoff
+figure with separate coverage and width figures. The current paper therefore has
+12 tables, 4 figures (`baseline_effects`, `point_skill`, `interval_coverage`, and
+`interval_width`), and an 18-page PDF; rerun `scripts/publication_assets.py verify`,
+`scripts/manuscript.py verify`, and `scripts/verify_manuscript_pdf.py` to check the
+current assets. A fresh Python 3.12
 environment installed from `requirements-publication.txt` reproduced the synthesis,
 tables, manuscript and PDF checks. Its test run passed 101 tests and skipped two
 PyTorch-dependent tests because that publication-only dependency set omits the
@@ -125,9 +130,10 @@ recorded. PDF timestamps/fonts can prevent byte-identical binary regeneration.
 - `baseline_effects`: all twelve original RF-versus-simple-baseline contrasts, with
   marginal 95% block intervals and nominal/Holm p-values from the full 18-test
   family. The six RF-versus-LSTM contrasts remain in Table 2 and the full CSV.
-- `interval_tradeoffs`: all seven methods, zero-return 90% intervals in every cell,
-  overall and high-volatility slices; coverage axis spans 0–1, widths start at zero.
-  Points are descriptive; uncertainty intervals are in the coverage supplement.
+- `interval_coverage` and `interval_width`: all seven methods, zero-return 90%
+  intervals in every cell, overall and high-volatility slices. Coverage spans 0–1;
+  widths start at zero. Points are descriptive; uncertainty intervals are in the
+  coverage supplement.
 
 ## Refitting and limits
 

@@ -139,3 +139,15 @@ dependence, nonstationarity, overlapping targets, correlated index histories,
 limited model/seed coverage, missing legacy runtime context, and the absence of
 independent outcomes. These limits remain part of the research result and should
 travel with any copy of the paper.
+
+## Post-handoff manuscript revision note (2026-10-23)
+
+This handoff records the Phase 18 snapshot before the manuscript revision merged
+as PR #16 (`60e7722`). That later revision changed the figure set: the former
+combined `interval_tradeoffs` figure was replaced by `interval_coverage` and
+`interval_width`. The current manuscript asset verifier reports 12 tables and 4
+figures, and the current PDF has 18 pages; manuscript verification reports 12
+verified references. The Phase 18 counts above (3 figures, 14 pages, nine
+references) describe that earlier snapshot and should not be read as counts for
+the current manuscript. The final evidence-authenticity audit reran the current
+asset, manuscript, and PDF verifiers.
