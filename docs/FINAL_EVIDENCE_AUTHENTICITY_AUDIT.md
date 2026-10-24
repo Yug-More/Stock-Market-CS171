@@ -1,7 +1,6 @@
 # Final Evidence Authenticity and Scientific Integrity Audit
 
-**Audit date:** 2026-10-23  
-**Audited repository revision:** `60e77222a467e54d3fa28cbfda54970a5252079f`  
+**Audit date:** 2026-10-23; **audited repository revision:** `60e77222a467e54d3fa28cbfda54970a5252079f`.
 **Scope:** computational review of existing MarketPulse evidence and a limited current-code rerun. This is not independent dataset validation, prospective validation, or external human peer review.
 
 ## Overall assessment
